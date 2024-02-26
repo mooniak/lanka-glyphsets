@@ -10,19 +10,36 @@ Mooniak Glyphsets defines glyphsets for fonts made for Sri Lanka.
   - Sinhala Archaic Numbers   - 20
   - Sinhala Astrological Numbers - 10
   - Kundaliya (Sinhala puncuation sign)
+
+**Requierd ligature glyphs** 
+  - Consonant-vowel ligatures
   - Half forms of ra and ya (rakaransaya, repaya, yansaya)
 
-**Requierd ligatures glyphs** 
-  - Consonant-vowel ligatures
-
 **Other glyphs** 
-  - Consonant-vowel ligatures
   - Ligated conjuncts (සංයෝග අකුරු sanyoga akuru)  
   - Touching consonant clusters (බැඳි අකුරු bandi akuru)
   - Rakar consonant clusters + modifier signs  
   - Ligated conjuncts + modifier signs
   - Touching consonants + modifier signs
   - Complex forms
+
+**Stylistic alternates** 
+  - Below base forms of pillam following Da forms (දා දැ දැ ඳෝ ද්‍ය ද්‍ය ද්‍යා ඤා ඤැ ඤැ ඥැ ඥැ ඥෝ) 
+  - Historical Fa form (පf)
+  - Historical kombuwa
+  - 
+
+
+***
+
+
+## Mooniak Sinhala Core
+- Sinhala Unicode block 
+- Requierd ligature glyphs
+- Touching consonant clusters implemented with dist feature
+- Half forms of ra and ya (rakaransaya, repaya, yansaya)
+
+
 
 **Latin Unicode block**
 
@@ -37,17 +54,13 @@ Google Kernal glyphset
   - From Latin Unicode block** 
     `A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z,  `
 
-**Stylistic alternates** 
-  - Alternate Da forms
-  - Historical Fa forms
 
 
-***
-
-
-## Mooniak Sinhala Core
-
-
+|   	|CORE                       |PLUS |PRO |   	|
+|---	|---	                      |---	|---	|---	|
+|   	|Unicode block   	          |   	|   	|   	|
+|   	|Requierd ligatures glyphs  |   	|   	|   	|
+|   	|k_ssa ligatures   	        |   	|   	|   	|
 
 
 
