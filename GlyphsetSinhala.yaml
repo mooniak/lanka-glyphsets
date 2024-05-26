@@ -1,0 +1,794 @@
+# This YAML file lists glyphs sets definitions for OpenType fonts developed for Sinhala script.
+
+# Sinhala Core
+
+language_support: Sinhala
+
+description: The "Sinhala Core" glyphs set represents the essential minimum glyphs necessary for a fully functional Sinhala font.
+The following list is organized based on priority order.
+
+  # Independent Vowels
+
+      a-sinhala
+      aa-sinhala
+      ae-sinhala
+      aae-sinhala
+      i-sinhala
+      ii-sinhala
+      u-sinhala
+      uu-sinhala
+      vocalic-r-sinhala
+      vocalic-rr-sinhala
+      vocalic-l-sinhala
+      vocalic-ll-sinhala
+      e-sinhala
+      ee-sinhala
+      ai-sinhala
+      o-sinhala
+      oo-sinhala
+      au-sinhala
+
+  # Consonants
+
+      ka-sinhala
+      kha-sinhala
+      ga-sinhala
+      gha-sinhala
+      nga-sinhala
+      ngga-sinhala
+      ca-sinhala
+      cha-sinhala
+      ja-sinhala
+      jha-sinhala
+      nya-sinhala
+      j-nya-sinhala
+      nyja-sinhala
+      tta-sinhala
+      ttha-sinhala
+      dda-sinhala
+      ddha-sinhala
+      nna-sinhala
+      nndda-sinhala
+      ta-sinhala
+      tha-sinhala
+      da-sinhala
+      dha-sinhala
+      na-sinhala
+      nda-sinhala
+      pa-sinhala
+      pha-sinhala
+      ba-sinhala
+      bha-sinhala
+      ma-sinhala
+      mba-sinhala
+      ya-sinhala
+      ra-sinhala
+      la-sinhala
+      va-sinhala
+      sha-sinhala
+      ssa-sinhala
+      sa-sinhala
+      ha-sinhala
+      lla-sinhala
+      fa-sinhala
+
+  # Dependent Vowel Signs
+
+      aaMatra-sinhala (aela-pilla)
+      aeMatra-sinhala (aeda-pilla)
+      aaeMatra-sinhala (diga aeda-pilla)
+      iMatra-sinhala (is-pilla)
+      iiMatra-sinhala (diga is-pilla)
+      uMatra-sinhala (paa-pilla)
+      uuMatra-sinhala (diga paa-pilla)
+      rVocalicMatra-sinhala (gaetta-pilla)
+      rrVocalicMatra-sinhala (diga gaetta-pilla)
+      lVocalicMatra-sinhala (gayanukitta)
+      llVocalicMatra-sinhala (diga gayanukitta)
+      eMatra-sinhala (kombuva)
+      eeMatra-sinhala (kombuva haa al-lakuna)
+      aiMatra-sinhala (kombu deka)
+      oMatra-sinhala (kombuva haa aela-pilla)
+      ooMatra-sinhala (kombuva haa diga aela-pilla)
+      auMatra-sinhala (kombuva haa gayanukitta)
+
+      aaMatra-virama-sinhala (diga aela-pilla) # Included for better shaping.
+
+  # Signs
+
+      zerowidthjoiner # Required special character for shaping connected forms.
+
+      virama-sinhala (al-lakuna)
+      anusvaraya-sinhala
+      visargaya-sinhala
+      rakar-sinhala (rakaransaya)
+      repha-sinhala (repaya)
+      yansaya-sinhala
+      uMatra.rakar-sinhala
+      uuMatra.rakar-sinhala
+      kunddaliya-sinhala
+      candrabindu-sinhala # Used in Sanskrit only.
+
+  # Required Ligatures
+
+  # Note: Following ligatures are mandatory to be included in order to produce a functioning Sinhala font.
+
+    ## Virama Ligatures
+
+      kh-sinhala
+      ng-sinhala
+      c-sinhala
+      ch-sinhala
+      j-sinhala
+      jh-sinhala
+      nyj-sinhala
+      tt-sinhala
+      tth-sinhala
+      dd-sinhala
+      ddh-sinhala
+      nndd-sinhala
+      th-sinhala
+      dh-sinhala
+      ph-sinhala
+      b-sinhala
+      m-sinhala
+      mb-sinhala
+      r-sinhala
+      v-sinhala
+
+    ## iMatra Ligatures
+
+      kh-i-sinhala
+      ng-i-sinhala
+      c-i-sinhala
+      ch-i-sinhala
+      j-i-sinhala
+      jh-i-sinhala
+      nyj-i-sinhala
+      tt-i-sinhala
+      tth-i-sinhala
+      dd-i-sinhala
+      ddh-i-sinhala
+      nndd-i-sinhala
+      th-i-sinhala
+      dh-i-sinhala
+      ph-i-sinhala
+      b-i-sinhala
+      m-i-sinhala
+      mb-i-sinhala
+      r-i-sinhala
+      v-i-sinhala
+
+    ## iiMatra Ligatures
+
+      kh-ii-sinhala
+      ng-ii-sinhala
+      c-ii-sinhala
+      ch-ii-sinhala
+      j-ii-sinhala
+      jh-ii-sinhala
+      nyj-ii-sinhala
+      tt-ii-sinhala
+      tth-ii-sinhala
+      dd-ii-sinhala
+      ddh-ii-sinhala
+      nndd-ii-sinhala
+      th-ii-sinhala
+      dh-ii-sinhala
+      ph-ii-sinhala
+      b-ii-sinhala
+      m-ii-sinhala
+      mb-ii-sinhala
+      r-ii-sinhala
+      v-ii-sinhala
+
+    ## uMatra Ligatures
+
+      k-u-sinhala
+      g-u-sinhala
+      nng-u-sinhala
+      ny-u-sinhala
+      jny-u-sinhala
+      t-u-sinhala
+      d-u-sinhala
+      nd-u-sinhala
+      bh-u-sinhala
+      r-u-sinhala
+      l-u-sinhala
+      sh-u-sinhala
+      ll-u-sinhala
+      
+    ## uuMatra Ligatures
+
+      k-uu-sinhala
+      g-uu-sinhala
+      nng-uu-sinhala
+      ny-uu-sinhala
+      jny-uu-sinhala
+      t-uu-sinhala
+      d-uu-sinhala
+      nd-uu-sinhala
+      bh-uu-sinhala
+      r-uu-sinhala
+      l-uu-sinhala
+      sh-uu-sinhala
+      ll-uu-sinhala
+
+    ## Other Ligatures
+
+      r-ae-sinhala
+      r-aae-sinhala
+      ny-ra-sinhala
+      jny-ra-sinhala
+      d-ra-sinhala
+      nd-ra-sinhala
+
+  # Common Marks
+
+      space
+      grave
+      period
+      comma
+      colon
+      semicolon
+      ellipsis
+      exclam
+      question
+      quoteleft
+      quoteright
+      quotedblleft
+      quotedblright
+      slash
+      backslash
+      bar
+      bullet
+      periodcentered
+      hyphen
+      endash
+      emdash
+      parenleft
+      parenright
+      bracketleft
+      bracketright
+      braceleft
+      braceright
+      asterisk
+      asciicircum
+      asciitilde
+      underscore
+      quotesingle
+      quotedbl
+      at
+      copyright
+      registered
+      trademark
+      dollar
+      cent
+      sterling
+      yen
+      numbersign
+      percent
+      plus
+      minus
+      multiply
+      divide
+      equal
+      less
+      greater
+      degree
+      euro
+
+  # Numerals
+
+    ## Indo-Arabic
+
+      zero
+      one
+      two
+      three
+      four
+      five
+      six
+      seven
+      eight
+      nine
+
+    ## Sinhala Lith
+
+      zerolith-sinhala
+      onelith-sinhala
+      twolith-sinhala
+      threelith-sinhala
+      fourlith-sinhala
+      fivelith-sinhala
+      sixlith-sinhala
+      sevenlith-sinhala
+      eightlith-sinhala
+      ninelith-sinhala
+
+
+
+# Sinhala Plus
+
+language_support: Sinhala, Sanskrit, Pali
+
+description: "Sinhala Plus" expands upon the "Sinhala Core" by including additional glyphs essential for a fully functional Sinhala font with language support for Sanskrit and Pali.
+"Sinhala Plus" also includes separate glyphs for ligatures formed by all Consonents combining Dependent Vowel Signs.
+
+  # Ligated Conjuncts
+
+      k_ssa-sinhala
+      d_dha-sinhala
+      d_va-sinhala
+      g_dha-sinhala
+      k_va-sinhala
+      n_tha-sinhala
+      n_va-sinhala
+      ny_ca-sinhala
+      t_tha-sinhala
+      t_va-sinhala
+      tt_ttha-sinhala
+
+  # Ligatures
+
+    ## Virama Ligatures
+
+      k-sinhala
+      g-sinhala
+      gh-sinhala
+      ngg-sinhala
+      ny-sinhala
+      j-ny-sinhala
+      nn-sinhala
+      t-sinhala
+      d-sinhala
+      n-sinhala
+      nd-sinhala
+      p-sinhala
+      bh-sinhala
+      y-sinhala
+      l-sinhala
+      sh-sinhala
+      ss-sinhala
+      s-sinhala
+      h-sinhala
+      ll-sinhala
+      f-sinhala
+
+      k_ss-sinhala
+      d_dh-sinhala
+      d_v-sinhala
+      g_dh-sinhala
+      k_v-sinhala
+      n_th-sinhala
+      n_v-sinhala
+      ny_c-sinhala
+      t_th-sinhala
+      t_v-sinhala
+      tt_tth-sinhala
+
+    ## iMatra Ligatures
+
+      k-i-sinhala
+      g-i-sinhala
+      gh-i-sinhala
+      ngg-i-sinhala
+      ny-i-sinhala
+      j-ny-i-sinhala
+      nn-i-sinhala
+      t-i-sinhala
+      d-i-sinhala
+      n-i-sinhala
+      nd-i-sinhala
+      p-i-sinhala
+      bh-i-sinhala
+      y-i-sinhala
+      l-i-sinhala
+      sh-i-sinhala
+      ss-i-sinhala
+      s-i-sinhala
+      h-i-sinhala
+      ll-i-sinhala
+      f-i-sinhala
+
+      k_ss-i-sinhala
+      d_dh-i-sinhala
+      d_v-i-sinhala
+      g_dh-i-sinhala
+      k_v-i-sinhala
+      n_th-i-sinhala
+      n_v-i-sinhala
+      ny_c-i-sinhala
+      t_th-i-sinhala
+      t_v-i-sinhala
+      tt_tth-i-sinhala
+
+    ## iiMatra Ligatures
+
+      k-ii-sinhala
+      g-ii-sinhala
+      gh-ii-sinhala
+      ngg-ii-sinhala
+      ny-ii-sinhala
+      j-ny-ii-sinhala
+      nn-ii-sinhala
+      t-ii-sinhala
+      d-ii-sinhala
+      n-ii-sinhala
+      nd-ii-sinhala
+      p-ii-sinhala
+      bh-ii-sinhala
+      y-ii-sinhala
+      l-ii-sinhala
+      sh-ii-sinhala
+      ss-ii-sinhala
+      s-ii-sinhala
+      h-ii-sinhala
+      ll-ii-sinhala
+      f-ii-sinhala
+
+      k_ss-ii-sinhala
+      d_dh-ii-sinhala
+      d_v-ii-sinhala
+      g_dh-ii-sinhala
+      k_v-ii-sinhala
+      n_th-ii-sinhala
+      n_v-ii-sinhala
+      ny_c-ii-sinhala
+      t_th-ii-sinhala
+      t_v-ii-sinhala
+      tt_tth-ii-sinhala
+
+    ## uMatra Ligatures
+
+      kh-u-sinhala
+      gh-u-sinhala
+      ng-u-sinhala
+      c-u-sinhala
+      ch-u-sinhala
+      j-u-sinhala
+      jh-u-sinhala
+      nyj-u-sinhala
+      tt-u-sinhala
+      tth-u-sinhala
+      dd-u-sinhala
+      ddh-u-sinhala
+      nn-u-sinhala
+      nndd-u-sinhala
+      th-u-sinhala
+      dh-u-sinhala
+      n-u-sinhala
+      p-u-sinhala
+      ph-u-sinhala
+      b-u-sinhala
+      m-u-sinhala
+      mb-u-sinhala
+      y-u-sinhala
+      v-u-sinhala
+      ss-u-sinhala
+      s-u-sinhala
+      h-u-sinhala
+      f-u-sinhala
+      
+      k_ss-u-sinhala
+      d_dh-u-sinhala
+      d_v-u-sinhala
+      g_dh-u-sinhala
+      k_v-u-sinhala
+      n_th-u-sinhala
+      n_v-u-sinhala
+      ny_c-u-sinhala
+      t_th-u-sinhala
+      t_v-u-sinhala
+      tt_tth-u-sinhala
+
+    ## uuMatra Ligatures
+
+      kh-uu-sinhala
+      gh-uu-sinhala
+      ng-uu-sinhala
+      c-uu-sinhala
+      ch-uu-sinhala
+      j-uu-sinhala
+      jh-uu-sinhala
+      nyj-uu-sinhala
+      tt-uu-sinhala
+      tth-uu-sinhala
+      dd-uu-sinhala
+      ddh-uu-sinhala
+      nn-uu-sinhala
+      nndd-uu-sinhala
+      th-uu-sinhala
+      dh-uu-sinhala
+      n-uu-sinhala
+      p-uu-sinhala
+      ph-uu-sinhala
+      b-uu-sinhala
+      m-uu-sinhala
+      mb-uu-sinhala
+      y-uu-sinhala
+      v-uu-sinhala
+      ss-uu-sinhala
+      s-uu-sinhala
+      h-uu-sinhala
+      f-uu-sinhala
+
+      k_ss-uu-sinhala
+      d_dh-uu-sinhala
+      d_v-uu-sinhala
+      g_dh-uu-sinhala
+      k_v-uu-sinhala
+      n_th-uu-sinhala
+      n_v-uu-sinhala
+      ny_c-uu-sinhala
+      t_th-uu-sinhala
+      t_v-uu-sinhala
+      tt_tth-uu-sinhala
+
+    ## Rakar Ligatures
+
+      k-ra-sinhala
+      kh-ra-sinhala
+      g-ra-sinhala
+      gh-ra-sinhala
+      ng-ra-sinhala
+      ngg-ra-sinhala
+      c-ra-sinhala
+      ch-ra-sinhala
+      j-ra-sinhala
+      jh-ra-sinhala
+      ny-ra-sinhala
+      j-ny-ra-sinhala
+      nyj-ra-sinhala
+      tt-ra-sinhala
+      tth-ra-sinhala
+      dd-ra-sinhala
+      ddh-ra-sinhala
+      nn-ra-sinhala
+      nndd-ra-sinhala
+      t-ra-sinhala
+      th-ra-sinhala
+      d-ra-sinhala
+      dh-ra-sinhala
+      n-ra-sinhala
+      nd-ra-sinhala
+      p-ra-sinhala
+      ph-ra-sinhala
+      b-ra-sinhala
+      bh-ra-sinhala
+      m-ra-sinhala
+      mb-ra-sinhala
+      y-ra-sinhala
+      r-ra-sinhala
+      l-ra-sinhala
+      v-ra-sinhala
+      sh-ra-sinhala
+      ss-ra-sinhala
+      s-ra-sinhala
+      h-ra-sinhala
+      ll-ra-sinhala
+      f-ra-sinhala
+
+      k_ss-ra-sinhala
+      d_dh-ra-sinhala
+      d_v-ra-sinhala
+      g_dh-ra-sinhala
+      k_v-ra-sinhala
+      n_th-ra-sinhala
+      n_v-ra-sinhala
+      ny_c-ra-sinhala
+      t_th-ra-sinhala
+      t_v-ra-sinhala
+      tt_tth-ra-sinhala
+
+      ### Rakar-Virama Ligatures
+
+      k-r-sinhala
+      kh-r-sinhala
+      g-r-sinhala
+      gh-r-sinhala
+      ng-r-sinhala
+      ngg-r-sinhala
+      c-r-sinhala
+      ch-r-sinhala
+      j-r-sinhala
+      jh-r-sinhala
+      ny-r-sinhala
+      j-ny-r-sinhala
+      nyj-r-sinhala
+      tt-r-sinhala
+      tth-r-sinhala
+      dd-r-sinhala
+      ddh-r-sinhala
+      nn-r-sinhala
+      nndd-r-sinhala
+      t-r-sinhala
+      th-r-sinhala
+      d-r-sinhala
+      dh-r-sinhala
+      n-r-sinhala
+      nd-r-sinhala
+      p-r-sinhala
+      ph-r-sinhala
+      b-r-sinhala
+      bh-r-sinhala
+      m-r-sinhala
+      mb-r-sinhala
+      y-r-sinhala
+      r-r-sinhala
+      l-r-sinhala
+      v-r-sinhala
+      sh-r-sinhala
+      ss-r-sinhala
+      s-r-sinhala
+      h-r-sinhala
+      ll-r-sinhala
+      f-r-sinhala
+
+      k_ss-r-sinhala
+      d_dh-r-sinhala
+      d_v-r-sinhala
+      g_dh-r-sinhala
+      k_v-r-sinhala
+      n_th-r-sinhala
+      n_v-r-sinhala
+      ny_c-r-sinhala
+      t_th-r-sinhala
+      t_v-r-sinhala
+      tt_tth-r-sinhala
+
+      ### Rakar-iMatra Ligatures
+
+      k-r-i-sinhala
+      kh-r-i-sinhala
+      g-r-i-sinhala
+      gh-r-i-sinhala
+      ng-r-i-sinhala
+      ngg-r-i-sinhala
+      c-r-i-sinhala
+      ch-r-i-sinhala
+      j-r-i-sinhala
+      jh-r-i-sinhala
+      ny-r-i-sinhala
+      j-ny-r-i-sinhala
+      nyj-r-i-sinhala
+      tt-r-i-sinhala
+      tth-r-i-sinhala
+      dd-r-i-sinhala
+      ddh-r-i-sinhala
+      nn-r-i-sinhala
+      nndd-r-i-sinhala
+      t-r-i-sinhala
+      th-r-i-sinhala
+      d-r-i-sinhala
+      dh-r-i-sinhala
+      n-r-i-sinhala
+      nd-r-i-sinhala
+      p-r-i-sinhala
+      ph-r-i-sinhala
+      b-r-i-sinhala
+      bh-r-i-sinhala
+      m-r-i-sinhala
+      mb-r-i-sinhala
+      y-r-i-sinhala
+      r-r-i-sinhala
+      l-r-i-sinhala
+      v-r-i-sinhala
+      sh-r-i-sinhala
+      ss-r-i-sinhala
+      s-r-i-sinhala
+      h-r-i-sinhala
+      ll-r-i-sinhala
+      f-r-i-sinhala
+
+      k_ss-r-i-sinhala
+      d_dh-r-i-sinhala
+      d_v-r-i-sinhala
+      g_dh-r-i-sinhala
+      k_v-r-i-sinhala
+      n_th-r-i-sinhala
+      n_v-r-i-sinhala
+      ny_c-r-i-sinhala
+      t_th-r-i-sinhala
+      t_v-r-i-sinhala
+      tt_tth-r-i-sinhala
+
+      ### Rakar-iiMatra Ligatures
+
+      k-r-ii-sinhala
+      kh-r-ii-sinhala
+      g-r-ii-sinhala
+      gh-r-ii-sinhala
+      ng-r-ii-sinhala
+      ngg-r-ii-sinhala
+      c-r-ii-sinhala
+      ch-r-ii-sinhala
+      j-r-ii-sinhala
+      jh-r-ii-sinhala
+      ny-r-ii-sinhala
+      j-ny-r-ii-sinhala
+      nyj-r-ii-sinhala
+      tt-r-ii-sinhala
+      tth-r-ii-sinhala
+      dd-r-ii-sinhala
+      ddh-r-ii-sinhala
+      nn-r-ii-sinhala
+      nndd-r-ii-sinhala
+      t-r-ii-sinhala
+      th-r-ii-sinhala
+      d-r-ii-sinhala
+      dh-r-ii-sinhala
+      n-r-ii-sinhala
+      nd-r-ii-sinhala
+      p-r-ii-sinhala
+      ph-r-ii-sinhala
+      b-r-ii-sinhala
+      bh-r-ii-sinhala
+      m-r-ii-sinhala
+      mb-r-ii-sinhala
+      y-r-ii-sinhala
+      r-r-ii-sinhala
+      l-r-ii-sinhala
+      v-r-ii-sinhala
+      sh-r-ii-sinhala
+      ss-r-ii-sinhala
+      s-r-ii-sinhala
+      h-r-ii-sinhala
+      ll-r-ii-sinhala
+      f-r-ii-sinhala
+
+      k_ss-r-ii-sinhala
+      d_dh-r-ii-sinhala
+      d_v-r-ii-sinhala
+      g_dh-r-ii-sinhala
+      k_v-r-ii-sinhala
+      n_th-r-ii-sinhala
+      n_v-r-ii-sinhala
+      ny_c-r-ii-sinhala
+      t_th-r-ii-sinhala
+      t_v-r-ii-sinhala
+      tt_tth-r-ii-sinhala
+
+    ## Repha Ligatures
+
+      ka-repha-sinhala
+      kha-repha-sinhala
+      ga-repha-sinhala
+      gha-repha-sinhala
+      nga-repha-sinhala
+      ngga-repha-sinhala
+      ca-repha-sinhala
+      cha-repha-sinhala
+      ja-repha-sinhala
+      jha-repha-sinhala
+      nya-repha-sinhala
+      j-nya-repha-sinhala
+      nyja-repha-sinhala
+      tta-repha-sinhala
+      ttha-repha-sinhala
+      dda-repha-sinhala
+      ddha-repha-sinhala
+      nna-repha-sinhala
+      nndda-repha-sinhala
+      ta-repha-sinhala
+      tha-repha-sinhala
+      da-repha-sinhala
+      dha-repha-sinhala
+      na-repha-sinhala
+      nda-repha-sinhala
+      pa-repha-sinhala
+      pha-repha-sinhala
+      ba-repha-sinhala
+      bha-repha-sinhala
+      ma-repha-sinhala
+      mba-repha-sinhala
+      ya-repha-sinhala
+      ra-repha-sinhala
+      la-repha-sinhala
+      va-repha-sinhala
+      sha-repha-sinhala
+      ssa-repha-sinhala
+      sa-repha-sinhala
+      ha-repha-sinhala
+      lla-repha-sinhala
+      fa-repha-sinhala
