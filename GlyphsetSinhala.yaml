@@ -280,7 +280,7 @@ The following list is organized based on priority order.
 
   # Numerals
 
-    ## Indo-Arabic
+    ## Indo-Arabic Numerals
 
       zero
       one
@@ -293,7 +293,7 @@ The following list is organized based on priority order.
       eight
       nine
 
-    ## Sinhala Lith
+    ## Sinhala Lith Numerals
 
       zerolith-sinhala
       onelith-sinhala
@@ -306,6 +306,29 @@ The following list is organized based on priority order.
       eightlith-sinhala
       ninelith-sinhala
 
+    ## Sinhala Archaic Numerals
+
+      onearchaic-sinhala
+      twoarchaic-sinhala
+      threearchaic-sinhala
+      fourarchaic-sinhala
+      fivearchaic-sinhala
+      sixarchaic-sinhala
+      sevenarchaic-sinhala
+      eightarchaic-sinhala
+      ninearchaic-sinhala
+      tenarchaic-sinhala
+      twentyarchaic-sinhala
+      thirtyarchaic-sinhala
+      fourtyarchaic-sinhala
+      fiftyarchaic-sinhala
+      sixtyarchaic-sinhala
+      seventyarchaic-sinhala
+      eightyarchaic-sinhala
+      ninetyarchaic-sinhala
+      onehundredarchaic-sinhala
+      onethousandarchaic-sinhala
+      tenarchaic-sinhala
 
 
 # Sinhala Plus
