@@ -318,16 +318,20 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
   # Ligated Conjuncts
 
       k_ssa-sinhala
-      d_dha-sinhala
-      d_va-sinhala
-      g_dha-sinhala
       k_va-sinhala
-      n_tha-sinhala
-      n_va-sinhala
-      ny_ca-sinhala
-      t_tha-sinhala
       t_va-sinhala
+      t_tha-sinhala
+      n_da-sinhala
+      n_dha-sinhala
+      n_va-sinhala
+      n_tha-sinhala
+      g_dha-sinhala
+      d_va-sinhala
+      d_dha-sinhala
       tt_ttha-sinhala
+      ny_ca-sinhala
+      ny_cha-sinhala
+
 
   # Ligatures
 
@@ -356,16 +360,19 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       f-sinhala
 
       k_ss-sinhala
-      d_dh-sinhala
-      d_v-sinhala
-      g_dh-sinhala
       k_v-sinhala
-      n_th-sinhala
-      n_v-sinhala
-      ny_c-sinhala
-      t_th-sinhala
       t_v-sinhala
+      t_th-sinhala
+      n_d-sinhala
+      n_dh-sinhala
+      n_v-sinhala
+      n_th-sinhala
+      g_dh-sinhala
+      d_v-sinhala
+      d_dh-sinhala
       tt_tth-sinhala
+      ny_c-sinhala
+      ny_ch-sinhala
 
     ## iMatra Ligatures
 
@@ -392,16 +399,19 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       f-i-sinhala
 
       k_ss-i-sinhala
-      d_dh-i-sinhala
-      d_v-i-sinhala
-      g_dh-i-sinhala
       k_v-i-sinhala
-      n_th-i-sinhala
-      n_v-i-sinhala
-      ny_c-i-sinhala
-      t_th-i-sinhala
       t_v-i-sinhala
+      t_th-i-sinhala
+      n_d-i-sinhala
+      n_dh-i-sinhala
+      n_v-i-sinhala
+      n_th-i-sinhala
+      g_dh-i-sinhala
+      d_v-i-sinhala
+      d_dh-i-sinhala
       tt_tth-i-sinhala
+      ny_c-i-sinhala
+      ny_ch-i-sinhala
 
     ## iiMatra Ligatures
 
@@ -428,16 +438,19 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       f-ii-sinhala
 
       k_ss-ii-sinhala
-      d_dh-ii-sinhala
-      d_v-ii-sinhala
-      g_dh-ii-sinhala
       k_v-ii-sinhala
-      n_th-ii-sinhala
-      n_v-ii-sinhala
-      ny_c-ii-sinhala
-      t_th-ii-sinhala
       t_v-ii-sinhala
+      t_th-ii-sinhala
+      n_d-ii-sinhala
+      n_dh-ii-sinhala
+      n_v-ii-sinhala
+      n_th-ii-sinhala
+      g_dh-ii-sinhala
+      d_v-ii-sinhala
+      d_dh-ii-sinhala
       tt_tth-ii-sinhala
+      ny_c-ii-sinhala
+      ny_ch-ii-sinhala
 
     ## uMatra Ligatures
 
@@ -471,16 +484,19 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       f-u-sinhala
       
       k_ss-u-sinhala
-      d_dh-u-sinhala
-      d_v-u-sinhala
-      g_dh-u-sinhala
       k_v-u-sinhala
-      n_th-u-sinhala
-      n_v-u-sinhala
-      ny_c-u-sinhala
-      t_th-u-sinhala
       t_v-u-sinhala
+      t_th-u-sinhala
+      n_d-u-sinhala
+      n_dh-u-sinhala
+      n_v-u-sinhala
+      n_th-u-sinhala
+      g_dh-u-sinhala
+      d_v-u-sinhala
+      d_dh-u-sinhala
       tt_tth-u-sinhala
+      ny_c-u-sinhala
+      ny_ch-u-sinhala
 
     ## uuMatra Ligatures
 
@@ -514,16 +530,19 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       f-uu-sinhala
 
       k_ss-uu-sinhala
-      d_dh-uu-sinhala
-      d_v-uu-sinhala
-      g_dh-uu-sinhala
       k_v-uu-sinhala
-      n_th-uu-sinhala
-      n_v-uu-sinhala
-      ny_c-uu-sinhala
-      t_th-uu-sinhala
       t_v-uu-sinhala
+      t_th-uu-sinhala
+      n_d-uu-sinhala
+      n_dh-uu-sinhala
+      n_v-uu-sinhala
+      n_th-uu-sinhala
+      g_dh-uu-sinhala
+      d_v-uu-sinhala
+      d_dh-uu-sinhala
       tt_tth-uu-sinhala
+      ny_c-uu-sinhala
+      ny_ch-uu-sinhala
 
     ## Rakar Ligatures
 
@@ -569,18 +588,6 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       ll-ra-sinhala
       f-ra-sinhala
 
-      k_ss-ra-sinhala
-      d_dh-ra-sinhala
-      d_v-ra-sinhala
-      g_dh-ra-sinhala
-      k_v-ra-sinhala
-      n_th-ra-sinhala
-      n_v-ra-sinhala
-      ny_c-ra-sinhala
-      t_th-ra-sinhala
-      t_v-ra-sinhala
-      tt_tth-ra-sinhala
-
       ### Rakar-Virama Ligatures
 
       k-r-sinhala
@@ -624,18 +631,6 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       h-r-sinhala
       ll-r-sinhala
       f-r-sinhala
-
-      k_ss-r-sinhala
-      d_dh-r-sinhala
-      d_v-r-sinhala
-      g_dh-r-sinhala
-      k_v-r-sinhala
-      n_th-r-sinhala
-      n_v-r-sinhala
-      ny_c-r-sinhala
-      t_th-r-sinhala
-      t_v-r-sinhala
-      tt_tth-r-sinhala
 
       ### Rakar-iMatra Ligatures
 
@@ -681,18 +676,6 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       ll-r-i-sinhala
       f-r-i-sinhala
 
-      k_ss-r-i-sinhala
-      d_dh-r-i-sinhala
-      d_v-r-i-sinhala
-      g_dh-r-i-sinhala
-      k_v-r-i-sinhala
-      n_th-r-i-sinhala
-      n_v-r-i-sinhala
-      ny_c-r-i-sinhala
-      t_th-r-i-sinhala
-      t_v-r-i-sinhala
-      tt_tth-r-i-sinhala
-
       ### Rakar-iiMatra Ligatures
 
       k-r-ii-sinhala
@@ -737,18 +720,6 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       ll-r-ii-sinhala
       f-r-ii-sinhala
 
-      k_ss-r-ii-sinhala
-      d_dh-r-ii-sinhala
-      d_v-r-ii-sinhala
-      g_dh-r-ii-sinhala
-      k_v-r-ii-sinhala
-      n_th-r-ii-sinhala
-      n_v-r-ii-sinhala
-      ny_c-r-ii-sinhala
-      t_th-r-ii-sinhala
-      t_v-r-ii-sinhala
-      tt_tth-r-ii-sinhala
-
     ## Repha Ligatures
 
       ka-repha-sinhala
@@ -792,3 +763,78 @@ description: "Sinhala Plus" expands upon the "Sinhala Core" by including additio
       ha-repha-sinhala
       lla-repha-sinhala
       fa-repha-sinhala
+
+
+# Sinhala Pro
+
+language_support: Sinhala, Sanskrit, Pali
+
+description: "Sinhala Pro" expands upon the "Sinhala Core" and "Sinhala Plus" by including historical forms and stylistic forms of some characters. 
+"Sinhala Pro" also includes a few lesser known ligated conjuncts found in Pali and Sanskrit writings.
+
+  # Historical Forms
+
+      f-pa-sinhala # Old form of Letter "Fa" combining Sinhala "Pa" and Latin "f"
+      f-p-sinhala
+      f-p-i-sinhala
+      f-p-ii-sinhala
+      f-p-u-sinhala
+      f-p-uu-sinhala
+      f-p-ra-sinhala
+      f-p-r-sinhala      
+      f-p-r-i-sinhala
+      f-p-r-ii-sinhala  
+      f-pa-repha-sinhala 
+
+  # Stylistic Forms
+
+      d-aa-sinhala
+      d-ae-sinhala
+      d-aae-sinhala
+      d-aa-virama-sinhala
+      da-yansaya-sinhala
+      da-yansaya-aa-sinhala
+      da-yansaya-aa-virama-sinhala
+      da-yansaya-u-sinhala
+      da-yansaya-uu-sinhala
+      da-rVocalicMatra-sinhala
+      da-rrVocalicMatra-sinhala
+      d-r-aa-sinhala
+      nd-aa-sinhala
+      nd-ae-sinhala
+      nd-aae-sinhala
+      nd-aa-virama-sinhala
+      nd-r-aa-sinhala
+      ny-aa-sinhala
+      ny-ae-sinhala
+      ny-aae-sinhala
+      j-ny-aa-sinhala
+      j-ny-ae-sinhala
+      j-ny-aae-sinhala
+      n_d-aa-sinhala
+      n_d-ae-sinhala
+      n_d-aae-sinhala
+      n_d-aa-virama-sinhala
+
+  # Ligated Conjuncts
+
+      c_ca-sinhala
+      c_c-sinhala
+      c_c-i-sinhala
+      c_c-ii-sinhala
+      c_c-u-sinhala
+      c_c-uu-sinhala
+      c_ca-repha-sinhala
+      b_ba-sinhala
+      b_b-sinhala
+      b_b-i-sinhala
+      b_b-ii-sinhala
+      b_b-u-sinhala
+      b_b-uu-sinhala
+      b_ba-repha-sinhala
+      anusvaraya_sha-sinhala
+      anusvaraya_sh-sinhala
+      anusvaraya_sh-i-sinhala
+      anusvaraya_sh-ii-sinhala
+      anusvaraya_sh-u-sinhala
+      anusvaraya_sh-uu-sinhala
