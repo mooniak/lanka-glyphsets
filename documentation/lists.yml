@@ -1,0 +1,255 @@
+language_support: [Sinhala]
+
+description: The "Sinhala Core" glyphs set represents the essential minimum glyphs necessary for a fully functional Sinhala font.The following list is organized based on priority order.
+
+categories:
+  Independent Vowels:
+    - a
+    - aa
+    - ae
+    - aae
+    - i
+    - ii
+    - u
+    - uu
+    - vocalic-r
+    - vocalic-rr
+    - vocalic-l
+    - vocalic-ll
+    - e
+    - ee
+    - ai
+    - o
+    - oo
+    - au
+
+  Consonants:
+    - ka
+    - kha
+    - ga
+    - gha
+    - nga
+    - ngga
+    - ca
+    - cha
+    - ja
+    - jha
+    - nya
+    - j-nya
+    - nyja
+    - tta
+    - ttha
+    - dda
+    - ddha
+    - nna
+    - nndda
+    - ta
+    - tha
+    - da
+    - dha
+    - na
+    - nda
+    - pa
+    - pha
+    - ba
+    - bha
+    - ma
+    - mba
+    - ya
+    - ra
+    - la
+    - va
+    - sha
+    - ssa
+    - sa
+    - ha
+    - lla
+    - fa
+
+  Dependent Vowel Signs:
+    - aaMatra # (aela-pilla)
+    - aeMatra # (aeda-pilla)
+    - aaeMatra # (diga aeda-pilla)
+    - iMatra #(is-pilla)
+    - iiMatra #(diga is-pilla)
+    - uMatra #(diga paa-pilla)
+    - rVocalicMatra #(gaetta-pilla)
+    - rrVocalicMatra #(diga gaetta-pilla)
+    - lVocalicMatra #(gayanukitta)
+    - llVocalicMatra #(diga gayanukitta)
+    - eMatra #(kombuva)
+    - eeMatra #(kombu deka)
+    - oMatra #(kombuva haa aela-pilla)
+    - ooMatra #(kombuva haa diga aela-pilla)
+    - auMatra #(kombuva haa gayanukitta)
+
+    - aaMatra-virama (diga aela-pilla) # Included for better shaping.
+
+  Signs:
+    - zerowidthjoiner # Required special character for shaping connected forms.
+    - zerowidthnonjoiner # Required special character for shaping connected forms.
+
+    - virama #(al-lakuna)
+    - anusvaraya
+    - visargaya
+    - rakar #(rakaransaya)
+    - repha #(repaya)
+    - yansaya
+    - uMatra.rakar
+    - uuMatra.rakar
+    - kunddaliya
+    - candrabindu # Used in Sanskrit only.
+
+    # Required Ligatures
+
+    # Note: Following ligatures are mandatory to be included in order to produce a functioning Sinhala font.
+
+  Virama Ligatures:
+    - kh
+    - ng
+    - c
+    - ch
+    - j
+    - jh
+    - nyj
+    - tt
+    - tth
+    - dd
+    - ddh
+    - nndd
+    - th
+    - dh
+    - ph
+    - b
+    - m
+    - mb
+    - r
+    - v
+
+  iMatra Ligatures:
+    - kh-i
+    - ng-i
+    - c-i
+    - ch-i
+    - j-i
+    - jh-i
+    - nyj-i
+    - tt-i
+    - tth-i
+    - dd-i
+    - ddh-i
+    - nndd-i
+    - th-i
+    - dh-i
+    - ph-i
+    - b-i
+    - m-i
+    - mb-i
+    - r-i
+    - v-i
+
+  iiMatra Ligatures:
+    - kh-ii
+    - ng-ii
+    - c-ii
+    - ch-ii
+    - j-ii
+    - jh-ii
+    - nyj-ii
+    - tt-ii
+    - tth-ii
+    - dd-ii
+    - ddh-ii
+    - nndd-ii
+    - th-ii
+    - dh-ii
+    - ph-ii
+    - b-ii
+    - m-ii
+    - mb-ii
+    - r-ii
+    - v-ii
+
+  uMatra Ligatures:
+    - k-u
+    - g-u
+    - nng-u
+    - ny-u
+    - jny-u
+    - t-u
+    - d-u
+    - nd-u
+    - bh-u
+    - r-u
+    - l-u
+    - sh-u
+    - ll-u
+    -
+  uuMatra Ligatures:
+    - k-uu
+    - g-uu
+    - nng-uu
+    - ny-uu
+    - jny-uu
+    - t-uu
+    - d-uu
+    - nd-uu
+    - bh-uu
+    - r-uu
+    - l-uu
+    - sh-uu
+    - ll-uu
+
+  Other Ligatures:
+    - r-ae
+    - r-aae
+    - ny-ra
+    - jny-ra
+    - d-ra
+    - nd-ra
+
+  Indo-Arabic Numerals:
+    - zero
+    - one
+    - two
+    - three
+    - four
+    - five
+    - six
+    - seven
+    - eight
+    - nine
+
+  Sinhala Lith Numerals:
+    - zerolith
+    - onelith
+    - twolith
+    - threelith
+    - fourlith
+    - fivelith
+    - sixlith
+    - sevenlith
+    - eightlith
+    - ninelith
+
+  Sinhala Archaic Numerals:
+    - onearchaic
+    - twoarchaic
+    - threearchaic
+    - fourarchaic
+    - fivearchaic
+    - sixarchaic
+    - sevenarchaic
+    - eightarchaic
+    - ninearchaic
+    - tenarchaic
+    - twentyarchaic
+    - thirtyarchaic
+    - fourtyarchaic
+    - fiftyarchaic
+    - sixtyarchaic
+    - seventyarchaic
+    - eightyarchaic
+    - ninetyarchaic
+    - onehundredarchaic
+    - onethousandarchaic
