@@ -194,8 +194,8 @@
 	<glyph name="repaya-sinhala" category="Mark" subCategory="Nonspacing" script="sinhala" />
 	<glyph name="virama-sinhala" category="Mark" subCategory="Nonspacing" script="sinhala" production="uni0DCA" />
 	<glyph name="candrabindu-sinhala" category="Mark" subCategory="Nonspacing" script="sinhala" production="uni0D81" />
-	<glyph name="k_ssa-sinhala" decompose="ka-sinhala, ssa-sinhala" category="Letter" subCategory="Ligature" script="sinhala" production="uni006B0DC2" />
-	<glyph name="k-sinhala" category="Letter" subCategory="Ligature" script="sinhala" />
+	<glyph name="k_ssa-sinhala" category="Letter" subCategory="Ligature" script="sinhala" production="uni006B0DC2" />
+	<glyph name="k-sinhala" decompose="ka-sinhala, virama-sinhala" category="Letter" subCategory="Ligature" script="sinhala" />
 	<glyph name="kh-sinhala" category="Letter" subCategory="Ligature" script="sinhala" />
 	<glyph name="g-sinhala" category="Letter" subCategory="Ligature" script="sinhala" />
 	<glyph name="gh-sinhala" category="Letter" subCategory="Ligature" script="sinhala" />
