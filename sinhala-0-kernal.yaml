@@ -1,0 +1,255 @@
+languages: [Sinhala]
+
+description: The "Mooniak Sinhala Kernal" glyphs set represents the bare-bones essential glyphset necessary for a functional Sinhala font for general use.
+
+namespace: sinhala # For example: name-sinhala
+Exclude namespace from: [Format controls, Punctuation]
+
+categories:
+  Format controls:
+    space:
+    zerowidthjoiner: # Required special character for shaping connected forms.
+      unicode: 0x200D
+
+  Punctuation:
+    # Base glyphs out of Sinhala namespace
+    space:
+    exclam:
+    quotedbl:
+    numbersign:
+    percent:
+    quotesingle:
+    parenleft:
+    parenright:
+    asterisk:
+    plus:
+    comma:
+    hyphen:
+    period:
+    slash:
+    colon:
+    semicolon:
+    less:
+    equal:
+    greater:
+    question:
+    bracketleft:
+    backslash:
+    bracketright:
+    underscore:
+    periodcentered:
+    multiply:
+    divide:
+    endash:
+    emdash:
+    quoteleft:
+    quoteright:
+    quotedblleft:
+    quotedblright:
+    bullet:
+
+  Letters:
+    a:
+      unicode:
+      decompose:
+    aa:
+      decompose: [a, aaSign]
+    ae:
+      decompose: [a, aeSign]
+    aae:
+    i:
+    ii:
+    u:
+    uu:
+    # vocalicR:
+    # vocalicRr:
+    # vocalicL:
+    # vocalicLl:
+    e:
+    ee:
+    ai:
+    o:
+    oo:
+    au:
+
+    ka:
+      ligatures: [virama, iSign, iiSign, rakar, reph]
+    kha:
+    ga:
+    gha:
+    # nga:
+    ngga:
+    ca:
+    cha:
+    ja:
+    jha:
+    nya:
+    # nyja:
+    tta:
+    ttha:
+    dda:
+    ddha:
+    nna:
+    nndda:
+    ta:
+    tha:
+    da:
+    dha:
+    na:
+    nda:
+    pa:
+    pha:
+    ba:
+    bha:
+    ma:
+    mba:
+    ya:
+      ligatures: [virama, iSign, iiSign, reph]
+    ra:
+      ligatures: [virama, iSign, iiSign]
+    la:
+      ligatures: [virama, iSign, iiSign, reph]
+    va:
+    sha:
+    ssa:
+    sa:
+    ha:
+    lla:
+    fa:
+
+  Signs:
+    aaSign: # (aela-pilla)
+    aeSign: # (aeda-pilla)
+    aaeSign: # (diga aeda-pilla)
+    iSign: #(is-pilla)
+    iiSign: #(diga is-pilla)
+    uSign: #(paa-pilla)
+    uuSign: #(diga paa-pilla)
+    vocalicRSign: #(gaetta-pilla)
+    vocalicRrSign: #(diga gaetta-pilla)
+    vocalicLSign: #(gayanukitta)
+    vocalicLlSign: #(diga gayanukitta)
+    eSign: #(kombuva)
+    eeSign: #(kombu deka)
+      decompose: [eSign, eSign]
+    oSign: #(kombuva haa aela-pilla)
+    ooSign: #(kombuva haa diga aela-pilla)
+    auSign: #(kombuva haa gayanukitta)
+      decompose: [eSign, vocalicLSign]
+    virama: #(al-lakuna)
+    anusvaraya:
+    visargaya:
+    rakar: #(rakaransaya)
+    yansa: #(yansaya)
+    uSign.rakar:
+    uuSign.rakar:
+
+  Orthographical conjuncts:
+    # Note: Orthographical Conjunct ligatres are REQUIERD and mandatory to be included in order to produce a functioning Sinhala font.
+    kh:
+    ng:
+    c:
+    ch:
+    j:
+    jh:
+    nyj:
+    tt:
+    tth:
+    dd:
+    ddh:
+    nndd:
+    th:
+    dh:
+    ph:
+    b:
+    m:
+    mb:
+    r:
+    v:
+
+    # iSign Ligatures:
+    khI:
+    ngI:
+    cI:
+    chI:
+    jI:
+    jhI:
+    nyjI:
+    ttI:
+    tthI:
+    ddI:
+    ddhI:
+    nnddI:
+    thI:
+    dhI:
+    phI:
+    bI:
+    mI:
+    mbI:
+    rI:
+    vI:
+
+    # iiSign Ligatures:
+    khIi:
+    ngIi:
+    cIi:
+    chIi:
+    jIi:
+    jhIi:
+    nyjIi:
+    ttIi:
+    tthIi:
+    ddIi:
+    ddhIi:
+    nnddIi:
+    thIi:
+    dhIi:
+    phIi:
+    bIi:
+    mIi:
+    mbIi:
+    rIi:
+    vIi:
+
+    # uSign Ligatures:
+    kU:
+    gU:
+    nngU:
+    nyU:
+    jnyU:
+    tU:
+    dU:
+    ndU:
+    bhU:
+    rU:
+    lU:
+    shU:
+    llU:
+
+    # uuSign Ligatures:
+    kUu:
+    gUu:
+    nngUu:
+    nyUu:
+    jnyUu:
+    tUu:
+    dUu:
+    ndUu:
+    bhUu:
+    rUu:
+    lUu:
+    shUu:
+    llUu:
+
+    # Other Ligatures:
+    rAe:
+    rAae:
+    nyRa:
+    jnyRa:
+    dRa:
+    ndRa:
+
+  Typographical conjunct ligatures:
+
+  Ligated consonant conjuncts:
+  # kernal set ommits all Ligated consonant conjuncts or සංයෝග අකුරු *sanyoga akuru*

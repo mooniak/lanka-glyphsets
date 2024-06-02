@@ -1,0 +1,90 @@
+languages: [Sinhala, Pali, Sanskrit]
+
+description: The "Mooniak Sinhala Pro" TODO
+
+namespace: sinhala # For example: name-sinhala
+
+categories:
+  Format controls:
+
+  Punctuation:
+
+  Letters:
+
+  Signs:
+    candrabindu:
+
+  Sinhala numerals:
+    zerolith:
+    onelith:
+    twolith:
+    threelith:
+    fourlith:
+    fivelith:
+    sixlith:
+    sevenlith:
+    eightlith:
+    ninelith:
+    oneArchaic:
+    twoArchaic:
+    threeArchaic:
+    fourArchaic:
+    fiveArchaic:
+    sixArchaic:
+    sevenArchaic:
+    eightArchaic:
+    nineArchaic:
+    tenArchaic:
+    twentyArchaic:
+    thirtyArchaic:
+    fortyArchaic:
+    fiftyArchaic:
+    sixtyArchaic:
+    seventyArchaic:
+    eightyArchaic:
+    ninetyArchaic:
+    onehundredArchaic:
+    onethousandArchaic:
+
+  Ligated consonant conjuncts:
+    # Ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
+    GDha:
+    TtTtha:
+    DDha:
+    DVa:
+    NVa:
+    CCa:
+    NyCa:
+    NyCha:
+    NyJa:
+    NnDda:
+    BBa:
+    anuswara_sha:
+
+  Stylistic alternates:
+    ss01 Da Forms: # Stylistic alternate forms of Da + Signs
+      Da_aaSign:
+      Da_aaeSign:
+      Da_aeSign:
+      Da_yansa:
+      DU_yansa:
+      Nd_aaSign:
+      Nda_aeSign:
+      Jnya_aeSign:
+      Jny_AeSign:
+      ND_aaSign:
+      ND_aeeSign:
+      ND_aeSign:
+      Ny_aaSign:
+      Ny_aeeSign:
+      Ny_aeSign:
+      DvocalicR:
+      DvocalicRr:
+      DRa_aaSign:
+      NdR_aaSign:
+
+    ss02 Fa: # ප+f alternate
+      fa.alt:
+
+    ss03 Historical forms:
+      eSign.alt: # Historical Kombuva

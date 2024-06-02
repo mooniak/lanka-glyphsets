@@ -1,0 +1,38 @@
+languages: [Sinhala]
+
+description: The "Mooniak Sinhala Core" TODO
+
+namespace: sinhala # For example: name-sinhala
+
+categories:
+  Punctuation:
+    kunddaliya:
+
+  Letters:
+    vocalicR:
+    vocalicRr:
+    vocalicL:
+    vocalicLl:
+    nyja:
+    nga:
+
+  Signs:
+    repha: #(repaya)
+
+  Typographical ligatures:
+    # See attested/requierd shaping list generated from ligatrue data in 0-kernal
+    # virama ligatrues: drop the trailing "a"
+    # iSign ligatures : drop the trailing "a", suffix "I"
+    # iiSign ligatures : drop the trailing "a", suffix "Ii"
+    # uSign ligatures : drop the trailing "a", suffix "U"
+    # uuSign ligatures : drop the trailing "a", suffix "Uu"
+    # rakar ligatures : drop the trailing "a", suffix "Ra"
+    # rakar + virama ligatures : drop the trailing "a", suffix "R"
+    # rakar + iSign ligatures : drop the trailing "a", suffix "RI"
+    # rakar + iiSign ligatures : drop the trailing "a", suffix "RIi"
+
+    aaSign_virama: # (diga aela-pilla) # Included for better shaping.
+
+  Ligated consonant conjuncts:
+    # Ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
+    kSsa:

@@ -1,0 +1,31 @@
+languages: [Sinhala, Pali, Sanskrit]
+
+description: The "Mooniak Sinhala Plus" TODO
+
+namespace: sinhala # For example: name-sinhala
+
+categories:
+  Format controls:
+    touch:
+
+  Punctuation:
+
+  Letters:
+
+  Signs:
+    repha: #(repaya)
+
+  Typographical ligatures:
+    # reph ligatures : drop the trailing "a", suffix "_reph"
+
+    aaSign_virama: # (diga aela-pilla) # Included for better shaping.
+
+  Ligated Consonant Conjunct Letters:
+    # Ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
+    KVa:
+    TTha:
+    TVa:
+    NTha:
+    NDa:
+    NDha:
+    # TODO: Add orthographical conjunct combiantions for these

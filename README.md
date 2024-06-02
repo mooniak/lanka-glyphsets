@@ -1,75 +1,56 @@
-# Mooniak Glyphsets
+# Lanka glyphsets by Mooniak (WIP)
 
-Mooniak Glyphsets defines glyphsets for fonts made for Sri Lanka.
+Lanka Glyphsets project by Mooniak aims to define glyphsets for fonts made targeting Sri Lankan users and audeinces. This is a work-in-progress project.
 
-**Sinhala Unicode block** 
-  - Consonants 41
-  - Independent vowels 16
-  - Semi Consonants  2
-  - Sinhala Pillam (Consonants modifier signs) 13					
-  - Sinhala Archaic Numbers   - 20
-  - Sinhala Astrological Numbers - 10
-  - Kundaliya (Sinhala puncuation sign)
+## Sinhala
 
 **Requierd ligature glyphs** 
   - Consonant-vowel ligatures
-  - Half forms of ra and ya (rakaransaya, repaya, yansaya)
 
 **Other glyphs** 
-  - Ligated conjuncts (සංයෝග අකුරු sanyoga akuru)  
-  - Touching consonant clusters (බැඳි අකුරු bandi akuru)
   - Rakar consonant clusters + modifier signs  
   - Ligated conjuncts + modifier signs
   - Touching consonants + modifier signs
   - Complex forms
 
-**Stylistic alternates** 
-  - Below base forms of pillam following Da forms (දා දැ දැ ඳෝ ද්‍ය ද්‍ය ද්‍යා ඤා ඤැ ඤැ ඥැ ඥැ ඥෝ) 
-  - Historical Fa form (පf)
-  - Historical kombuwa
-  - 
 
+### Sinhala 0 — Kernal
+  - Consonants 41
+  - Independent vowels 16
+  - Semi Consonants  2
+  - Sinhala Pillam (Consonants modifier signs) 13					
+- rakaransaya
+- yanasaya
 
-***
-
-
-## Mooniak Sinhala Core
+### Sinhala 1 — Core
 - Sinhala Unicode block 
 - Requierd ligature glyphs
 - Touching consonant clusters implemented with dist feature
-- Half forms of ra and ya (rakaransaya, repaya, yansaya)
+- ක්‍ෂ 
+- Sinhala Archaic Numbers   - 20
+— Sinhala Astrological Numbers - 10
+- Kundaliya (Sinhala puncuation sign)
 
+### Sinhala 2 — Plus
+  - Common ligated conjuncts (සංයෝග අකුරු sanyoga akuru)
 
+### Sinhala 3 — Pro
+  - Below base forms of pillam following Da forms (දා දැ දැ ඳෝ ද්‍ය ද්‍ය ද්‍යා ඤා ඤැ ඤැ ඥැ ඥැ ඥෝ) 
+  - Historical Fa form (පf)
+  - Historical kombuwa
+  - Rare ligated conjuncts (සංයෝග අකුරු sanyoga akuru) ඞ්‍ග, ච්‍ච, ඤ්‍ච, ඤ්‍ඡ, ඤ්‍ජ, ණ්‍ඩ, බ්‍බ, ම්‍බ
 
-**Latin Unicode block**
-
-Google Kernal glyphset
-
-  - Punctuation, marks and symbols
-    `dollar percent ampersand plus less equal greater at asciicircum bar asciitilde cent sterling yen copyright registered degree multiply divide euro trademark minus space nbspace exclam quotedbl numbersign quotesingle parenleft parenright asterisk comma hyphen period slash colon semicolon question bracketleft backslash bracketright underscore braceleft braceright periodcentered endash emdash quoteleft quoteright quotedblleft quotedblright bullet ellipsis grave`
-
-  - Numerals
-    `zero, one, two, three, four, five, six, seven, eight, nine,`
-
-  - From Latin Unicode block** 
-    `A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z,  `
-
-
-
-|   	|CORE                       |PLUS |PRO |   	|
-|---	|---	                      |---	|---	|---	|
-|   	|Unicode block   	          |   	|   	|   	|
-|   	|Requierd ligatures glyphs  |   	|   	|   	|
-|   	|k_ssa ligatures   	        |   	|   	|   	|
-
-
+  - Touching consonant clusters (බැඳි අකුරු bandi akuru)
 
 ***
 
-### Sinhala fonts level definition by ICTA
+## Sinhala fonts level definition by ICTA
 Sinhala fonts are standardized into three different levels by ICTA, but this definition is only based on the functionality and it does not provide a clear identification of number of glyphs or coverage. We will try to define these here.			
 
+Qoted from ICTA documentation 
+TODO: Add links
 
+```
 **Level 1 fonts**
 These fonts commonly used vowels, consonants and consonants with modifiers and they are intended to be used in mobile devices. This level supports special characters such as yansaya,rakaransaya and repaya and “ක්ෂ”**
 
@@ -78,3 +59,4 @@ These fonts shall have all the features of level one font and additionally suppo
 
 **Level 3 fonts**
 These fonts support special characters and all combinations of strokes with conjuncts including “repaya+ispilla” combinations and touching conjuncts. These fonts fully support Pali and Sanskrit langauges and are intended for historic or classical Sinhala documents.
+```
