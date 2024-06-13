@@ -11,7 +11,7 @@ categories:
 
   Letters:
 
-  Signs:
+  signs:
     candrabindu:
 
   Sinhala numerals:
@@ -48,43 +48,58 @@ categories:
 
   Ligated consonant conjuncts:
     # Ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
-    GDha:
-    TtTtha:
-    DDha:
-    DVa:
-    NVa:
-    CCa:
-    NyCa:
-    NyCha:
-    NyJa:
-    NnDda:
+    gDha:
+    ttTtha:
+    dDha:
+    dVa:
+    nVa:
+    cCa:
+    nyCa:
+    nyCha:
+    nyJa:
+    nnDda:
     BBa:
     anuswara_sha:
 
   Stylistic alternates:
-    ss01 Da Forms: # Stylistic alternate forms of Da + Signs
-      Da_aaSign:
-      Da_aaeSign:
-      Da_aeSign:
-      Da_yansa:
-      DU_yansa:
-      Nd_aaSign:
-      Nda_aeSign:
-      Jnya_aeSign:
-      Jny_AeSign:
-      ND_aaSign:
-      ND_aeeSign:
-      ND_aeSign:
-      Ny_aaSign:
-      Ny_aeeSign:
-      Ny_aeSign:
-      DvocalicR:
-      DvocalicRr:
-      DRa_aaSign:
-      NdR_aaSign:
+    ss01 Da Forms: # Stylistic alternate forms of Da + signs
+      da_signAa:
+      da_signAa_virama:
+      da_signAe:
+      da_signAae:
+      da_signVocalicR:
+      da_signVocalicRr:      
+      da_yansa:
+      da_yansa_virama:
+      da_yansa_signAa:
+      da_yansa_signAa_virama:
+      da_yansa_signU:
+      da_yansa_signUu:
+      nda_signAa:
+      nda_signAa_virama:
+      nda_signAe:
+      nda_signAae:
+      nda_signVocalicR:
+      nda_signVocalicRr: 
+      nya_signAa:
+      nya_signAa_virama:
+      nya_signAe:
+      nya_signAae:
+      jnya_signAa:
+      jnya_signAa_virama:
+      jnya_signAe:
+      jnya_signAae:
+      nD_aasign:
+      nD_aeesign:
+      nD_aesign:
+      ny_aasign:
+      ny_aeesign:
+      ny_aesign:
+      dRa_aasign:
+      ndR_aasign:
 
     ss02 Fa: # ප+f alternate
       fa.alt:
 
     ss03 Historical forms:
-      eSign.alt: # Historical Kombuva
+      signE.alt: # Historical Kombuva

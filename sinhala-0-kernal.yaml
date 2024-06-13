@@ -50,37 +50,43 @@ categories:
 
   Letters:
     a:
-      unicode:
-      decompose:
     aa:
-      decompose: [a, aaSign]
+      decompose: [a, signAa]
     ae:
-      decompose: [a, aeSign]
+      decompose: [a, signAe]
     aae:
+      decompose: [a, signAae]
     i:
     ii:
     u:
     uu:
+      decompose: [u, vocalicLsign]
     # vocalicR:
     # vocalicRr:
     # vocalicL:
     # vocalicLl:
     e:
     ee:
+      decompose: [e, virama]    
     ai:
+      decompose: [signE, e]    
     o:
     oo:
     au:
+      decompose: [o, vocalicLsign]
 
     ka:
-      ligatures: [virama, iSign, iiSign, rakar, reph]
+      ligatures: [virama, signI, signIi, rakar, reph]
     kha:
     ga:
+      ligatures: [virama, signI, signIi, rakar, reph]
     gha:
     # nga:
     ngga:
     ca:
+      ligatures: [signU, signUu, rakar, reph]
     cha:
+      ligatures: [virama, signI, signIi, signU, signUu, rakar, reph]
     ja:
     jha:
     nya:
@@ -104,11 +110,11 @@ categories:
     ma:
     mba:
     ya:
-      ligatures: [virama, iSign, iiSign, reph]
+      ligatures: [virama, signI, signIi, reph]
     ra:
-      ligatures: [virama, iSign, iiSign]
+      ligatures: [virama, signI, signIi]
     la:
-      ligatures: [virama, iSign, iiSign, reph]
+      ligatures: [virama, signI, signIi, reph]
     va:
     sha:
     ssa:
@@ -117,32 +123,32 @@ categories:
     lla:
     fa:
 
-  Signs:
-    aaSign: # (aela-pilla)
-    aeSign: # (aeda-pilla)
-    aaeSign: # (diga aeda-pilla)
-    iSign: #(is-pilla)
-    iiSign: #(diga is-pilla)
-    uSign: #(paa-pilla)
-    uuSign: #(diga paa-pilla)
-    vocalicRSign: #(gaetta-pilla)
-    vocalicRrSign: #(diga gaetta-pilla)
-    vocalicLSign: #(gayanukitta)
-    vocalicLlSign: #(diga gayanukitta)
-    eSign: #(kombuva)
-    eeSign: #(kombu deka)
-      decompose: [eSign, eSign]
-    oSign: #(kombuva haa aela-pilla)
-    ooSign: #(kombuva haa diga aela-pilla)
-    auSign: #(kombuva haa gayanukitta)
-      decompose: [eSign, vocalicLSign]
+  signs:
+    signAa: # (aela-pilla)
+    signAae: # (diga aeda-pilla)
+    signI: #(is-pilla)
+    signAe: # (aeda-pilla)
+    signIi: #(diga is-pilla)
+    signU: #(paa-pilla)
+    signUu: #(diga paa-pilla)
+    signVocalicR: #(gaetta-pilla)
+    signVocalicRr: #(diga gaetta-pilla)
+    signVocalicL: #(gayanukitta)
+    signVocalicLl: #(diga gayanukitta)
+    signE: #(kombuva)
+    signEe: #(kombu deka)
+      decompose: [signE, signE]
+    signO: #(kombuva haa aela-pilla)
+    signOo: #(kombuva haa diga aela-pilla)
+    signAu: #(kombuva haa gayanukitta)
+      decompose: [signE, signVocalicL]
     virama: #(al-lakuna)
-    anusvaraya:
-    visargaya:
+    anusvara:
+    visarga:
     rakar: #(rakaransaya)
     yansa: #(yansaya)
-    uSign.rakar:
-    uuSign.rakar:
+    signU.rakar:
+    signUu.rakar:
 
   Orthographical conjuncts:
     # Note: Orthographical Conjunct ligatres are REQUIERD and mandatory to be included in order to produce a functioning Sinhala font.
@@ -167,7 +173,7 @@ categories:
     r:
     v:
 
-    # iSign Ligatures:
+    # signI Ligatures:
     khI:
     ngI:
     cI:
@@ -189,7 +195,7 @@ categories:
     rI:
     vI:
 
-    # iiSign Ligatures:
+    # signIi Ligatures:
     khIi:
     ngIi:
     cIi:
@@ -211,7 +217,7 @@ categories:
     rIi:
     vIi:
 
-    # uSign Ligatures:
+    # signU Ligatures:
     kU:
     gU:
     nngU:
@@ -226,7 +232,7 @@ categories:
     shU:
     llU:
 
-    # uuSign Ligatures:
+    # signUu Ligatures:
     kUu:
     gUu:
     nngUu:

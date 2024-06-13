@@ -16,22 +16,22 @@ categories:
     nyja:
     nga:
 
-  Signs:
+  signs:
     repha: #(repaya)
 
   Typographical ligatures:
     # See attested/requierd shaping list generated from ligatrue data in 0-kernal
-    # virama ligatrues: drop the trailing "a"
-    # iSign ligatures : drop the trailing "a", suffix "I"
-    # iiSign ligatures : drop the trailing "a", suffix "Ii"
-    # uSign ligatures : drop the trailing "a", suffix "U"
-    # uuSign ligatures : drop the trailing "a", suffix "Uu"
+    # virama ligatrues: drop the trailing "a" 
+    # signI ligatures : drop the trailing "a", suffix "I"
+    # signIi ligatures : drop the trailing "a", suffix "Ii"
+    # signU ligatures : drop the trailing "a", suffix "U"
+    # signUu ligatures : drop the trailing "a", suffix "Uu"
     # rakar ligatures : drop the trailing "a", suffix "Ra"
     # rakar + virama ligatures : drop the trailing "a", suffix "R"
-    # rakar + iSign ligatures : drop the trailing "a", suffix "RI"
-    # rakar + iiSign ligatures : drop the trailing "a", suffix "RIi"
+    # rakar + signI ligatures : drop the trailing "a", suffix "RI"
+    # rakar + signIi ligatures : drop the trailing "a", suffix "RIi"
 
-    aaSign_virama: # (diga aela-pilla) # Included for better shaping.
+    signAa_virama: # (diga aela-pilla) # Included for better shaping.
 
   Ligated consonant conjuncts:
     # Ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
