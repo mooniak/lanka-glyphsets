@@ -10,96 +10,71 @@ Lanka Glyphsets project by Mooniak aims to define glyphsets for fonts made targe
 
 An underscore (_) joins existing glyphs to form a ligature of those glyphs, while a dot (.) appends a suffix to an existing glyph to form a variant of that glyph.
 
+## Glyph Naming Conventions
 
-1. Namespaces: 'sinh' and 'taml'
-2. Sinhala pillam (aka vowel signs, matras) are called `signs` and are indicated with the phonetic indeicator of the sign suffiexd by `-sign`
- ```
-    - aa-sign: # (aela-pilla)
-    - aae-sign: # (diga aeda-pilla)
-    - i-sign: #(is-pilla)
-    - ae-sign: # (aeda-pilla)
-    - ii-sign: #(diga is-pilla)
-    - u-sign.02: ( u-sign after rakar)
-    - uu-sign.02: ( uu-sign after rakar)
-    - u-sign_al-sign:
-    ...
-```
-Alternative signs
+### 1. Namespaces
+- `sinh` — Sinhala
+- `taml` — Tamil
 
-   
-```
-    - i-sign.alt1
-    - ii-sign.alt2
-    - i-sign.alt2
-    - ii-sign.alt1
-    ...
-```
+### 2. Sinhala Pillam (Vowel Signs / Matras)
+Pillam are called `signs` and indicated with the phonetic indicator suffixed by `-sign`.
 
-3. Special signs are al-alkuna (THe vowel killer sign similar virama or halant), rakaranasaya (post base`ra), repaya (pre base `ra` ) and Yanasaya (post base `ya`). These are named as follwoing.
+Examples:
+- `aa-sign` — (aela-pilla)
+- `aae-sign` — (diga aeda-pilla)
+- `i-sign` — (is-pilla)
+- `ae-sign` — (aeda-pilla)
+- `ii-sign` — (diga is-pilla)
+- `u-sign.02` — (u-sign after rakar)
+- `uu-sign.02` — (uu-sign after rakar)
+- `u-sign_al-sign`
+- ...
 
-```
-    - al-sign
-    - rakr-sign
-    - repa-sign
-    - yans-sign
-```
+#### Alternative Signs
+- `i-sign.alt1`
+- `ii-sign.alt2`
+- `i-sign.alt2`
+- `ii-sign.alt1`
+- ...
 
-4. Consonant-vowel ligatures 
+### 3. Special Signs
+- `al-sign` — Al-kuna (vowel killer, similar to virama/halant)
+- `rakr-sign` — Rakaransaya (post-base `ra`)
+- `repa-sign` — Repaya (pre-base `ra`)
+- `yans-sign` — Yansaya (post-base `ya`)
 
-```
-    ka-i
-    na-ii
-    n-u
-    p-uu
+### 4. Consonant-Vowel Ligatures
+- `ka-i`
+- `na-ii`
+- `n-u`
+- `p-uu`
 
-```
-5. Rakar ligatures 
+### 5. Rakar Ligatures
+- `ka_rakr`
+- `ka_rakr-ii`
+- `ma_rakr`
+- `ma-rakr-i`
 
-```
-    ka_rakr
-    ka_rakr-ii
-    ma_rakr
-    ma-rakr-i
-```
+### 6. Ligated Conjuncts (Sanyoga Akuru)
+- `ka_ssa`
+- `na_da`
+- `da_va`
+- `ba_ba`
+- `na_da-i`
+- `na_da-rakr-ii`
 
-6. Ligated conjuncts (සංයෝග අකුරු Sanyoga Akuru)
+### 7. Touching Conjuncts (Bendi Akuru)
+- `da_va.tch`
+- `da_va-ii.tch`
+- `ba_ba.tch`
 
-```
-ka_ssa
-na_da
-da_va
-ba_ba
+### 8. Historical and Stylistic Alternates
+- `fa.alt` — Historical Fa form (පf)
+- `e-sign.alt`
 
-na_da-i
-na-da-rakar-ii
-```
-
-7. Touching conjuncts (බැඳි අකුරු Bendi Akuru)
-
-```
-da_va.tuch
-da_va-ii.tuch
-ba_ba.tuch
-
-```
-
-
-8. Historical and stylistic alternates  (බැඳි අකුරු Bendi Akuru)
-
-```
-fa.altn #Historical Fa form (පf)\
-e-sign.altn 
-
-```
-
-
-Below base forms of pillam following Da forms (දා දැ දැ ඳෝ ද්‍ය ද්‍ය ද්‍යා ඤා ඤැ ඤැ ඥැ ඥැ ඥෝ) 
-
-```
-da_aa-sign.belw
-da_yans-sign.belw
-
-```
+### 9. Below Base Forms of Pillam (Following Da Forms)
+- `da_aa-sign.blw`
+- `da_yans-sign.blw`
 
 9. 
 
