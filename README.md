@@ -10,7 +10,7 @@ Lanka Glyphsets project by Mooniak aims to define glyphsets for fonts made targe
 
 An underscore (_) joins existing glyphs to form a ligature of those glyphs, while a dot (.) appends a suffix to an existing glyph to form a variant of that glyph.
 
-## Glyph Naming Conventions
+## Glyph Naming Convention
 
 ### 1. Namespaces
 - `sinh` — Sinhala
@@ -25,23 +25,32 @@ Examples:
 - `i-sign` — (is-pilla)
 - `ae-sign` — (aeda-pilla)
 - `ii-sign` — (diga is-pilla)
+- ...
+
+#### Requierd signs
+
 - `u-sign.02` — (u-sign after rakar)
 - `uu-sign.02` — (uu-sign after rakar)
 - `u-sign_al-sign`
-- ...
 
-#### Alternative Signs
+#### Alternative signs
+When ligaters are formed using GPOS instead of compound ligature glyphs, designer might need to have multiple alternative versions of same sign.
+
 - `i-sign.alt1`
 - `ii-sign.alt2`
 - `i-sign.alt2`
 - `ii-sign.alt1`
+- `al-sign.alt2`
+- `i-sign.midm`
+- `i-sign.long`
+- `i-sign.shrt`
 - ...
 
-### 3. Special Signs
-- `al-sign` — Al-kuna (vowel killer, similar to virama/halant)
-- `rakr-sign` — Rakaransaya (post-base `ra`)
-- `repa-sign` — Repaya (pre-base `ra`)
-- `yans-sign` — Yansaya (post-base `ya`)
+#### Special signs
+- `al-sign` — Al-lkuna (vowel killer, similar to virama, halant)
+- `rkr-sign` — Rakaransaya (post-base `ra`)
+- `rph-sign` — Repaya (pre-base `ra`)
+- `yns-sign` — Yansaya (post-base `ya`)
 
 ### 4. Consonant-Vowel Ligatures
 - `ka-i`
@@ -50,10 +59,10 @@ Examples:
 - `p-uu`
 
 ### 5. Rakar Ligatures
-- `ka_rakr`
-- `ka_rakr-ii`
-- `ma_rakr`
-- `ma-rakr-i`
+- `ka_rkr`
+- `ka_rkr-ii`
+- `ma_rkr`
+- `ma-rkr-i`
 
 ### 6. Ligated Conjuncts (Sanyoga Akuru)
 - `ka_ssa`
@@ -61,7 +70,7 @@ Examples:
 - `da_va`
 - `ba_ba`
 - `na_da-i`
-- `na_da-rakr-ii`
+- `na_da-rkr-ii`
 
 ### 7. Touching Conjuncts (Bendi Akuru)
 - `da_va.tch`
@@ -76,22 +85,17 @@ Examples:
 - `da_aa-sign.blw`
 - `da_yans-sign.blw`
 
-9. 
-
-da_aa-sign-sinh
+### Some complex examples
 
 
-n_da_rakar-i
-na_da_rakar-i
-
-da_va_rakar-ii
-
-al-sign.2-sign
-
-da_rakar-i-sinh
-da_rakar-ii-sinh
-ka_va
-ka_ssa_repaya
+- `na_da_rakar-i`
+- `na_da_rakar-i`
+- `da_va_rakar-ii`
+- `ssa-reph-ii` 
+- `da_rakar-i-sinh`
+- `da_rakar-ii-sinh`
+- `ka_va`
+- `ka_ssa_rakar-ii`
 
 
 ### Sinhala
