@@ -8,6 +8,12 @@ Lanka Glyphsets project by Mooniak aims to define glyphsets for fonts made targe
 
 ## NAMING STANDARD
 
+1. Encode the visual forms of the glyphs in names instead of phonetic data.
+   (`ka-i` represents the visual forms ක + ි as opposed to its phonetic or Unicode reresentation of `ක් + ි`)
+2. An underscore (_) joins existing glyphs to form a ligature of those glyphs, while a dot (.) appends a suffix to an existing glyph to form a variant of that glyph.
+
+< TODO ADD EXAMPLE >
+
 An underscore (_) joins existing glyphs to form a ligature of those glyphs, while a dot (.) appends a suffix to an existing glyph to form a variant of that glyph.
 
 ## Glyph Naming Convention
@@ -29,12 +35,12 @@ Examples:
 
 #### Requierd signs
 
-- `u-sign.02` — (u-sign after rakar)
-- `uu-sign.02` — (uu-sign after rakar)
-- `u-sign_al-sign`
+- `u-sign.rakar` — (u-sign after rakar)
+- `uu-sign.rakar` — (uu-sign after rakar)
+- `aa-sign.al` -  (` ා + ්`)
 
 #### Alternative signs
-When ligaters are formed using GPOS instead of compound ligature glyphs, designer might need to have multiple alternative versions of same sign.
+When ligaturs are formed using GPOS instead of composite ligature glyphs, designer might need to have multiple alternative versions of same sign.
 
 - `i-sign.alt1`
 - `ii-sign.alt2`
@@ -44,25 +50,26 @@ When ligaters are formed using GPOS instead of compound ligature glyphs, designe
 - `i-sign.midm`
 - `i-sign.long`
 - `i-sign.shrt`
+- `i-sign.shrt`
 - ...
 
 #### Special signs
 - `al-sign` — Al-lkuna (vowel killer, similar to virama, halant)
-- `rkr-sign` — Rakaransaya (post-base `ra`)
-- `rph-sign` — Repaya (pre-base `ra`)
-- `yns-sign` — Yansaya (post-base `ya`)
+- `rakar-sign` — Rakaransaya (post-base `ra`)
+- `repha-sign` — Repaya (pre-base `ra`)
+- `yansa-sign` — Yansaya (post-base `ya`)
 
 ### 4. Consonant-Vowel Ligatures
 - `ka-i`
 - `na-ii`
-- `n-u`
-- `p-uu`
+- `na-u`
+- `pa-uu`
 
 ### 5. Rakar Ligatures
-- `ka_rkr`
-- `ka_rkr-ii`
-- `ma_rkr`
-- `ma-rkr-i`
+- `ka-rakar`
+- `ka-rakar-ii`
+- `ma-rakar`
+- `ma-rakar-i`
 
 ### 6. Ligated Conjuncts (Sanyoga Akuru)
 - `ka_ssa`
@@ -70,40 +77,48 @@ When ligaters are formed using GPOS instead of compound ligature glyphs, designe
 - `da_va`
 - `ba_ba`
 - `na_da-i`
-- `na_da-rkr-ii`
+- `na_da-rakar-ii`
 
 ### 7. Touching Conjuncts (Bendi Akuru)
-- `da_va.tch`
-- `da_va-ii.tch`
-- `ba_ba.tch`
+- `da_va.touch`
+- `da_va-ii.touch`
+- `ba_ba.touch`
 
 ### 8. Historical and Stylistic Alternates
-- `fa.alt` — Historical Fa form (පf)
-- `e-sign.alt`
+- `fa.hist` — Historical Fa form (පf)
+- `e-sign.hist`
 
-### 9. Below Base Forms of Pillam (Following Da Forms)
-- `da_aa-sign.blw`
-- `da_yans-sign.blw`
+### 9. `da` and `da-like` ligatures with below base forms of pillam 
+- `da_aa-sign.belw`
+- `da_yansa-sign.belw`
+
 
 ### Some complex examples
-
-
-- `na_da_rakar-i`
-- `na_da_rakar-i`
-- `da_va_rakar-ii`
+- `na_da-rakar-i`
+- `na_da-rakar-i`
+- `da_va-rakar-ii`
 - `ssa-reph-ii` 
-- `da_rakar-i-sinh`
-- `da_rakar-ii-sinh`
-- `ka_va`
-- `ka_ssa_rakar-ii`
+- `da-rakar-i-sinh`
+- `da-rakar-ii-sinh`
+- `ka_va-al`
+- `ka_ssa-rakar-ii`
+- `da_va-repha-ii`
 
 
-### Sinhala
+## Anchor naming
+
+- Below base
+    - uSign
+    - rakar
+
+- Above base 
+    - alSign
+    - iSign
+    - iiSign (optional)
+    - repha
 
 
-
-
-
+### Sinhala Glyphset
 
 **Requierd ligature glyphs** 
   - Consonant-vowel ligatures
@@ -114,14 +129,12 @@ When ligaters are formed using GPOS instead of compound ligature glyphs, designe
   - Touching consonants + modifier signs
   - Complex forms
 
-
 ### Sinhala 0 — Kernal
   - Consonants 41
   - Independent vowels 16
   - Semi Consonants  2
   - Sinhala Pillam (Consonants modifier signs) 13					
-- rakaransaya
-- yanasaya
+  - Signs (Unicode Named sequesnces) rakaransaya, yanasaya, repaya
 
 ### Sinhala 1 — Core
 - Sinhala Unicode block 
@@ -135,12 +148,12 @@ When ligaters are formed using GPOS instead of compound ligature glyphs, designe
   - Common ligated conjuncts (සංයෝග අකුරු sanyoga akuru)
 
 ### Sinhala 3 — Pro
-  - Below base forms of pillam following Da forms (දා දැ දැ ඳෝ ද්‍ය ද්‍ය ද්‍යා ඤා ඤැ ඤැ ඥැ ඥැ ඥෝ) 
+  - `da` and `da-like` ligatures with below base forms of pillam (දා දැ දැ ඳෝ ද්‍ය ද්‍ය ද්‍යා ඤා ඤැ ඤැ ඥැ ඥැ ඥෝ) 
   - Historical Fa form (පf)
   - Historical kombuwa
   - Rare ligated conjuncts (සංයෝග අකුරු sanyoga akuru) ඞ්‍ග, ච්‍ච, ඤ්‍ච, ඤ්‍ඡ, ඤ්‍ජ, ණ්‍ඩ, බ්‍බ, ම්‍බ
-- Sinhala Archaic Numbers   - 20
-— Sinhala Astrological Numbers - 10
+  - Sinhala Archaic Numbers   - 20
+  — Sinhala Astrological Numbers - 10
   - Touching consonant clusters (බැඳි අකුරු bandi akuru)
 
 ***
