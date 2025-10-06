@@ -14,6 +14,7 @@ categories:
     na_da: # න්‍ද
     na_dha: # න්‍ධ
 
+  Orthographical conjuncts:
     # With modifier signs for each conjunct
     ka_va-i: # ක්‍වි
     ka_va-ii: # ක්‍වී
@@ -28,3 +29,4 @@ categories:
     na_dha-i: # න්‍ධි
     na_dha-ii: # න්‍ධී
 
+    na_da-rakar:

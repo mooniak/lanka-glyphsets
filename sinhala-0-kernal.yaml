@@ -266,6 +266,9 @@ categories:
     uu-sign.rakar: # (uu-sign follwoing rakar)
     aa-sign.al: # (diga aela-pilla) # Included for better shaping.
 
+  Ligated consonant conjuncts:
+  # kernal set ommits all Ligated consonant conjuncts or සංයෝග අකුරු *sanyoga akuru*
+
   Orthographical conjuncts:
     # Note: Orthographical Conjunct ligatres are REQUIERD and mandatory to be included in order to produce a functioning Sinhala font.
     kha-al:
@@ -274,6 +277,7 @@ categories:
     cha-al:
     ja-al:
     jha-al:
+    #jnya-al:
     #nyja-al:
     tta-al:
     ttha-al:
@@ -318,6 +322,7 @@ categories:
     cha-ii:
     ja-ii:
     jha-ii:
+    #jnya-ii:
     #nyja-ii:
     tta-ii:
     ttha-ii:
@@ -353,6 +358,7 @@ categories:
     ga-uu:
     ngga-uu:
     nya-uu:
+    #jnya-uu:
     #nyja-uu:
     ta-uu:
     da-uu:
@@ -367,11 +373,9 @@ categories:
     ra-ae:
     ra-aae:
     nya-rakar:
-    nya_ja-rakar:
+    #jnya-rakar:
+    #nyja-rakar:
     da-rakar:
     nda-rakar:
-
-  Ligated consonant conjuncts:
-  # kernal set ommits all Ligated consonant conjuncts or සංයෝග අකුරු *sanyoga akuru*
 
   Typographical conjunct ligatures:

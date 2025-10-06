@@ -20,6 +20,10 @@ categories:
   Signs:
     repha-sign: #(repaya)
 
+  Ligated consonant conjuncts:
+    # Essential ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
+    ka_ssa: # ක්‍ෂ - Required orthographical conjunct
+
   Orthographical conjuncts:
     jnya-al:
     jnya-i:
@@ -31,10 +35,6 @@ categories:
     nyja-ii:
     nyja-u:
     nyja-uu:
-
-  Ligated consonant conjuncts:
-    # Essential ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
-    ka_ssa: # ක්‍ෂ - Required orthographical conjunct
 
   Typographical ligatures:
     # Required ligature glyphs for proper shaping
