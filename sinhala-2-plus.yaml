@@ -1,31 +1,30 @@
 languages: [Sinhala, Pali, Sanskrit]
 
-description: The "Mooniak Sinhala Plus" TODO
+description: The "Mooniak Sinhala Plus" glyphset adds common ligated conjuncts (සංයෝග අකුරු sanyoga akuru) for enhanced Sinhala typography.
 
-namespace: sinhala # For example: name-sinhala
+namespace: sinh
 
 categories:
-  Format controls:
-    touch:
+  Ligated consonant conjuncts:
+    # Common ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
+    ka_va: # ක්‍ව
+    ta_tha: # ත්‍ථ
+    ta_va: # ත්‍ව
+    na_tha: # න්‍ථ
+    na_da: # න්‍ද
+    na_dha: # න්‍ධ
 
-  Punctuation:
+    # With modifier signs for each conjunct
+    ka_va-i: # ක්‍වි
+    ka_va-ii: # ක්‍වී
+    ta_tha-i: # ත්‍ථි
+    ta_tha-ii: # ත්‍ථී
+    ta_va-i: # ත්‍වි
+    ta_va-ii: # ත්‍වී
+    na_tha-i: # න්‍ථි
+    na_tha-ii: # න්‍ථී
+    na_da-i: # න්‍දි
+    na_da-ii: # න්‍දී
+    na_dha-i: # න්‍ධි
+    na_dha-ii: # න්‍ධී
 
-  Letters:
-
-  signs:
-    repha: #(repaya)
-
-  Typographical ligatures:
-    # reph ligatures : drop the trailing "a", suffix "_reph"
-
-    signAa_virama: # (diga aela-pilla) # Included for better shaping.
-
-  Ligated Consonant Conjunct Letters:
-    # Ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
-    kVa:
-    tTha:
-    tVa:
-    nTha:
-    nDa:
-    nDha:
-    # TODO: Add orthographical conjunct combiantions for these

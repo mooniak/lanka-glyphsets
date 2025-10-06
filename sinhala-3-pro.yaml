@@ -2,7 +2,7 @@ languages: [Sinhala, Pali, Sanskrit]
 
 description: The "Mooniak Sinhala Pro" TODO
 
-namespace: sinhala # For example: name-sinhala
+namespace: sinh
 
 categories:
   Format controls:
@@ -48,58 +48,58 @@ categories:
 
   Ligated consonant conjuncts:
     # Ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
-    gDha:
-    ttTtha:
-    dDha:
-    dVa:
-    nVa:
-    cCa:
-    nyCa:
-    nyCha:
-    nyJa:
-    nnDda:
-    BBa:
-    anuswara_sha:
+    nga_dha:
+    tta_ttha:
+    dda_dha:
+    da_va:
+    na_va:
+    ca_ca:
+    nya_ca:
+    nya_cha:
+    nya_ja:
+    nna_dda:
+    ba_ba:
+    anusvara_sha:
 
   Stylistic alternates:
     ss01 Da Forms: # Stylistic alternate forms of Da + signs
-      da_signAa:
-      da_signAa_virama:
-      da_signAe:
-      da_signAae:
-      da_signVocalicR:
-      da_signVocalicRr:      
-      da_yansa:
-      da_yansa_virama:
-      da_yansa_signAa:
-      da_yansa_signAa_virama:
-      da_yansa_signU:
-      da_yansa_signUu:
-      nda_signAa:
-      nda_signAa_virama:
-      nda_signAe:
-      nda_signAae:
-      nda_signVocalicR:
-      nda_signVocalicRr: 
-      nya_signAa:
-      nya_signAa_virama:
-      nya_signAe:
-      nya_signAae:
-      jnya_signAa:
-      jnya_signAa_virama:
-      jnya_signAe:
-      jnya_signAae:
-      nD_aasign:
-      nD_aeesign:
-      nD_aesign:
-      ny_aasign:
-      ny_aeesign:
-      ny_aesign:
-      dRa_aasign:
-      ndR_aasign:
+      da_aa-sign.belw:
+      da_aa-sign_al-sign.belw:
+      da_ae-sign.belw:
+      da_aae-sign.belw:
+      da_vocalicR-sign.belw:
+      da_vocalicRr-sign.belw:
+      da_yansa-sign.belw:
+      da_yansa-sign_al-sign.belw:
+      da_yansa-sign_aa-sign.belw:
+      da_yansa-sign_aa-sign_al-sign.belw:
+      da_yansa-sign_u-sign.belw:
+      da_yansa-sign_uu-sign.belw:
+      nda_aa-sign.belw:
+      nda_aa-sign_al-sign.belw:
+      nda_ae-sign.belw:
+      nda_aae-sign.belw:
+      nda_vocalicR-sign.belw:
+      nda_vocalicRr-sign.belw:
+      nya_aa-sign.belw:
+      nya_aa-sign_al-sign.belw:
+      nya_ae-sign.belw:
+      nya_aae-sign.belw:
+      nya_ja_aa-sign.belw:
+      nya_ja_aa-sign_al-sign.belw:
+      nya_ja_ae-sign.belw:
+      nya_ja_aae-sign.belw:
+      na_da-aa-sign:
+      na_da-aae-sign:
+      na_da-ae-sign:
+      nya-aa-sign:
+      nya-aae-sign:
+      nya-ae-sign:
+      da-rakar-sign-aa-sign:
+      nda-rakar-sign-aa-sign:
 
     ss02 Fa: # ප+f alternate
       fa.alt:
 
     ss03 Historical forms:
-      signE.alt: # Historical Kombuva
+      e-sign.hist: # Historical Kombuva

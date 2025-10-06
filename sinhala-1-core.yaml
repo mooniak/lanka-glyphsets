@@ -1,38 +1,53 @@
 languages: [Sinhala]
 
-description: The "Mooniak Sinhala Core" TODO
+description: The "Mooniak Sinhala Core" glyphset completes the Sinhala Unicode block with required ligatures and touching consonant clusters for professional typography.
 
-namespace: sinhala # For example: name-sinhala
+namespace: sinh
 
 categories:
   Punctuation:
-    kunddaliya:
+    kunddaliya: # Sinhala punctuation sign
 
   Letters:
+    # Complete Sinhala Unicode block (missing from Kernal)
     vocalicR:
     vocalicRr:
     vocalicL:
     vocalicLl:
-    nyja:
     nga:
+    jnya:
 
-  signs:
-    repha: #(repaya)
+  Signs:
+    repha-sign: #(repaya)
 
-  Typographical ligatures:
-    # See attested/requierd shaping list generated from ligatrue data in 0-kernal
-    # virama ligatrues: drop the trailing "a" 
-    # signI ligatures : drop the trailing "a", suffix "I"
-    # signIi ligatures : drop the trailing "a", suffix "Ii"
-    # signU ligatures : drop the trailing "a", suffix "U"
-    # signUu ligatures : drop the trailing "a", suffix "Uu"
-    # rakar ligatures : drop the trailing "a", suffix "Ra"
-    # rakar + virama ligatures : drop the trailing "a", suffix "R"
-    # rakar + signI ligatures : drop the trailing "a", suffix "RI"
-    # rakar + signIi ligatures : drop the trailing "a", suffix "RIi"
-
-    signAa_virama: # (diga aela-pilla) # Included for better shaping.
+  Orthographical conjuncts:
+    jnya-al:
+    jnya-i:
+    jnya-ii:
+    jnya-u:
+    jnya-uu:
+    nyja-al:
+    nyja-i:
+    nyja-ii:
+    nyja-u:
+    nyja-uu:
 
   Ligated consonant conjuncts:
-    # Ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
-    kSsa:
+    # Essential ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
+    ka_ssa: # ක්‍ෂ - Required orthographical conjunct
+
+  Typographical ligatures:
+    # Required ligature glyphs for proper shaping
+    # See attested/requierd shaping list generated from ligatrue data in 0-kernal
+    # al-lakuna ligatrues: base-al
+    # i-sign ligatures : suffix "-i"
+    # signIi ligatures : suffix "-ii"
+    # signU ligatures : suffix "-u"
+    # signUu ligatures : suffix "-uu"
+    # rakar ligatures : suffix "-rakar"
+    # rakar + virama ligatures : "-rakar-al"
+    # rakar + signI ligatures : "-rakar-i"
+    # rakar + signIi ligatures :  "-rakar-ii"
+
+    # Touching consonant clusters implemented with dist feature
+    # These are contextual alternates, not separate glyphs
