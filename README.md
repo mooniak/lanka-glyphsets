@@ -60,10 +60,9 @@ These fonts support special characters and all combinations of strokes with conj
 ***
 
 
-## PRINCIPALS OF NAMING STANDARD
+## PRINCIPALS OF NAMING STANDARD 
 
 1. Encode the visual forms of the glyphs in names instead of phonetic data.
-   (`ka-i` represents the visual forms ක + ි as opposed to its phonetic or Unicode reresentation of `ක් + ි`)
 2. Do not repeat data.
 3. Keep it simple, explain and provide examples.
 4. An underscore (_) joins existing glyphs to form a ligature of those glyphs, while a dot (.) appends a suffix to an existing glyph to form a variant of that glyph.
@@ -73,33 +72,31 @@ These fonts support special characters and all combinations of strokes with conj
 - `taml` — Tamil
 
 ### 2. Sinhala Pillam (Vowel Signs / Matras)
-Pillam are called `signs` and indicated with the phonetic indicator suffixed by `-sign`.
+Pillam are called `signs` and indicated with the suffix by `Sign`.
 
 Examples:
-- `aa-sign` — (aela-pilla)
-- `aae-sign` — (diga aeda-pilla)
-- `i-sign` — (is-pilla)
-- `ae-sign` — (aeda-pilla)
-- `ii-sign` — (diga is-pilla)
+- `aaSign` — (aela-pilla)
+- `aaeSign` — (diga aeda-pilla)
+- `iiSign` — (is-pilla)
 - ...
 
-#### Requierd signs
-- `u-sign.rakar` — (u-sign after rakar)
-- `uu-sign.rakar` — (uu-sign after rakar)
-- `aa-sign.al` -  (` ා + ්`)
+#### Requierd special signs
+- `uSign.rakar` — (u-sign after rakar)
+- `uuSign.rakar` — (uu-sign after rakar)
+- `ooSign.half` -  (` ා + ්`)
 
 #### Alternative signs
 When ligaturs are formed using GPOS instead of composite ligature glyphs, designer might need to have multiple alternative versions of same sign.
 
-- `i-sign.alt1`
-- `ii-sign.alt2`
-- `i-sign.alt2`
+- `iSign.alt1`
+- `iiSign.alt2`
+- `iSign.alt2`
 - `ii-sign.alt1`
-- `al-sign.alt2`
-- `i-sign.midm`
-- `i-sign.long`
-- `i-sign.shrt`
-- `i-sign.shrt`
+- `alSign.alt2`
+- `iSign.midm`
+- `iSign.long`
+- `iSign.shrt`
+- `iiSign.shrt`
 - ...
 
 #### Special signs
@@ -109,37 +106,48 @@ When ligaturs are formed using GPOS instead of composite ligature glyphs, design
 - `yansa-sign` — Yansaya (post-base `ya`)
 
 ### 4. Consonant-Vowel Ligatures
-- `ka-i`
-- `na-ii`
-- `na-u`
-- `pa-uu`
+These ligatures are composed by dropping the trailing `a` of the  base glyphname and combining the sign name. 
+
+කි = `ki` (ka + iiSign) -> `ki`
+
+- `nii`
+- `nu`
+- `puu`
 
 ### 5. Rakar Ligatures
-- `ka-rakar`
-- `ka-rakar-ii`
-- `ma-rakar`
-- `ma-rakar-i`
+Rakar ligatures are composed by adding a `r` indicating the *ra* in the encoded visual cluster.
+
+- ක්‍ර = `kra`
+- ක්‍රි = `kri`
 
 ### 6. Ligated Conjuncts (Sanyoga Akuru)
-- `ka_ssa`
-- `na_da`
-- `da_va`
-- `ba_ba`
-- `na_da-i`
-- `na_da-rakar-ii`
+Ligated conjuncts are named by dropping the trailing `a` of the first base glyphname and comnbining it with the second base as its first letter caitalised. 
+
+-  ක්‍ෂ = `ka + ssa -> kSsa`
+- ත්‍ථ = tTha
+- න්‍ද `nDa`
+- `dVa`
+- `bBa`
+
+More complex ligatures formed with ligated conjuncts + signs;
+
+- `naDra`
+- `naDrii` 
+
 
 ### 7. Touching Conjuncts (Bendi Akuru)
-- `da_va.touch`
-- `da_va-ii.touch`
-- `ba_ba.touch`
+If touching conjuncts are designed as atomic glpyhs they will be named by using `_`   
+- `da_va`
+- `da_vii`
+- `ba_ba`
 
 ### 8. Historical and Stylistic Alternates
-- `fa.hist` — Historical Fa form (පf)
+- `fa.alt` — Historical Fa form (පf)
 - `e-sign.hist`
 
 ### 9. `da` and `da-like` ligatures with below base forms of pillam 
-- `da_aa-sign.belw`
-- `da_yansa-sign.belw`
+- `daa`
+- `dya`
 
 
 ### Some complex examples
