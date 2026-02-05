@@ -99,7 +99,20 @@ When ligatures are formed using GPOS instead of composite ligature glyphs, desig
 - `anusvara` — ං (binduwa)
 - `visarga` — ඃ (visargaya)
 
-### 3. Consonant-Vowel Ligatures
+
+### 3. Pure Consonant Ligatures (ligatures with al-lakuna)
+These ligatures are composed by dropping the trailing `a` of the base glyphname to represent the consonant with al-lakuna (්), removing the inherent vowel.
+
+- `k` — ක් (ka + alSign)
+- `kh` — ඛ් (kha + alSign)
+- `g` — ග් (ga + alSign)
+- `gh` — ඝ් (gha + alSign)
+- `ngg` — ඞ් (ngga + alSign)
+- `c` — ච් (ca + alSign)
+- `ch` — ඡ් (cha + alSign)
+...
+
+### 4. Consonant-Vowel Ligatures
 These ligatures are composed by dropping the trailing `a` of the base glyphname and combining the sign name.
 
 කි = `ki` (ka + iSign) -> `ki`
@@ -113,7 +126,7 @@ These ligatures are composed by dropping the trailing `a` of the base glyphname 
 - `po` — පො (pa + oSign)
 - `poo` — පෝ (pa + ooSign)
 
-### 4. Rakar Ligatures
+### 5. Rakar Ligatures
 Rakar ligatures are composed by adding a `r` indicating the *ra* in the encoded visual cluster.
 
 - `kra` — ක්‍ර (ka + raSign)
@@ -123,7 +136,7 @@ Rakar ligatures are composed by adding a `r` indicating the *ra* in the encoded 
 - `pra` — ප්‍ර (pa + raSign)
 - `tra` — ත්‍ර (ta + raSign)
 
-### 5. Ligated Conjuncts (Sanyoga Akuru)
+### 6. Ligated Conjuncts (Sanyoga Akuru)
 Ligated conjuncts are named by dropping the trailing `a` of the first base glyphname and combining it with the second base, capitalising the first letter of the second base.
 
 - `kSsa` — ක්‍ෂ (ka + ssa)
@@ -142,7 +155,7 @@ More complex ligatures formed with ligated conjuncts + signs:
 - `nDrii` — න්‍ද්‍රී (na + Da + raSign + iiSign)
 
 
-### 6. Touching Conjuncts (Bendi Akuru)
+### 7. Touching Conjuncts (Bendi Akuru)
 If touching conjuncts are designed as atomic glyphs, they are named using the `Touch` suffix:
 - `dVaTouch` — ද්ව (touching da + va)
 - `dViTouch` — ද්වි (touching da + va + iSign)

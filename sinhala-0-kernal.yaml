@@ -53,13 +53,13 @@ categories:
       unicode: 0x0D85
     aa:
       unicode: 0x0D86
-      decompose: [a, aa-sign]
+      decompose: [a, aaSign]
     ae:
       unicode: 0x0D87
-      decompose: [a, ae-sign]
+      decompose: [a, aSign]
     aae:
       unicode: 0x0D88
-      decompose: [a, aae-sign]
+      decompose: [a, aaSign]
     i:
       unicode: 0x0D89
     ii:
@@ -68,7 +68,7 @@ categories:
       unicode: 0x0D8B
     uu:
       unicode: 0x0D8C
-      decompose: [u, vocalicL-sign]
+      decompose: [u, vocalicLSign]
     # vocalicR:
     # vocalicRr:
     # vocalicL:
@@ -77,305 +77,324 @@ categories:
       unicode: 0x0D8D
     ee:
       unicode: 0x0D8E
-      decompose: [e, al-sign]
+      decompose: [e, alSign]
     ai:
       unicode: 0x0D8F
-      decompose: [e-sign, e]
+      decompose: [eSign, e]
     o:
       unicode: 0x0D90
     oo:
       unicode: 0x0D91
     au:
       unicode: 0x0D92
-      decompose: [o, vocalicL-sign]
+      decompose: [o, vocalicLSign]
     ka:
       unicode: 0x0D9A
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [va, ssa]
       touch: [ka, kha, ta, ma, na]
     kha:
       unicode: 0x0D9B
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     ga:
       unicode: 0x0D9C
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [dha]
       touch: [ga, gha]
     gha:
       unicode: 0x0D9D
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     # nga:
     ngga:
       unicode: 0x0D9E
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [ga]
       touch: [ngga, ka, ga, gha]
     ca:
       unicode: 0x0D9F
-      signs: [u-sign, uu-sign, rakar-sign, repha-sign]
+      signs: [uSign, uuSign, raSign, rephSign]
       ligate: [ca]
       touch: [ca, cha]
     cha:
       unicode: 0x0DA0
-      signs: [al-sign, i-sign, ii-sign, u-sign, uu-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, uSign, uuSign, raSign, rephSign]
     ja:
       unicode: 0x0DA1
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       touch: [ja, jha]
     jha:
       unicode: 0x0DA2
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     nya:
       unicode: 0x0DA3
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [ca, cha, ja]
       touch: [ca, nya]
     # jnya:
     # nyja:
     tta:
       unicode: 0x0DA4
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [ttha]
       touch: [tta, ttha]
     ttha:
       unicode: 0x0DA5
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     dda:
       unicode: 0x0DA6
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [dha]
       touch: [dda, ddha]
     ddha:
       unicode: 0x0DA7
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     nna:
       unicode: 0x0DA8
-      signs: [al-sign, i-sign, ii-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, rephSign]
       ligate: [dda]
       touch: [nna, dda, ttha, ha]
     nndda:
       unicode: 0x0DA9
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     ta:
       unicode: 0x0DAA
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [tha, va]
       touch: [ta, tha, ma, va]
     tha:
       unicode: 0x0DAB
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     da:
       unicode: 0x0DAC
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [dha, va]
       touch: [da, dha, va]
     dha:
       unicode: 0x0DAD
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     na:
       unicode: 0x0DAE
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [tha, da, dha, va]
       touch: [na, tta, ta, da, dha, tha, va, ha]
     nda:
       unicode: 0x0DAF
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     pa:
       unicode: 0x0DB0
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       touch: [pa, ta, pha, ba, da, ha]
     pha:
       unicode: 0x0DB1
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     ba:
       unicode: 0x0DB2
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [ba]
       touch: [ba, da, bha]
     bha:
       unicode: 0x0DB3
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     ma:
       unicode: 0x0DB4
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       ligate: [ba]
       touch: [ma, ha, pha, ba, va, pa, da, bha]
     mba:
       unicode: 0x0DB5
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     ya:
       unicode: 0x0DB6
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     ra:
       unicode: 0x0DB7
-      signs: [al-sign, i-sign, ii-sign]
+      signs: [alSign, iSign, iiSign]
     la:
       unicode: 0x0DB8
-      signs: [al-sign, i-sign, ii-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, rephSign]
       touch: [la, va]
     va:
       unicode: 0x0DBA
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       touch: [ha]
     sha:
       unicode: 0x0DBB
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       touch: [tta]
     ssa:
       unicode: 0x0DBD
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     sa:
       unicode: 0x0DBE
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       touch: [sa, ta, va]
     ha:
       unicode: 0x0DBF
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
       touch: [ma]
     lla:
       unicode: 0x0DC0
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
     fa:
       unicode: 0x0DC1
-      signs: [al-sign, i-sign, ii-sign, rakar-sign, repha-sign]
+      signs: [alSign, iSign, iiSign, raSign, rephSign]
   Signs:
-    aa-sign: # (aela-pilla)
-    aae-sign: # (diga aeda-pilla)
-    i-sign: #(is-pilla)
-    ae-sign: # (aeda-pilla)
-    ii-sign: #(diga is-pilla)
-    u-sign: #(paa-pilla)
-    uu-sign: #(diga paa-pilla)
-    vocalicR-sign: #(gaetta-pilla)
-    vocalicRr-sign: #(diga gaetta-pilla)
-    vocalicL-sign: #(gayanukitta)
-    vocalicLl-sign: #(diga gayanukitta)
-    e-sign: #(kombuva)
-    ee-sign: #(kombu deka)
-      decompose: [e-sign, e-sign]
-    o-sign: #(kombuva haa aela-pilla)
-    oo-sign: #(kombuva haa diga aela-pilla)
-    au-sign: #(kombuva haa gayanukitta)
-      decompose: [e-sign, vocalicL-sign]
-    al-sign: #(al-lakuna)
-    anusvara:
-    visarga:
-    rakar-sign: #(rakaransaya)
-    yansa-sign: #(yansaya)
-    u-sign.rakar: # (u-sign follwoing rakar)
-    uu-sign.rakar: # (uu-sign follwoing rakar)
-    aa-sign.al: # (diga aela-pilla) # Included for better shaping.
+    aaSign: # ා (aela-pilla)
+      unicode: 0x0DCF
+    aeSign: # ැ (aeda-pilla)
+      unicode: 0x0DD0
+    aaeSign: # ෑ (diga aeda-pilla)
+      unicode: 0x0DD1
+    iSign: # ි (is-pilla)
+      unicode: 0x0DD2
+    iiSign: # ී (diga is-pilla)
+      unicode: 0x0DD3
+    uSign: # ු (paa-pilla)
+      unicode: 0x0DD4
+    uuSign: # ූ (diga paa-pilla)
+      unicode: 0x0DD6
+    eSign: # ෙ (kombuwa)
+      unicode: 0x0DD9
+    eeSign: # ේ (kombu deka)
+      unicode: 0x0DDA
+      decompose: [eSign, eSign]
+    oSign: # ො (kombuwa + aela-pilla)
+      unicode: 0x0DDC
+    ooSign: # ෝ (kombu deka + aela-pilla)
+      unicode: 0x0DDD
+    aiSign: # ෛ (kombu deka + gayanukitta)
+      unicode: 0x0DDB
+    auSign: # ෞ (kombuwa + gaetta-pilla)
+      unicode: 0x0DDE
+      decompose: [eSign, vocalicLSign]
+    alSign: # ් (al-lakuna)
+      unicode: 0x0DCA
+    anusvara: # ං (binduwa)
+      unicode: 0x0D82
+    visarga: # ඃ (visargaya)
+      unicode: 0x0D83
+    raSign: # ්‍ර (rakaransaya)
+    rephSign: # ර්‍ (repaya)
+    yaSign: # ්‍ය (yansaya)
+    uSign.rakar: # ්‍රු (uSign following rakar)
+    uuSign.rakar: # ්‍රූ (uuSign following rakar)
+    ooSign.half: # ෝ් (kombu deka + aela-pilla + al-lakuna)
 
   Ligated consonant conjuncts:
   # kernal set ommits all Ligated consonant conjuncts or සංයෝග අකුරු *sanyoga akuru*
 
   Orthographical conjuncts:
-    # Note: Orthographical Conjunct ligatres are REQUIERD and mandatory to be included in order to produce a functioning Sinhala font.
-    kha-al:
-    ngga-al:
-    ca-al:
-    cha-al:
-    ja-al:
-    jha-al:
-    #jnya-al:
-    #nyja-al:
-    tta-al:
-    ttha-al:
-    dda-al:
-    ddha-al:
-    nndda-al:
-    tha-al:
-    dha-al:
-    pha-al:
-    ba-al:
-    ma-al:
-    mba-al:
-    ra-al:
-    va-al:
+    # Note: Orthographical Conjunct ligatures are REQUIRED and mandatory to be included in order to produce a functioning Sinhala font.
+    # Naming: drop trailing 'a' from base consonant, add sign abbreviation
 
-    # i-sign Ligatures:
-    kha-i:
-    ngga-i:
-    ca-i:
-    cha-i:
-    ja-i:
-    jha-i:
-    #nyja-i:
-    tta-i:
-    ttha-i:
-    dda-i:
-    ddha-i:
-    nndda-i:
-    tha-i:
-    dha-i:
-    pha-i:
-    ba-i:
-    ma-i:
-    mba-i:
-    ra-i:
-    va-i:
+    # alSign Ligatures, pure consonant without inhersnt vowel (al-lakuna):
+    kh: # ඛ්
+    ngg: # ඞ්
+    c: # ච්
+    ch: # ඡ්
+    j: # ජ්
+    jh: # ඣ්
+    #jny:
+    #nyj:
+    tt: # ට්
+    tth: # ඨ්
+    dd: # ඩ්
+    ddh: # ඪ්
+    nndd: # ඬ්
+    th: # ථ්
+    dh: # ධ්
+    ph: # ඵ්
+    b: # බ්
+    m: # ම්
+    mb: # ඹ්
+    r: # ර්
+    v: # ව්
 
-    # ii-sign Ligatures:
-    kha-ii:
-    ngga-ii:
-    ca-ii:
-    cha-ii:
-    ja-ii:
-    jha-ii:
-    #jnya-ii:
-    #nyja-ii:
-    tta-ii:
-    ttha-ii:
-    dda-ii:
-    ddha-ii:
-    nndda-ii:
-    tha-ii:
-    dha-ii:
-    pha-ii:
-    ba-ii:
-    ma-ii:
-    mba-ii:
-    ra-ii:
-    va-ii:
+    # iSign Ligatures (is-pilla):
+    khi: # ඛි
+    nggi: # ඞි
+    ci: # චි
+    chi: # ඡි
+    ji: # ජි
+    jhi: # ඣි
+    #nyji:
+    tti: # ටි
+    tthi: # ඨි
+    ddi: # ඩි
+    ddhi: # ඪි
+    nnddi: # ඬි
+    thi: # ථි
+    dhi: # ධි
+    phi: # ඵි
+    bi: # බි
+    mi: # මි
+    mbi: # ඹි
+    ri: # රි
+    vi: # වි
 
-    # u-sign Ligatures:
-    ka-u:
-    ga-u:
-    ngga-u:
-    nya-u:
-    #nyja-u:
-    ta-u:
-    da-u:
-    nda-u:
-    bha-u:
-    ra-u:
-    la-u:
-    sha-u:
-    lla-u:
+    # iiSign Ligatures (diga is-pilla):
+    khii: # ඛී
+    nggii: # ඞී
+    cii: # චී
+    chii: # ඡී
+    jii: # ජී
+    jhii: # ඣී
+    #jnyii:
+    #nyjii:
+    ttii: # ටී
+    tthii: # ඨී
+    ddii: # ඩී
+    ddhii: # ඪී
+    nnddii: # ඬී
+    thii: # ථී
+    dhii: # ධී
+    phii: # ඵී
+    bii: # බී
+    mii: # මී
+    mbii: # ඹී
+    rii: # රී
+    vii: # වී
 
-    # uu-sign Ligatures:
-    ka-uu:
-    ga-uu:
-    ngga-uu:
-    nya-uu:
-    #jnya-uu:
-    #nyja-uu:
-    ta-uu:
-    da-uu:
-    nda-uu:
-    bha-uu:
-    ra-uu:
-    la-uu:
-    sha-uu:
-    lla-uu:
+    # uSign Ligatures (paa-pilla):
+    ku: # කු
+    gu: # ගු
+    nggu: # ඞු
+    nyu: # ඤු
+    #nyju:
+    tu: # තු
+    du: # දු
+    ndu: # ඳු
+    bhu: # භු
+    ru: # රු
+    lu: # ලු
+    shu: # ශු
+    llu: # ළු
 
-    # Other Ligatures:
-    ra-ae:
-    ra-aae:
-    nya-rakar:
-    #jnya-rakar:
-    #nyja-rakar:
-    da-rakar:
-    nda-rakar:
+    # uuSign Ligatures (diga paa-pilla):
+    kuu: # කූ
+    guu: # ගූ
+    ngguu: # ඞූ
+    nyuu: # ඤූ
+    #jnyuu:
+    #nyjuu:
+    tuu: # තූ
+    duu: # දූ
+    nduu: # ඳූ
+    bhuu: # භූ
+    ruu: # රූ
+    luu: # ලූ
+    shuu: # ශූ
+    lluu: # ළූ
+
+    # aSign Ligatures (aeda-pilla):
+    rae: # රැ
+    raae: # රෑ
+
+    # Rakar Ligatures (rakaransaya):
+    nyra: # ඤ්‍ර
+    #jnyra:
+    #nyjra:
+    dra: # ද්‍ර
+    ndra: # ඳ්‍ර
 
   Typographical conjunct ligatures:
