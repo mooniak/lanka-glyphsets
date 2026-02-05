@@ -255,14 +255,14 @@ categories:
       unicode: 0x0DD6
     eSign: # ෙ (kombuwa)
       unicode: 0x0DD9
-    eeSign: # ේ (kombu deka)
+    eeSign: # ේ (diga kombuwa )
       unicode: 0x0DDA
       decompose: [eSign, eSign]
     oSign: # ො (kombuwa + aela-pilla)
       unicode: 0x0DDC
-    ooSign: # ෝ (kombu deka + aela-pilla)
+    ooSign: # ෝ (kombuwa + diga aela-pilla)
       unicode: 0x0DDD
-    aiSign: # ෛ (kombu deka + gayanukitta)
+    aiSign: # ෛ (kombu deka )
       unicode: 0x0DDB
     auSign: # ෞ (kombuwa + gaetta-pilla)
       unicode: 0x0DDE
