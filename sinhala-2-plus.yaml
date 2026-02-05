@@ -7,26 +7,26 @@ namespace: sinh
 categories:
   Ligated consonant conjuncts:
     # Common ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
-    ka_va: # ක්‍ව
-    ta_tha: # ත්‍ථ
-    ta_va: # ත්‍ව
-    na_tha: # න්‍ථ
-    na_da: # න්‍ද
-    na_dha: # න්‍ධ
+    kVa: # ක්‍ව (ka + va)
+    tTha: # ත්‍ථ (ta + tha)
+    tVa: # ත්‍ව (ta + va)
+    nTha: # න්‍ථ (na + tha)
+    nDa: # න්‍ද (na + da)
+    nDha: # න්‍ධ (na + dha)
 
   Orthographical conjuncts:
     # With modifier signs for each conjunct
-    ka_va-i: # ක්‍වි
-    ka_va-ii: # ක්‍වී
-    ta_tha-i: # ත්‍ථි
-    ta_tha-ii: # ත්‍ථී
-    ta_va-i: # ත්‍වි
-    ta_va-ii: # ත්‍වී
-    na_tha-i: # න්‍ථි
-    na_tha-ii: # න්‍ථී
-    na_da-i: # න්‍දි
-    na_da-ii: # න්‍දී
-    na_dha-i: # න්‍ධි
-    na_dha-ii: # න්‍ධී
+    kVi: # ක්‍වි (kVa + iSign)
+    kVii: # ක්‍වී (kVa + iiSign)
+    tThi: # ත්‍ථි (tTha + iSign)
+    tThii: # ත්‍ථී (tTha + iiSign)
+    tVi: # ත්‍වි (tVa + iSign)
+    tVii: # ත්‍වී (tVa + iiSign)
+    nThi: # න්‍ථි (nTha + iSign)
+    nThii: # න්‍ථී (nTha + iiSign)
+    nDi: # න්‍දි (nDa + iSign)
+    nDii: # න්‍දී (nDa + iiSign)
+    nDhi: # න්‍ධි (nDha + iSign)
+    nDhii: # න්‍ධී (nDha + iiSign)
 
-    na_da-rakar:
+    nDra: # න්‍ද්‍ර (nDa + raSign)

@@ -18,36 +18,38 @@ categories:
     jnya:
 
   Signs:
-    repha-sign: #(repaya)
+    rephSign: # (repaya)
 
   Ligated consonant conjuncts:
     # Essential ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
-    ka_ssa: # ක්‍ෂ - Required orthographical conjunct
+    kSsa: # ක්‍ෂ - Required orthographical conjunct (ka + ssa)
 
   Orthographical conjuncts:
-    jnya-al:
-    jnya-i:
-    jnya-ii:
-    jnya-u:
-    jnya-uu:
-    nyja-al:
-    nyja-i:
-    nyja-ii:
-    nyja-u:
-    nyja-uu:
+    # jnya ligatures
+    jny: # ඥ් (jnya + alSign)
+    jnyi: # ඥි (jnya + iSign)
+    jnyii: # ඥී (jnya + iiSign)
+    jnyu: # ඥු (jnya + uSign)
+    jnyuu: # ඥූ (jnya + uuSign)
+    # nyja ligatures (Note: nyja is formed from nya + ja)
+    nyj: # ඤ්‍ජ් (nyJa + alSign)
+    nyji: # ඤ්‍ජි (nyJa + iSign)
+    nyjii: # ඤ්‍ජී (nyJa + iiSign)
+    nyju: # ඤ්‍ජු (nyJa + uSign)
+    nyjuu: # ඤ්‍ජූ (nyJa + uuSign)
 
   Typographical ligatures:
     # Required ligature glyphs for proper shaping
-    # See attested/requierd shaping list generated from ligatrue data in 0-kernal
-    # al-lakuna ligatrues: base-al
-    # i-sign ligatures : suffix "-i"
-    # signIi ligatures : suffix "-ii"
-    # signU ligatures : suffix "-u"
-    # signUu ligatures : suffix "-uu"
-    # rakar ligatures : suffix "-rakar"
-    # rakar + virama ligatures : "-rakar-al"
-    # rakar + signI ligatures : "-rakar-i"
-    # rakar + signIi ligatures :  "-rakar-ii"
+    # See attested/required shaping list generated from ligature data in 0-kernal
+    # al-lakuna ligatures: base-al
+    # i-sign ligatures: suffix "-i"
+    # signIi ligatures: suffix "-ii"
+    # signU ligatures: suffix "-u"
+    # signUu ligatures: suffix "-uu"
+    # rakar ligatures: suffix "-rakar"
+    # rakar + virama ligatures: "-rakar-al"
+    # rakar + signI ligatures: "-rakar-i"
+    # rakar + signIi ligatures: "-rakar-ii"
 
     # Touching consonant clusters implemented with dist feature
     # These are contextual alternates, not separate glyphs
