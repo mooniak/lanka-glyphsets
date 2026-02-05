@@ -91,7 +91,7 @@ categories:
     ka:
       unicode: 0x0D9A
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [va, ssa]
+      conjunct: [va, ssa]
       touch: [ka, kha, ta, ma, na]
     kha:
       unicode: 0x0D9B
@@ -99,7 +99,7 @@ categories:
     ga:
       unicode: 0x0D9C
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [dha]
+      conjunct: [dha]
       touch: [ga, gha]
     gha:
       unicode: 0x0D9D
@@ -108,12 +108,12 @@ categories:
     ngga:
       unicode: 0x0D9E
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [ga]
+      conjunct: [ga]
       touch: [ngga, ka, ga, gha]
     ca:
       unicode: 0x0D9F
       signs: [uSign, uuSign, raSign, rephSign]
-      ligate: [ca]
+      conjunct: [ca]
       touch: [ca, cha]
     cha:
       unicode: 0x0DA0
@@ -128,14 +128,14 @@ categories:
     nya:
       unicode: 0x0DA3
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [ca, cha, ja]
+      conjunct: [ca, cha, ja]
       touch: [ca, nya]
     # jnya:
     # nyja:
     tta:
       unicode: 0x0DA4
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [ttha]
+      conjunct: [ttha]
       touch: [tta, ttha]
     ttha:
       unicode: 0x0DA5
@@ -143,7 +143,7 @@ categories:
     dda:
       unicode: 0x0DA6
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [dha]
+      conjunct: [dha]
       touch: [dda, ddha]
     ddha:
       unicode: 0x0DA7
@@ -151,7 +151,7 @@ categories:
     nna:
       unicode: 0x0DA8
       signs: [alSign, iSign, iiSign, rephSign]
-      ligate: [dda]
+      conjunct: [dda]
       touch: [nna, dda, ttha, ha]
     nndda:
       unicode: 0x0DA9
@@ -159,7 +159,7 @@ categories:
     ta:
       unicode: 0x0DAA
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [tha, va]
+      conjunct: [tha, va]
       touch: [ta, tha, ma, va]
     tha:
       unicode: 0x0DAB
@@ -167,7 +167,7 @@ categories:
     da:
       unicode: 0x0DAC
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [dha, va]
+      conjunct: [dha, va]
       touch: [da, dha, va]
     dha:
       unicode: 0x0DAD
@@ -175,7 +175,7 @@ categories:
     na:
       unicode: 0x0DAE
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [tha, da, dha, va]
+      conjunct: [tha, da, dha, va]
       touch: [na, tta, ta, da, dha, tha, va, ha]
     nda:
       unicode: 0x0DAF
@@ -190,7 +190,7 @@ categories:
     ba:
       unicode: 0x0DB2
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [ba]
+      conjunct: [ba]
       touch: [ba, da, bha]
     bha:
       unicode: 0x0DB3
@@ -198,7 +198,7 @@ categories:
     ma:
       unicode: 0x0DB4
       signs: [alSign, iSign, iiSign, raSign, rephSign]
-      ligate: [ba]
+      conjunct: [ba]
       touch: [ma, ha, pha, ba, va, pa, da, bha]
     mba:
       unicode: 0x0DB5
