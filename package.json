@@ -1,0 +1,49 @@
+{
+  "name": "lanka-glyphsets",
+  "version": "0.1.0",
+  "description": "Standardized glyph sets and tools for Sinhala font development",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "glyphsets": "dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "cli": "node dist/cli/index.js",
+    "text-glyphs": "node dist/cli/index.js text-glyphs"
+  },
+  "keywords": [
+    "sinhala",
+    "font",
+    "glyphs",
+    "typography",
+    "opentype"
+  ],
+  "author": "Mooniak",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mooniak/lanka-glyphsets"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  }
+}

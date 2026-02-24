@@ -1,5 +1,5 @@
 // sinhala-definitions.js
-// This file contains all Sinhala letter definitions, combinations and exceptions
+// This file contains all Sinhala letter definitions, combinations and exceptions attested and documented by Pushpananda Ekanayake and Pathum Egodawatta.
 // This file can be used independently in other projects
 
 // Original consonants array
