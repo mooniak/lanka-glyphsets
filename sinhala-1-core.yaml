@@ -2,7 +2,7 @@ languages: [Sinhala]
 
 description: The "Mooniak Sinhala Core" glyphset completes the Sinhala Unicode block with required ligatures and touching consonant clusters for professional typography.
 
-namespace: sinh
+namespace: sinh  # suffix convention: glyphs are named as "name-sinh" (e.g. ka-sinh)
 
 categories:
   Punctuation:
@@ -10,15 +10,15 @@ categories:
 
   Letters:
     # Complete Sinhala Unicode block (missing from Kernal)
-    vocalicR:
-    vocalicRr:
-    vocalicL:
-    vocalicLl:
-    nga:
+    vocalicr:
+    vocalicrr:
+    vocalicl:
+    vocalicll:
+    nnga:
     jnya:
 
   Signs:
-    rephSign: # (repaya)
+    repha: # (repaya)
 
   Ligated consonant conjuncts:
     # Essential ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
@@ -26,17 +26,17 @@ categories:
 
   Orthographical conjuncts:
     # jnya ligatures
-    jny: # ඥ් (jnya + alSign)
-    jnyi: # ඥි (jnya + iSign)
-    jnyii: # ඥී (jnya + iiSign)
-    jnyu: # ඥු (jnya + uSign)
-    jnyuu: # ඥූ (jnya + uuSign)
+    jny: # ඥ් (jnya + virama)
+    jnyI: # ඥි (jnya + isign)
+    jnyIi: # ඥී (jnya + iisign)
+    jnyU: # ඥු (jnya + usign)
+    jnyUu: # ඥූ (jnya + uusign)
     # nyja ligatures (Note: nyja is formed from nya + ja)
-    nyj: # ඤ්‍ජ් (nyJa + alSign)
-    nyji: # ඤ්‍ජි (nyJa + iSign)
-    nyjii: # ඤ්‍ජී (nyJa + iiSign)
-    nyju: # ඤ්‍ජු (nyJa + uSign)
-    nyjuu: # ඤ්‍ජූ (nyJa + uuSign)
+    nyj: # ඤ්‍ජ් (nyja + virama)
+    nyjI: # ඤ්‍ජි (nyja + isign)
+    nyjIi: # ඤ්‍ජී (nyja + iisign)
+    nyjU: # ඤ්‍ජු (nyja + usign)
+    nyjUu: # ඤ්‍ජූ (nyja + uusign)
 
   Typographical ligatures:
     # Required ligature glyphs for proper shaping

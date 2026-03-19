@@ -2,7 +2,7 @@ languages: [Sinhala, Pali, Sanskrit]
 
 description: The "Mooniak Sinhala Pro" glyphset provides complete coverage including historical forms, rare conjuncts, and full Pali/Sanskrit support for classical texts.
 
-namespace: sinh
+namespace: sinh  # suffix convention: glyphs are named as "name-sinh" (e.g. ka-sinh)
 
 categories:
   Format controls:
@@ -15,85 +15,83 @@ categories:
     candrabindu:
 
   Sinhala numerals:
-    zerolith:
-    onelith:
-    twolith:
-    threelith:
-    fourlith:
-    fivelith:
-    sixlith:
-    sevenlith:
-    eightlith:
-    ninelith:
-    oneArchaic:
-    twoArchaic:
-    threeArchaic:
-    fourArchaic:
-    fiveArchaic:
-    sixArchaic:
-    sevenArchaic:
-    eightArchaic:
-    nineArchaic:
-    tenArchaic:
-    twentyArchaic:
-    thirtyArchaic:
-    fortyArchaic:
-    fiftyArchaic:
-    sixtyArchaic:
-    seventyArchaic:
-    eightyArchaic:
-    ninetyArchaic:
-    onehundredArchaic:
-    onethousandArchaic:
+    lithzero:
+    lithone:
+    lithtwo:
+    liththree:
+    lithfour:
+    lithfive:
+    lithsix:
+    lithseven:
+    litheight:
+    lithnine:
+    archaicone:
+    archaictwo:
+    archaicthree:
+    archaicfour:
+    archaicfive:
+    archaicsix:
+    archaicseven:
+    archaiceight:
+    archaicnine:
+    archaicten:
+    archaictwenty:
+    archaicthirty:
+    archaicforty:
+    archaicfifty:
+    archaicsixty:
+    archaicseventy:
+    archaiceighty:
+    archaicninety:
+    archaiconehundred:
+    archaiconethousand:
 
   Ligated consonant conjuncts:
     # Rare ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
-    nggDha: # ඞ්‍ධ (ngga + dha)
+    ngDha: # ඞ්‍ධ (nga + dha)
     ttTtha: # ට්‍ඨ (tta + ttha)
     ddDha: # ඩ්‍ධ (dda + dha)
     dVa: # ද්‍ව (da + va)
     nVa: # න්‍ව (na + va)
-    cCa: # ච්‍ච (ca + ca)
     nyCa: # ඤ්‍ච (nya + ca)
     nyCha: # ඤ්‍ඡ (nya + cha)
     nyJa: # ඤ්‍ජ (nya + ja)
     nnDda: # ණ්‍ඩ (nna + dda)
-    bBa: # බ්‍බ (ba + ba)
-    anusvaraSha: # ං + ශ (anusvara + sha)
+    anusvarayaSha: # ං + ශ (anusvaraya + sha)
 
   Stylistic alternates:
     ss01 Da Forms: # Stylistic alternate forms of Da + signs with below-base forms
-      daa.belw: # දා (da + aaSign below-base)
-      daa.half.belw: # දා් (da + aaSign + alSign below-base)
-      dae.belw: # දැ (da + aSign below-base)
-      daae.belw: # දෑ (da + aaeSign below-base)
-      dvocalicR.belw: # ද + vocalicRSign below-base
-      dvocalicRr.belw: # ද + vocalicRrSign below-base
-      dya.belw: # ද්‍ය (da + yaSign below-base)
-      dy.belw: # ද්‍ය් (da + yaSign + alSign below-base)
-      dyaa.belw: # ද්‍යා (da + yaSign + aaSign below-base)
-      dyaa.half.belw: # ද්‍යා් (da + yaSign + aaSign + alSign below-base)
-      dyu.belw: # ද්‍යු (da + yaSign + uSign below-base)
-      dyuu.belw: # ද්‍යූ (da + yaSign + uuSign below-base)
-      nDaa.belw: # න්‍දා (nDa + aaSign below-base)
-      nDaa.half.belw: # න්‍දා් (nDa + aaSign + alSign below-base)
-      nDae.belw: # න්‍දැ (nDa + aSign below-base)
-      nDaae.belw: # න්‍දෑ (nDa + aaeSign below-base)
-      nDvocalicR.belw: # න්‍ද + vocalicRSign below-base
-      nDvocalicRr.belw: # න්‍ද + vocalicRrSign below-base
-      nyaa.belw: # ඤා (nya + aaSign below-base)
-      nyaa.half.belw: # ඤා් (nya + aaSign + alSign below-base)
-      nyae.belw: # ඤැ (nya + aSign below-base)
-      nyaae.belw: # ඤෑ (nya + aaeSign below-base)
-      nyJaa.belw: # ඤ්‍ජා (nyJa + aaSign below-base)
-      nyJaa.half.belw: # ඤ්‍ජා් (nyJa + aaSign + alSign below-base)
-      nyJae.belw: # ඤ්‍ජැ (nyJa + aSign below-base)
-      nyJaae.belw: # ඤ්‍ජෑ (nyJa + aaeSign below-base)
-      draa.belw: # ද්‍රා (da + raSign + aaSign below-base)
-      nDraa.belw: # න්‍ද්‍රා (nDa + raSign + aaSign below-base)
+      daa._c: # දා (da + aasign below-base)
+      daa_virama._c: # දා් (da + aasign + virama below-base)
+      dae._c: # දැ (da + aesign below-base)
+      daae._c: # දෑ (da + aaesign below-base)
+      dvocalicr._c: # ද + vocalicrsign below-base
+      dvocalicrr._c: # ද + vocalicrrsign below-base
+      dya._c: # ද්‍ය (da + yasign below-base)
+      dy._c: # ද්‍ය් (da + yasign + virama below-base)
+      dyaa._c: # ද්‍යා (da + yasign + aasign below-base)
+      dyaa_virama._c: # ද්‍යා් (da + yasign + aasign + virama below-base)
+      dyU._c: # ද්‍යු (da + yasign + usign below-base)
+      dyUu._c: # ද්‍යූ (da + yasign + uusign below-base)
+      nDaa._c: # න්‍දා (nDa + aasign below-base)
+      nDaa_virama._c: # න්‍දා් (nDa + aasign + virama below-base)
+      nDae._c: # න්‍දැ (nDa + aesign below-base)
+      nDaae._c: # න්‍දෑ (nDa + aaesign below-base)
+      nDvocalicr._c: # න්‍ද + vocalicrsign below-base
+      nDvocalicrr._c: # න්‍ද + vocalicrrsign below-base
+      nyaa._c: # ඤා (nya + aasign below-base)
+      nyaa_virama._c: # ඤා් (nya + aasign + virama below-base)
+      nyae._c: # ඤැ (nya + aesign below-base)
+      nyaae._c: # ඤෑ (nya + aaesign below-base)
+      nyJaa._c: # ඤ්‍ජා (nyJa + aasign below-base)
+      nyJaa_virama._c: # ඤ්‍ජා් (nyJa + aasign + virama below-base)
+      nyJae._c: # ඤ්‍ජැ (nyJa + aesign below-base)
+      nyJaae._c: # ඤ්‍ජෑ (nyJa + aaesign below-base)
+      dRaa._c: # ද්‍රා (da + rasign + aasign below-base)
+      nDRaa._c: # න්‍ද්‍රා (nDa + rasign + aasign below-base)
 
     ss02 Fa: # ප+f alternate
-      fa.alt:
+      fa.001:
 
     ss03 Historical forms:
-      eSign.hist: # Historical Kombuwa
+      esign._ui: # Historical Kombuwa
