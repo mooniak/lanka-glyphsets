@@ -11,7 +11,7 @@ export type GlyphsetLevel = 0 | 1 | 2 | 3;
  * Raw YAML glyph metadata as it appears in the definition files
  */
 export interface GlyphMetadata {
-  unicode?: string;
+  unicode?: string | number;
   decompose?: string[];
   signs?: string[];
   conjunct?: string[];

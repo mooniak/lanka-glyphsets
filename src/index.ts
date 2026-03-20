@@ -49,7 +49,6 @@ export {
 
 // Export generators
 export {
-  CONSONANTS,
   VOWEL_SIGNS,
   generateAllGlyphs,
   generateBaseGlyphs,

@@ -13,8 +13,19 @@
  * - C (bare)            → base consonant with inherent vowel (e.g., ka, ta)
  */
 
-import { CONSONANTS, dropTrailingA } from '../generators/consonants.js';
+import { loadGlyphsetsCumulative } from '../core/parser.js';
 import { VOWEL_SIGNS } from '../generators/vowels.js';
+
+function dropTrailingA(name: string): string {
+  return name.endsWith('a') ? name.slice(0, -1) : name;
+}
+
+// Build consonant lookup maps from YAML (level 3 = full coverage)
+// Only include Letters in the consonant Unicode range (0x0D9A–0x0DC6)
+const _consonantGlyphs = loadGlyphsetsCumulative(3).filter(
+  g => g.category === 'Letters' && g.unicode !== undefined &&
+       g.unicode >= 0x0D9A && g.unicode <= 0x0DC6
+);
 
 // Unicode codepoints
 const AL_LAKUNA_CP = 0x0DCA;
@@ -22,10 +33,9 @@ const ZWJ_CP = 0x200D;
 const ANUSVARA_CP = 0x0D82;
 const VISARGA_CP = 0x0D83;
 
-// Build lookup maps from existing definitions
 const CHAR_TO_CONSONANT = new Map<string, string>();
-for (const c of CONSONANTS) {
-  CHAR_TO_CONSONANT.set(c.char, c.name);
+for (const g of _consonantGlyphs) {
+  CHAR_TO_CONSONANT.set(String.fromCodePoint(g.unicode!), g.name);
 }
 
 const SIGN_CHAR_INFO = new Map<string, { name: string; suffix: string }>();
@@ -39,8 +49,8 @@ for (const v of VOWEL_SIGNS) {
 const INDEPENDENT_VOWELS: Record<number, string> = {
   0x0D85: 'a', 0x0D86: 'aa', 0x0D87: 'ae', 0x0D88: 'aae',
   0x0D89: 'i', 0x0D8A: 'ii', 0x0D8B: 'u', 0x0D8C: 'uu',
-  0x0D8D: 'vocalicR', 0x0D8E: 'vocalicRr',
-  0x0D8F: 'vocalicL', 0x0D90: 'vocalicLl',
+  0x0D8D: 'vocalicr', 0x0D8E: 'vocalicrr',
+  0x0D8F: 'vocalicl', 0x0D90: 'vocalicll',
   0x0D91: 'e', 0x0D92: 'ee', 0x0D93: 'ai',
   0x0D94: 'o', 0x0D95: 'oo', 0x0D96: 'au',
 };
@@ -181,7 +191,7 @@ function parseConsonantCluster(chars: string[], startIndex: number): ClusterResu
         // Rakaransaya: C + al + ZWJ + ra
         if (c2Name === 'ra' && c1Name !== 'ra') {
           return finalizeWithOptionalSign(
-            chars, i, dropTrailingA(c1Name) + 'ra', 'rakar',
+            chars, i, dropTrailingA(c1Name) + 'Ra', 'rakar',
             c1 + '්\u200D' + c2
           );
         }
@@ -197,7 +207,7 @@ function parseConsonantCluster(chars: string[], startIndex: number): ClusterResu
         // Repaya: ra + al + ZWJ + C
         if (c1Name === 'ra') {
           const rephOcc: GlyphOccurrence = {
-            name: 'rephSign', type: 'sign',
+            name: 'repha', type: 'sign',
             sequence: c1 + '්\u200D'
           };
           // Continue parsing from c2 as the new base consonant
@@ -226,7 +236,7 @@ function parseConsonantCluster(chars: string[], startIndex: number): ClusterResu
               if (c3Name === 'ra') {
                 // Conjunct + rakaransaya
                 return finalizeWithOptionalSign(
-                  chars, i, dropTrailingA(conjunctBase) + 'ra', 'rakar',
+                  chars, i, dropTrailingA(conjunctBase) + 'Ra', 'rakar',
                   conjunctSeq + '්\u200D' + c3
                 );
               }
@@ -423,8 +433,8 @@ export function getUniqueGlyphNames(text: string): { name: string; type: string 
 
 // Build set of valid consonant bases (consonant name with trailing 'a' dropped)
 const VALID_CONSONANT_BASES = new Set<string>();
-for (const c of CONSONANTS) {
-  VALID_CONSONANT_BASES.add(dropTrailingA(c.name));
+for (const g of _consonantGlyphs) {
+  VALID_CONSONANT_BASES.add(dropTrailingA(g.name));
 }
 
 // Suffix list sorted longest-first for correct matching
@@ -477,19 +487,19 @@ export function getRequiredSigns(text: string): string[] {
         break;
       }
       case 'pure-consonant':
-        signs.add('alSign');
+        signs.add('virama');
         break;
       case 'rakar': {
-        signs.add('raSign');
-        // Rakar names: base + 'ra' (inherent) or base + 'r' + signSuffix
-        if (!occ.name.endsWith('ra')) {
-          const rakarSign = matchCompoundSign(occ.name, 'r');
+        signs.add('rasign');
+        // Rakar names: base + 'Ra' (inherent) or base + 'R' + signSuffix
+        if (!occ.name.endsWith('Ra')) {
+          const rakarSign = matchCompoundSign(occ.name, 'R');
           if (rakarSign) signs.add(rakarSign);
         }
         break;
       }
       case 'yansaya': {
-        signs.add('yaSign');
+        signs.add('yasign');
         // Yansaya names: base + 'ya' (inherent) or base + 'y' + signSuffix
         if (!occ.name.endsWith('ya')) {
           const yaSign = matchCompoundSign(occ.name, 'y');
@@ -498,7 +508,7 @@ export function getRequiredSigns(text: string): string[] {
         break;
       }
       case 'sign':
-        if (occ.name === 'rephSign') signs.add('rephSign');
+        if (occ.name === 'repha') signs.add('repha');
         break;
     }
   }
@@ -518,10 +528,10 @@ export function getRequiredBaseConsonants(text: string): string[] {
       bases.add(occ.name);
     } else if (occ.type === 'consonant-vowel' || occ.type === 'pure-consonant') {
       // Infer base consonant from ligature name
-      for (const c of CONSONANTS) {
-        const base = dropTrailingA(c.name);
+      for (const g of _consonantGlyphs) {
+        const base = dropTrailingA(g.name);
         if (occ.name === base || occ.name.startsWith(base)) {
-          bases.add(c.name);
+          bases.add(g.name);
           break;
         }
       }

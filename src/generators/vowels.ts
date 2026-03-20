@@ -1,58 +1,57 @@
 /**
  * Sinhala vowel sign (pillam) definitions
- * Based on attested data by Pushpananda Ekanayake and Pathum Egodawatta
+ * Character-level data needed for text parsing and Unicode sequence generation.
  */
 
-/** Vowel sign definition */
 export interface VowelSignDef {
   char: string;
   name: string;
-  /** Suffix used when combining with consonants (e.g., 'i' for ki, 'ii' for kii) */
+  /** Suffix used in glyph naming (e.g. 'I' for isign → khI-sinh) */
   suffix: string;
 }
 
 /**
- * Vowel signs (pillam) in order
- * First entry is empty string representing inherent vowel 'a'
+ * Vowel signs (pillam) with their Unicode characters, new-convention names, and naming suffixes.
+ * First entry is the inherent vowel 'a' (no sign character).
  */
 export const VOWEL_SIGNS: VowelSignDef[] = [
-  { char: '', name: 'inherent', suffix: 'a' },      // Inherent vowel (no sign)
-  { char: 'ා', name: 'aaSign', suffix: 'aa' },      // aela-pilla
-  { char: 'ැ', name: 'aeSign', suffix: 'ae' },      // aeda-pilla
-  { char: 'ෑ', name: 'aaeSign', suffix: 'aae' },    // diga aeda-pilla
-  { char: 'ි', name: 'iSign', suffix: 'i' },        // is-pilla
-  { char: 'ී', name: 'iiSign', suffix: 'ii' },      // diga is-pilla
-  { char: 'ු', name: 'uSign', suffix: 'u' },        // paa-pilla
-  { char: 'ූ', name: 'uuSign', suffix: 'uu' },      // diga paa-pilla
-  { char: 'ෘ', name: 'ruSign', suffix: 'ru' },      // gaetta-pilla
-  { char: 'ෙ', name: 'eSign', suffix: 'e' },        // kombuwa
-  { char: 'ේ', name: 'eeSign', suffix: 'ee' },      // diga kombuwa
-  { char: 'ෛ', name: 'aiSign', suffix: 'ai' },      // kombu deka
-  { char: 'ො', name: 'oSign', suffix: 'o' },        // kombuwa + aela-pilla
-  { char: 'ෝ', name: 'ooSign', suffix: 'oo' },      // diga kombuwa + aela-pilla
-  { char: 'ෞ', name: 'auSign', suffix: 'au' },      // kombuwa + gaetta-pilla
-  { char: 'ෟ', name: 'ruuSign', suffix: 'ruu' },    // diga gaetta-pilla
-  { char: '්', name: 'alSign', suffix: '' },        // al-lakuna (virama)
+  { char: '',  name: 'inherent',     suffix: 'a'   }, // Inherent vowel (no sign)
+  { char: 'ා', name: 'aasign',       suffix: 'aa'  }, // aela-pilla
+  { char: 'ැ', name: 'aesign',       suffix: 'ae'  }, // aeda-pilla
+  { char: 'ෑ', name: 'aaesign',      suffix: 'aae' }, // diga aeda-pilla
+  { char: 'ි', name: 'isign',        suffix: 'I'   }, // is-pilla
+  { char: 'ී', name: 'iisign',       suffix: 'Ii'  }, // diga is-pilla
+  { char: 'ු', name: 'usign',        suffix: 'U'   }, // paa-pilla
+  { char: 'ූ', name: 'uusign',       suffix: 'Uu'  }, // diga paa-pilla
+  { char: 'ෘ', name: 'vocalicrsign', suffix: 'Ru'  }, // gaetta-pilla (vocalic r)
+  { char: 'ෙ', name: 'esign',        suffix: 'e'   }, // kombuwa
+  { char: 'ේ', name: 'eesign',       suffix: 'ee'  }, // diga kombuwa
+  { char: 'ෛ', name: 'aisign',       suffix: 'ai'  }, // kombu deka
+  { char: 'ො', name: 'osign',        suffix: 'o'   }, // kombuwa + aela-pilla
+  { char: 'ෝ', name: 'oosign',       suffix: 'oo'  }, // diga kombuwa + aela-pilla
+  { char: 'ෞ', name: 'ausign',       suffix: 'au'  }, // kombuwa + gaetta-pilla
+  { char: 'ෟ', name: 'vocalicrrsign',suffix: 'Ruu' }, // diga gaetta-pilla (vocalic rr)
+  { char: '්', name: 'virama',       suffix: ''    }, // al-lakuna
 ];
 
 /** Special compound signs */
 export const COMPOUND_SIGNS = {
   rakaransaya: '්‍ර',  // al + ZWJ + ra
-  repaya: 'ර්‍',       // ra + al + ZWJ
-  yansaya: '්‍ය',      // al + ZWJ + ya
+  repaya:      'ර්‍',  // ra + al + ZWJ
+  yansaya:     '්‍ය',  // al + ZWJ + ya
 };
 
-/** Map from Unicode character to vowel sign */
+/** Map from Unicode character to vowel sign definition */
 export const VOWEL_SIGN_MAP = new Map<string, VowelSignDef>(
   VOWEL_SIGNS.filter(v => v.char).map(v => [v.char, v])
 );
 
-/** Map from sign name to vowel sign */
+/** Map from sign name to vowel sign definition */
 export const VOWEL_SIGN_NAME_MAP = new Map<string, VowelSignDef>(
   VOWEL_SIGNS.map(v => [v.name, v])
 );
 
-/** Get vowel sign suffix for consonant-vowel ligature naming */
+/** Get the naming suffix for a given sign name */
 export function getVowelSuffix(signName: string): string {
   return VOWEL_SIGN_NAME_MAP.get(signName)?.suffix ?? '';
 }

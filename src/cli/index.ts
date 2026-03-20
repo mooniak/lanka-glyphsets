@@ -9,6 +9,8 @@ import chalk from 'chalk';
 import { createRegistry } from '../core/registry.js';
 import { getUniqueGlyphNames, formatGlyphAnalysis } from '../analyzers/text-glyphs.js';
 import { formatAsTxt, formatAsJson, formatGlyphsAsJson } from '../formatters/txt.js';
+import { formatAsGlyphData } from '../formatters/glyphdata.js';
+import { loadGlyphsetsCumulative } from '../core/parser.js';
 import {
   generateAllGlyphs,
   generateBaseGlyphs,
@@ -17,12 +19,6 @@ import {
   generateConjunctSignCombinations,
   generateTouchingClusters,
   getGeneratedCounts,
-  generateCompleteGlyphs,
-  generateCompleteConsonantCombinations,
-  generateCompleteConjunctCombinations,
-  generateCompleteRakaransayaCombinations,
-  generateCompleteTouchingCombinations,
-  getCompleteGeneratedCounts,
 } from '../generators/index.js';
 import type { GlyphsetLevel, GeneratedGlyph } from '../types/index.js';
 
@@ -266,6 +262,30 @@ program
       console.log(chalk.green(`✓ Written ${count} unique glyph names to ${options.output}`));
     } else {
       console.log(output);
+    }
+  });
+
+program
+  .command('glyph-data')
+  .description('Generate GlyphData.xml for Glyphs app from YAML definitions')
+  .option('-l, --level <number>', 'Glyphset level 0-3 (cumulative)', '3')
+  .option('-o, --output <file>', 'Output file path')
+  .action((options) => {
+    const level = parseInt(options.level, 10) as GlyphsetLevel;
+
+    if (level < 0 || level > 3) {
+      console.error(chalk.red('Error: Level must be between 0 and 3'));
+      process.exit(1);
+    }
+
+    const glyphs = loadGlyphsetsCumulative(level);
+    const xml = formatAsGlyphData(glyphs, 'sinh');
+
+    if (options.output) {
+      writeFileSync(options.output, xml);
+      console.log(chalk.green(`✓ Written ${glyphs.length} glyphs to ${options.output}`));
+    } else {
+      process.stdout.write(xml);
     }
   });
 

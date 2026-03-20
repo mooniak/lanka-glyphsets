@@ -25,8 +25,9 @@ const GLYPHSET_FILES: Record<GlyphsetLevel, string> = {
 /**
  * Parse a unicode hex string (e.g., "0x0D85") to a number
  */
-function parseUnicode(value: string | undefined): number | undefined {
-  if (!value) return undefined;
+function parseUnicode(value: string | number | undefined): number | undefined {
+  if (value === undefined || value === null) return undefined;
+  if (typeof value === 'number') return value;
   if (typeof value === 'string' && value.startsWith('0x')) {
     return parseInt(value, 16);
   }
