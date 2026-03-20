@@ -74,19 +74,19 @@ categories:
     # vocalicl:
     # vocalicll:
     e:
-      unicode: 0x0D8D
+      unicode: 0x0D91
     ee:
-      unicode: 0x0D8E
+      unicode: 0x0D92
       decompose: [e, virama]
     ai:
-      unicode: 0x0D8F
+      unicode: 0x0D93
       decompose: [esign, e]
     o:
-      unicode: 0x0D90
+      unicode: 0x0D94
     oo:
-      unicode: 0x0D91
+      unicode: 0x0D95
     au:
-      unicode: 0x0D92
+      unicode: 0x0D96
       decompose: [o, vocaliclsign]
     ka:
       unicode: 0x0D9A
@@ -110,132 +110,132 @@ categories:
       conjunct: [ga]
       touch: [nga, ka, ga, gha]
     ca:
-      unicode: 0x0D9F
+      unicode: 0x0DA0
       signs: [usign, uusign, rasign, repha]
       conjunct: [ca]
       touch: [ca, cha]
     cha:
-      unicode: 0x0DA0
+      unicode: 0x0DA1
       signs: [virama, isign, iisign, usign, uusign, rasign, repha]
     ja:
-      unicode: 0x0DA1
+      unicode: 0x0DA2
       signs: [virama, isign, iisign, rasign, repha]
       touch: [ja, jha]
     jha:
-      unicode: 0x0DA2
+      unicode: 0x0DA3
       signs: [virama, isign, iisign, rasign, repha]
     nya:
-      unicode: 0x0DA3
+      unicode: 0x0DA4
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [ca, cha, ja]
       touch: [ca, nya]
     # jnya:
     # nyja:
     tta:
-      unicode: 0x0DA4
+      unicode: 0x0DA7
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [ttha]
       touch: [tta, ttha]
     ttha:
-      unicode: 0x0DA5
+      unicode: 0x0DA8
       signs: [virama, isign, iisign, rasign, repha]
     dda:
-      unicode: 0x0DA6
+      unicode: 0x0DA9
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [dha]
       touch: [dda, ddha]
     ddha:
-      unicode: 0x0DA7
+      unicode: 0x0DAA
       signs: [virama, isign, iisign, rasign, repha]
     nna:
-      unicode: 0x0DA8
+      unicode: 0x0DAB
       signs: [virama, isign, iisign, repha]
       conjunct: [dda]
       touch: [nna, dda, ttha, ha]
     nndda:
-      unicode: 0x0DA9
+      unicode: 0x0DAC
       signs: [virama, isign, iisign, rasign, repha]
     ta:
-      unicode: 0x0DAA
+      unicode: 0x0DAD
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [tha, va]
       touch: [ta, tha, ma, va]
     tha:
-      unicode: 0x0DAB
+      unicode: 0x0DAE
       signs: [virama, isign, iisign, rasign, repha]
     da:
-      unicode: 0x0DAC
+      unicode: 0x0DAF
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [dha, va]
       touch: [da, dha, va]
     dha:
-      unicode: 0x0DAD
+      unicode: 0x0DB0
       signs: [virama, isign, iisign, rasign, repha]
     na:
-      unicode: 0x0DAE
+      unicode: 0x0DB1
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [tha, da, dha, va]
       touch: [na, tta, ta, da, dha, tha, va, ha]
     nda:
-      unicode: 0x0DAF
+      unicode: 0x0DB3
       signs: [virama, isign, iisign, rasign, repha]
     pa:
-      unicode: 0x0DB0
+      unicode: 0x0DB4
       signs: [virama, isign, iisign, rasign, repha]
       touch: [pa, ta, pha, ba, da, ha]
     pha:
-      unicode: 0x0DB1
+      unicode: 0x0DB5
       signs: [virama, isign, iisign, rasign, repha]
     ba:
-      unicode: 0x0DB2
+      unicode: 0x0DB6
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [ba]
       touch: [ba, da, bha]
     bha:
-      unicode: 0x0DB3
+      unicode: 0x0DB7
       signs: [virama, isign, iisign, rasign, repha]
     ma:
-      unicode: 0x0DB4
+      unicode: 0x0DB8
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [ba]
       touch: [ma, ha, pha, ba, va, pa, da, bha]
     mba:
-      unicode: 0x0DB5
+      unicode: 0x0DB9
       signs: [virama, isign, iisign, rasign, repha]
     ya:
-      unicode: 0x0DB6
+      unicode: 0x0DBA
       signs: [virama, isign, iisign, rasign, repha]
     ra:
-      unicode: 0x0DB7
+      unicode: 0x0DBB
       signs: [virama, isign, iisign]
     la:
-      unicode: 0x0DB8
+      unicode: 0x0DBD
       signs: [virama, isign, iisign, repha]
       touch: [la, va]
     va:
-      unicode: 0x0DBA
+      unicode: 0x0DC0
       signs: [virama, isign, iisign, rasign, repha]
       touch: [ha]
     sha:
-      unicode: 0x0DBB
+      unicode: 0x0DC1
       signs: [virama, isign, iisign, rasign, repha]
       touch: [tta]
     ssa:
-      unicode: 0x0DBD
+      unicode: 0x0DC2
       signs: [virama, isign, iisign, rasign, repha]
     sa:
-      unicode: 0x0DBE
+      unicode: 0x0DC3
       signs: [virama, isign, iisign, rasign, repha]
       touch: [sa, ta, va]
     ha:
-      unicode: 0x0DBF
+      unicode: 0x0DC4
       signs: [virama, isign, iisign, rasign, repha]
       touch: [ma]
     lla:
-      unicode: 0x0DC0
+      unicode: 0x0DC5
       signs: [virama, isign, iisign, rasign, repha]
     fa:
-      unicode: 0x0DC1
+      unicode: 0x0DC6
       signs: [virama, isign, iisign, rasign, repha]
   Signs:
     aasign: # ා (aela-pilla)
@@ -252,6 +252,8 @@ categories:
       unicode: 0x0DD4
     uusign: # ූ (diga paa-pilla)
       unicode: 0x0DD6
+    vocalicrsign: #
+      unicode: 0x0DD8
     esign: # ෙ (kombuwa)
       unicode: 0x0DD9
     eesign: # ේ (diga kombuwa)

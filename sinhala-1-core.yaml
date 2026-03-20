@@ -11,11 +11,19 @@ categories:
   Letters:
     # Complete Sinhala Unicode block (missing from Kernal)
     vocalicr:
+      unicode: 0x0D8D
     vocalicrr:
+        unicode: 0x0D8E
+        decompose: [ vocalicrr, vocalicrsign]
     vocalicl:
+      unicode: 0x0D8F
     vocalicll:
+      unicode: 0x0D90
+      decompose: [ vocalicl, vocaliclsign ]
     nnga:
+      unicode: 0x0D9F
     jnya:
+      unicode: 0x0DA5
 
   Signs:
     repha: # (repaya)

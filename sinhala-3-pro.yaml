@@ -90,8 +90,10 @@ categories:
       dRaa._c: # ද්‍රා (da + rasign + aasign below-base)
       nDRaa._c: # න්‍ද්‍රා (nDa + rasign + aasign below-base)
 
-    ss02 Fa: # ප+f alternate
-      fa.001:
+  ss02 Fa: # ප+f alternate
+      fPa:
+      fPI:
+      fPIi:
 
-    ss03 Historical forms:
+  ss03 Historical forms:
       esign._ui: # Historical Kombuwa
