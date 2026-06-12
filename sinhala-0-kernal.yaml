@@ -254,6 +254,13 @@ categories:
       unicode: 0x0DD6
     vocalicrsign: #
       unicode: 0x0DD8
+    vocalicllsign:
+      unicode:
+    vocaliclsign:
+      unicode:
+    vocalicrrsign:
+      unicode:
+    vocalicrsign:
     esign: # ෙ (kombuwa)
       unicode: 0x0DD9
     eesign: # ේ (diga kombuwa)

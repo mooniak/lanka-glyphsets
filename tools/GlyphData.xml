@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE glyphData [
+<!ELEMENT glyphData (glyph)+>
+<!ELEMENT glyph EMPTY>
+<!ATTLIST glyph unicode CDATA #IMPLIED>
+<!ATTLIST glyph name CDATA #REQUIRED>
+<!ATTLIST glyph category CDATA #REQUIRED>
+<!ATTLIST glyph subCategory CDATA #IMPLIED>
+<!ATTLIST glyph script CDATA #IMPLIED>
+<!ATTLIST glyph decompose CDATA #IMPLIED>
+]>
+<glyphData>
+  <glyph name="space" category="Separator" script="sinhala"/>
+  <glyph unicode="200D" name="zerowidthjoiner" category="Separator" script="sinhala"/>
+  <glyph name="space" category="Punctuation" script="sinhala"/>
+  <glyph name="exclam" category="Punctuation" script="sinhala"/>
+  <glyph name="quotedbl" category="Punctuation" script="sinhala"/>
+  <glyph name="numbersign" category="Punctuation" script="sinhala"/>
+  <glyph name="percent" category="Punctuation" script="sinhala"/>
+  <glyph name="quotesingle" category="Punctuation" script="sinhala"/>
+  <glyph name="parenleft" category="Punctuation" script="sinhala"/>
+  <glyph name="parenright" category="Punctuation" script="sinhala"/>
+  <glyph name="asterisk" category="Punctuation" script="sinhala"/>
+  <glyph name="plus" category="Punctuation" script="sinhala"/>
+  <glyph name="comma" category="Punctuation" script="sinhala"/>
+  <glyph name="hyphen" category="Punctuation" script="sinhala"/>
+  <glyph name="period" category="Punctuation" script="sinhala"/>
+  <glyph name="slash" category="Punctuation" script="sinhala"/>
+  <glyph name="colon" category="Punctuation" script="sinhala"/>
+  <glyph name="semicolon" category="Punctuation" script="sinhala"/>
+  <glyph name="less" category="Punctuation" script="sinhala"/>
+  <glyph name="equal" category="Punctuation" script="sinhala"/>
+  <glyph name="greater" category="Punctuation" script="sinhala"/>
+  <glyph name="question" category="Punctuation" script="sinhala"/>
+  <glyph name="bracketleft" category="Punctuation" script="sinhala"/>
+  <glyph name="backslash" category="Punctuation" script="sinhala"/>
+  <glyph name="bracketright" category="Punctuation" script="sinhala"/>
+  <glyph name="underscore" category="Punctuation" script="sinhala"/>
+  <glyph name="periodcentered" category="Punctuation" script="sinhala"/>
+  <glyph name="multiply" category="Punctuation" script="sinhala"/>
+  <glyph name="divide" category="Punctuation" script="sinhala"/>
+  <glyph name="endash" category="Punctuation" script="sinhala"/>
+  <glyph name="emdash" category="Punctuation" script="sinhala"/>
+  <glyph name="quoteleft" category="Punctuation" script="sinhala"/>
+  <glyph name="quoteright" category="Punctuation" script="sinhala"/>
+  <glyph name="quotedblleft" category="Punctuation" script="sinhala"/>
+  <glyph name="quotedblright" category="Punctuation" script="sinhala"/>
+  <glyph name="bullet" category="Punctuation" script="sinhala"/>
+  <glyph unicode="0D85" name="a-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D86" name="aa-sinh" category="Letter" script="sinhala" decompose="a-sinh, aasign-sinh"/>
+  <glyph unicode="0D87" name="ae-sinh" category="Letter" script="sinhala" decompose="a-sinh, aesign-sinh"/>
+  <glyph unicode="0D88" name="aae-sinh" category="Letter" script="sinhala" decompose="a-sinh, aaesign-sinh"/>
+  <glyph unicode="0D89" name="i-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D8A" name="ii-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D8B" name="u-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D8C" name="uu-sinh" category="Letter" script="sinhala" decompose="u-sinh, vocaliclsign-sinh"/>
+  <glyph unicode="0D91" name="e-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D92" name="ee-sinh" category="Letter" script="sinhala" decompose="e-sinh, virama-sinh"/>
+  <glyph unicode="0D93" name="ai-sinh" category="Letter" script="sinhala" decompose="esign-sinh, e-sinh"/>
+  <glyph unicode="0D94" name="o-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D95" name="oo-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D96" name="au-sinh" category="Letter" script="sinhala" decompose="o-sinh, vocaliclsign-sinh"/>
+  <glyph unicode="0D9A" name="ka-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0D9B" name="kha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0D9C" name="ga-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0D9D" name="gha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0D9E" name="nga-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DA0" name="ca-sinh" category="Letter" script="sinhala" anchors="usign, uusign, rasign, repha"/>
+  <glyph unicode="0DA1" name="cha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, usign, uusign, rasign, repha"/>
+  <glyph unicode="0DA2" name="ja-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DA3" name="jha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DA4" name="nya-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DA7" name="tta-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DA8" name="ttha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DA9" name="dda-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DAA" name="ddha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DAB" name="nna-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, repha"/>
+  <glyph unicode="0DAC" name="nndda-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DAD" name="ta-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DAE" name="tha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DAF" name="da-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB0" name="dha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB1" name="na-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB3" name="nda-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB4" name="pa-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB5" name="pha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB6" name="ba-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB7" name="bha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB8" name="ma-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DB9" name="mba-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DBA" name="ya-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DBB" name="ra-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign"/>
+  <glyph unicode="0DBD" name="la-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, repha"/>
+  <glyph unicode="0DC0" name="va-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DC1" name="sha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DC2" name="ssa-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DC3" name="sa-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DC4" name="ha-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DC5" name="lla-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DC6" name="fa-sinh" category="Letter" script="sinhala" anchors="virama, isign, iisign, rasign, repha"/>
+  <glyph unicode="0DCF" name="aasign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DD0" name="aesign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DD1" name="aaesign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DD2" name="isign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DD3" name="iisign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DD4" name="usign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DD6" name="uusign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DD8" name="vocalicrsign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DD9" name="esign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DDA" name="eesign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala" decompose="esign-sinh, esign-sinh"/>
+  <glyph unicode="0DDC" name="osign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DDD" name="oosign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DDB" name="aisign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0DDE" name="ausign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala" decompose="esign-sinh, vocaliclsign-sinh"/>
+  <glyph unicode="0DCA" name="virama-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0D82" name="anusvaraya-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph unicode="0D83" name="visargaya-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph name="rasign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph name="repha-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph name="yasign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph name="usign.rasign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph name="uusign.rasign-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph name="kh-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ng-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="c-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ch-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="j-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jh-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tt-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tth-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="dd-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ddh-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nndd-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="th-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="dh-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ph-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="b-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="m-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="mb-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="r-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="v-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="khI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ngI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="cI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="chI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jhI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ttI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tthI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ddI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ddhI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nnddI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="thI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="dhI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="phI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="bI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="mI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="mbI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="rI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="vI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="khIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ngIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="cIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="chIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jhIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ttIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tthIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ddIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ddhIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nnddIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="thIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="dhIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="phIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="bIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="mIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="mbIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="rIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="vIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="kU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="gU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ngU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="dU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ndU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="bhU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="rU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="lU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="shU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="llU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="kUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="gUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ngUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="dUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ndUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="bhUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="rUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="lUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="shUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="llUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="rAe-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="rAae-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyRa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="dRa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nDRa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="kunddaliya-sinh" category="Punctuation" script="sinhala"/>
+  <glyph unicode="0D8D" name="vocalicr-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D8E" name="vocalicrr-sinh" category="Letter" script="sinhala" decompose="vocalicrr-sinh, vocalicrsign-sinh"/>
+  <glyph unicode="0D8F" name="vocalicl-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0D90" name="vocalicll-sinh" category="Letter" script="sinhala" decompose="vocalicl-sinh, vocaliclsign-sinh"/>
+  <glyph unicode="0D9F" name="nnga-sinh" category="Letter" script="sinhala"/>
+  <glyph unicode="0DA5" name="jnya-sinh" category="Letter" script="sinhala"/>
+  <glyph name="repha-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph name="kSsa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jny-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jnyI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jnyIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jnyU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="jnyUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyj-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyjI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyjIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyjU-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyjUu-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="kVa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tTha-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tVa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nTha-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nDa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nDha-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="kV-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="kVI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="kVIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tThI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tThIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tVI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="tVIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nThI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nThIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nDI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nDIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nDhI-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nDhIi-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nDRa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="candrabindu-sinh" category="Mark" subCategory="Nonspacing" script="sinhala"/>
+  <glyph name="lithzero-sinh" category="Number" script="sinhala"/>
+  <glyph name="lithone-sinh" category="Number" script="sinhala"/>
+  <glyph name="lithtwo-sinh" category="Number" script="sinhala"/>
+  <glyph name="liththree-sinh" category="Number" script="sinhala"/>
+  <glyph name="lithfour-sinh" category="Number" script="sinhala"/>
+  <glyph name="lithfive-sinh" category="Number" script="sinhala"/>
+  <glyph name="lithsix-sinh" category="Number" script="sinhala"/>
+  <glyph name="lithseven-sinh" category="Number" script="sinhala"/>
+  <glyph name="litheight-sinh" category="Number" script="sinhala"/>
+  <glyph name="lithnine-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicone-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaictwo-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicthree-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicfour-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicfive-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicsix-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicseven-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaiceight-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicnine-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicten-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaictwenty-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicthirty-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicforty-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicfifty-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicsixty-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicseventy-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaiceighty-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaicninety-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaiconehundred-sinh" category="Number" script="sinhala"/>
+  <glyph name="archaiconethousand-sinh" category="Number" script="sinhala"/>
+  <glyph name="ngDha-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ttTtha-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ddDha-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="dVa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nVa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyCa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyCha-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nyJa-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="nnDda-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="anusvarayaSha-sinh" category="Letter" subCategory="Ligature" script="sinhala"/>
+  <glyph name="ss01 Da Forms-sinh" category="Letter" script="sinhala"/>
+  <glyph name="fPa-sinh" category="Letter" script="sinhala"/>
+  <glyph name="fPI-sinh" category="Letter" script="sinhala"/>
+  <glyph name="fPIi-sinh" category="Letter" script="sinhala"/>
+  <glyph name="esign._ui-sinh" category="Letter" script="sinhala"/>
+</glyphData>

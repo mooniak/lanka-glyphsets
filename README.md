@@ -213,6 +213,64 @@ TODO: Add complex naming examples
 
 ---
 
+## Tamil glyphset
+
+Tamil glyphs use the `-taml` namespace and follow the same naming principles as Sinhala (encode visual forms, join ligatures with the same rules). The full Tamil glyphset, with Unicode values, is defined in `tamil.yaml`.
+
+### 1. Letters
+Independent vowels and consonants keep their plain names: `a-taml` (அ), `ka-taml` (க), `nna-taml` (ண), `na-taml` (ந). The alveolar n ன (U+0BA9) is named `nna2-taml`.
+
+### 2. Vowel signs (Pulli / Matras)
+Vowel signs use the `sign` suffix, as in Sinhala:
+
+- `aasign-taml` — ா (U+0BBE)
+- `isign-taml` — ி (U+0BBF)
+- `iisign-taml` — ீ (U+0BC0)
+- `usign-taml` — ு (U+0BC1)
+- `uusign-taml` — ூ (U+0BC2)
+- `esign-taml` — ெ (U+0BC6)
+- `eesign-taml` — ே (U+0BC7)
+- `aisign-taml` — ை (U+0BC8)
+- `osign-taml` — ொ (U+0BCA)
+- `oosign-taml` — ோ (U+0BCB)
+- `ausign-taml` — ௌ (U+0BCC)
+- `aulengthmark-taml` — ௗ (U+0BD7)
+
+### 3. Special signs
+- `virama-taml` — ் pulli / virama (U+0BCD)
+- `anusvaraya-taml` — ஂ (U+0B82)
+- `visargaya-taml` — ஃ aytham (U+0B83)
+
+### 4. Consonant–vowel ligatures
+Composed by dropping the trailing `a` of the consonant and adding the capitalised sign abbreviation (`I` = isign, `Ii` = iisign, `U` = usign, `Uu` = uusign, `Aa` = aasign, `Ai` = aisign):
+
+- `kI-taml` — கி (ka + isign)
+- `nIi-taml` — நீ (na + iisign)
+- `pU-taml` — பு (pa + usign)
+- `nnAa-taml` — ணா (nna + aasign)
+- `lAi-taml` — லை (la + aisign)
+
+Note: ligatures of `nna2` (ன) keep provisional hyphenated names (`nna2-i-taml`, `nna2-aa-taml`, …) pending a naming decision, since the base has no trailing `a` to drop.
+
+### 5. Ligated conjuncts
+Named by dropping the trailing `a` of the first base and capitalising the first letter of the second base (same rule as Sinhala):
+
+- `kSsa-taml` — க்ஷ (ka + ssa); with signs: `kSsI`, `kSsIi`, `kSsU`, `kSsUu`
+- `shree-taml` — ஶ்ரீ (shri)
+
+### 6. Numerals
+Tamil numerals use plain names: `zero-taml` … `nine-taml` (U+0BE6–0BEF), `ten-taml` (U+0BF0), `hundred-taml` (U+0BF1), `thousand-taml` (U+0BF2).
+
+### 7. Symbols
+- `om-taml` — ௐ (U+0BD0)
+- Calendar / clerical marks use the `sign<name>` form: `signday-taml` (௳), `signmonth-taml` (௴), `signyear-taml` (௵), `signdebit-taml` (௶), `signcredit-taml` (௷), `signasabove-taml` (௸), `signnumber-taml` (௺)
+- `indianrupee-taml` — ௹ Tamil rupee sign (U+0BF9)
+
+### 8. Stylistic alternates
+Alternate sign forms append a dot-suffix before the namespace: `isign.alt1-taml` … `isign.alt7-taml`, `iisign.alt-taml`, `iisign.alt1-taml`, `usign.alt1-taml`, `aisign.alt-taml`.
+
+---
+
 ## CLI Tools
 
 Install dependencies and build:
