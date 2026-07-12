@@ -1,0 +1,4 @@
+{
+  "private": true,
+  "description": "LankaGlyphset name <-> Unicode converter (CommonJS scope for the Node build/test scripts)"
+}

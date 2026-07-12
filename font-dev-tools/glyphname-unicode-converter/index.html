@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LankaGlyphset ⇄ Unicode Converter</title>
+  <style>
+    :root {
+      --primary: #6366f1; --primary-light: #e0e7ff; --primary-dark: #4338ca;
+      --neutral-50: #f8fafc; --neutral-100: #f1f5f9; --neutral-200: #e2e8f0;
+      --neutral-300: #cbd5e1; --neutral-500: #64748b; --neutral-600: #475569;
+      --neutral-700: #334155; --neutral-800: #1e293b; --neutral-900: #0f172a;
+      --green: #16a34a; --green-light: #dcfce7; --amber: #b45309; --amber-light: #fef3c7;
+      --red: #dc2626; --red-light: #fee2e2;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      --font-mono: 'SF Mono', ui-monospace, 'Menlo', 'Consolas', monospace;
+      --radius: 0.5rem;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--neutral-100);
+      color: var(--neutral-800); line-height: 1.5; padding: 1.5rem; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    header { margin-bottom: 1.25rem; }
+    h1 { font-size: 1.5rem; color: var(--neutral-900); font-weight: 650; }
+    header p { color: var(--neutral-600); margin-top: 0.35rem; font-size: 0.92rem; }
+    header code { font-family: var(--font-mono); background: var(--neutral-200);
+      padding: 0.05rem 0.3rem; border-radius: 4px; font-size: 0.85em; }
+
+    .tabs { display: flex; gap: 0.4rem; margin-bottom: 1rem; }
+    .tab { padding: 0.5rem 1rem; border: 1px solid var(--neutral-300); background: #fff;
+      border-radius: var(--radius); cursor: pointer; font-size: 0.9rem; font-weight: 550;
+      color: var(--neutral-600); }
+    .tab.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .io { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+
+    label { font-size: 0.8rem; font-weight: 600; color: var(--neutral-700);
+      text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 0.4rem; }
+    textarea { width: 100%; min-height: 120px; resize: vertical; padding: 0.7rem;
+      border: 1px solid var(--neutral-300); border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: 1rem; background: #fff; }
+    textarea.sinhala { font-size: 1.4rem; line-height: 1.8; }
+    textarea:focus { outline: 2px solid var(--primary-light); border-color: var(--primary); }
+
+    .toolbar { display: flex; align-items: center; gap: 0.6rem; margin: 0.75rem 0; flex-wrap: wrap; }
+    button.act { padding: 0.45rem 0.9rem; border: none; border-radius: var(--radius);
+      background: var(--primary); color: #fff; font-weight: 600; cursor: pointer; font-size: 0.88rem; }
+    button.act.ghost { background: #fff; color: var(--neutral-700); border: 1px solid var(--neutral-300); }
+    button.act:hover { background: var(--primary-dark); }
+    button.act.ghost:hover { background: var(--neutral-100); }
+    .summary { font-size: 0.85rem; color: var(--neutral-600); margin-left: auto; }
+    .summary b { color: var(--neutral-900); }
+
+    table { width: 100%; border-collapse: collapse; background: #fff;
+      border-radius: var(--radius); overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+    th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--neutral-200);
+      font-size: 0.9rem; vertical-align: middle; }
+    th { background: var(--neutral-50); font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.04em; color: var(--neutral-500); }
+    td.glyph { font-size: 1.6rem; text-align: center; width: 3rem; }
+    td.mono, th.mono { font-family: var(--font-mono); font-size: 0.85rem; }
+    td .name { font-family: var(--font-mono); font-weight: 600; color: var(--neutral-900); }
+    td.cp { color: var(--neutral-500); font-family: var(--font-mono); font-size: 0.78rem; }
+    tr.copyable { cursor: pointer; }
+    tr.copyable:hover td { background: var(--primary-light); }
+
+    .badge { display: inline-block; padding: 0.05rem 0.45rem; border-radius: 999px;
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+    .badge.canon { background: var(--green-light); color: var(--green); }
+    .badge.flag { background: var(--amber-light); color: var(--amber); }
+    .badge.err { background: var(--red-light); color: var(--red); }
+    .note { color: var(--neutral-500); font-size: 0.78rem; }
+    .empty { color: var(--neutral-500); padding: 1rem; text-align: center; font-style: italic; }
+    footer { margin-top: 1.5rem; font-size: 0.8rem; color: var(--neutral-500); }
+    #toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+      background: var(--neutral-900); color: #fff; padding: 0.55rem 1rem; border-radius: var(--radius);
+      font-size: 0.85rem; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+    #toast.show { opacity: 0.95; }
+    @media (min-width: 760px) { .io { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>LankaGlyphset ⇄ Unicode Converter</h1>
+      <p>Convert LankaGlyphset glyph names (e.g. <code>kRa-sinh</code>) to their Sinhala Unicode
+        string and back. Paste one entry per line. Enumerated glyphs show their glyphset tier
+        <span class="badge canon">kernal</span>; well-formed names not enumerated in the glyphset
+        are marked <span class="badge flag">derived</span>.</p>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" data-mode="uni2name">Unicode → Name</div>
+      <div class="tab" data-mode="name2uni">Name → Unicode</div>
+    </div>
+
+    <!-- Unicode -> Name -->
+    <div class="panel active" id="panel-uni2name">
+      <label for="in-uni">Sinhala Unicode strings (one per line)</label>
+      <textarea id="in-uni" class="sinhala" placeholder="කි&#10;ක්‍ර&#10;ක්‍ෂ&#10;දා"></textarea>
+      <div class="toolbar">
+        <button class="act ghost" data-sample="uni">Load sample</button>
+        <button class="act ghost" data-copy="names">Copy all names</button>
+        <span class="summary" id="sum-uni"></span>
+      </div>
+      <div id="out-uni"></div>
+    </div>
+
+    <!-- Name -> Unicode -->
+    <div class="panel" id="panel-name2uni">
+      <label for="in-name">LankaGlyphset names (one per line, <code>-sinh</code> optional)</label>
+      <textarea id="in-name" placeholder="kRa-sinh&#10;kSsa-sinh&#10;ka&#10;daa._c-sinh"></textarea>
+      <div class="toolbar">
+        <button class="act ghost" data-sample="name">Load sample</button>
+        <button class="act ghost" data-copy="strings">Copy all strings</button>
+        <span class="summary" id="sum-name"></span>
+      </div>
+      <div id="out-name"></div>
+    </div>
+
+    <footer>
+      Glyphset tiers (<code>kernal · core · plus · pro</code>), Unicode and naming
+      rules follow the LankaGlyphset standard
+      (<code>sinhala-{0-kernal,1-core,2-plus,3-pro}.yaml</code>). Engine:
+      <code>lankaglyphset-map.js</code> (reusable in the browser and Node).
+    </footer>
+  </div>
+  <div id="toast"></div>
+
+  <script src="lankaglyphset-map.js"></script>
+  <script src="converter.js"></script>
+</body>
+</html>

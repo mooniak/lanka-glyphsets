@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -f glyphname-unicode-converter/fm_glyphs.tsv glyphname-unicode-converter/fm_rename_map.tsv glyphname-unicode-converter/fm_rename_report.tsv glyphname-unicode-converter/fm_corpus.js glyphname-unicode-converter/rename_fm_to_lankaglyphset.py glyphname-unicode-converter/build-fm-map.js)",
+      "Bash(rm -f font-processing/rename_to_lankaglyphset.py font-processing/rename_yaldevi_to_lankaglyphset.py font-processing/YaldeviPro_rename_report.tsv 'font-processing/FM Glyph Names .xlsx')"
+    ]
+  }
+}

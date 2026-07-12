@@ -116,3 +116,24 @@ let rakaransayaCombinations = getRakaransayaCombinations();
 
 // Make sure we have consonants first, then conjuncts, then rakaransaya combinations, then touching clusters in the base letters array
 let baseLetters = [...consonants, ...conjuncts, ...rakaransayaCombinations, ...touchingClusters];
+
+// Node/CommonJS interop. Ignored in the browser, where `module` is undefined
+// (this file is loaded via <script src> and its declarations become globals).
+// Lets tools such as generate-glyphnames.js reuse this data without duplicating it.
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    originalConsonants,
+    vowelMarks,
+    compoundSigns,
+    conjunctMap,
+    conjunctPairs,
+    touchingClusterMap,
+    touchingClusterPairs,
+    baseRakaransayaExceptions,
+    rakaransayaExceptions,
+    repayaExceptions,
+    yansayaExceptions,
+    getConjuncts,
+    getTouchingClusters,
+  };
+}
