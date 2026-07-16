@@ -38,6 +38,17 @@ export {
   formatGlyphsAsJson,
 } from './formatters/txt.js';
 
+export {
+  buildSharedData,
+  formatSharedDataAsJson,
+  formatSharedDataAsJsModule,
+} from './formatters/shared-data.js';
+
+export type {
+  SharedData,
+  NamePair,
+} from './formatters/shared-data.js';
+
 // Export analyzers
 export {
   extractGlyphNames,

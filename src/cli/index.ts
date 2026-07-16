@@ -10,6 +10,11 @@ import { createRegistry } from '../core/registry.js';
 import { getUniqueGlyphNames, formatGlyphAnalysis } from '../analyzers/text-glyphs.js';
 import { formatAsTxt, formatAsJson, formatGlyphsAsJson } from '../formatters/txt.js';
 import { formatAsGlyphData } from '../formatters/glyphdata.js';
+import {
+  buildSharedData,
+  formatSharedDataAsJson,
+  formatSharedDataAsJsModule,
+} from '../formatters/shared-data.js';
 import { loadGlyphsetsCumulative } from '../core/parser.js';
 import {
   generateAllGlyphs,
@@ -286,6 +291,49 @@ program
       console.log(chalk.green(`✓ Written ${glyphs.length} glyphs to ${options.output}`));
     } else {
       process.stdout.write(xml);
+    }
+  });
+
+program
+  .command('export-json')
+  .description('Export shared inventory (conjunct/touch maps, letters) for the browser tools')
+  .option('-l, --level <number>', 'Glyphset level 0-3 (cumulative)', '3')
+  .option('-o, --output <file>', 'Output file path')
+  .option('-f, --format <type>', 'Output format: json or js (browser+Node module)', 'json')
+  .action((options) => {
+    const level = parseInt(options.level, 10) as GlyphsetLevel;
+
+    if (level < 0 || level > 3) {
+      console.error(chalk.red('Error: Level must be between 0 and 3'));
+      process.exit(1);
+    }
+
+    // Auto-detect the module format from a .js output path unless overridden.
+    let format = options.format as string;
+    if (!process.argv.includes('-f') && !process.argv.includes('--format') &&
+        options.output && options.output.endsWith('.js')) {
+      format = 'js';
+    }
+    if (format !== 'json' && format !== 'js') {
+      console.error(chalk.red("Error: format must be 'json' or 'js'"));
+      process.exit(1);
+    }
+
+    const glyphs = loadGlyphsetsCumulative(level);
+    const data = buildSharedData(glyphs);
+    const out = format === 'js'
+      ? formatSharedDataAsJsModule(data)
+      : formatSharedDataAsJson(data);
+
+    if (options.output) {
+      writeFileSync(options.output, out);
+      const conj = data.conjunctPairs.length;
+      const touch = data.touchPairs.length;
+      console.log(chalk.green(
+        `✓ Wrote shared data (${conj} conjunct pairs, ${touch} touch pairs) to ${options.output}`
+      ));
+    } else {
+      process.stdout.write(out);
     }
   });
 

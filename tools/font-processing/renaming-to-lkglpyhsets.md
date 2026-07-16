@@ -13,7 +13,7 @@ that script correctly without further context.
   Punctuation and Format-control glyphs carry **no** namespace (`space`, `comma`,
   `kunddaliya`, `zerowidthjoiner`).
 - **Authoritative glyph set + Unicode** lives in the repo-root YAML tiers:
-  `sinhala-0-kernal.yaml` (essential), `sinhala-1-core.yaml`,
+  `sinhala-0-kernel.yaml` (essential), `sinhala-1-core.yaml`,
   `sinhala-2-plus.yaml`, `sinhala-3-pro.yaml`, and `tamil.yaml`. A glyph's key is
   its name; `unicode:` (atomic glyphs only) and `decompose:` are attributes.
 - **Naming rules** (Sinhala; how a cluster's name is formed):

@@ -23,21 +23,18 @@ const rakaransayaExceptions = new Set([
 const repayaExceptions = new Set(["ඤ", "ඬ", "ර", "ක්‍ෂ", "ඞ්‍ග"]);
 const yansayaExceptions = new Set(["ඥ", "ඹ", "ඤ්‍ජ"]);
 
-// Ligated conjunct pairs
-const conjunctMap = {
-  'ක': ['ව', 'ෂ'],
-  'ත': ['ථ', 'ව'],
-  'න': ['ථ', 'ද', 'ධ', 'ව'],
-  'ග': ['ධ'],
-  'ට': ['ඨ'],
-  'ද': ['ධ', 'ව'],
-  'ඞ': ['ග'],
-  'ච': ['ච'],
-  'ඤ': ['ච', 'ඡ', 'ජ'],
-  'ණ': ['ඩ'],
-  'බ': ['බ'],
-  'ම': ['බ']
-};
+// Inventory (conjunct + touching-cluster maps) is generated from the YAML
+// glyphsets — the single source of truth — so it can't drift from the standard.
+// Regenerate with: npm run build && node dist/cli/index.js export-json --format js \
+//   -o tools/_generated/lanka-glyph-data.js
+// Loaded via <script> in the browser (global LankaGlyphData) and via require() in Node.
+const LankaGlyphData =
+  (typeof module !== "undefined" && module.exports)
+    ? require("../_generated/lanka-glyph-data.js")
+    : (typeof globalThis !== "undefined" ? globalThis : window).LankaGlyphData;
+
+// Ligated conjunct pairs (keyed by leading Sinhala character)
+const conjunctMap = LankaGlyphData.conjunctMap;
 
 // Convert the map to pairs
 const conjunctPairs = [];
@@ -47,29 +44,8 @@ Object.entries(conjunctMap).forEach(([first, seconds]) => {
   });
 });
 
-// Touching consonant clusters
-const touchingClusterMap = {
-  'ක': ['ක', 'ඛ', 'ත', 'ම', 'න'],
-  'ග': ['ග', 'ඝ'],
-  'ඞ': ['ඞ', 'ක', 'ග', 'ඝ'],
-  'ච': ['ච', 'ඡ'],
-  'ජ': ['ජ', 'ඣ'],
-  'ඤ': ['ච', 'ඤ'],
-  'ට': ['ට', 'ඨ'],
-  'ඩ': ['ඩ', 'ඪ'],
-  'ණ': ['ණ', 'ඩ', 'ඨ', 'හ'],
-  'ත': ['ත', 'ථ', 'ම', 'ව'],
-  'ද': ['ද', 'ධ', 'ව'],
-  'න': ['න', 'ට', 'ත', 'ද', 'ධ', 'ථ', 'ව', 'හ'],
-  'ප': ['ප', 'ත', 'ඵ', 'බ', 'ද', 'හ'],
-  'බ': ['බ', 'ද', 'භ'],
-  'ම': ['ම', 'හ', 'ඵ', 'බ', 'ව', 'ප', 'ද', 'භ'],
-  'ල': ['ල', 'ව'],
-  'ව': ['හ'],
-  'ශ': ['ට'],
-  'ස': ['ස', 'ත', 'ව'],
-  'හ': ['ම']
-};
+// Touching consonant clusters (keyed by leading Sinhala character)
+const touchingClusterMap = LankaGlyphData.touchingClusterMap;
 
 // Convert the map to pairs
 const touchingClusterPairs = [];

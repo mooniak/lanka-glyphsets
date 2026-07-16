@@ -3,7 +3,7 @@
 A **bidirectional converter** between LankaGlyphset glyph names (`kRa-sinh`,
 `kSsa-sinh`, `daa._c-sinh` …) and the Sinhala **Unicode string** each renders —
 as a browser tool and a reusable JS engine. It implements the naming standard
-defined by the repo-root glyphset YAMLs (`sinhala-{0-kernal,1-core,2-plus,3-pro}.yaml`).
+defined by the repo-root glyphset YAMLs (`sinhala-{0-kernel,1-core,2-plus,3-pro}.yaml`).
 
 This is standard tooling — it is font-agnostic. To migrate a specific font's
 glyph names, see `../font-processing/` for how to author a conversion script on
@@ -17,7 +17,7 @@ Open **`index.html`** in a browser (no server, no build).
   LankaGlyphset name, codepoints and glyphset tier.
 - **Name → Unicode** — paste names (`-sinh` optional), get the Unicode string.
 - Names in the authoritative glyphset show their tier
-  (`kernal`/`core`/`plus`/`pro`); well-formed names not enumerated there are
+  (`kernel`/`core`/`plus`/`pro`); well-formed names not enumerated there are
   marked `derived`. Click any row to copy.
 
 ## The engine — `lankaglyphset-map.js`

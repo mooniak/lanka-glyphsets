@@ -215,7 +215,7 @@ TODO: Add complex naming examples
 
 ## Tamil glyphset
 
-Tamil glyphs use the `-taml` namespace and follow the same naming principles as Sinhala (encode visual forms, join ligatures with the same rules). The full Tamil glyphset, with Unicode values, is defined in `tamil.yaml`.
+Tamil glyphs use the `-taml` namespace and follow the same naming principles as Sinhala (encode visual forms, join ligatures with the same rules). The full Tamil glyphset, with Unicode values, is defined in `glyphsets/tamil.yaml`.
 
 ### 1. Letters
 Independent vowels and consonants keep their plain names: `a-taml` (அ), `ka-taml` (க), `nna-taml` (ண), `na-taml` (ந). The alveolar n ன (U+0BA9) is named `nna2-taml`.

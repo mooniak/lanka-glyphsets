@@ -3,8 +3,8 @@
  * build-glyphset.js
  * =================
  * Regenerate the embedded GLYPHSET table in lankaglyphset-map.js from the
- * authoritative tier YAMLs at the repo root:
- *   sinhala-{0-kernal,1-core,2-plus,3-pro}.yaml
+ * authoritative tier YAMLs in the repo's glyphsets/ directory:
+ *   glyphsets/sinhala-{0-kernel,1-core,2-plus,3-pro}.yaml
  *
  * GLYPHSET maps each full glyph name (with the "-sinh" namespace, except
  * Punctuation / Format controls) to { tier, category, unicode?, decompose? }.
@@ -15,10 +15,11 @@ const fs = require("fs");
 const path = require("path");
 const YAML = require("yaml");
 
-const ROOT = path.resolve(__dirname, "..", "..");
+const ROOT = path.resolve(__dirname, "..", "..", "glyphsets");
 const ENGINE = path.join(__dirname, "lankaglyphset-map.js");
+// [filename, tier label].
 const TIERS = [
-  ["sinhala-0-kernal.yaml", "kernal"], ["sinhala-1-core.yaml", "core"],
+  ["sinhala-0-kernel.yaml", "kernel"], ["sinhala-1-core.yaml", "core"],
   ["sinhala-2-plus.yaml", "plus"], ["sinhala-3-pro.yaml", "pro"]
 ];
 const ATTRS = new Set(["unicode", "decompose", "signs", "conjunct", "touch"]);

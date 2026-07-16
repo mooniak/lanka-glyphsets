@@ -11,12 +11,12 @@ import type { Glyph, GlyphsetDefinition, GlyphsetLevel, GlyphMetadata } from '..
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-/** Path to the project root (where YAML files are located) */
-const PROJECT_ROOT = resolve(__dirname, '..', '..');
+/** Path to the glyphsets directory (where YAML data files are located) */
+const GLYPHSETS_DIR = resolve(__dirname, '..', '..', 'glyphsets');
 
 /** Glyphset file names in order of level */
 const GLYPHSET_FILES: Record<GlyphsetLevel, string> = {
-  0: 'sinhala-0-kernal.yaml',
+  0: 'sinhala-0-kernel.yaml',
   1: 'sinhala-1-core.yaml',
   2: 'sinhala-2-plus.yaml',
   3: 'sinhala-3-pro.yaml',
@@ -46,7 +46,7 @@ export function parseGlyphsetFile(filePath: string): GlyphsetDefinition {
  * Get the file path for a glyphset level
  */
 export function getGlyphsetPath(level: GlyphsetLevel): string {
-  return resolve(PROJECT_ROOT, GLYPHSET_FILES[level]);
+  return resolve(GLYPHSETS_DIR, GLYPHSET_FILES[level]);
 }
 
 /**

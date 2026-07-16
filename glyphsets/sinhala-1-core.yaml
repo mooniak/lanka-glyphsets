@@ -9,7 +9,7 @@ categories:
     kunddaliya: # Sinhala punctuation sign
 
   Letters:
-    # Complete Sinhala Unicode block (missing from Kernal)
+    # Complete Sinhala Unicode block (missing from Kernel)
     vocalicr:
       unicode: 0x0D8D
     vocalicrr:
@@ -48,7 +48,7 @@ categories:
 
   Typographical ligatures:
     # Required ligature glyphs for proper shaping
-    # See attested/required shaping list generated from ligature data in 0-kernal
+    # See attested/required shaping list generated from ligature data in 0-kernel
     # al-lakuna ligatures: base-al
     # i-sign ligatures: suffix "-i"
     # signIi ligatures: suffix "-ii"

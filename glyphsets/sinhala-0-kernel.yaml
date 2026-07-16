@@ -1,6 +1,6 @@
 languages: [Sinhala]
 
-description: The "Mooniak Sinhala Kernal" glyphs set represents the bare-bones essential glyphset necessary for a functional Sinhala font for general use.
+description: The "Mooniak Sinhala Kernel" glyphs set represents the bare-bones essential glyphset necessary for a functional Sinhala font for general use.
 
 namespace: sinh  # suffix convention: glyphs are named as "name-sinh" (e.g. ka-sinh)
 Exclude namespace from: [Format controls, Punctuation]
@@ -260,7 +260,6 @@ categories:
       unicode:
     vocalicrrsign:
       unicode:
-    vocalicrsign:
     esign: # ෙ (kombuwa)
       unicode: 0x0DD9
     eesign: # ේ (diga kombuwa)
@@ -288,7 +287,7 @@ categories:
     uusign.rasign: # ්‍රූ (uusign following rasign)
 
   Ligated consonant conjuncts:
-  # kernal set ommits all Ligated consonant conjuncts or සංයෝග අකුරු *sanyoga akuru*
+  # kernel set ommits all Ligated consonant conjuncts or සංයෝග අකුරු *sanyoga akuru*
 
   Orthographical conjuncts:
     # Note: Orthographical Conjunct ligatures are REQUIRED and mandatory to be included in order to produce a functioning Sinhala font.
