@@ -1,8 +1,11 @@
 {
-  "name": "lanka-glyphsets",
+  "name": "@mooniak/lankaglyphsets",
   "version": "0.1.0",
   "description": "Standardized glyph sets and tools for Sinhala font development",
   "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
