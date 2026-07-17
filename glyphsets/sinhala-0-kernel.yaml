@@ -109,6 +109,9 @@ categories:
       signs: [virama, isign, iisign, rasign, repha]
       conjunct: [ga]
       touch: [nga, ka, ga, gha]
+    nnga:
+      unicode: 0x0D9F
+      signs: [virama, isign, iisign, rasign, repha]
     ca:
       unicode: 0x0DA0
       signs: [usign, uusign, rasign, repha]
@@ -255,11 +258,11 @@ categories:
     vocalicrsign: #
       unicode: 0x0DD8
     vocalicllsign:
-      unicode:
+      unicode: 0x0DF3
     vocaliclsign:
-      unicode:
+      unicode: 0x0DDF
     vocalicrrsign:
-      unicode:
+      unicode: 0x0DF2
     esign: # ෙ (kombuwa)
       unicode: 0x0DD9
     eesign: # ේ (diga kombuwa)

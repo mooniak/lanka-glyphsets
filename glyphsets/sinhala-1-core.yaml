@@ -7,6 +7,7 @@ namespace: sinh  # suffix convention: glyphs are named as "name-sinh" (e.g. ka-s
 categories:
   Punctuation:
     kunddaliya: # Sinhala punctuation sign
+      unicode: 0x0DF4
 
   Letters:
     # Complete Sinhala Unicode block (missing from Kernel)
@@ -20,10 +21,10 @@ categories:
     vocalicll:
       unicode: 0x0D90
       decompose: [ vocalicl, vocaliclsign ]
-    nnga:
-      unicode: 0x0D9F
     jnya:
       unicode: 0x0DA5
+    nyja:
+      unicode: 0x0DA6
 
   Signs:
     repha: # (repaya)
