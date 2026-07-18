@@ -2,7 +2,7 @@
 /**
  * extract-noto.js — mine the Noto Sans Sinhala Glyphs package
  * (docs/NotoSansSinhala.glyphspackage) for its OpenType classes and
- * substitution behaviour, and write docs/noto-sinhala-classes.yaml:
+ * substitution behaviour, and write docs/sinhala.min.yaml:
  * a provenance-tagged reference of how a highly optimised production
  * Sinhala font actually groups bases per mark form.
  *
@@ -20,7 +20,7 @@ const yaml = require('js-yaml');
 
 const HERE = __dirname;
 const PLIST = path.join(HERE, 'docs', 'NotoSansSinhala.glyphspackage', 'fontinfo.plist');
-const OUT = path.join(HERE, 'docs', 'noto-sinhala-classes.yaml');
+const OUT = path.join(HERE, 'docs', 'sinhala.min.yaml');
 const MODEL = path.join(HERE, 'sinhala-design-dependencies.yaml');
 
 const src = fs.readFileSync(PLIST, 'utf8');
@@ -197,4 +197,4 @@ for (const [alt, infos] of Object.entries(systems.i_alternates)) compare(`ි al
 compare('ු FUSED', systems.u_fused, 'ු');
 for (const [alt, infos] of Object.entries(systems.u_alternates)) compare(`ු alt ${alt}`, altChars(infos), 'ු');
 console.log(`\nconjunct composition rules found: ${systems.conjuncts.length}`);
-console.log(`special/reuse rules: ${systems.special.length} (see docs/noto-sinhala-classes.yaml)`);
+console.log(`special/reuse rules: ${systems.special.length} (see docs/sinhala.min.yaml)`);

@@ -39,7 +39,7 @@ meta:
     - "docs/sinhala-shape-groups.yaml — WIP shape taxonomy (superseded where this file disagrees)"
     - "docs/font-developemnt-stages.md — original draft staging"
     - "docs/sinhala-anatomy.md — anatomical vocabulary"
-    - "docs/NotoSansSinhala.glyphspackage — production reference; behavioural classes extracted to docs/noto-sinhala-classes.yaml via extract-noto.js"
+    - "docs/NotoSansSinhala.glyphspackage — production reference; behavioural classes extracted to docs/sinhala.min.yaml via extract-noto.js"
 
 # -----------------------------------------------------------------------------
 # The model: what counts as a dependency, and the rules of the game.
@@ -230,7 +230,7 @@ mark_systems:
       The formerly-unassigned hosts (ම ය ව බ ඛ ධ ණ …) are FUSED-ligature
       hosts in Noto Sans Sinhala (mI-sinh, yI-sinh …): bases whose top
       terminal forces the ි loop to wrap, the same top-terminal logic as the
-      rahena ් form. Modeled as fam-i-term. See docs/noto-sinhala-classes.yaml.
+      rahena ් form. Modeled as fam-i-term. See docs/sinhala.min.yaml.
   papilla:
     mark: ු
     long: ූ
@@ -247,7 +247,7 @@ mark_systems:
     mark: ්
     note: >
       FOUR forms (designer terminology + confirmed by Noto Sans Sinhala's OT
-      behaviour, docs/noto-sinhala-classes.yaml): the default KODIYA flag
+      behaviour, docs/sinhala.min.yaml): the default KODIYA flag
       (ක්), introduced with ් in Stage 3; the RAHENA wrap for bases with a
       TOP TERMINAL (ට ඩ ඬ ච ධ ඛ බ ම ඹ ව ඣ ඞ — fused as one glyph; entry
       hal-rahena); the trap-top alternate (ඨ ඪ ථ ඵ — entry hal-trap); and
@@ -2105,28 +2105,28 @@ gaps:
   - id: i-unassigned-hosts
     text: "RESOLVED via Noto evidence: the formerly-unassigned ි hosts (ම ය ව බ ඛ ධ ණ …) are fused top-terminal wrap hosts — now fam-i-term. Kept here as a record of how the gap was closed (extract-noto.js diff, 2026-07-17)."
   - id: pu-empty
-    text: "The පු group is empty in sinhala-shape-groups.yaml but පු appeared twice in the draft stages. Resolved here as: ප takes REGULAR ු (no special form) — verify."
+    text: "RESOLVED via Noto: ප is in none of Noto's ු-alternate classes (uSignAlt1/2/3) nor its u_fused set, so it takes the DEFAULT ු — no special form. The empty පු group in the source taxonomy was correct; the draft's duplicate පු was spurious."
   - id: du-classification
-    text: "දු is filed under the ග්‍රි (conjunct-ි) group in the source taxonomy. Treated here as its own one-host ු family — verify the intent."
+    text: "RESOLVED via Noto: ද is in Noto's u_fused set (දු = the fused dU glyph), so the model's du-form (its own one-host ු family) is correct. The source taxonomy's filing under the ග්‍රි (conjunct-ි) group was a mis-file — දු concerns ු, not conjunct-ි."
   - id: side-overlaps
-    text: "Source side-families overlap: ධ ච ඩ ඣ in two right groups; ස in two left groups; ර ඊ in two shape groups. Primary assignments chosen here are design decisions to confirm."
+    text: "RESOLVED (confirmed): the source side-family/shape overlaps are settled by the spacing classes — ධ ච ඩ ඣ → R-bowl (with ට), dropped from R-round; ස → L-e (eye-line, its rep), dropped from L-pa; ර ඊ → the ර/diagonal family (R-diag, L-ja), dropped from the ප shape group."
   - id: taxonomy-holes
-    text: "ථ and ඣ belong to no primary shape group in the source; ප is missing from its own group list; ජ ඦ are duplicated in the diagonal element list. ඣ's construction is now modeled via the twin_body element (fused twin bodies, inherited by the Stage 9 conjuncts) — its shape-group slot in the source taxonomy still needs a decision."
+    text: "RESOLVED (confirmed): ථ → trap/එ family (skeleton trap_body, R-trap; Noto phaShapeGroup agrees); ඣ → bowl/ට family (skeleton bowl + twin_body element, R-bowl). Source docs/sinhala-shape-groups.yaml cleaned: ථ added to the එ group, ඣ to the ට group, ප added to its own ප group, and the duplicate ජ/ඦ removed from the diagonal element list."
   - id: density-incomplete
-    text: "Density classes in the source cover ~20 letters; the rest are unclassified. Density is not yet used by this model — encode it when complete."
+    text: "DEFERRED (future work): density is not consumed by the model, and the source classes cover only ~20 letters (high/medium/low). To close: complete the density classification for all bases in docs/sinhala-shape-groups.yaml, then decide whether the model should use density (e.g. as a drill-ordering or contrast-check dimension)."
   - id: level-tags
-    text: "Level tags here are approximate (ඞ confirmed level 0; ඎ ඐ confirmed level 1). Cross-check every tag against glyphsets/*.yaml before using levels as a slice."
+    text: "RESOLVED: every codepoint-bearing glyph was cross-checked against glyphsets/*.yaml — 80/80 now consistent. Fixes: ඥ ඦ ඍ → core and ෟ ෳ → kernel (model tags); ඟ promoted to kernel and ඦ/nyja added to core, plus four blank sign unicodes filled (ෟ ෳ ෲ ෴), in the glyphsets."
   - id: fam-i-pi-source
-    text: "The පි family rows in the source repeat and have no clean i/ii split — membership needs designer confirmation."
+    text: "RESOLVED (confirmed): fam-i-pi is the DEFAULT ි for its hosts ප ෂ — Noto puts neither (nor ක්‍ෂ) in any iVowelAlt class, so no special atomic form is needed. The source row's repeats and ක්‍ෂි were already dropped; membership [ප, ෂ] confirmed."
   - id: ndi-o-forms
-    text: "The ඳි family in the source mixes in ො forms (ඳො ඳ්‍රො) — likely a data error; excluded here."
+    text: "RESOLVED: the ඳි family in the source mixed in ො forms (ඳො ඳ්‍රො) — a data error; those ො forms are excluded from fam-i-ndi here."
   - id: frequency-unmeasured
-    text: "Frequency tags are qualitative. Compute per-stage cumulative corpus coverage to validate stage boundaries."
+    text: "DEFERRED (future work): frequency tags are qualitative. To close: compute per-stage cumulative corpus coverage from a representative Sinhala corpus (the standard texture paragraph is a starting sample) and use it to validate/adjust the Stage-4/6 gate boundaries. Ties into the planned texture_texts integration."
   - id: u-system-noto
-    text: "Noto's ු system is richer than this model: default + THREE contextual alternates (ච ට ථ ඵ ව ම / ඛ ඞ ඨ ඩ ඪ ඬ ධ බ ඹ න ඝ ය ස / ණ ඣ හ) + a larger fused set (ලු ඳු ඤු ඥු beyond our කු-ගු-තු, දු, ළු, රු). Decide per-project which tiers to adopt, then encode them as ු form families here. See docs/noto-sinhala-classes.yaml."
+    text: "RESOLVED (decided): keep the model minimal — default ු + the small fused set (u-special ක ග ත භ ශ ඟ, du-form ද, llu-form ළ). Noto's richer system (extra fused ඤු ඥු ඳු ලු + the alt1/alt2/alt3 contextual tiers) stays documented in docs/sinhala.min.yaml as a per-project opt-in, not folded into the baseline."
   - id: nu-alternate
-    text: "Noto gives නු an alternate ු form (න is in its uSignAlt2 class); this model currently treats නු as regular — verify against the design."
+    text: "RESOLVED (decided): premise confirmed — න IS in Noto's uSignAlt2 class — but per the u-system-noto decision the model keeps නු as the regular ු (contextual alt tiers not adopted into the baseline; available as opt-in in docs/sinhala.min.yaml)."
   - id: aasign-al
-    text: "Noto substitutes ා+් with an aasign.al variant (the ෝ tail) — record whether this model's ෝ composite (ො + ්) matches that construction."
+    text: "RESOLVED (recorded): Noto builds ෝ as esign + aasign.al (a dedicated long-tail ා variant); this model builds ෝ as ො + ් (esign + ා + virama). Both yield the long tail — the model's composite is a valid alternative, no dedicated .al glyph required. For Noto parity, add an aasign.al and point ෝ/ො at it."
   - id: noto-vestigials
-    text: "Noto's iVowelAlt class lists ඟ, but ඟි/ඟී are also fused ligatures which fire first — the class entry is vestigial there. Extraction keeps both; don't copy classes blindly."
+    text: "NOTE (extraction caveat, permanent): Noto's iVowelAlt class lists ඟ, but ඟි/ඟී are also fused ligatures which fire first — the class entry is vestigial there. Extraction keeps both; don't copy classes blindly."

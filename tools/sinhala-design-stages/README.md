@@ -24,8 +24,8 @@ covered.
 | `build.js` | Validator + generator. Checks the graph, validates/generates test texts, writes `index.html` and `stages.json`. |
 | `index.html` | **Generated** visual explainer (Abhaya Libre). Never hand-edit. |
 | `stages.json` | **Generated** machine view for other tools (chart tool, test-string generators, AI agents). |
-| `extract-noto.js` | Mines `docs/NotoSansSinhala.glyphspackage` for its OT classes and substitution behaviour; writes `docs/noto-sinhala-classes.yaml` and prints a diff against the model. |
-| `docs/` | Working sources: the WIP shape-groups/stages/anatomy files, the Noto Sans Sinhala Glyphs package (production reference), and the **generated** `noto-sinhala-classes.yaml`. |
+| `extract-noto.js` | Mines `docs/NotoSansSinhala.glyphspackage` for its OT classes and substitution behaviour; writes `docs/sinhala.min.yaml` and prints a diff against the model. |
+| `docs/` | Working sources: the WIP shape-groups/stages/anatomy files, the Noto Sans Sinhala Glyphs package (production reference), and the **generated** `sinhala.min.yaml`. |
 
 ## Completing the taxonomy against a production font
 
@@ -34,7 +34,7 @@ completing them by intuition, mine a highly optimised production font and
 diff its behaviour against the model:
 
 ```sh
-node extract-noto.js   # regenerates docs/noto-sinhala-classes.yaml + prints the diff
+node extract-noto.js   # regenerates docs/sinhala.min.yaml + prints the diff
 ```
 
 Noto processes every mark through a **three-tier system** — default mark

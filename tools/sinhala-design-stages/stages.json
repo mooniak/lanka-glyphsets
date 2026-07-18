@@ -18,7 +18,7 @@
       "docs/sinhala-shape-groups.yaml — WIP shape taxonomy (superseded where this file disagrees)",
       "docs/font-developemnt-stages.md — original draft staging",
       "docs/sinhala-anatomy.md — anatomical vocabulary",
-      "docs/NotoSansSinhala.glyphspackage — production reference; behavioural classes extracted to docs/noto-sinhala-classes.yaml via extract-noto.js"
+      "docs/NotoSansSinhala.glyphspackage — production reference; behavioural classes extracted to docs/sinhala.min.yaml via extract-noto.js"
     ]
   },
   "stages": [

@@ -2,5 +2,5 @@
 node_modules/
 
 # Third-party production reference font (mined by extract-noto.js).
-# Not vendored — regenerate docs/noto-sinhala-classes.yaml locally instead.
+# Not vendored — regenerate docs/sinhala.min.yaml locally instead.
 docs/NotoSansSinhala.glyphspackage/
