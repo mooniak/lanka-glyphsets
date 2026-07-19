@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # The npm package + the standard's generated artifacts.
+  standard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      # Regenerates every artifact derived from glyphsets/*.yaml and fails if the
+      # committed copies drift, or if the recorded standard versions disagree.
+      - run: npm run check:drift
+
+  # The lankafea (PyPI) package. `pip install` runs setup.py's build_py, which
+  # copies glyphsets/*.yaml into the wheel — so this also exercises the
+  # drift-proof vendoring path end to end.
+  lankafea:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/feature-generator
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -e ".[dev]"
+      - run: pytest -q

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Standardized glyph sets and tools for Sinhala font development",
   "type": "module",
+  "standardVersion": "0.1.0",
   "publishConfig": {
     "access": "public"
   },
@@ -26,7 +27,10 @@
     "dev": "tsc --watch",
     "typecheck": "tsc --noEmit",
     "cli": "node dist/cli/index.js",
-    "text-glyphs": "node dist/cli/index.js text-glyphs"
+    "text-glyphs": "node dist/cli/index.js text-glyphs",
+    "sync": "node scripts/sync-standard.mjs",
+    "check:drift": "node scripts/sync-standard.mjs --check",
+    "prepublishOnly": "npm run check:drift"
   },
   "keywords": [
     "sinhala",

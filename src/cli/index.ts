@@ -27,12 +27,18 @@ import {
 } from '../generators/index.js';
 import type { GlyphsetLevel, GeneratedGlyph } from '../types/index.js';
 
+// Single source of truth for the version — read from package.json so it stays in
+// step with `npm version` bumps instead of being hardcoded here.
+const pkg = JSON.parse(
+  readFileSync(new URL('../../package.json', import.meta.url), 'utf8')
+) as { version: string };
+
 const program = new Command();
 
 program
   .name('glyphsets')
   .description('Lanka Glyphsets CLI - Tools for Sinhala font development')
-  .version('0.1.0');
+  .version(pkg.version);
 
 program
   .command('list')

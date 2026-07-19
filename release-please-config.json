@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "separate-pull-requests": true,
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "@mooniak/lankaglyphsets",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "tools/feature-generator": {
+      "release-type": "python",
+      "package-name": "mnik-lankafea",
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": ["src/lankafea/__init__.py"]
+    }
+  }
+}
