@@ -17,7 +17,7 @@
 #          stay valid.
 #   PATCH  metadata / comment / spelling fix only; no glyph-identity change.
 # ─────────────────────────────────────────────────────────────────────────────
-version: 0.1.0
+version: 0.2.0
 
 # The cumulative Sinhala tiers (each a superset of the one before), plus the
 # independent Tamil set. Loaders read these files by explicit name — this list
