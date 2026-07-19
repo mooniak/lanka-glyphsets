@@ -6,8 +6,8 @@ as a browser tool and a reusable JS engine. It implements the naming standard
 defined by the repo-root glyphset YAMLs (`sinhala-{0-kernel,1-core,2-plus,3-pro}.yaml`).
 
 This is standard tooling — it is font-agnostic. To migrate a specific font's
-glyph names, see `../font-processing/` for how to author a conversion script on
-top of this engine.
+glyph names, see [`docs/adopting-the-standard.md`](../../docs/adopting-the-standard.md)
+for how to author a conversion script on top of this engine.
 
 ## The web tool
 

@@ -16,7 +16,8 @@ that script correctly without further context.
   `sinhala-0-kernel.yaml` (essential), `sinhala-1-core.yaml`,
   `sinhala-2-plus.yaml`, `sinhala-3-pro.yaml`, and `tamil.yaml`. A glyph's key is
   its name; `unicode:` (atomic glyphs only) and `decompose:` are attributes.
-- **Naming rules** (Sinhala; how a cluster's name is formed):
+- **Naming rules** (Sinhala; how a cluster's name is formed — full detail in
+  [naming-standard.md](naming-standard.md)):
 
   | Form | Rule | Example |
   |---|---|---|
@@ -32,7 +33,7 @@ that script correctly without further context.
   | standalone signs | fixed names | ා `aasign`, ් `virama`, ්‍ර `rasign`, ර්‍ `repha`, ්‍ය `yasign`, ං `anusvaraya` |
 
   Full, tested implementations of these rules (both directions) live in
-  `../glyphname-unicode-converter/lankaglyphset-map.js` — **reuse it, don't
+  `tools/glyphname-unicode-converter/lankaglyphset-map.js` — **reuse it, don't
   reimplement.**
 
 ## Two conversion strategies
@@ -57,7 +58,7 @@ old glyph name  →  Unicode string  →  LankaGlyphset name
 ```
 
 ```js
-const L = require("../glyphname-unicode-converter/lankaglyphset-map.js");
+const L = require("lanka-glyphsets/tools/glyphname-unicode-converter/lankaglyphset-map.js");
 L.unicodeToName("ක්‍ර");   // { name: "kRa-sinh", tier: "derived", canonical: false }
 ```
 
@@ -88,6 +89,7 @@ Whichever strategy, apply the rename with a macro that is safe to re-run:
 
 ## Related tooling in this repo
 
-- `../glyphname-unicode-converter/` — the name ⇄ Unicode engine + web UI.
-- `../font-coverage/` — check which orthographic units a built font renders.
-- `../sinhala-glyph-chart/` — visual base × vowel-sign chart / font tester.
+- `tools/glyphname-unicode-converter/` — the name ⇄ Unicode engine + web UI.
+- `tools/font-coverage/` — check which orthographic units a built font renders.
+- `tools/feature-generator/` (lankafea) — Sinhala/Tamil OpenType feature
+  generation + glyph-dependency validation, gated on glyphs actually present.

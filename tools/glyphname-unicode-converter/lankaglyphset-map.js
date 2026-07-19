@@ -9,7 +9,7 @@
  *
  * The naming rules follow the LankaGlyphset standard (glyphset YAMLs at
  *   glyphsets/sinhala-{0-kernel,1-core,2-plus,3-pro}.yaml; see
- *   tools/font-processing/README.md);
+ *   docs/naming-standard.md and docs/adopting-the-standard.md);
  * the codepoint tables mirror tools/font-coverage/font_coverage.py.
  *
  * Pure vanilla JS. Works in the browser (attaches `LankaGlyphset` to the global

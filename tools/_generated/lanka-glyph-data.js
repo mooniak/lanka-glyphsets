@@ -27,6 +27,7 @@
     "ga": "ග",
     "gha": "ඝ",
     "nga": "ඞ",
+    "nnga": "ඟ",
     "ca": "ච",
     "cha": "ඡ",
     "ja": "ජ",
@@ -68,6 +69,9 @@
     "usign": "ු",
     "uusign": "ූ",
     "vocalicrsign": "ෘ",
+    "vocalicllsign": "ෳ",
+    "vocaliclsign": "ෟ",
+    "vocalicrrsign": "ෲ",
     "esign": "ෙ",
     "eesign": "ේ",
     "osign": "ො",
@@ -77,12 +81,13 @@
     "virama": "්",
     "anusvaraya": "ං",
     "visargaya": "ඃ",
+    "kunddaliya": "෴",
     "vocalicr": "ඍ",
     "vocalicrr": "ඎ",
     "vocalicl": "ඏ",
     "vocalicll": "ඐ",
-    "nnga": "ඟ",
-    "jnya": "ඥ"
+    "jnya": "ඥ",
+    "nyja": "ඦ"
   },
   "conjunctPairs": [
     [

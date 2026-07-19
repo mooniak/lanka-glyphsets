@@ -1,11 +1,12 @@
 /**
  * Shared-data formatter
  *
- * Emits the inventory data that the standalone browser tools (sinhala-glyph-chart,
- * glyphname-unicode-converter) need, derived from the YAML glyphsets so that the
- * YAML stays the single authored source of truth. Previously the chart tool
- * hand-maintained this same inventory (conjunct / touching-cluster maps) as a
- * separate copy that could drift.
+ * Emits the inventory data that standalone browser tools need (the
+ * sinhala-font-tools glyph-chart, this repo's glyphname-unicode-converter),
+ * derived from the YAML glyphsets so that the YAML stays the single authored
+ * source of truth. Previously the chart tool hand-maintained this same
+ * inventory (conjunct / touching-cluster maps) as a separate copy that could
+ * drift.
  */
 
 import type { Glyph } from '../types/index.js';

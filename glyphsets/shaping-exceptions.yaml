@@ -1,0 +1,54 @@
+# Shaping exceptions for the Sinhala compound signs rakaransaya (්‍ර), repaya
+# (ර්‍) and yansaya (්‍ය).
+#
+# Each list names the base consonants/ligated-conjuncts for which the
+# compound-sign combination is attested as an EXCEPTION — a form that
+# designers must review individually rather than assume follows the regular
+# composition pattern. This does not mean the combination is invalid; it
+# means it needs deliberate design attention (unusual joining behaviour,
+# rare usage, or a non-default visual form).
+#
+# Source of truth for tools/sinhala-glyph-chart's exception highlighting
+# (previously hardcoded as Sinhala-character arrays in sinhala-definitions.js)
+# and for any future shaping-based coverage verifier — see the "always
+# unverifiable" kernel entries (rakaransaya, yansaya, repaya) noted against
+# tools/sinhala-design-stages' stages.json coverage model.
+#
+# Research and attestation by Pushpananda Ekanayake and Pathum Egodawatta.
+#
+# Regenerate tools/_generated/shaping-exceptions.js after editing this file:
+#   node tools/_generated/build-shaping-exceptions.js
+
+rakaransaya: # ්‍ර — bases where the rakaransaya combination is an exception form
+  - nga-sinh
+  - nnga-sinh
+  - cha-sinh
+  - ja-sinh
+  - nya-sinh
+  - jnya-sinh
+  - ttha-sinh
+  - ddha-sinh
+  - nna-sinh
+  - nndda-sinh
+  - tha-sinh
+  - na-sinh
+  - nda-sinh
+  - pha-sinh
+  - mba-sinh
+  - ya-sinh
+  - ra-sinh
+  - la-sinh
+  - lla-sinh
+  - ngGa-sinh
+
+repaya: # ර්‍ — bases where the repaya combination is an exception form
+  - nya-sinh
+  - nndda-sinh
+  - ra-sinh
+  - kSsa-sinh
+  - ngGa-sinh
+
+yansaya: # ්‍ය — bases where the yansaya combination is an exception form
+  - jnya-sinh
+  - mba-sinh
+  - nyJa-sinh
