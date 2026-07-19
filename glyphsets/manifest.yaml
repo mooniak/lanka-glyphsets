@@ -1,0 +1,31 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# The LankaGlyphset standard — version anchor.
+#
+# This is the version that FONTS and downstream tools pin to. It is the single
+# source of truth for "which version of the standard is this". It is INDEPENDENT
+# of the package versions:
+#   - npm  @mooniak/lankaglyphsets   (package.json  "version")
+#   - PyPI mnik-lankafea             (tools/feature-generator/pyproject.toml)
+# Each package records, and bundles, the standard version it embeds. A change to
+# the naming standard lands here first, then the packages pick it up. See
+# docs/versioning.md.
+#
+# SemVer, with data-specific meaning:
+#   MAJOR  breaking — a glyph is renamed or removed, or a name→unicode mapping
+#          changes. Fonts / tools built against the old version may break.
+#   MINOR  additive — new glyphs or conjuncts added to a tier. Existing fonts
+#          stay valid.
+#   PATCH  metadata / comment / spelling fix only; no glyph-identity change.
+# ─────────────────────────────────────────────────────────────────────────────
+version: 0.2.0
+
+# The cumulative Sinhala tiers (each a superset of the one before), plus the
+# independent Tamil set. Loaders read these files by explicit name — this list
+# is documentation, not a glob source.
+tiers:
+  - sinhala-0-kernel.yaml
+  - sinhala-1-core.yaml
+  - sinhala-2-plus.yaml
+  - sinhala-3-pro.yaml
+scripts:
+  - tamil.yaml

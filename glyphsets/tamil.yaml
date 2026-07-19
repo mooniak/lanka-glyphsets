@@ -1,0 +1,303 @@
+languages: [Tamil]
+
+description: The "Mooniak Tamil" glyphset defines the Tamil coverage for fonts targeting Sri Lankan (and wider) Tamil users, named under the LankaGlyphset standard. Unicode values follow the Tamil block (U+0B80–U+0BFF).
+
+namespace: taml  # suffix convention: glyphs are named as "name-taml" (e.g. ka-taml)
+
+categories:
+  Letters:
+    # Independent vowels
+    a:
+      unicode: 0x0B85
+    aa:
+      unicode: 0x0B86
+    i:
+      unicode: 0x0B87
+    ii:
+      unicode: 0x0B88
+    u:
+      unicode: 0x0B89
+    uu:
+      unicode: 0x0B8A
+    e:
+      unicode: 0x0B8E
+    ee:
+      unicode: 0x0B8F
+    ai:
+      unicode: 0x0B90
+    o:
+      unicode: 0x0B92
+    oo:
+      unicode: 0x0B93
+    au:
+      unicode: 0x0B94
+
+    # Consonants (inherent vowel 'a')
+    ka:
+      unicode: 0x0B95
+    nga:
+      unicode: 0x0B99
+    ca:
+      unicode: 0x0B9A
+    ja:
+      unicode: 0x0B9C
+    nya:
+      unicode: 0x0B9E
+    tta:
+      unicode: 0x0B9F
+    nna:
+      unicode: 0x0BA3
+    ta:
+      unicode: 0x0BA4
+    na:
+      unicode: 0x0BA8
+    nna2:  # alveolar n (ன, U+0BA9). Ligature forms remain provisionally named.
+      unicode: 0x0BA9
+    pa:
+      unicode: 0x0BAA
+    ma:
+      unicode: 0x0BAE
+    ya:
+      unicode: 0x0BAF
+    ra:
+      unicode: 0x0BB0
+    rra:
+      unicode: 0x0BB1
+    la:
+      unicode: 0x0BB2
+    lla:
+      unicode: 0x0BB3
+    zha:
+      unicode: 0x0BB4
+    va:
+      unicode: 0x0BB5
+    sha:
+      unicode: 0x0BB6
+    ssa:
+      unicode: 0x0BB7
+    sa:
+      unicode: 0x0BB8
+    ha:
+      unicode: 0x0BB9
+
+  Signs:
+    # Vowel signs (matras). Named with the "sign" suffix.
+    aasign:  # ா
+      unicode: 0x0BBE
+    isign:  # ி
+      unicode: 0x0BBF
+    iisign:  # ீ
+      unicode: 0x0BC0
+    usign:  # ு
+      unicode: 0x0BC1
+    uusign:  # ூ
+      unicode: 0x0BC2
+    esign:  # ெ
+      unicode: 0x0BC6
+    eesign:  # ே
+      unicode: 0x0BC7
+    aisign:  # ை
+      unicode: 0x0BC8
+    osign:  # ொ
+      unicode: 0x0BCA
+    oosign:  # ோ
+      unicode: 0x0BCB
+    ausign:  # ௌ
+      unicode: 0x0BCC
+    aulengthmark:  # ௗ (au length mark)
+      unicode: 0x0BD7
+
+    # Special signs
+    virama:  # ் (pulli / virama)
+      unicode: 0x0BCD
+    anusvaraya:  # ஂ
+      unicode: 0x0B82
+    visargaya:  # ஃ (aytham)
+      unicode: 0x0B83
+
+  Tamil numerals:
+    zero:
+      unicode: 0x0BE6
+    one:
+      unicode: 0x0BE7
+    two:
+      unicode: 0x0BE8
+    three:
+      unicode: 0x0BE9
+    four:
+      unicode: 0x0BEA
+    five:
+      unicode: 0x0BEB
+    six:
+      unicode: 0x0BEC
+    seven:
+      unicode: 0x0BED
+    eight:
+      unicode: 0x0BEE
+    nine:
+      unicode: 0x0BEF
+    ten:
+      unicode: 0x0BF0
+    hundred:
+      unicode: 0x0BF1
+    thousand:
+      unicode: 0x0BF2
+
+  Tamil symbols:
+    om:  # ௐ
+      unicode: 0x0BD0
+    # Calendar / clerical / currency marks. Named sign<name>; rupee is indianrupee.
+    signday:  # ௳
+      unicode: 0x0BF3
+    signmonth:  # ௴
+      unicode: 0x0BF4
+    signyear:  # ௵
+      unicode: 0x0BF5
+    signdebit:  # ௶
+      unicode: 0x0BF6
+    signcredit:  # ௷
+      unicode: 0x0BF7
+    signasabove:  # ௸
+      unicode: 0x0BF8
+    indianrupee:  # ௹
+      unicode: 0x0BF9
+    signnumber:  # ௺
+      unicode: 0x0BFA
+
+  Ligated consonant conjuncts:
+    # Conjunct naming drops the trailing 'a' of the first base and capitalises
+    # the first letter of the second base (ka + ssa -> kSsa).
+    kSsa:  # க்ஷ (ka + virama + ssa)
+    shree:  # ஶ்ரீ (sha + virama + ra + iisign)
+
+  Required ligature glyphs:
+    # Consonant + vowel-sign ligatures. No own Unicode; produced by shaping.
+    # Naming: drop trailing 'a' of the consonant, add the capitalised sign
+    # abbreviation (I=isign, Ii=iisign, U=usign, Uu=uusign, Aa=aasign, Ai=aisign).
+
+    # isign ligatures:
+    kI:
+    cI:
+    jI:
+    ttI:
+    tI:
+    nI:
+    nnI:
+    nyI:
+    ngI:
+    pI:
+    mI:
+    yI:
+    rI:
+    lI:
+    llI:
+    vI:
+    shI:
+    ssI:
+    sI:
+    hI:
+    zhI:
+    rrI:
+
+    # iisign ligatures:
+    kIi:
+    cIi:
+    jIi:
+    ttIi:
+    tIi:
+    nIi:
+    nnIi:
+    nyIi:
+    ngIi:
+    pIi:
+    mIi:
+    yIi:
+    rIi:
+    lIi:
+    llIi:
+    vIi:
+    shIi:
+    ssIi:
+    sIi:
+    hIi:
+    zhIi:
+    rrIi:
+
+    # usign ligatures:
+    kU:
+    cU:
+    jU:
+    ttU:
+    tU:
+    nU:
+    nnU:
+    nyU:
+    pU:
+    mU:
+    rU:
+    lU:
+    llU:
+    ssU:
+    sU:
+    hU:
+    zhU:
+    rrU:
+
+    # uusign ligatures:
+    kUu:
+    cUu:
+    jUu:
+    ttUu:
+    tUu:
+    nUu:
+    nnUu:
+    nyUu:
+    ngUu:
+    pUu:
+    mUu:
+    yUu:
+    rUu:
+    lUu:
+    llUu:
+    vUu:
+    ssUu:
+    hUu:
+    zhUu:
+    rrUu:
+
+    # aasign / aisign ligatures:
+    nnAa:
+    rrAa:
+    lAi:
+    llAi:
+    nnAi:
+
+    # conjunct + vowel-sign ligatures (from kSsa):
+    kSsI:
+    kSsIi:
+    kSsU:
+    kSsUu:
+
+  Stylistic alternates:
+    # Alternate forms of vowel signs (no Unicode).
+    aisign.alt:
+    isign.alt1:
+    isign.alt2:
+    isign.alt3:
+    isign.alt4:
+    isign.alt5:
+    isign.alt6:
+    isign.alt7:
+    iisign.alt:
+    iisign.alt1:
+    usign.alt1:
+
+  Provisional (unresolved naming):
+    # nna2 (alveolar n, U+0BA9) has no trailing 'a' to drop; its vowel-sign
+    # ligatures keep provisional hyphenated names pending a naming decision.
+    nna2-i:
+    nna2-ii:
+    nna2-u:
+    nna2-uu:
+    nna2-aa:
+    nna2-ai:

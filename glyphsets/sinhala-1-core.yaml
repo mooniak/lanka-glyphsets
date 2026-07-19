@@ -1,0 +1,64 @@
+languages: [Sinhala]
+
+description: The "Mooniak Sinhala Core" glyphset completes the Sinhala Unicode block with required ligatures and touching consonant clusters for professional typography.
+
+namespace: sinh  # suffix convention: glyphs are named as "name-sinh" (e.g. ka-sinh)
+
+categories:
+  Punctuation:
+    kunddaliya: # Sinhala punctuation sign
+      unicode: 0x0DF4
+
+  Letters:
+    # Complete Sinhala Unicode block (missing from Kernel)
+    vocalicr:
+      unicode: 0x0D8D
+    vocalicrr:
+        unicode: 0x0D8E
+        decompose: [ vocalicrr, vocalicrsign]
+    vocalicl:
+      unicode: 0x0D8F
+    vocalicll:
+      unicode: 0x0D90
+      decompose: [ vocalicl, vocaliclsign ]
+    jnya:
+      unicode: 0x0DA5
+    nyja:
+      unicode: 0x0DA6
+
+  Signs:
+    repha: # (repaya)
+
+  Ligated consonant conjuncts:
+    # Essential ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)
+    kSsa: # ක්‍ෂ - Required orthographical conjunct (ka + ssa)
+
+  Orthographical conjuncts:
+    # jnya ligatures
+    jny: # ඥ් (jnya + virama)
+    jnyI: # ඥි (jnya + isign)
+    jnyIi: # ඥී (jnya + iisign)
+    jnyU: # ඥු (jnya + usign)
+    jnyUu: # ඥූ (jnya + uusign)
+    # nyja ligatures (Note: nyja is formed from nya + ja)
+    nyj: # ඤ්‍ජ් (nyja + virama)
+    nyjI: # ඤ්‍ජි (nyja + isign)
+    nyjIi: # ඤ්‍ජී (nyja + iisign)
+    nyjU: # ඤ්‍ජු (nyja + usign)
+    nyjUu: # ඤ්‍ජූ (nyja + uusign)
+
+  Typographical ligatures:
+    # Required ligature glyphs for proper shaping
+    # See attested/required shaping list generated from ligature data in 0-kernel
+    # al-lakuna ligatures: base-al
+    # i-sign ligatures: suffix "-i"
+    # signIi ligatures: suffix "-ii"
+    # signU ligatures: suffix "-u"
+    # signUu ligatures: suffix "-uu"
+    # rakar ligatures: suffix "-rakar"
+    # rakar + virama ligatures: "-rakar-al"
+    # rakar + signI ligatures: "-rakar-i"
+    # rakar + signIi ligatures: "-rakar-ii"
+
+    # Touching consonant clusters implemented with dist feature
+    # These are contextual alternates, not separate glyphs

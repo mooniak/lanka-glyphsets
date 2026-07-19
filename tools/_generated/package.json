@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "type": "commonjs",
+  "description": "Generated data exported from the standard for downstream tools (currently sinhala-font-tools/tools/glyph-chart, which vendors a copy — see that repo's tools/_generated/README.md). CommonJS scope so Node scripts can require() these files and browsers can load them via <script>. Do not edit the generated files by hand — regenerate with `npm run build && node dist/cli/index.js export-json --format js -o tools/_generated/lanka-glyph-data.js` and `node tools/_generated/build-shaping-exceptions.js`."
+}

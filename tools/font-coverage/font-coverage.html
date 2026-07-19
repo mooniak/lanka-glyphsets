@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sinhala Font Coverage</title>
+<style>
+  :root { --bg:#fff; --fg:#1a1a1a; --mut:#666; --line:#e3e3e3;
+    --ok:#0a7d33; --part:#9a6a00; --nofea:#9a3b00; --no:#b00020; --accent:#2b5bd7; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#16181c; --fg:#e9e9e9; --mut:#9aa0a6; --line:#2c2f36;
+      --ok:#46c46b; --part:#e0b34d; --nofea:#ec8b4f; --no:#ff6b81; --accent:#7aa2ff; }
+  }
+  * { box-sizing: border-box; }
+  body { font: 15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.sub { color: var(--mut); margin: 0 0 22px; }
+  #drop { border: 2px dashed var(--line); border-radius: 12px; padding: 40px 20px;
+    text-align: center; color: var(--mut); cursor: pointer; transition: .15s; }
+  #drop.over { border-color: var(--accent); color: var(--fg); background: rgba(120,150,255,.06); }
+  #drop strong { color: var(--fg); }
+  .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    margin: 20px 0 8px; }
+  .controls label { color: var(--mut); font-size: 13px; }
+  select, button { font: inherit; padding: 7px 10px; border: 1px solid var(--line);
+    border-radius: 8px; background: var(--bg); color: var(--fg); cursor: pointer; }
+  button.primary { background: var(--accent); color: #fff; border-color: transparent; }
+  .summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+  .pill { font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); }
+  .pill b { font-variant-numeric: tabular-nums; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line);
+    vertical-align: top; }
+  th { color: var(--mut); font-weight: 600; position: sticky; top: 0; background: var(--bg); }
+  td.seq { font-size: 20px; }
+  td.cp, td.note { color: var(--mut); font: 12px/1.4 ui-monospace,Menlo,monospace; }
+  .tag { font-size: 11px; font-weight: 700; letter-spacing: .03em; padding: 2px 7px;
+    border-radius: 6px; white-space: nowrap; }
+  .SUPPORTED { color: var(--ok); border:1px solid var(--ok); }
+  .PARTIAL { color: var(--part); border:1px solid var(--part); }
+  .GLYPH_PRESENT_NO_FEA { color: var(--nofea); border:1px solid var(--nofea); }
+  .UNSUPPORTED { color: var(--no); border:1px solid var(--no); }
+  .hidden { display: none; }
+  #status { color: var(--mut); margin: 16px 0; }
+  code { font: 12px ui-monospace,monospace; background: rgba(128,128,128,.12);
+    padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sinhala Font Coverage</h1>
+  <p class="sub">Drop a <code>.ttf</code>/<code>.otf</code>/<code>.woff</code> font to see which Sinhala
+    orthographic units it actually renders. Shaped with HarfBuzz, glyph names read with opentype.js.
+    Everything runs locally in your browser.</p>
+
+  <div id="drop">
+    <p><strong>Drop a font here</strong> or click to choose</p>
+    <p style="font-size:13px">Nothing is uploaded — analysis happens on your device.</p>
+    <input id="file" type="file" accept=".ttf,.otf,.woff,.woff2,.ttc" class="hidden">
+  </div>
+
+  <div id="status"></div>
+
+  <div id="result" class="hidden">
+    <div class="controls">
+      <label>Namespace <select id="ns"></select></label>
+      <label>Show <select id="filter">
+        <option value="all">All</option>
+        <option value="SUPPORTED">Supported only</option>
+        <option value="renderable">Renderable (Supported + Partial)</option>
+        <option value="problems">Problems (No-fea + Unsupported)</option>
+      </select></label>
+      <button id="copyTxt">Copy supported</button>
+      <button id="dlTxt">Download supported .txt</button>
+      <button id="dlCsv">Download full .csv</button>
+    </div>
+    <div class="summary" id="summary"></div>
+    <table>
+      <thead><tr><th>Cluster</th><th>Codepoints</th><th>Status</th><th>Detail</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/harfbuzzjs@0.3.6/hbjs.js"></script>
+<script>
+// ---- Sinhala building blocks (mirrors tools/font_coverage.py) ----
+const AL = "්", ZWJ = "‍";
+const INDEPENDENT_VOWELS = {0x0D85:"a",0x0D86:"aa",0x0D87:"ae",0x0D88:"aae",0x0D89:"i",
+  0x0D8A:"ii",0x0D8B:"u",0x0D8C:"uu",0x0D8D:"vocalicr",0x0D8E:"vocalicrr",0x0D8F:"vocalicl",
+  0x0D90:"vocalicll",0x0D91:"e",0x0D92:"ee",0x0D93:"ai",0x0D94:"o",0x0D95:"oo",0x0D96:"au"};
+const CONSONANTS = {0x0D9A:"k",0x0D9B:"kh",0x0D9C:"g",0x0D9D:"gh",0x0D9E:"ng",0x0D9F:"nng",
+  0x0DA0:"c",0x0DA1:"ch",0x0DA2:"j",0x0DA3:"jh",0x0DA4:"ny",0x0DA5:"jny",0x0DA6:"nyj",
+  0x0DA7:"tt",0x0DA8:"tth",0x0DA9:"dd",0x0DAA:"ddh",0x0DAB:"nn",0x0DAC:"nndd",0x0DAD:"t",
+  0x0DAE:"th",0x0DAF:"d",0x0DB0:"dh",0x0DB1:"n",0x0DB3:"nd",0x0DB4:"p",0x0DB5:"ph",0x0DB6:"b",
+  0x0DB7:"bh",0x0DB8:"m",0x0DB9:"mb",0x0DBA:"y",0x0DBB:"r",0x0DBD:"l",0x0DC0:"v",0x0DC1:"sh",
+  0x0DC2:"ss",0x0DC3:"s",0x0DC4:"h",0x0DC5:"ll",0x0DC6:"f"};
+const VOWEL_SIGNS = {0x0DCF:"aa",0x0DD0:"ae",0x0DD1:"aae",0x0DD2:"I",0x0DD3:"Ii",0x0DD4:"U",
+  0x0DD6:"Uu",0x0DD8:"vocalicr",0x0DD9:"e",0x0DDA:"ee",0x0DDB:"ai",0x0DDC:"o",0x0DDD:"oo",
+  0x0DDE:"au",0x0DF2:"vocalicrr",0x0DF3:"vocalicll"};
+
+function builtinCandidates() {
+  const out = [];
+  for (const cp in INDEPENDENT_VOWELS)
+    out.push({name: INDEPENDENT_VOWELS[cp], seq: String.fromCodePoint(+cp), lig: false});
+  for (const ccp in CONSONANTS) {
+    const base = CONSONANTS[ccp], c = String.fromCodePoint(+ccp);
+    out.push({name: base + "a", seq: c, lig: false});
+    out.push({name: base, seq: c + AL, lig: true});
+    for (const scp in VOWEL_SIGNS)
+      out.push({name: base + VOWEL_SIGNS[scp], seq: c + String.fromCodePoint(+scp), lig: true});
+    out.push({name: base + "Ra", seq: c + AL + ZWJ + "ර", lig: true});
+    out.push({name: base + "ya", seq: c + AL + ZWJ + "ය", lig: true});
+  }
+  return out;
+}
+
+// ---- Font probe ----
+let HB = null, state = null;
+
+function expectedNames(name, ns) { return [name + "-" + ns, ns + "." + name, name]; }
+
+function classify(cand, font, hbfont, nameSet, ns) {
+  // shape
+  const buf = HB.createBuffer();
+  buf.addText(cand.seq);
+  buf.guessSegmentProperties();
+  HB.shape(hbfont, buf);
+  const result = buf.json(hbfont); // [{g, cl, ...}]
+  buf.destroy();
+  const gids = result.map(r => r.g);
+  const gnames = gids.map(g => { const gl = font.glyphs.get(g); return (gl && gl.name) || ("gid" + g); });
+
+  if (gids.includes(0)) {
+    const missing = [...cand.seq].filter(ch => {
+      if (ch === ZWJ || ch === AL) return false;
+      return font.charToGlyphIndex(ch) === 0;
+    });
+    const note = missing.length
+      ? "no glyph for: " + missing.map(c => "U+" + c.codePointAt(0).toString(16).toUpperCase().padStart(4,"0")).join(" ")
+      : ".notdef in output";
+    return ["UNSUPPORTED", note, gnames];
+  }
+  if (!cand.lig) return ["SUPPORTED", gids.length + " glyph(s)", gnames];
+
+  const exp = expectedNames(cand.name, ns);
+  if (exp.some(n => gnames.includes(n)))
+    return ["SUPPORTED", "ligature → " + gnames.join("+"), gnames];
+  if (cand.name && exp.some(n => nameSet.has(n)))
+    return ["GLYPH_PRESENT_NO_FEA",
+      "glyph '" + cand.name + "' present but unused; shaped as " + gnames.join("+"), gnames];
+  if (gids.length > 1)
+    return ["PARTIAL", "renders decomposed: " + gnames.join("+"), gnames];
+  return ["SUPPORTED", "→ " + gnames.join("+"), gnames];
+}
+
+async function analyze(buffer) {
+  setStatus("Parsing font…");
+  const font = opentype.parse(buffer);
+  // Build glyph-name set + namespace guess
+  const nameSet = new Set();
+  let nsCounts = {};
+  const n = font.glyphs.length;
+  for (let i = 0; i < n; i++) {
+    const nm = font.glyphs.get(i).name;
+    if (!nm) continue;
+    nameSet.add(nm);
+    const m = nm.match(/-([a-z]{3,5})$/i) || nm.match(/^([a-z]{3,5})\./i);
+    if (m) nsCounts[m[1]] = (nsCounts[m[1]] || 0) + 1;
+  }
+  const guessedNs = Object.keys(nsCounts).sort((a,b)=>nsCounts[b]-nsCounts[a])[0] || "sinh";
+
+  setStatus("Loading HarfBuzz…");
+  const blob = HB.createBlob(new Uint8Array(buffer));
+  const face = HB.createFace(blob, 0);
+  const hbfont = HB.createFont(face);
+
+  state = { font, hbfont, nameSet };
+  // namespace selector
+  const nsSel = document.getElementById("ns");
+  const nsOpts = [...new Set([guessedNs, "sinh"])];
+  nsSel.innerHTML = nsOpts.map(o => `<option ${o===guessedNs?"selected":""}>${o}</option>`).join("");
+  run();
+  document.getElementById("result").classList.remove("hidden");
+  setStatus("");
+}
+
+function run() {
+  const ns = document.getElementById("ns").value;
+  const cands = builtinCandidates();
+  const rows = cands.map(c => {
+    const [status, note, gnames] = classify(c, state.font, state.hbfont, state.nameSet, ns);
+    return { ...c, status, note };
+  });
+  state.rows = rows;
+  render();
+}
+
+function render() {
+  const filt = document.getElementById("filter").value;
+  const groups = {SUPPORTED:[],PARTIAL:[],GLYPH_PRESENT_NO_FEA:[],UNSUPPORTED:[]};
+  state.rows.forEach(r => groups[r.status].push(r));
+  // summary
+  const labels = {SUPPORTED:"Supported",PARTIAL:"Partial",GLYPH_PRESENT_NO_FEA:"Glyph, no fea",UNSUPPORTED:"Unsupported"};
+  document.getElementById("summary").innerHTML = Object.keys(groups).map(k =>
+    `<span class="pill"><span class="tag ${k}">${labels[k]}</span> <b>${groups[k].length}</b></span>`).join("");
+
+  const want = s => filt==="all" || filt===s ||
+    (filt==="renderable" && (s==="SUPPORTED"||s==="PARTIAL")) ||
+    (filt==="problems" && (s==="GLYPH_PRESENT_NO_FEA"||s==="UNSUPPORTED"));
+  const order = ["GLYPH_PRESENT_NO_FEA","PARTIAL","UNSUPPORTED","SUPPORTED"];
+  const rows = state.rows.filter(r => want(r.status))
+    .sort((a,b)=>order.indexOf(a.status)-order.indexOf(b.status));
+  document.getElementById("rows").innerHTML = rows.map(r => {
+    const cps = [...r.seq].map(c => "U+"+c.codePointAt(0).toString(16).toUpperCase().padStart(4,"0")).join(" ");
+    return `<tr><td class="seq">${escapeHtml(r.seq)}</td><td class="cp">${cps}</td>
+      <td><span class="tag ${r.status}">${labels[r.status]}</span></td>
+      <td class="note">${escapeHtml(r.note)}</td></tr>`;
+  }).join("");
+}
+
+function escapeHtml(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+function setStatus(s){document.getElementById("status").textContent = s;}
+function download(name, text){
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([text],{type:"text/plain"}));
+  a.download=name; a.click(); URL.revokeObjectURL(a.href);
+}
+
+// ---- wiring ----
+const drop = document.getElementById("drop"), fileInput = document.getElementById("file");
+drop.onclick = () => fileInput.click();
+fileInput.onchange = e => { if (e.target.files[0]) read(e.target.files[0]); };
+["dragover","dragenter"].forEach(ev => drop.addEventListener(ev, e => {e.preventDefault(); drop.classList.add("over");}));
+["dragleave","drop"].forEach(ev => drop.addEventListener(ev, e => {e.preventDefault(); drop.classList.remove("over");}));
+drop.addEventListener("drop", e => { const f = e.dataTransfer.files[0]; if (f) read(f); });
+document.getElementById("filter").onchange = render;
+document.getElementById("ns").onchange = run;
+document.getElementById("copyTxt").onclick = async (e) => {
+  const text = state.rows.filter(r=>r.status==="SUPPORTED").map(r=>r.seq).join("\n");
+  try { await navigator.clipboard.writeText(text); }
+  catch { const t=document.createElement("textarea"); t.value=text; document.body.appendChild(t);
+    t.select(); document.execCommand("copy"); t.remove(); }
+  const b=e.target, o=b.textContent; b.textContent="Copied ✓";
+  setTimeout(()=>b.textContent=o, 1200);
+};
+document.getElementById("dlTxt").onclick = () =>
+  download("supported.txt", state.rows.filter(r=>r.status==="SUPPORTED").map(r=>r.seq).join("\n")+"\n");
+document.getElementById("dlCsv").onclick = () =>
+  download("font-coverage.csv", "sequence,codepoints,status,note\n" + state.rows.map(r=>{
+    const cps=[...r.seq].map(c=>"U+"+c.codePointAt(0).toString(16).toUpperCase().padStart(4,"0")).join(" ");
+    return [r.seq,cps,r.status,r.note].map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(",");
+  }).join("\n")+"\n");
+
+function read(file){
+  setStatus("Reading "+file.name+"…");
+  const r=new FileReader();
+  r.onload = () => analyze(r.result).catch(err=>{setStatus("Error: "+err.message); console.error(err);});
+  r.readAsArrayBuffer(file);
+}
+
+// init HarfBuzz wasm
+setStatus("Loading shaping engine…");
+fetch("https://cdn.jsdelivr.net/npm/harfbuzzjs@0.3.6/hb.wasm")
+  .then(r => r.arrayBuffer())
+  .then(b => WebAssembly.instantiate(b, {}))
+  .then(res => { HB = hbjs(res.instance); setStatus("Ready — drop a font to begin."); })
+  .catch(err => setStatus("Failed to load HarfBuzz: " + err.message));
+</script>
+</body>
+</html>

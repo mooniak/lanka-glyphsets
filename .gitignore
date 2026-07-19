@@ -1,2 +1,11 @@
 *.idlk
 .DS_Store
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.idea/
+*.swp
+*.swo

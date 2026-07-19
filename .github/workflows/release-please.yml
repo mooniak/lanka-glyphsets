@@ -1,0 +1,30 @@
+name: release-please
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TIER 2 — STAGED, NOT YET ACTIVE.
+# This job is a no-op until you opt in by creating a repository variable:
+#   Settings → Secrets and variables → Actions → Variables →
+#     ENABLE_RELEASE_PLEASE = true
+# Once enabled, every push to main that contains Conventional Commits opens (or
+# updates) a release PR per package, bumping versions + writing CHANGELOGs.
+# Merging that PR tags the release. Publishing to npm/PyPI is a separate step —
+# see docs/versioning.md → "Enabling Tier 2".
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    if: ${{ vars.ENABLE_RELEASE_PLEASE == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json

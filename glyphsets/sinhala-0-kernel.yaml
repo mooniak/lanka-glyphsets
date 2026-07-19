@@ -1,0 +1,409 @@
+languages: [Sinhala]
+
+description: The "Mooniak Sinhala Kernel" glyphs set represents the bare-bones essential glyphset necessary for a functional Sinhala font for general use.
+
+namespace: sinh  # suffix convention: glyphs are named as "name-sinh" (e.g. ka-sinh)
+Exclude namespace from: [Format controls, Punctuation]
+
+categories:
+  Format controls:
+    space:
+    zerowidthjoiner: # Required special character for shaping connected forms.
+      unicode: 0x200D
+
+  Punctuation:
+    # Base glyphs out of Sinhala namespace
+    space:
+    exclam:
+    quotedbl:
+    numbersign:
+    percent:
+    quotesingle:
+    parenleft:
+    parenright:
+    asterisk:
+    plus:
+    comma:
+    hyphen:
+    period:
+    slash:
+    colon:
+    semicolon:
+    less:
+    equal:
+    greater:
+    question:
+    bracketleft:
+    backslash:
+    bracketright:
+    underscore:
+    periodcentered:
+    multiply:
+    divide:
+    endash:
+    emdash:
+    quoteleft:
+    quoteright:
+    quotedblleft:
+    quotedblright:
+    bullet:
+
+  Letters:
+    a:
+      unicode: 0x0D85
+    aa:
+      unicode: 0x0D86
+      decompose: [a, aasign]
+    ae:
+      unicode: 0x0D87
+      decompose: [a, aesign]
+    aae:
+      unicode: 0x0D88
+      decompose: [a, aaesign]
+    i:
+      unicode: 0x0D89
+    ii:
+      unicode: 0x0D8A
+    u:
+      unicode: 0x0D8B
+    uu:
+      unicode: 0x0D8C
+      decompose: [u, vocaliclsign]
+    # vocalicr:
+    # vocalicrr:
+    # vocalicl:
+    # vocalicll:
+    e:
+      unicode: 0x0D91
+    ee:
+      unicode: 0x0D92
+      decompose: [e, virama]
+    ai:
+      unicode: 0x0D93
+      decompose: [esign, e]
+    o:
+      unicode: 0x0D94
+    oo:
+      unicode: 0x0D95
+    au:
+      unicode: 0x0D96
+      decompose: [o, vocaliclsign]
+    ka:
+      unicode: 0x0D9A
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [va, ssa]
+      touch: [ka, kha, ta, ma, na]
+    kha:
+      unicode: 0x0D9B
+      signs: [virama, isign, iisign, rasign, repha]
+    ga:
+      unicode: 0x0D9C
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [dha]
+      touch: [ga, gha]
+    gha:
+      unicode: 0x0D9D
+      signs: [virama, isign, iisign, rasign, repha]
+    nga:
+      unicode: 0x0D9E
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [ga]
+      touch: [nga, ka, ga, gha]
+    nnga:
+      unicode: 0x0D9F
+      signs: [virama, isign, iisign, rasign, repha]
+    ca:
+      unicode: 0x0DA0
+      signs: [usign, uusign, rasign, repha]
+      conjunct: [ca]
+      touch: [ca, cha]
+    cha:
+      unicode: 0x0DA1
+      signs: [virama, isign, iisign, usign, uusign, rasign, repha]
+    ja:
+      unicode: 0x0DA2
+      signs: [virama, isign, iisign, rasign, repha]
+      touch: [ja, jha]
+    jha:
+      unicode: 0x0DA3
+      signs: [virama, isign, iisign, rasign, repha]
+    nya:
+      unicode: 0x0DA4
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [ca, cha, ja]
+      touch: [ca, nya]
+    # jnya:
+    # nyja:
+    tta:
+      unicode: 0x0DA7
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [ttha]
+      touch: [tta, ttha]
+    ttha:
+      unicode: 0x0DA8
+      signs: [virama, isign, iisign, rasign, repha]
+    dda:
+      unicode: 0x0DA9
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [dha]
+      touch: [dda, ddha]
+    ddha:
+      unicode: 0x0DAA
+      signs: [virama, isign, iisign, rasign, repha]
+    nna:
+      unicode: 0x0DAB
+      signs: [virama, isign, iisign, repha]
+      conjunct: [dda]
+      touch: [nna, dda, ttha, ha]
+    nndda:
+      unicode: 0x0DAC
+      signs: [virama, isign, iisign, rasign, repha]
+    ta:
+      unicode: 0x0DAD
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [tha, va]
+      touch: [ta, tha, ma, va]
+    tha:
+      unicode: 0x0DAE
+      signs: [virama, isign, iisign, rasign, repha]
+    da:
+      unicode: 0x0DAF
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [dha, va]
+      touch: [da, dha, va]
+    dha:
+      unicode: 0x0DB0
+      signs: [virama, isign, iisign, rasign, repha]
+    na:
+      unicode: 0x0DB1
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [tha, da, dha, va]
+      touch: [na, tta, ta, da, dha, tha, va, ha]
+    nda:
+      unicode: 0x0DB3
+      signs: [virama, isign, iisign, rasign, repha]
+    pa:
+      unicode: 0x0DB4
+      signs: [virama, isign, iisign, rasign, repha]
+      touch: [pa, ta, pha, ba, da, ha]
+    pha:
+      unicode: 0x0DB5
+      signs: [virama, isign, iisign, rasign, repha]
+    ba:
+      unicode: 0x0DB6
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [ba]
+      touch: [ba, da, bha]
+    bha:
+      unicode: 0x0DB7
+      signs: [virama, isign, iisign, rasign, repha]
+    ma:
+      unicode: 0x0DB8
+      signs: [virama, isign, iisign, rasign, repha]
+      conjunct: [ba]
+      touch: [ma, ha, pha, ba, va, pa, da, bha]
+    mba:
+      unicode: 0x0DB9
+      signs: [virama, isign, iisign, rasign, repha]
+    ya:
+      unicode: 0x0DBA
+      signs: [virama, isign, iisign, rasign, repha]
+    ra:
+      unicode: 0x0DBB
+      signs: [virama, isign, iisign]
+    la:
+      unicode: 0x0DBD
+      signs: [virama, isign, iisign, repha]
+      touch: [la, va]
+    va:
+      unicode: 0x0DC0
+      signs: [virama, isign, iisign, rasign, repha]
+      touch: [ha]
+    sha:
+      unicode: 0x0DC1
+      signs: [virama, isign, iisign, rasign, repha]
+      touch: [tta]
+    ssa:
+      unicode: 0x0DC2
+      signs: [virama, isign, iisign, rasign, repha]
+    sa:
+      unicode: 0x0DC3
+      signs: [virama, isign, iisign, rasign, repha]
+      touch: [sa, ta, va]
+    ha:
+      unicode: 0x0DC4
+      signs: [virama, isign, iisign, rasign, repha]
+      touch: [ma]
+    lla:
+      unicode: 0x0DC5
+      signs: [virama, isign, iisign, rasign, repha]
+    fa:
+      unicode: 0x0DC6
+      signs: [virama, isign, iisign, rasign, repha]
+  Signs:
+    aasign: # ා (aela-pilla)
+      unicode: 0x0DCF
+    aesign: # ැ (aeda-pilla)
+      unicode: 0x0DD0
+    aaesign: # ෑ (diga aeda-pilla)
+      unicode: 0x0DD1
+    isign: # ි (is-pilla)
+      unicode: 0x0DD2
+    iisign: # ී (diga is-pilla)
+      unicode: 0x0DD3
+    usign: # ු (paa-pilla)
+      unicode: 0x0DD4
+    uusign: # ූ (diga paa-pilla)
+      unicode: 0x0DD6
+    vocalicrsign: #
+      unicode: 0x0DD8
+    vocalicllsign:
+      unicode: 0x0DF3
+    vocaliclsign:
+      unicode: 0x0DDF
+    vocalicrrsign:
+      unicode: 0x0DF2
+    esign: # ෙ (kombuwa)
+      unicode: 0x0DD9
+    eesign: # ේ (diga kombuwa)
+      unicode: 0x0DDA
+      decompose: [esign, esign]
+    osign: # ො (kombuwa + aela-pilla)
+      unicode: 0x0DDC
+    oosign: # ෝ (kombuwa + diga aela-pilla)
+      unicode: 0x0DDD
+    aisign: # ෛ (kombu deka)
+      unicode: 0x0DDB
+    ausign: # ෞ (kombuwa + gaetta-pilla)
+      unicode: 0x0DDE
+      decompose: [esign, vocaliclsign]
+    virama: # ් (al-lakuna)
+      unicode: 0x0DCA
+    anusvaraya: # ං (binduwa)
+      unicode: 0x0D82
+    visargaya: # ඃ (visargaya)
+      unicode: 0x0D83
+    rasign: # ්‍ර (rakaransaya)
+    repha: # ර්‍ (repaya)
+    yasign: # ්‍ය (yansaya)
+    usign.rasign: # ්‍රු (usign following rasign)
+    uusign.rasign: # ්‍රූ (uusign following rasign)
+
+  Ligated consonant conjuncts:
+  # kernel set ommits all Ligated consonant conjuncts or සංයෝග අකුරු *sanyoga akuru*
+
+  Orthographical conjuncts:
+    # Note: Orthographical Conjunct ligatures are REQUIRED and mandatory to be included in order to produce a functioning Sinhala font.
+    # Naming: drop trailing 'a' from base consonant, add sign abbreviation
+
+    # virama Ligatures, pure consonant without inherent vowel (al-lakuna):
+    kh: # ඛ්
+    ng: # ඞ්
+    c: # ච්
+    ch: # ඡ්
+    j: # ජ්
+    jh: # ඣ්
+    #jny:
+    #nyj:
+    tt: # ට්
+    tth: # ඨ්
+    dd: # ඩ්
+    ddh: # ඪ්
+    nndd: # ඬ්
+    th: # ථ්
+    dh: # ධ්
+    ph: # ඵ්
+    b: # බ්
+    m: # ම්
+    mb: # ඹ්
+    r: # ර්
+    v: # ව්
+
+    # isign Ligatures (is-pilla):
+    khI: # ඛි
+    ngI: # ඞි
+    cI: # චි
+    chI: # ඡි
+    jI: # ජි
+    jhI: # ඣි
+    #nyjI:
+    ttI: # ටි
+    tthI: # ඨි
+    ddI: # ඩි
+    ddhI: # ඪි
+    nnddI: # ඬි
+    thI: # ථි
+    dhI: # ධි
+    phI: # ඵි
+    bI: # බි
+    mI: # මි
+    mbI: # ඹි
+    rI: # රි
+    vI: # වි
+
+    # iisign Ligatures (diga is-pilla):
+    khIi: # ඛී
+    ngIi: # ඞී
+    cIi: # චී
+    chIi: # ඡී
+    jIi: # ජී
+    jhIi: # ඣී
+    #jnyIi:
+    #nyjIi:
+    ttIi: # ටී
+    tthIi: # ඨී
+    ddIi: # ඩී
+    ddhIi: # ඪී
+    nnddIi: # ඬී
+    thIi: # ථී
+    dhIi: # ධී
+    phIi: # ඵී
+    bIi: # බී
+    mIi: # මී
+    mbIi: # ඹී
+    rIi: # රී
+    vIi: # වී
+
+    # usign Ligatures (paa-pilla):
+    kU: # කු
+    gU: # ගු
+    ngU: # ඞු
+    nyU: # ඤු
+    #nyjU:
+    tU: # තු
+    dU: # දු
+    ndU: # ඳු
+    bhU: # භු
+    rU: # රු
+    lU: # ලු
+    shU: # ශු
+    llU: # ළු
+
+    # uusign Ligatures (diga paa-pilla):
+    kUu: # කූ
+    gUu: # ගූ
+    ngUu: # ඞූ
+    nyUu: # ඤූ
+    #jnyUu:
+    #nyjUu:
+    tUu: # තූ
+    dUu: # දූ
+    ndUu: # ඳූ
+    bhUu: # භූ
+    rUu: # රූ
+    lUu: # ලූ
+    shUu: # ශූ
+    llUu: # ළූ
+
+    # aesign Ligatures (aeda-pilla):
+    rAe: # රැ
+    rAae: # රෑ
+
+    # Rakar Ligatures (rakaransaya):
+    nyRa: # ඤ්‍ර
+    #jnyRa:
+    #nyjRa:
+    dRa: # ද්‍ර
+    nDRa: # ඳ්‍ර
+
+  Typographical conjunct ligatures:
