@@ -15,36 +15,72 @@ categories:
     candrabindu:
 
   Sinhala numerals:
-    lithzero:
-    lithone:
-    lithtwo:
-    liththree:
-    lithfour:
-    lithfive:
-    lithsix:
-    lithseven:
-    litheight:
-    lithnine:
+    # Lith digits (ලිත් ඉලක්කම්) — astrological/almanac digits, U+0DE6–U+0DEF.
+    # A positional decimal set, so it includes a zero.
+    lithzero: # ෦
+      unicode: 0x0DE6
+    lithone: # ෧
+      unicode: 0x0DE7
+    lithtwo: # ෨
+      unicode: 0x0DE8
+    liththree: # ෩
+      unicode: 0x0DE9
+    lithfour: # ෪
+      unicode: 0x0DEA
+    lithfive: # ෫
+      unicode: 0x0DEB
+    lithsix: # ෬
+      unicode: 0x0DEC
+    lithseven: # ෭
+      unicode: 0x0DED
+    litheight: # ෮
+      unicode: 0x0DEE
+    lithnine: # ෯
+      unicode: 0x0DEF
+
+    # Archaic numbers (පුරාණ ඉලක්කම්), U+111E1–U+111F4 (Sinhala Archaic Numbers
+    # block, supplementary plane). Additive, not positional — hence no zero, and
+    # distinct signs for the tens, one hundred and one thousand.
     archaicone:
+      unicode: 0x111E1
     archaictwo:
+      unicode: 0x111E2
     archaicthree:
+      unicode: 0x111E3
     archaicfour:
+      unicode: 0x111E4
     archaicfive:
+      unicode: 0x111E5
     archaicsix:
+      unicode: 0x111E6
     archaicseven:
+      unicode: 0x111E7
     archaiceight:
+      unicode: 0x111E8
     archaicnine:
+      unicode: 0x111E9
     archaicten:
+      unicode: 0x111EA
     archaictwenty:
+      unicode: 0x111EB
     archaicthirty:
+      unicode: 0x111EC
     archaicforty:
+      unicode: 0x111ED
     archaicfifty:
+      unicode: 0x111EE
     archaicsixty:
+      unicode: 0x111EF
     archaicseventy:
+      unicode: 0x111F0
     archaiceighty:
+      unicode: 0x111F1
     archaicninety:
+      unicode: 0x111F2
     archaiconehundred:
+      unicode: 0x111F3
     archaiconethousand:
+      unicode: 0x111F4
 
   Ligated consonant conjuncts:
     # Rare ligated consonant conjuncts (සංයෝග අකුරු Sanyoga Akuru)

@@ -158,6 +158,19 @@ Yasign combinations with signs use underscore to join:
 - `yasign_virama-sinh` — ්‍ය් (yasign + virama)
 - `aasign_virama-sinh` — ා් (aasign + virama)
 
+### 10. Numerals
+Sinhala has two encoded numeral sets, both in the Pro tier. Neither replaces the Western digits (`zero`…`nine`), which stay outside the `-sinh` namespace.
+
+**Lith digits** (ලිත් ඉලක්කම්) — the astrological/almanac digits, prefixed `lith`: `lithzero-sinh` … `lithnine-sinh` (U+0DE6–U+0DEF). Positional decimal, so a zero exists.
+
+**Archaic numbers** (පුරාණ ඉලක්කම්) — prefixed `archaic`, in the Sinhala Archaic Numbers block (U+111E1–U+111F4):
+
+- `archaicone-sinh` … `archaicnine-sinh` (U+111E1–U+111E9)
+- `archaicten-sinh`, `archaictwenty-sinh` … `archaicninety-sinh` (U+111EA–U+111F2)
+- `archaiconehundred-sinh` (U+111F3), `archaiconethousand-sinh` (U+111F4)
+
+The system is additive rather than positional, so there is no `archaiczero-sinh`, and each multiple of ten has its own sign. Multi-word values are written as one lowercase run (`onehundred`, `onethousand`), matching the Tamil `hundred-taml` / `thousand-taml` convention.
+
 ### Some complex examples
 
 TODO: Add complex naming examples

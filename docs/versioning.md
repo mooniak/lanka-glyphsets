@@ -56,7 +56,11 @@ It rebuilds, in dependency order:
 
 > The lankafea copy of the YAMLs is **not** in this list: its `setup.py` copies
 > `glyphsets/*.yaml` into the wheel at build time and the on-disk copy is
-> gitignored, so it is drift-proof by construction.
+> gitignored, so it is drift-proof by construction. The copy is hooked into
+> **both** `build_py` and `sdist` — `python -m build` creates the sdist first and
+> builds the wheel *from it*, where the canonical `glyphsets/` is out of reach,
+> so syncing only in `build_py` would let a stale on-disk copy reach both
+> artifacts.
 
 `npm run check:drift` runs the same regeneration and then **fails** if any
 committed artifact changed, or if `package.json`'s `standardVersion` disagrees
