@@ -2,11 +2,14 @@
 
 Lanka Glyphsets project by Mooniak aims to define glyphsets for fonts targeting Sri Lankan users and audiences. This is a work-in-progress project.
 
-It publishes two packages from this repo:
+It publishes one package from this repo:
 
 - **`@mooniak/lankaglyphsets`** (npm) — the glyphset data reader + CLI, from `src/`.
-- **`mnik-lankafea`** (PyPI, `import lankafea`) — Sinhala/Tamil OpenType feature
-  generation and glyph-dependency validation, from `tools/feature-generator/`.
+
+Sinhala/Tamil OpenType feature generation and glyph-dependency validation
+(**`mnik-lankafea`** on PyPI, plus the Lanka Features Glyphs plugin) now live in
+[sinhala-font-tools](https://github.com/mooniak/sinhala-font-tools) under `tools/feature-generator/`, which reads
+the standard from a sibling checkout of this repo.
 
 ## The standard
 
@@ -27,7 +30,6 @@ glyphsets/                     the standard: 5 tier YAMLs + shaping-exceptions.y
 src/, dist/                    TypeScript reader + CLI (@mooniak/lankaglyphsets)
 docs/                          naming standard, levels, CLI reference, adoption guide
 tools/
-  feature-generator/           lankafea — Python OpenType feature generator + validator
   glyphname-unicode-converter/ reference implementation: name <-> Unicode, + web UI
   font-coverage/                shaping-based conformance checker (HarfBuzz)
   _generated/                   exported data, vendored by downstream tools (e.g.

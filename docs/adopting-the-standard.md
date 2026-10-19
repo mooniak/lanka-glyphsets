@@ -91,5 +91,6 @@ Whichever strategy, apply the rename with a macro that is safe to re-run:
 
 - `tools/glyphname-unicode-converter/` — the name ⇄ Unicode engine + web UI.
 - `tools/font-coverage/` — check which orthographic units a built font renders.
-- `tools/feature-generator/` (lankafea) — Sinhala/Tamil OpenType feature
-  generation + glyph-dependency validation, gated on glyphs actually present.
+- lankafea (in [sinhala-font-tools](https://github.com/mooniak/sinhala-font-tools), `tools/feature-generator/`) —
+  Sinhala/Tamil OpenType feature generation + glyph-dependency validation,
+  gated on glyphs actually present.

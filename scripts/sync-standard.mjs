@@ -16,9 +16,8 @@
  *   2. tools/_generated/shaping-exceptions.js                  (depends on #1)
  *   3. tools/_generated/lanka-glyph-data.js                    (CLI export-json)
  *
- * The lankafea (PyPI) copy of the YAMLs is NOT handled here: its setup.py copies
- * glyphsets/*.yaml into the wheel at build time and the on-disk copy is
- * gitignored, so it is drift-proof by construction.
+ * lankafea (PyPI) lives in sinhala-font-tools; its setup.py copies this repo's
+ * glyphsets/*.yaml (from a sibling checkout) into the wheel at build time.
  */
 import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
@@ -46,7 +45,7 @@ run('node dist/cli/index.js export-json --format js -o tools/_generated/lanka-gl
 
 // Version consistency: the standard version each package RECORDS must match the
 // single source of truth in glyphsets/manifest.yaml. (What each package BUNDLES
-// is kept in sync automatically — npm ships glyphsets/, lankafea copies it in.)
+// is kept in sync automatically — npm ships glyphsets/.)
 const problems = [];
 const manifest = parseYaml(readFileSync(resolve(ROOT, 'glyphsets/manifest.yaml'), 'utf8'));
 const pkg = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf8'));

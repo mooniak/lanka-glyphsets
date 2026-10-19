@@ -5,7 +5,7 @@
 # source of truth for "which version of the standard is this". It is INDEPENDENT
 # of the package versions:
 #   - npm  @mooniak/lankaglyphsets   (package.json  "version")
-#   - PyPI mnik-lankafea             (tools/feature-generator/pyproject.toml)
+#   - PyPI mnik-lankafea             (sinhala-font-tools/tools/feature-generator)
 # Each package records, and bundles, the standard version it embeds. A change to
 # the naming standard lands here first, then the packages pick it up. See
 # docs/versioning.md.
