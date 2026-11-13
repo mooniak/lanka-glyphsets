@@ -17,15 +17,17 @@
 #          stay valid.
 #   PATCH  metadata / comment / spelling fix only; no glyph-identity change.
 # ─────────────────────────────────────────────────────────────────────────────
-version: 0.3.0
+version: 1.0.0
 
-# The cumulative Sinhala tiers (each a superset of the one before), plus the
-# independent Tamil set. Loaders read these files by explicit name — this list
-# is documentation, not a glob source.
+# The cumulative tiers of each script (each a superset of the one before).
+# Loaders read these files by explicit name — these lists are documentation,
+# not a glob source.
 tiers:
   - sinhala-0-kernel.yaml
   - sinhala-1-core.yaml
   - sinhala-2-plus.yaml
   - sinhala-3-pro.yaml
-scripts:
-  - tamil.yaml
+tamil_tiers:
+  - tamil-0-kernel.yaml
+  - tamil-1-core.yaml
+  - tamil-2-pro.yaml

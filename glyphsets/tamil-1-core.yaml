@@ -1,0 +1,65 @@
+languages: [Tamil]
+
+description: The "Mooniak Tamil Core" glyphset completes Tamil for professional typography — the ி/ீ mechanism for every consonant, the Grantha letters with ு/ூ, and க்ஷ with vowel signs.
+
+namespace: taml  # suffix convention: glyphs are named as "name-taml" (e.g. ka-taml); dot-suffixes go AFTER the namespace (isign-taml.ka)
+
+# How ி / ீ are drawn is up to the font: a dedicated glyph per consonant (kI), or the
+# sign alternate of the consonant's shape group (isign-taml.ka). Consonants in no
+# group (ண ன ர ள for ி; every consonant except ட ல ஸ for ீ) take the plain sign.
+groups:
+  isign:
+    ka: [ka, ta]
+    ca: [ca]
+    na: [nya, na]
+    pa: [nga, pa, ya, va]
+    ma: [ja, ma, rra, zha, sha, ha]
+    la: [la, sa]
+    ssa: [ssa, kSsa]
+  iisign:
+    la: [la, sa]
+
+categories:
+  Orthographical conjuncts:
+    # A form marked "— or isign.ka" is also met by that shape-group alternate
+    # (isign-taml.ka, see the groups: block); the rest need the dedicated glyph.
+
+    # isign (ி) — every consonant that has a shape group. ட is in the Kernel.
+    kI: # கி — or isign.ka
+    tI: # தி — or isign.ka
+    cI: # சி — or isign.ca
+    nyI: # ஞி — or isign.na
+    nI: # நி — or isign.na
+    ngI: # ஙி — or isign.pa
+    pI: # பி — or isign.pa
+    yI: # யி — or isign.pa
+    vI: # வி — or isign.pa
+    jI: # ஜி — or isign.ma
+    mI: # மி — or isign.ma
+    rrI: # றி — or isign.ma
+    zhI: # ழி — or isign.ma
+    shI: # ஶி — or isign.ma
+    hI: # ஹி — or isign.ma
+    lI: # லி — or isign.la
+    sI: # ஸி — or isign.la
+    ssI: # ஷி — or isign.ssa
+    kSsI: # க்ஷி — or isign.ssa
+
+    # iisign (ீ) — only the consonants with a shape group; the rest take the plain sign.
+    lIi: # லீ — or iisign.la
+    sIi: # ஸீ — or iisign.la
+
+    # Grantha letters + usign / uusign. No shape group applies, so these are dedicated glyphs.
+    jU: # ஜு
+    jUu: # ஜூ
+    ssU: # ஷு
+    ssUu: # ஷூ
+    sU: # ஸு
+    sUu: # ஸூ
+    hU: # ஹு
+    hUu: # ஹூ
+    # sha (ஶ) + ு/ூ is not required: ஶ is used almost only in ஶ்ரீ (shree).
+
+    # kSsa + usign / uusign (kSsI is listed with the isign forms above)
+    kSsU: # க்ஷு
+    kSsUu: # க்ஷூ

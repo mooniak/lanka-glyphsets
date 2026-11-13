@@ -22,6 +22,14 @@ Glyphs are suffixed with the script namespace using a hyphen:
 
 Example: `ka-sinh` (Sinhala ka), `ka-taml` (Tamil ka)
 
+A variant of a glyph appends a dot-suffix **after** the namespace: `isign-sinh.ka`,
+`isign-taml.ka`. In the glyphset YAML the key is the bare name (`isign.ka`); the
+namespace goes before the first dot.
+
+> Implementation note: the name↔Unicode engine and the TypeScript parser still
+> append the namespace last (`usign.rasign-sinh`). Making them follow this rule is
+> tracked in [tamil-decisions.md](tamil-decisions.md#d1-suffix-after-the-namespace).
+
 ### 2. Sinhala Pillam (Vowel Signs / Matras)
 Pillam are referred to as `signs` and indicated by the suffix `sign`.
 
@@ -176,27 +184,48 @@ The system is additive rather than positional, so there is no `archaiczero-sinh`
 TODO: Add complex naming examples
 
 ## Anchor naming
-<TODO>
-- Below base
-    - usign
-    - rasign
 
-- Above base
-    - virama
-    - isign
-    - iisign (optional)
-    - repha
+A base glyph carries one anchor for each sign in its `signs:` list. The anchor is
+named after the sign, and the sign glyph carries the same name with a leading
+underscore.
+
+| Sign | Base anchor | Sign anchor | Placed | Scripts |
+|---|---|---|---|---|
+| `virama` | `virama` | `_virama` | above | Sinhala, Tamil |
+| `isign` | `isign` | `_isign` | above | Sinhala, Tamil |
+| `iisign` | `iisign` | `_iisign` | above | Sinhala, Tamil |
+| `repha` | `repha` | `_repha` | above | Sinhala |
+| `usign` | `usign` | `_usign` | below | Sinhala, Tamil |
+| `uusign` | `uusign` | `_uusign` | below | Sinhala, Tamil |
+| `rasign` | `rasign` | `_rasign` | below | Sinhala |
+
+- Shape-group alternates and stylistic alternates of a sign (`isign-taml.ka`,
+  `esign-sinh._ui`) reuse the sign's anchor. There is no per-group anchor name.
+- A font needs an anchor only for a sign it attaches. A sign that a font always
+  draws as part of a ligature (`kI`) needs no anchor on that consonant.
+- Sinhala's `iisign` anchor is optional.
+- Fonts that use other anchor names (`tm_halant`, `MatraI.altN`, `Anchor-N`, the
+  Noto names) rename them together with their glyphs.
 
 ---
 
 ## Tamil
 
-Tamil glyphs use the `-taml` namespace and follow the same naming principles as Sinhala (encode visual forms, join ligatures with the same rules). The full Tamil glyphset, with Unicode values, is defined in `glyphsets/tamil.yaml`.
+Tamil glyphs use the `-taml` namespace and the same principles as Sinhala. The
+glyph set is defined in three cumulative levels:
+`glyphsets/tamil-0-kernel.yaml`, `tamil-1-core.yaml` and `tamil-2-pro.yaml` (see
+[levels.md](levels.md)). The reasoning behind each choice below is in
+[tamil-decisions.md](tamil-decisions.md).
 
 ### 1. Letters
-Independent vowels and consonants keep their plain names: `a-taml` (அ), `ka-taml` (க), `nna-taml` (ண), `na-taml` (ந). The alveolar n ன (U+0BA9) is named `nna2-taml`.
+Independent vowels and consonants keep their plain names: `a-taml` (அ),
+`ka-taml` (க), `nna-taml` (ண, U+0BA3), `na-taml` (ந, U+0BA8), `nnna-taml` (ன,
+U+0BA9). The aytham ஃ (U+0B83) is a letter, not a sign: `visargaya-taml`.
 
-### 2. Vowel signs (Pulli / Matras)
+The Grantha letters are `ja-taml` (ஜ), `sha-taml` (ஶ, U+0BB6), `ssa-taml` (ஷ,
+U+0BB7), `sa-taml` (ஸ) and `ha-taml` (ஹ).
+
+### 2. Vowel signs
 Vowel signs use the `sign` suffix, as in Sinhala:
 
 - `aasign-taml` — ா (U+0BBE)
@@ -207,40 +236,79 @@ Vowel signs use the `sign` suffix, as in Sinhala:
 - `esign-taml` — ெ (U+0BC6)
 - `eesign-taml` — ே (U+0BC7)
 - `aisign-taml` — ை (U+0BC8)
-- `osign-taml` — ொ (U+0BCA)
-- `oosign-taml` — ோ (U+0BCB)
-- `ausign-taml` — ௌ (U+0BCC)
+- `osign-taml` — ொ (U+0BCA) = `esign` + `aasign`
+- `oosign-taml` — ோ (U+0BCB) = `eesign` + `aasign`
+- `ausign-taml` — ௌ (U+0BCC) = `esign` + `aulengthmark`
 - `aulengthmark-taml` — ௗ (U+0BD7)
 
-### 3. Special signs
-- `virama-taml` — ் pulli / virama (U+0BCD)
-- `anusvaraya-taml` — ஂ (U+0B82)
-- `visargaya-taml` — ஃ aytham (U+0B83)
+The same decomposition applies to ஔ: `au-taml` = `o` + `aulengthmark`. A sign is
+built from its parts, never the reverse.
 
-### 4. Consonant–vowel ligatures
-Composed by dropping the trailing `a` of the consonant and adding the capitalised sign abbreviation (`I` = isign, `Ii` = iisign, `U` = usign, `Uu` = uusign, `Aa` = aasign, `Ai` = aisign):
+### 3. Special signs
+- `virama-taml` — ் pulli (U+0BCD)
+- `anusvaraya-taml` — ஂ (U+0B82)
+
+### 4. Consonant + vowel-sign forms
+A form is named by dropping the trailing `a` of the consonant and adding the
+capitalised sign abbreviation: `I` = isign, `Ii` = iisign, `U` = usign,
+`Uu` = uusign, `Aa` = aasign, `Ai` = aisign.
 
 - `kI-taml` — கி (ka + isign)
-- `nIi-taml` — நீ (na + iisign)
 - `pU-taml` — பு (pa + usign)
-- `nnAa-taml` — ணா (nna + aasign)
-- `lAi-taml` — லை (la + aisign)
+- `nnnUu-taml` — னூ (nnna + uusign)
+- `ttI-taml` — டி (tta + isign)
 
-Note: ligatures of `nna2` (ன) keep provisional hyphenated names (`nna2-i-taml`, `nna2-aa-taml`, …) pending a naming decision, since the base has no trailing `a` to drop.
+A form can be met in either of two ways: by its own glyph (`kI-taml`), or by the
+sign alternate of the consonant's shape group (`isign-taml.ka`, section 5). The
+glyphset files say which forms each level needs, and the either/or applies
+where the consonant belongs to a group of that sign. A consonant in no group of a
+sign takes the plain sign glyph.
 
-### 5. Ligated conjuncts
-Named by dropping the trailing `a` of the first base and capitalising the first letter of the second base (same rule as Sinhala):
+### 5. Shape-group alternates
+A sign alternate is named for the group of consonants it is drawn for: the sign,
+then the group after the namespace.
 
-- `kSsa-taml` — க்ஷ (ka + ssa); with signs: `kSsI`, `kSsIi`, `kSsU`, `kSsUu`
-- `shree-taml` — ஶ்ரீ (shri)
+| Alternate | Consonants |
+|---|---|
+| `isign-taml.ka` | ka ta |
+| `isign-taml.ca` | ca |
+| `isign-taml.na` | nya na |
+| `isign-taml.pa` | nga pa ya va |
+| `isign-taml.ma` | ja ma rra zha sha ha |
+| `isign-taml.la` | la sa |
+| `isign-taml.ssa` | ssa kSsa |
+| `iisign-taml.la` | la sa |
+| `usign-taml.pa` | nga pa ya va |
+| `aisign-taml.la` | nna nnna la lla |
 
-### 6. Numerals
-Tamil numerals use plain names: `zero-taml` … `nine-taml` (U+0BE6–0BEF), `ten-taml` (U+0BF0), `hundred-taml` (U+0BF1), `thousand-taml` (U+0BF2).
+These are the standard's default members (the `groups:` blocks in the glyphset
+files). A font may use a smaller group when it draws the rest as ligatures.
 
-### 7. Symbols
+### 6. Ligated conjuncts
+Named as in Sinhala, by dropping the trailing `a` of the first base and
+capitalising the first letter of the second:
+
+- `kSsa-taml` — க்ஷ (ka + ssa); with signs: `kSsI`, `kSsU`, `kSsUu`
+- `shree-taml` — ஸ்ரீ and ஶ்ரீ. One glyph serves both spellings
+
+### 7. Traditional orthography (Pro)
+The pre-1978 forms are in the stylistic set `ss09`:
+
+- `nnAa-taml` — ணா, `nnnAa-taml` — னா, `rrAa-taml` — றா
+- `nnAi-taml` — ணை, `nnnAi-taml` — னை, `lAi-taml` — லை, `llAi-taml` — ளை
+- `ra-taml.alt` — the alternate ர, a base glyph (not the `aasign` mark)
+
+### 8. Numerals
+Tamil numerals use plain names: `zero-taml` … `nine-taml` (U+0BE6–0BEF),
+`ten-taml` (U+0BF0), `hundred-taml` (U+0BF1), `thousand-taml` (U+0BF2).
+
+### 9. Symbols
 - `om-taml` — ௐ (U+0BD0)
-- Calendar / clerical marks use the `sign<name>` form: `signday-taml` (௳), `signmonth-taml` (௴), `signyear-taml` (௵), `signdebit-taml` (௶), `signcredit-taml` (௷), `signasabove-taml` (௸), `signnumber-taml` (௺)
+- Calendar and clerical marks use the `sign<name>` form: `signday-taml` (௳),
+  `signmonth-taml` (௴), `signyear-taml` (௵), `signdebit-taml` (௶),
+  `signcredit-taml` (௷), `signasabove-taml` (௸), `signnumber-taml` (௺)
 - `indianrupee-taml` — ௹ Tamil rupee sign (U+0BF9)
 
-### 8. Stylistic alternates
-Alternate sign forms append a dot-suffix before the namespace: `isign.alt1-taml` … `isign.alt7-taml`, `iisign.alt-taml`, `iisign.alt1-taml`, `usign.alt1-taml`, `aisign.alt-taml`.
+### 10. Shared glyphs
+Punctuation, `space`, `zerowidthjoiner` (U+200D), `zerowidthnonjoiner` (U+200C) and
+`dottedCircle` (U+25CC) carry no namespace.

@@ -1,8 +1,9 @@
 # Glyphset levels
 
-Lanka Glyphsets defines four cumulative Sinhala levels, plus a Tamil glyphset. Each
-level is a superset of the one before it — `sinhala-1-core.yaml` includes every
-glyph in `sinhala-0-kernel.yaml`, and so on.
+Lanka Glyphsets defines four cumulative Sinhala levels and three cumulative Tamil
+levels. Each level is a superset of the one before it — `sinhala-1-core.yaml`
+includes every glyph in `sinhala-0-kernel.yaml`, and so on. The Tamil levels are
+described after the Sinhala ones and are independent of them.
 
 - **Sinhala-0: Kernel** — Minimal character set with essential consonants, vowels, and basic signs for fundamental Sinhala text display.
 - **Sinhala-1: Core** — Standard coverage for mobile devices with common ligatures and basic conjuncts like ක්‍ෂ.
@@ -29,6 +30,34 @@ The Lanka Glyphsets levels (Sinhala 0-3) correspond directly to ICTA's classific
 | **Punctuation** | — | Kundaliya | ✓ | ✓ |
 | **Archaic Numbers** | — | — | — | 20 glyphs |
 | **Astrological Numbers** | — | — | — | 10 glyphs |
+
+## Tamil levels
+
+- **Tamil-0: Kernel** — The full Tamil Unicode block, the shaping controls (ZWJ, ZWNJ, dotted circle) and punctuation, plus the forms that cannot be made by placing a sign: டி டீ, the 36 native consonant + ு/ூ forms, க்ஷ and ஸ்ரீ.
+- **Tamil-1: Core** — The ி/ீ mechanism for every consonant, the Grantha letters with ு/ூ, and க்ஷ with vowel signs.
+- **Tamil-2: Pro** — The traditional (pre-1978) orthography, and the alternate ra.
+
+Unlike Sinhala, there is no ICTA classification to follow. These levels are
+**working definitions**: the split of Grantha ு/ூ and the traditional forms still
+needs sign-off from a Tamil type specialist. See [tamil-decisions.md](tamil-decisions.md).
+
+## Tamil Glyphset Comparison
+
+| Feature | Tamil 0 — Kernel | Tamil 1 — Core | Tamil 2 — Pro |
+|---------|------------------|----------------|---------------|
+| **Target Use** | Basic text display | Professional typography | Heritage and classical text |
+| **Unicode block** | All 72 assigned characters (U+0B80–0BFF) | *Inherits from Kernel* | *Inherits from Core* |
+| **Shaping and punctuation** | ZWJ, ZWNJ, dotted circle, punctuation | ✓ | ✓ |
+| **ி / ீ** | டி டீ | Every consonant (glyph or shape-group alternate) | ✓ |
+| **ு / ூ** | 18 native consonants (36 forms) | Grantha ஜ ஷ ஸ ஹ and க்ஷ (10 forms) | ✓ |
+| **Conjuncts** | க்ஷ, ஸ்ரீ | க்ஷ + ி ு ூ | ✓ |
+| **Traditional orthography** | — | — | ணா னா றா, ணை னை லை ளை |
+| **Alternate ra** | — | — | `ra-taml.alt` |
+| **Entries** | 150 | 31 | 8 |
+
+A consonant + sign form is met either by its own glyph or by the sign alternate of
+its shape group (`kI-taml`, or `isign-taml.ka`). The rule is in
+[naming-standard.md](naming-standard.md#4-consonant--vowel-sign-forms).
 
 ## Glyph Categories
 

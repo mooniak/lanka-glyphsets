@@ -1,0 +1,31 @@
+languages: [Tamil]
+
+description: The "Mooniak Tamil Pro" glyphset adds the traditional (pre-1978) orthography forms and the alternate ra for classical and heritage typography.
+
+namespace: taml  # suffix convention: glyphs are named as "name-taml" (e.g. ka-taml); dot-suffixes go AFTER the namespace (isign-taml.ka)
+
+# aisign (ை) takes its own shape before ண ன ல ள in the traditional style.
+groups:
+  aisign:
+    la: [nna, nnna, la, lla]
+
+categories:
+  ss09 Traditional orthography:
+    # One stylistic set (ss09) carries the whole traditional style.
+    # aasign after ண ன ற — dedicated glyphs, no shape group applies.
+    nnAa: # ணா
+    nnnAa: # னா
+    rrAa: # றா
+
+    # aisign after ண ன ல ள
+    nnAi: # ணை — or aisign.la
+    nnnAi: # னை — or aisign.la
+    lAi: # லை — or aisign.la
+    llAi: # ளை — or aisign.la
+
+    # Alternate ra (ர) shown before pulli, anusvara, ி and ீ. A real base glyph —
+    # not the aasign mark some fonts substitute today.
+    ra.alt:
+    # Undecided (see docs/tamil-decisions.md): ligatures of the alternate ra with ி / ீ.
+    # rI.alt:
+    # rIi.alt:

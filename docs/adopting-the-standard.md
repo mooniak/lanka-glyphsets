@@ -12,9 +12,10 @@ that script correctly without further context.
 - **Namespace.** Sinhala glyphs are `name-sinh`; Tamil glyphs are `name-taml`.
   Punctuation and Format-control glyphs carry **no** namespace (`space`, `comma`,
   `kunddaliya`, `zerowidthjoiner`).
-- **Authoritative glyph set + Unicode** lives in the repo-root YAML tiers:
+- **Authoritative glyph set + Unicode** lives in the YAML tiers in `glyphsets/`:
   `sinhala-0-kernel.yaml` (essential), `sinhala-1-core.yaml`,
-  `sinhala-2-plus.yaml`, `sinhala-3-pro.yaml`, and `tamil.yaml`. A glyph's key is
+  `sinhala-2-plus.yaml`, `sinhala-3-pro.yaml`, and the Tamil
+  `tamil-0-kernel.yaml`, `tamil-1-core.yaml`, `tamil-2-pro.yaml`. A glyph's key is
   its name; `unicode:` (atomic glyphs only) and `decompose:` are attributes.
 - **Naming rules** (Sinhala; how a cluster's name is formed — full detail in
   [naming-standard.md](naming-standard.md)):
@@ -35,6 +36,37 @@ that script correctly without further context.
   Full, tested implementations of these rules (both directions) live in
   `tools/glyphname-unicode-converter/lankaglyphset-map.js` — **reuse it, don't
   reimplement.**
+
+## Tamil
+
+Tamil follows the same procedure, with these differences. The decisions behind
+them, and the full old → new rename table, are in
+[tamil-decisions.md](tamil-decisions.md).
+
+| Form | Rule | Example |
+|---|---|---|
+| consonant | keep inherent `a` | ன → `nnna` (not `nna2`) |
+| vowel sign I/Ii/U/Uu/Aa/Ai | drop the `a`, add the Capital suffix | கி → `kI`, னூ → `nnnUu` |
+| sign alternate for a shape group | `<sign>-taml.<group>`: suffix **after** the namespace | `isign-taml.ka`, `usign-taml.pa` |
+| conjunct | as Sinhala | க்ஷ → `kSsa` |
+| ஸ்ரீ and ஶ்ரீ | one glyph | `shree` |
+
+- **Both strategies apply.** Abhaya, Yaldevi and Ralex have structured names, so
+  use a rename rule (strategy A). Lankaverse Sans has old-style names
+  (`tmKA`, `tmmI`): use strategy B.
+- **Alternate numbers (`isign.alt1` …) differ per font**, and must be mapped to
+  group names by what the glyph is drawn for, not by number. Check the dry-run
+  report against the group members before renaming.
+- **Moving the suffix is part of the rename.** Abhaya and Yaldevi put it before
+  the namespace (`isign.alt1-taml`); the standard puts it after.
+- **A form is met by a glyph or a group alternate.** Don't add a glyph just to
+  satisfy a level when the group alternate already covers the consonant.
+- **Anchors** are named after the sign they attach (`isign` / `_isign`); see
+  "Anchor naming" in [naming-standard.md](naming-standard.md).
+- **OpenType features.** Register both `taml` and `tml2` with the same lookups;
+  `akhn` for க்ஷ and ஸ்ரீ (accept both ஸ and ஶ); `abvs` for ி/ீ forms; `psts` for
+  ு/ூ and ா forms; the traditional orthography in `ss09`; a real `ra-taml.alt`
+  base glyph.
 
 ## Two conversion strategies
 

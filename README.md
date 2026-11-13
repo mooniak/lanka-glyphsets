@@ -14,8 +14,10 @@ the standard from a sibling checkout of this repo.
 ## The standard
 
 Four cumulative Sinhala levels (Kernel / Core / Plus / Pro), mapped to ICTA's
-Level 1–3 classification, plus a Tamil glyphset — defined in `glyphsets/*.yaml`.
-See [docs/levels.md](docs/levels.md) for the full level comparison.
+Level 1–3 classification, and three cumulative Tamil levels (Kernel / Core / Pro)
+— defined in `glyphsets/*.yaml`. See [docs/levels.md](docs/levels.md) for the full
+level comparison, and [docs/tamil-decisions.md](docs/tamil-decisions.md) for the
+reasoning behind the Tamil levels.
 
 Glyph names encode visual form rather than phonetics (e.g. `kRa-sinh` for ක්‍ර,
 `kSsa-sinh` for ක්‍ෂ). The full normative naming rules are in
@@ -26,7 +28,7 @@ existing font's glyphs to this standard, start at
 ## Repo map
 
 ```
-glyphsets/                     the standard: 5 tier YAMLs + shaping-exceptions.yaml
+glyphsets/                     the standard: 4 Sinhala + 3 Tamil tier YAMLs, manifest, shaping-exceptions.yaml
 src/, dist/                    TypeScript reader + CLI (@mooniak/lankaglyphsets)
 docs/                          naming standard, levels, CLI reference, adoption guide
 tools/

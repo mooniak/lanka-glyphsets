@@ -1,7 +1,10 @@
 # Tamil parity plan: standard, features and tooling
 
-> Status: **proposal** (2026-11-13). Nothing here is implemented yet. Decisions
-> D1–D7 below need sign-off before Phase 1 starts.
+> Status: **in progress** (2026-11-13). **Phase 0 (hotfixes)** and **Phase 1
+> (standard data and docs)** are done; see §3. Phase 1 applied the recommended
+> option for D1–D6 as *working decisions* (see
+> [tamil-decisions.md](tamil-decisions.md)); D4 still needs sign-off from a Tamil
+> type specialist. Nothing from Phase 2 onward is implemented yet.
 
 This plan brings Tamil up to the level of support Sinhala has across the
 LankaGlyphset standard (this repo), lankafea and the design tools
@@ -87,19 +90,22 @@ alternates, Yaldevi and Ralex); `ra.alt`, `rI.alt`, `rIi.alt` (Yaldevi);
 - **Yaldevi doesn't form க்ஷ or ஸ்ரீ.** Its `taml-akhands` lookup is
   registered under `script sinh;`. `hb-shape` on
   `fonts/ttf/Yaldevi-Regular.ttf` returns `uni0B95|uni0BCD|uni0BB7` for க்ஷ,
-  where Ralex returns `kSsataml`.
+  where Ralex returns `kSsataml`. **Fixed** (Phase 0).
 - **Yaldevi's old-orthography lookups are unreachable.** No feature references
   `taml-stylistic_alternates_1–4`, and the font has no `tml2` language system.
+  **Fixed** (Phase 0).
 - **Ralex has no outlines for 8 Tamil symbols:** ௰ ௲ ௵ ௶ ௷ ௸ ௹ ௺. The glyphs
-  are empty and don't export.
+  are empty and don't export. **Open**; carried to Phase 4 (Ralex).
 
 Minor: Abhaya's `osign`, `oosign` and `ausign` composites include a
 `dottedCircle` component. In Ralex, `aulengthmark` references `ausign`, which
-is the reverse of the Unicode decomposition (ௌ = ெ + ௗ).
+is the reverse of the Unicode decomposition (ௌ = ெ + ௗ). Checked in Phase 0:
+HarfBuzz decomposes ொ ோ ௌ before glyph lookup, so Abhaya's composites never
+appear in shaped text. Left as is.
 
 ### 1.2 The standard (this repo)
 
-- **[`glyphsets/tamil.yaml`](../glyphsets/tamil.yaml) is Abhaya's inventory
+- **`glyphsets/tamil.yaml` (replaced in Phase 1) was Abhaya's inventory
   copied 182-for-182.** So it treats Abhaya's way of building the font as the
   requirement:
   - All 44 consonant + ி/ீ ligatures are "Required", even though Yaldevi and
@@ -217,17 +223,28 @@ are Sinhala-only.
 
 Sizes are rough estimates.
 
-### Phase 0: Hotfixes (hours, no dependencies)
+### Phase 0: Hotfixes (hours, no dependencies) — done 2026-11-13
 
-- **Yaldevi:**
-  - Move `taml-akhands` under `script taml;`.
-  - Add `tml2`.
-  - Connect the old-orthography lookups to a stylistic set, or delete them.
-  - Check with `hb-shape` that க்ஷ gives `kSsa`, and ஸ்ரீ and ஶ்ரீ give
-    `shree`.
-- **Ralex:** draw the 8 empty symbols, or stop claiming them in coverage.
+- **Yaldevi:** done, in `yaldevi-font` commit `20214d95` (on `dev`, not pushed).
+  - `taml-akhands` moved under `script taml;`, and `tml2` added to `akhn`,
+    `abvs` and `psts` (plus `languagesystem tml2 dflt;`). `taml` and `tml2` now
+    carry identical lookups in GSUB and GPOS.
+  - The four old-orthography lookups are wired to `salt` and `ss01`–`ss04`,
+    the same way Ralex does it. The sets are unnamed, and D6 may renumber them.
+  - `kSsa-taml` had stale anchor names (`MatraIi.alt1`, `virama`), so ீ and the
+    pulli landed on the க half of the conjunct once it became reachable.
+    Renamed to `MatraIi` and `tm_halant`, with `tm_halant` placed on the ஷ half.
+  - Checked with `hb-shape`: க்ஷ gives `kSsa-taml`, and ஸ்ரீ and ஶ்ரீ give
+    `shree-taml`, in the static Regular and the variable font. Across a
+    323-cluster grid, only those 16 க்ஷ / ஸ்ரீ items changed. Unreachable
+    Tamil lookups went from 7 to 0.
+- **Abhaya Libre:** checked, no change. The same grid is clean, with no
+  unreachable lookups and `taml` = `tml2`. The `dottedCircle` note under §1.1
+  has no effect on shaped text.
+- **Ralex:** **not done.** The 8 empty symbols need drawing, or the coverage
+  claim needs dropping. Carried to Phase 4 (Ralex).
 
-### Phase 1: Standard data and docs (lanka-glyphsets, ~2–3 days plus review)
+### Phase 1: Standard data and docs (lanka-glyphsets, ~2–3 days plus review) — done 2026-11-13
 
 1. Write up the decisions in `docs/tamil-decisions.md`, with an old → new
    rename table.
@@ -242,6 +259,48 @@ Sizes are rough estimates.
    MAJOR version bump, as its policy requires for renames.
 4. Rewrite the Tamil sections of `naming-standard.md`, `levels.md` and
    `adopting-the-standard.md`.
+
+**Done**, uncommitted. The standard is now **1.0.0**. Details are in
+[tamil-decisions.md](tamil-decisions.md). What Phase 1 settled that the plan
+left open, and what it found:
+
+- **`ss09`** is the stylistic set for the traditional orthography (D6 asked for
+  one but didn't pick).
+- **Anchors** are one per sign in the consonant's `signs:` list: `virama`,
+  `isign`, `iisign`, `usign`, `uusign` (D5 named three).
+- **The either/or rule** applies only where a consonant is in a shape group of
+  that sign. Consonants in no group take the plain sign, so ி on ண ன ர ள and ீ on
+  all but ட ல ஸ need no glyph. That drops 22 of the old 44 ி/ீ requirements.
+- **New required names:** `ngU` `yU` `vU` (met by `usign-taml.pa`), `sUu`,
+  `ra.alt`. ஶு and ஶூ are deliberately left out.
+- **`groups:` and `grantha:` are top-level keys**, so the three files already
+  load in the TypeScript parser and lankafea's loader with no changes.
+- **D1 is not what Sinhala does.** The Sinhala engine composes `usign.rasign-sinh`,
+  while the naming standard says `usign-sinh.rasign`. Tamil follows the text.
+  See the D1 caveat in tamil-decisions.md.
+- **Not committed:** the npm package version and CHANGELOG (a release-time step
+  under [versioning.md](versioning.md)) and the git tag `standard@1.0.0`.
+  `package.json` `standardVersion` is updated so `npm run check:drift` passes.
+
+**Hand-off to Phase 2:**
+
+- Compose dotted names with the namespace before the first dot (D1), for both
+  scripts.
+- Read `groups:` (merge across the three files) and expand each group into its
+  `<sign>-taml.<group>` alternate. Read `grantha:`.
+- `build-glyphset.js` treats any entry whose keys are not all in `ATTRS` as a
+  nested category, and lankafea's loader does the same with `_METADATA_KEYS`.
+  Tamil entries use only the existing attributes, so this does not bite yet; keep
+  it that way or extend both lists.
+- Support the `Placeholders` category and `dottedCircle` (no namespace).
+
+**Hand-off to Phase 3:** lankafea's `tamil_profile()` has
+`yaml_files=("tamil.yaml",)`, and its test asserts that file exists. That file is
+gone, so Tamil in lankafea breaks as soon as its bundled copy of the glyphsets is
+rebuilt, or when it runs from the sibling checkout. (Today the bundled
+`src/lankafea/data/glyphsets/`, git-ignored and copied in at build time, still
+has the old file and takes priority.) The profile needs the three new filenames,
+and the `nna2` stem in the Tamil table in `scripts.py` needs to become `nnna`.
 
 ### Phase 2: Standard tooling (lanka-glyphsets, ~3–4 days)
 
@@ -289,7 +348,8 @@ Sizes are rough estimates.
 Order:
 
 1. Ralex: separate Tamil feature block, and its Sinhala is already
-   lankafea-generated.
+   lankafea-generated. Also the 8 empty symbols (௰ ௲ ௵ ௶ ௷ ௸ ௹ ௺) carried over
+   from Phase 0: draw them, or drop them from the coverage claim.
 2. Vineetha: nearly free once Ralex is done.
 3. Yaldevi
 4. Abhaya: the largest, and needs R1.

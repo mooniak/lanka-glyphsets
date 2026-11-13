@@ -1,0 +1,306 @@
+languages: [Tamil]
+
+description: The "Mooniak Tamil Kernel" glyphset is the bare-bones essential glyphset for a functional Tamil font for general use — the full Tamil Unicode block, the shaping controls, and the consonant + vowel-sign forms that cannot be made by simply placing a sign.
+
+namespace: taml  # suffix convention: glyphs are named as "name-taml" (e.g. ka-taml); dot-suffixes go AFTER the namespace (isign-taml.ka)
+Exclude namespace from: [Format controls, Punctuation, Placeholders]
+
+# Grantha letters — the five consonants used for Sanskrit-derived sounds. Their
+# consonant + ு/ூ forms are required from the Core level (tamil-1-core.yaml).
+grantha: [ja, sha, ssa, sa, ha]
+
+groups:
+  usign:
+    pa: [nga, pa, ya, va]
+
+categories:
+  Format controls:
+    space:
+    zerowidthjoiner: # Required for shaping; U+200D
+      unicode: 0x200D
+    zerowidthnonjoiner: # Required for shaping; U+200C
+      unicode: 0x200C
+
+  Placeholders:
+    dottedCircle: # ◌ — the base glyph shown under an isolated mark
+      unicode: 0x25CC
+
+  Punctuation:
+    # Base glyphs out of the Tamil namespace (shared with Sinhala)
+    space:
+    exclam:
+    quotedbl:
+    numbersign:
+    percent:
+    quotesingle:
+    parenleft:
+    parenright:
+    asterisk:
+    plus:
+    comma:
+    hyphen:
+    period:
+    slash:
+    colon:
+    semicolon:
+    less:
+    equal:
+    greater:
+    question:
+    bracketleft:
+    backslash:
+    bracketright:
+    underscore:
+    periodcentered:
+    multiply:
+    divide:
+    endash:
+    emdash:
+    quoteleft:
+    quoteright:
+    quotedblleft:
+    quotedblright:
+    bullet:
+
+  Letters:
+    # Independent vowels
+    a: # அ
+      unicode: 0x0B85
+    aa: # ஆ
+      unicode: 0x0B86
+    i: # இ
+      unicode: 0x0B87
+    ii: # ஈ
+      unicode: 0x0B88
+    u: # உ
+      unicode: 0x0B89
+    uu: # ஊ
+      unicode: 0x0B8A
+    e: # எ
+      unicode: 0x0B8E
+    ee: # ஏ
+      unicode: 0x0B8F
+    ai: # ஐ
+      unicode: 0x0B90
+    o: # ஒ
+      unicode: 0x0B92
+    oo: # ஓ
+      unicode: 0x0B93
+    au: # ஔ
+      unicode: 0x0B94
+      decompose: [o, aulengthmark]
+    visargaya: # ஃ aytham — a letter (Unicode category Lo), not a sign
+      unicode: 0x0B83
+
+    # Consonants (inherent vowel 'a'). Every consonant takes the same five
+    # signs; which of them need a dedicated form is set by the forms below and
+    # the shape groups above.
+    ka: # க
+      unicode: 0x0B95
+      signs: [virama, isign, iisign, usign, uusign]
+      conjunct: [ssa]
+    nga: # ங
+      unicode: 0x0B99
+      signs: [virama, isign, iisign, usign, uusign]
+    ca: # ச
+      unicode: 0x0B9A
+      signs: [virama, isign, iisign, usign, uusign]
+    ja: # ஜ (Grantha)
+      unicode: 0x0B9C
+      signs: [virama, isign, iisign, usign, uusign]
+    nya: # ஞ
+      unicode: 0x0B9E
+      signs: [virama, isign, iisign, usign, uusign]
+    tta: # ட
+      unicode: 0x0B9F
+      signs: [virama, isign, iisign, usign, uusign]
+    nna: # ண
+      unicode: 0x0BA3
+      signs: [virama, isign, iisign, usign, uusign]
+    ta: # த
+      unicode: 0x0BA4
+      signs: [virama, isign, iisign, usign, uusign]
+    na: # ந
+      unicode: 0x0BA8
+      signs: [virama, isign, iisign, usign, uusign]
+    nnna: # ன
+      unicode: 0x0BA9
+      signs: [virama, isign, iisign, usign, uusign]
+    pa: # ப
+      unicode: 0x0BAA
+      signs: [virama, isign, iisign, usign, uusign]
+    ma: # ம
+      unicode: 0x0BAE
+      signs: [virama, isign, iisign, usign, uusign]
+    ya: # ய
+      unicode: 0x0BAF
+      signs: [virama, isign, iisign, usign, uusign]
+    ra: # ர
+      unicode: 0x0BB0
+      signs: [virama, isign, iisign, usign, uusign]
+    rra: # ற
+      unicode: 0x0BB1
+      signs: [virama, isign, iisign, usign, uusign]
+    la: # ல
+      unicode: 0x0BB2
+      signs: [virama, isign, iisign, usign, uusign]
+    lla: # ள
+      unicode: 0x0BB3
+      signs: [virama, isign, iisign, usign, uusign]
+    zha: # ழ
+      unicode: 0x0BB4
+      signs: [virama, isign, iisign, usign, uusign]
+    va: # வ
+      unicode: 0x0BB5
+      signs: [virama, isign, iisign, usign, uusign]
+    sha: # ஶ (Grantha)
+      unicode: 0x0BB6
+      signs: [virama, isign, iisign, usign, uusign]
+    ssa: # ஷ (Grantha)
+      unicode: 0x0BB7
+      signs: [virama, isign, iisign, usign, uusign]
+    sa: # ஸ (Grantha)
+      unicode: 0x0BB8
+      signs: [virama, isign, iisign, usign, uusign]
+    ha: # ஹ (Grantha)
+      unicode: 0x0BB9
+      signs: [virama, isign, iisign, usign, uusign]
+
+  Signs:
+    # Vowel signs (matras). Named with the "sign" suffix.
+    aasign: # ா
+      unicode: 0x0BBE
+    isign: # ி
+      unicode: 0x0BBF
+    iisign: # ீ
+      unicode: 0x0BC0
+    usign: # ு
+      unicode: 0x0BC1
+    uusign: # ூ
+      unicode: 0x0BC2
+    esign: # ெ
+      unicode: 0x0BC6
+    eesign: # ே
+      unicode: 0x0BC7
+    aisign: # ை
+      unicode: 0x0BC8
+    osign: # ொ
+      unicode: 0x0BCA
+      decompose: [esign, aasign]
+    oosign: # ோ
+      unicode: 0x0BCB
+      decompose: [eesign, aasign]
+    ausign: # ௌ
+      unicode: 0x0BCC
+      decompose: [esign, aulengthmark]
+    aulengthmark: # ௗ (au length mark)
+      unicode: 0x0BD7
+    virama: # ் pulli
+      unicode: 0x0BCD
+    anusvaraya: # ஂ
+      unicode: 0x0B82
+
+  Tamil numerals:
+    zero: # ௦
+      unicode: 0x0BE6
+    one: # ௧
+      unicode: 0x0BE7
+    two: # ௨
+      unicode: 0x0BE8
+    three: # ௩
+      unicode: 0x0BE9
+    four: # ௪
+      unicode: 0x0BEA
+    five: # ௫
+      unicode: 0x0BEB
+    six: # ௬
+      unicode: 0x0BEC
+    seven: # ௭
+      unicode: 0x0BED
+    eight: # ௮
+      unicode: 0x0BEE
+    nine: # ௯
+      unicode: 0x0BEF
+    ten: # ௰
+      unicode: 0x0BF0
+    hundred: # ௱
+      unicode: 0x0BF1
+    thousand: # ௲
+      unicode: 0x0BF2
+
+  Tamil symbols:
+    om: # ௐ
+      unicode: 0x0BD0
+    # Calendar / clerical / currency marks. Named sign<name>; rupee is indianrupee.
+    signday: # ௳
+      unicode: 0x0BF3
+    signmonth: # ௴
+      unicode: 0x0BF4
+    signyear: # ௵
+      unicode: 0x0BF5
+    signdebit: # ௶
+      unicode: 0x0BF6
+    signcredit: # ௷
+      unicode: 0x0BF7
+    signasabove: # ௸
+      unicode: 0x0BF8
+    indianrupee: # ௹
+      unicode: 0x0BF9
+    signnumber: # ௺
+      unicode: 0x0BFA
+
+  Ligated consonant conjuncts:
+    # Conjunct naming drops the trailing 'a' of the first base and capitalises
+    # the first letter of the second base (ka + ssa -> kSsa). Formed by the akhn feature.
+    kSsa: # க்ஷ (ka + virama + ssa)
+    shree: # ஸ்ரீ / ஶ்ரீ (sa or sha + virama + ra + iisign); one glyph serves both spellings
+
+  Orthographical conjuncts:
+    # Consonant + vowel-sign forms. Naming: drop the trailing 'a' of the consonant
+    # and add the sign abbreviation (I=isign, Ii=iisign, U=usign, Uu=uusign).
+    # A form marked "— or usign.pa" is also met by the shape-group alternate
+    # usign-taml.pa (see the groups: block); the rest need the dedicated glyph.
+
+    # ட + ி / ீ — the plain sign collides with the letter, so these are always dedicated glyphs.
+    ttI: # டி
+    ttIi: # டீ
+
+    # usign (ு) on the 18 native consonants:
+    kU: # கு
+    ngU: # ஙு — or usign.pa
+    cU: # சு
+    nyU: # ஞு
+    ttU: # டு
+    nnU: # ணு
+    tU: # து
+    nU: # நு
+    nnnU: # னு
+    pU: # பு — or usign.pa
+    mU: # மு
+    yU: # யு — or usign.pa
+    rU: # ரு
+    rrU: # று
+    lU: # லு
+    llU: # ளு
+    zhU: # ழு
+    vU: # வு — or usign.pa
+
+    # uusign (ூ) on the 18 native consonants:
+    kUu: # கூ
+    ngUu: # ஙூ
+    cUu: # சூ
+    nyUu: # ஞூ
+    ttUu: # டூ
+    nnUu: # ணூ
+    tUu: # தூ
+    nUu: # நூ
+    nnnUu: # னூ
+    pUu: # பூ
+    mUu: # மூ
+    yUu: # யூ
+    rUu: # ரூ
+    rrUu: # றூ
+    lUu: # லூ
+    llUu: # ளூ
+    zhUu: # ழூ
+    vUu: # வூ
