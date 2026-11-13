@@ -250,8 +250,20 @@ built from its parts, never the reverse.
 
 ### 4. Consonant + vowel-sign forms
 A form is named by dropping the trailing `a` of the consonant and adding the
-capitalised sign abbreviation: `I` = isign, `Ii` = iisign, `U` = usign,
-`Uu` = uusign, `Aa` = aasign, `Ai` = aisign.
+capitalised sign abbreviation:
+
+| Sign | Abbreviation | Sign | Abbreviation |
+|---|---|---|---|
+| `aasign` ா | `Aa` | `eesign` ே | `Ee` |
+| `isign` ி | `I` | `aisign` ை | `Ai` |
+| `iisign` ீ | `Ii` | `osign` ொ | `O` |
+| `usign` ு | `U` | `oosign` ோ | `Oo` |
+| `uusign` ூ | `Uu` | `ausign` ௌ | `Au` |
+| `esign` ெ | `E` | `virama` ் | *(none: `k`)* |
+
+Only some forms are glyphs the standard asks for (the glyphset files list them). The
+rest, such as `kAa` or `kE`, are valid by the same rule and need no glyph of their own:
+the consonant and the plain sign are enough.
 
 - `kI-taml` — கி (ka + isign)
 - `pU-taml` — பு (pa + usign)

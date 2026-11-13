@@ -12,9 +12,13 @@
  *                                             recorded standard versions disagree
  *
  * The tracked, hand-regenerated artifacts:
- *   1. tools/glyphname-unicode-converter/lankaglyphset-map.js  (name↔unicode engine)
+ *   1. tools/glyphname-unicode-converter/lankaglyphset-map.js  (name↔unicode engine,
+ *                                                               Sinhala + Tamil)
  *   2. tools/_generated/shaping-exceptions.js                  (depends on #1)
  *   3. tools/_generated/lanka-glyph-data.js                    (CLI export-json)
+ *   4. tools/_generated/lanka-glyph-data-tamil.js              (CLI export-json --script tamil)
+ *   5. tools/font-coverage/tamil-candidates.json               (CLI generate --script tamil;
+ *                                                               read by font_coverage.py)
  *
  * lankafea (PyPI) lives in sinhala-font-tools; its setup.py copies this repo's
  * glyphsets/*.yaml (from a sibling checkout) into the wheel at build time.
@@ -32,6 +36,8 @@ const ARTIFACTS = [
   'tools/glyphname-unicode-converter/lankaglyphset-map.js',
   'tools/_generated/shaping-exceptions.js',
   'tools/_generated/lanka-glyph-data.js',
+  'tools/_generated/lanka-glyph-data-tamil.js',
+  'tools/font-coverage/tamil-candidates.json',
 ];
 
 const run = (cmd) => execSync(cmd, { cwd: ROOT, stdio: 'inherit' });
@@ -42,6 +48,8 @@ run('npm run build'); // tsc → dist/, needed for the export-json CLI below
 run('node tools/glyphname-unicode-converter/build-glyphset.js');
 run('node tools/_generated/build-shaping-exceptions.js');
 run('node dist/cli/index.js export-json --format js -o tools/_generated/lanka-glyph-data.js');
+run('node dist/cli/index.js export-json --script tamil --format js -o tools/_generated/lanka-glyph-data-tamil.js');
+run('node dist/cli/index.js generate --script tamil -l 2 -f json -o tools/font-coverage/tamil-candidates.json');
 
 // Version consistency: the standard version each package RECORDS must match the
 // single source of truth in glyphsets/manifest.yaml. (What each package BUNDLES

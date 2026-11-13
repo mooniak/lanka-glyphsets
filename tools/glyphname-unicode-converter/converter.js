@@ -6,11 +6,33 @@
   "use strict";
   var L = window.LankaGlyphset;
 
-  var SAMPLE_UNI = ["ක", "කි", "ක්", "ක්‍ර", "ක්‍ෂ", "ක්‍රි", "දා", "ඤා", "රැ",
-    "කර්‍", "න්‍ද්‍ර", "ර්‍", "අ", "ා", "ඉ"].join("\n");
-  var SAMPLE_NAME = ["ka-sinh", "kI-sinh", "k-sinh", "kRa-sinh", "kSsa-sinh",
-    "kRI-sinh", "daa._c-sinh", "nyaa._c-sinh", "rAe-sinh", "ka_repha-sinh",
-    "nDRa-sinh", "repha-sinh", "a-sinh", "aasign-sinh"].join("\n");
+  // Per-script samples and wording. The engine picks the script from the text or the
+  // name's namespace; the toggle passes it explicitly so a bare name resolves too.
+  var SCRIPTS = {
+    sinhala: {
+      label: "Sinhala", ns: "-sinh",
+      uni: ["ක", "කි", "ක්", "ක්‍ර", "ක්‍ෂ", "ක්‍රි", "දා", "ඤා", "රැ",
+        "කර්‍", "න්‍ද්‍ර", "ර්‍", "අ", "ා", "ඉ"],
+      name: ["ka-sinh", "kI-sinh", "k-sinh", "kRa-sinh", "kSsa-sinh",
+        "kRI-sinh", "daa._c-sinh", "nyaa._c-sinh", "rAe-sinh", "ka_repha-sinh",
+        "nDRa-sinh", "repha-sinh", "a-sinh", "aasign-sinh"],
+      phUni: "කි\nක්‍ර\nක්‍ෂ\nදා",
+      phName: "kRa-sinh\nkSsa-sinh\nka\ndaa._c-sinh",
+      textHint: "Type or paste Sinhala text above."
+    },
+    tamil: {
+      label: "Tamil", ns: "-taml",
+      uni: ["க", "கி", "க்", "டி", "பு", "னூ", "கா", "கொ", "க்ஷ", "க்ஷி", "ஸ்ரீ", "ஶ்ரீ",
+        "அ", "ஔ", "ஃ", "௧", "௹"],
+      name: ["ka-taml", "kI-taml", "k-taml", "ttI-taml", "pU-taml", "nnnUu-taml", "kSsa-taml",
+        "shree-taml", "isign-taml.ka", "usign-taml.pa", "ra-taml.alt", "one-taml", "au-taml"],
+      phUni: "கி\nடி\nக்ஷ\nஸ்ரீ",
+      phName: "kI-taml\nkSsa-taml\nka\nisign-taml.ka",
+      textHint: "Type or paste Tamil text above."
+    }
+  };
+  var script = "sinhala";
+  function opts() { return { script: script }; }
 
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (c) {
@@ -60,8 +82,8 @@
     });
     return out;
   }
-  function okUni(s) { return !L.unicodeToName(s).error; }
-  function okName(s) { return !L.nameToUnicode(s).error; }
+  function okUni(s) { return !L.unicodeToName(s, opts()).error; }
+  function okName(s) { return !L.nameToUnicode(s, opts()).error; }
 
   // ---- Unicode -> Name ----
   var uniResults = [];   // resolved names for "copy all"
@@ -73,7 +95,7 @@
     lines.forEach(function (line) {
       var s = line.trim();
       if (s === "") return;
-      var r = L.unicodeToName(s);
+      var r = L.unicodeToName(s, opts());
       if (r.error) {
         nErr++;
         rows.push('<tr><td class="glyph">' + esc(s) + '</td><td class="cp">' +
@@ -91,7 +113,7 @@
       }
     });
     var out = document.getElementById("out-uni");
-    if (!rows.length) { out.innerHTML = '<div class="empty">Type or paste Sinhala text above.</div>'; }
+    if (!rows.length) { out.innerHTML = '<div class="empty">' + SCRIPTS[script].textHint + '</div>'; }
     else {
       out.innerHTML = '<table><thead><tr><th>Glyph</th><th class="mono">Codepoints</th>' +
         '<th>LankaGlyphset name</th><th>Note</th></tr></thead><tbody>' +
@@ -111,7 +133,7 @@
     lines.forEach(function (line) {
       var s = line.trim();
       if (s === "") return;
-      var r = L.nameToUnicode(s);
+      var r = L.nameToUnicode(s, opts());
       if (r.error) {
         nErr++;
         rows.push('<tr><td>' + esc(s) + '</td><td class="glyph">—</td>' +
@@ -123,7 +145,9 @@
           '<td class="name">' + esc(s) + '</td>' +
           '<td class="glyph">' + esc(r.unicode) + '</td>' +
           '<td class="cp">' + esc(r.hex) + '</td>' +
-          '<td>' + badge(r.canonical ? "canon" : "flag", r.tier) + '</td></tr>');
+          '<td>' + badge(r.canonical ? "canon" : "flag", r.tier) +
+          (r.variant ? ' <span class="note">alternate "' + esc(r.variant) + '" — shows the base glyph</span>' : '') +
+          '</td></tr>');
       }
     });
     var out = document.getElementById("out-name");
@@ -152,8 +176,8 @@
 
   document.querySelectorAll("[data-sample]").forEach(function (b) {
     b.addEventListener("click", function () {
-      if (b.dataset.sample === "uni") { document.getElementById("in-uni").value = SAMPLE_UNI; runUni(); }
-      else { document.getElementById("in-name").value = SAMPLE_NAME; runName(); }
+      if (b.dataset.sample === "uni") { document.getElementById("in-uni").value = SCRIPTS[script].uni.join("\n"); runUni(); }
+      else { document.getElementById("in-name").value = SCRIPTS[script].name.join("\n"); runName(); }
     });
   });
 
@@ -170,5 +194,25 @@
     if (tr && tr.dataset.copy) copy(tr.dataset.copy, "Copied");
   });
 
-  runUni(); runName();
+  // Script toggle: swap wording and placeholders, clear the inputs, and re-run.
+  function setScript(next) {
+    script = next;
+    var def = SCRIPTS[script];
+    document.body.classList.toggle("tamil", script === "tamil");
+    document.querySelectorAll(".script-tab").forEach(function (t) {
+      t.classList.toggle("active", t.dataset.script === script);
+    });
+    document.getElementById("lbl-uni-script").textContent = def.label;
+    document.getElementById("lbl-ns").textContent = def.ns;
+    document.getElementById("in-uni").placeholder = def.phUni;
+    document.getElementById("in-name").placeholder = def.phName;
+    document.getElementById("in-uni").value = "";
+    document.getElementById("in-name").value = "";
+    runUni(); runName();
+  }
+  document.querySelectorAll(".script-tab").forEach(function (t) {
+    t.addEventListener("click", function () { setScript(t.dataset.script); });
+  });
+
+  setScript("sinhala");
 })();

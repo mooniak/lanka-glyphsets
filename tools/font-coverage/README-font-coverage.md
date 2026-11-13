@@ -1,6 +1,6 @@
 # font_coverage.py
 
-Report which Sinhala orthographic units a **font** can actually render, by
+Report which Sinhala or Tamil orthographic units a **font** can actually render, by
 shaping each candidate Unicode string with HarfBuzz and inspecting the result.
 
 This answers the question "what Unicode text rendering does this font support,
@@ -45,8 +45,42 @@ python3 tools/font_coverage.py MyFont.ttf --candidates words.txt
 
 Notes:
 - Ligature detection relies on the glyph-naming convention `name-sinh`
-  (override with `--namespace`).
+  (override with `--namespace`). Built fonts usually drop the hyphen from glyph names
+  (`kIsinh`, `isigntaml.ka`); both spellings are matched.
 - Default output prints only `SUPPORTED`. Use `--status all` or a comma list to
   widen it. Consonant + vowel-sign combinations that a font renders via mark
   positioning (rather than a precomposed glyph) appear as `PARTIAL` — that is
   still correct orthography, so include `PARTIAL` if you want those too.
+
+## Tamil
+
+```bash
+python3 tools/font_coverage.py MyTamilFont.ttf --script tamil --report
+
+# Check against Tamil Kernel only (0), Kernel + Core (1), or everything (2, the default)
+python3 tools/font_coverage.py MyTamilFont.ttf --script tamil --level 1 --report
+```
+
+`--script tamil` reads `tamil-candidates.json` beside the script, the 313 candidates of the
+Tamil grid (24 rows × 13 columns, plus `shree`). The file is generated from the standard by
+`npm run sync` (`glyphsets generate --script tamil -l 2 -f json`), not written out in the
+script, so it cannot drift from the YAML; pass `--candidates` to use your own. The glyph
+namespace defaults to `taml`.
+
+A Tamil form is met in more than one way, and the statuses follow the standard:
+
+- **Its own glyph** (`kI-taml`) or **the shape-group alternate** of the sign
+  (`isign-taml.ka`): either is `SUPPORTED`.
+- **A form the standard does not enumerate at the level you ask for** (`kAa`, `k`, or
+  a Core form under `--level 0`) needs no glyph of its own, so plain composition from
+  the consonant and the sign is `SUPPORTED` too (`composed: …` in the report).
+- **A form the standard does enumerate**, drawn only as the consonant and a plain sign, is
+  `PARTIAL`: the font is missing the glyph or the alternate.
+- **The glyph exists but the shaper never reaches it** is `GLYPH_PRESENT_NO_FEA`, as for Sinhala.
+  (Run against Yaldevi's current build, it reports exactly this for `kSsa-taml` and `shree-taml`.)
+
+Fonts that still use their old Tamil glyph names (`isign.alt5-taml`) are reported by the
+standard's names, so expect `PARTIAL` for forms they draw with an alternate under another
+name until they are migrated.
+
+The browser version, `font-coverage.html`, is Sinhala only.

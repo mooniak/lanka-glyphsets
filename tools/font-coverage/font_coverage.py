@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-font_coverage.py — Report which Sinhala orthographic units a font can render.
+font_coverage.py — Report which Sinhala or Tamil orthographic units a font can render.
 
 For every candidate orthographic sequence (a Unicode string such as "ක", "කි",
 or the conjunct "ක්‍ෂ") the tool shapes the string with HarfBuzz against the
@@ -19,12 +19,20 @@ Default output is the list of Unicode strings the font supports, one per line
 
 Candidate sources (pick one):
   --builtin                Generate the standard Sinhala syllabary internally
-                           (default when nothing else is given).
+                           (default when nothing else is given). With
+                           --script tamil, read tamil-candidates.json beside this
+                           file (generated from the standard by `npm run sync`).
   --candidates FILE.json   JSON array of {"name": "...", "sequence": "..."}
                            — i.e. the output of `glyphsets generate -f json`.
   --candidates FILE.txt    Plain text, one sequence per line. Optional
                            "name<TAB>sequence" per line to enable ligature
                            (GLYPH_PRESENT_NO_FEA) detection.
+
+Tamil (--script tamil): a consonant + sign form is met by its own glyph (kI-taml)
+OR by the shape-group alternate of the sign (isign-taml.ka) — either counts as
+SUPPORTED. A form the standard does not enumerate (kAa, k) needs no glyph of its
+own, so plain composition is SUPPORTED too. Use --level 0|1|2 to check a font
+against Tamil Kernel, Core or Pro only.
 
 Requires: uharfbuzz, fonttools
     pip install uharfbuzz fonttools
@@ -39,8 +47,8 @@ import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 
-import uharfbuzz as hb
-from fontTools.ttLib import TTFont
+# uharfbuzz and fontTools are imported inside FontProbe, so the classification
+# logic can be imported (and tested) without them.
 
 # ---------------------------------------------------------------------------
 # Sinhala Unicode building blocks (for the --builtin candidate generator)
@@ -90,6 +98,13 @@ class Candidate:
     name: str | None      # expected precomposed glyph name (without namespace), or None
     sequence: str         # the Unicode string to shape
     ligature: bool        # True if a single precomposed glyph is expected
+    # Tamil: other glyph names that also meet the candidate (shape-group alternates)
+    alternates: tuple[str, ...] = ()
+    # Tamil: True if the standard enumerates the name (so it needs a glyph or an
+    # alternate); False if plain composition is enough; None when not known.
+    canonical: bool | None = None
+    # Tamil: lowest level (0 = Kernel) that requires the name
+    level: int | None = None
 
 
 def builtin_candidates() -> list[Candidate]:
@@ -128,11 +143,18 @@ def load_candidates(path: Path) -> list[Candidate]:
             if isinstance(item, str):
                 out.append(Candidate(None, item, ligature=len(item) > 1))
             else:
-                seq = item.get("sequence") or item.get("seq") or ""
                 name = item.get("name")
-                # A precomposed glyph is expected when the cluster is multi-codepoint
-                lig = len(seq) > 1
-                out.append(Candidate(name, seq, ligature=lig))
+                alt = item.get("alternate")
+                extra = dict(
+                    alternates=(alt,) if alt else (),
+                    canonical=item.get("canonical"),
+                    level=item.get("level"),
+                )
+                # One candidate per spelling (e.g. Tamil ஸ்ரீ and ஶ்ரீ share a glyph).
+                seqs = item.get("sequences") or [item.get("sequence") or item.get("seq") or ""]
+                for seq in seqs:
+                    # A precomposed glyph is expected when the cluster is multi-codepoint
+                    out.append(Candidate(name, seq, ligature=len(seq) > 1, **extra))
     else:
         for line in text.splitlines():
             line = line.rstrip("\n")
@@ -152,6 +174,10 @@ def load_candidates(path: Path) -> list[Candidate]:
 
 class FontProbe:
     def __init__(self, font_path: Path, namespace: str = "sinh"):
+        import uharfbuzz as hb
+        from fontTools.ttLib import TTFont
+
+        self._hb = hb
         self.path = font_path
         self.namespace = namespace
         blob = hb.Blob.from_file_path(str(font_path))
@@ -168,9 +194,20 @@ class FontProbe:
             pass
         tt.close()
 
+    @staticmethod
+    def variants(name: str) -> list[str]:
+        """A glyph name, and the form a built font gives it: production names
+        drop the hyphen (kI-taml -> kItaml, isign-taml.ka -> isigntaml.ka)."""
+        return [name, name.replace("-", "")] if "-" in name else [name]
+
     def expected_glyph_names(self, name: str) -> list[str]:
         """Possible glyph-order names for a candidate's expected glyph."""
-        return [f"{name}-{self.namespace}", f"{self.namespace}.{name}", name]
+        out: list[str] = []
+        for n in (f"{name}-{self.namespace}", f"{self.namespace}.{name}", name):
+            for v in self.variants(n):
+                if v not in out:
+                    out.append(v)
+        return out
 
     def has_glyph_named(self, name: str | None) -> bool:
         if not name:
@@ -178,6 +215,7 @@ class FontProbe:
         return any(n in self.glyph_order for n in self.expected_glyph_names(name))
 
     def shape(self, text: str):
+        hb = self._hb
         buf = hb.Buffer()
         buf.add_str(text)
         buf.guess_segment_properties()
@@ -195,8 +233,11 @@ GLYPH_PRESENT_NO_FEA = "GLYPH_PRESENT_NO_FEA"
 UNSUPPORTED = "UNSUPPORTED"
 
 
-def classify(probe: FontProbe, cand: Candidate) -> tuple[str, str]:
-    """Return (status, note) for a candidate against the font."""
+def classify(probe: FontProbe, cand: Candidate, level: int | None = None) -> tuple[str, str]:
+    """Return (status, note) for a candidate against the font.
+
+    ``level`` (Tamil) is the highest level the font claims; a name the standard
+    only enumerates at a higher level is treated as not required."""
     gids, gnames = probe.shape(cand.sequence)
 
     # .notdef (gid 0) => at least one codepoint has no glyph at all
@@ -220,11 +261,21 @@ def classify(probe: FontProbe, cand: Candidate) -> tuple[str, str]:
     if used_expected:
         return SUPPORTED, f"ligature -> {'+'.join(gnames)}"
 
+    # Tamil: the shape-group alternate of the sign meets the form just as well.
+    if any(v in gnames for a in cand.alternates for v in probe.variants(a)):
+        return SUPPORTED, f"alternate -> {'+'.join(gnames)}"
+
     if cand.name and probe.has_glyph_named(cand.name):
         # The precomposed glyph is in the font but the shaper didn't reach it:
         # the OpenType feature that forms it is missing/broken.
         return GLYPH_PRESENT_NO_FEA, (
             f"glyph '{cand.name}' present but unused; shaped as {'+'.join(gnames)}")
+
+    # Tamil: a form the standard does not enumerate (at this level) needs no glyph
+    # of its own — the consonant and the plain sign are enough.
+    required = cand.canonical and (cand.level is None or level is None or cand.level <= level)
+    if cand.canonical is not None and not required and len(gids) > 1:
+        return SUPPORTED, f"composed: {'+'.join(gnames)}"
 
     # Renders as separate components without notdef. Legible but not ligated.
     if len(gids) > 1:
@@ -236,15 +287,22 @@ def classify(probe: FontProbe, cand: Candidate) -> tuple[str, str]:
 
 def main() -> int:
     ap = argparse.ArgumentParser(
-        description="Report which Sinhala orthographic units a font renders.")
+        description="Report which Sinhala or Tamil orthographic units a font renders.")
     ap.add_argument("font", type=Path, help="Path to .ttf/.otf font file")
     src = ap.add_mutually_exclusive_group()
     src.add_argument("--builtin", action="store_true",
                      help="Use the built-in Sinhala syllabary (default)")
     src.add_argument("--candidates", type=Path,
                      help="JSON (generate -f json) or text list of sequences")
-    ap.add_argument("--namespace", default="sinh",
-                    help="Glyph-name namespace used by the font (default: sinh)")
+    ap.add_argument("--script", choices=("sinhala", "tamil"), default="sinhala",
+                    help="Script to check (default: sinhala)")
+    ap.add_argument("--namespace", default=None,
+                    help="Glyph-name namespace used by the font "
+                         "(default: sinh, or taml with --script tamil)")
+    ap.add_argument("--level", type=int, default=None,
+                    help="Tamil: highest level the font claims (0 Kernel, 1 Core, "
+                         "2 Pro). Names the standard enumerates only above it "
+                         "are not required. Default: all levels")
     ap.add_argument("--report", action="store_true",
                     help="Full tab-separated report instead of supported list")
     ap.add_argument("--status", default="SUPPORTED",
@@ -257,14 +315,25 @@ def main() -> int:
         print(f"error: font not found: {args.font}", file=sys.stderr)
         return 1
 
-    probe = FontProbe(args.font, namespace=args.namespace)
+    namespace = args.namespace or ("taml" if args.script == "tamil" else "sinh")
+    probe = FontProbe(args.font, namespace=namespace)
 
     if args.candidates:
         candidates = load_candidates(args.candidates)
+    elif args.script == "tamil":
+        # Generated from the standard (glyphsets generate --script tamil -f json),
+        # not written out here, so it cannot drift from the YAML.
+        tamil = Path(__file__).with_name("tamil-candidates.json")
+        if not tamil.exists():
+            print(f"error: {tamil.name} not found beside this script; pass "
+                  "--candidates (glyphsets generate --script tamil -l 2 -f json)",
+                  file=sys.stderr)
+            return 1
+        candidates = load_candidates(tamil)
     else:
         candidates = builtin_candidates()
 
-    results = [(c, *classify(probe, c)) for c in candidates]
+    results = [(c, *classify(probe, c, args.level)) for c in candidates]
 
     lines: list[str] = []
     if args.report:

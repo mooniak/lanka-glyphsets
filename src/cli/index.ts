@@ -16,6 +16,7 @@ import {
   formatSharedDataAsJsModule,
 } from '../formatters/shared-data.js';
 import { loadGlyphsetsCumulative } from '../core/parser.js';
+import { SCRIPTS, composeName, resolveScript } from '../core/scripts.js';
 import {
   generateAllGlyphs,
   generateBaseGlyphs,
@@ -25,7 +26,8 @@ import {
   generateTouchingClusters,
   getGeneratedCounts,
 } from '../generators/index.js';
-import type { GlyphsetLevel, GeneratedGlyph } from '../types/index.js';
+import type { Command as CommanderCommand } from 'commander';
+import type { GlyphsetLevel, GeneratedGlyph, Script } from '../types/index.js';
 
 // Single source of truth for the version — read from package.json so it stays in
 // step with `npm version` bumps instead of being hardcoded here.
@@ -37,9 +39,38 @@ const program = new Command();
 
 program
   .name('glyphsets')
-  .description('Lanka Glyphsets CLI - Tools for Sinhala font development')
+  .description('Lanka Glyphsets CLI - Tools for Sinhala and Tamil font development')
   .version(pkg.version);
 
+/**
+ * Resolve --script and --level for a command. Tamil has levels 0-2, Sinhala 0-3;
+ * a level left at its default is clamped to the script's highest, so
+ * `glyph-data --script tamil` means "all of Tamil".
+ */
+function resolveRun(
+  options: { script?: string; level?: string },
+  command: CommanderCommand
+): { script: Script; level: GlyphsetLevel } {
+  let script: Script;
+  try {
+    script = resolveScript(options.script);
+  } catch (err) {
+    console.error(chalk.red(`Error: ${(err as Error).message}`));
+    process.exit(1);
+  }
+  const max = SCRIPTS[script].maxLevel;
+  let level = parseInt(options.level ?? '1', 10);
+  if (command.getOptionValueSource('level') === 'default') level = Math.min(level, max);
+  if (Number.isNaN(level) || level < 0 || level > max) {
+    console.error(chalk.red(`Error: Level must be between 0 and ${max}`));
+    process.exit(1);
+  }
+  return { script, level: level as GlyphsetLevel };
+}
+
+const SCRIPT_OPTION: [string, string, string] = [
+  '-s, --script <name>', 'Script: sinhala or tamil', 'sinhala',
+];
 program
   .command('list')
   .description('List glyph names from glyphsets')
@@ -48,15 +79,11 @@ program
   .option('-o, --output <file>', 'Output file path')
   .option('-f, --format <type>', 'Output format: txt, json, json-full', 'txt')
   .option('--no-namespace', 'Exclude namespace prefix from glyph names')
-  .action(async (options) => {
-    const level = parseInt(options.level, 10) as GlyphsetLevel;
+  .option(...SCRIPT_OPTION)
+  .action(async (options, command) => {
+    const { script, level } = resolveRun(options, command);
 
-    if (level < 0 || level > 3) {
-      console.error(chalk.red('Error: Level must be between 0 and 3'));
-      process.exit(1);
-    }
-
-    const registry = createRegistry(level);
+    const registry = createRegistry(level, script);
 
     let glyphs = options.category
       ? registry.getByCategory(options.category)
@@ -99,9 +126,10 @@ program
   .command('categories')
   .description('List available glyph categories')
   .option('-l, --level <number>', 'Glyphset level 0-3 (cumulative)', '1')
-  .action((options) => {
-    const level = parseInt(options.level, 10) as GlyphsetLevel;
-    const registry = createRegistry(level);
+  .option(...SCRIPT_OPTION)
+  .action((options, command) => {
+    const { script, level } = resolveRun(options, command);
+    const registry = createRegistry(level, script);
 
     console.log(chalk.bold(`Categories in Level ${level}:`));
     for (const category of registry.getCategories()) {
@@ -114,12 +142,14 @@ program
   .command('info')
   .description('Show glyphset information')
   .option('-l, --level <number>', 'Glyphset level 0-3', '1')
-  .action((options) => {
-    const level = parseInt(options.level, 10) as GlyphsetLevel;
-    const registry = createRegistry(level);
+  .option(...SCRIPT_OPTION)
+  .action((options, command) => {
+    const { script, level } = resolveRun(options, command);
+    const registry = createRegistry(level, script);
 
     console.log(chalk.bold('Lanka Glyphsets Info'));
     console.log(chalk.dim('─'.repeat(40)));
+    if (script !== 'sinhala') console.log(`Script: ${script}`);
     console.log(`Level: ${level} (cumulative from 0)`);
     console.log(`Total glyphs: ${registry.size}`);
     console.log();
@@ -138,34 +168,30 @@ program
   .option('-o, --output <file>', 'Output file path')
   .option('-f, --format <type>', 'Output format: txt, json', 'txt')
   .option('--no-namespace', 'Exclude namespace suffix from glyph names')
-  .action((options) => {
-    const level = parseInt(options.level, 10) as GlyphsetLevel;
-    const namespace = 'sinh';
+  .option(...SCRIPT_OPTION)
+  .action((options, command) => {
+    const { script, level } = resolveRun(options, command);
+    const namespace = SCRIPTS[script].namespace;
     let glyphs: GeneratedGlyph[];
-
-    if (level < 0 || level > 3) {
-      console.error(chalk.red('Error: Level must be between 0 and 3'));
-      process.exit(1);
-    }
 
     switch (options.type) {
       case 'base':
-        glyphs = generateBaseGlyphs(level, namespace);
+        glyphs = generateBaseGlyphs(level, namespace, script);
         break;
       case 'signs':
-        glyphs = generateConsonantSignCombinations(level, namespace);
+        glyphs = generateConsonantSignCombinations(level, namespace, script);
         break;
       case 'conjuncts':
-        glyphs = generateConjuncts(level, namespace);
+        glyphs = generateConjuncts(level, namespace, script);
         break;
       case 'conjunct-signs':
-        glyphs = generateConjunctSignCombinations(level, namespace);
+        glyphs = generateConjunctSignCombinations(level, namespace, script);
         break;
       case 'touching':
-        glyphs = generateTouchingClusters(level, namespace);
+        glyphs = generateTouchingClusters(level, namespace, script);
         break;
       default:
-        glyphs = generateAllGlyphs(level, namespace);
+        glyphs = generateAllGlyphs(level, namespace, script);
     }
 
     // Format output
@@ -178,6 +204,13 @@ program
           name: options.namespace ? g.fullName : g.name,
           type: g.type,
           sequence: g.sequence,
+          // Tamil only: other spellings, and how else the standard lets the form be met
+          ...(g.sequences && { sequences: g.sequences }),
+          ...(g.alternate && {
+            alternate: options.namespace ? composeName(g.alternate, SCRIPTS[script]) : g.alternate,
+          }),
+          ...(g.canonical !== undefined && { canonical: g.canonical }),
+          ...(g.level !== undefined && { level: g.level }),
         })),
         null,
         2
@@ -198,9 +231,10 @@ program
   .command('generate-info')
   .description('Show counts of generated glyph types')
   .option('-l, --level <number>', 'Glyphset level 0-3 (cumulative)', '1')
-  .action((options) => {
-    const level = parseInt(options.level, 10) as GlyphsetLevel;
-    const counts = getGeneratedCounts(level);
+  .option(...SCRIPT_OPTION)
+  .action((options, command) => {
+    const { script, level } = resolveRun(options, command);
+    const counts = getGeneratedCounts(level, undefined, script);
 
     console.log(chalk.bold(`Generated Glyph Counts (Level ${level})`));
     console.log(chalk.dim('─'.repeat(40)));
@@ -215,12 +249,20 @@ program
 
 program
   .command('text-glyphs')
-  .description('Extract unique glyph names needed to render Sinhala text')
+  .description('Extract unique glyph names needed to render Sinhala or Tamil text')
   .option('-i, --input <file>', 'Read text from a file')
-  .option('-t, --text <string>', 'Sinhala text to analyze')
+  .option('-t, --text <string>', 'Text to analyze')
   .option('-o, --output <file>', 'Output file path')
   .option('-f, --format <type>', 'Output format: txt, names, json', 'txt')
+  .option(...SCRIPT_OPTION)
   .action((options) => {
+    let script: Script;
+    try {
+      script = resolveScript(options.script);
+    } catch (err) {
+      console.error(chalk.red(`Error: ${(err as Error).message}`));
+      process.exit(1);
+    }
     let text: string;
 
     if (options.text) {
@@ -247,7 +289,7 @@ program
     switch (options.format) {
       case 'names': {
         // Just glyph names, one per line (no grouping)
-        const glyphs = getUniqueGlyphNames(text);
+        const glyphs = getUniqueGlyphNames(text, script);
         output = glyphs
           .filter(g => g.type !== 'space')
           .map(g => g.name)
@@ -255,7 +297,7 @@ program
         break;
       }
       case 'json': {
-        const glyphs = getUniqueGlyphNames(text);
+        const glyphs = getUniqueGlyphNames(text, script);
         output = JSON.stringify(
           glyphs.filter(g => g.type !== 'space'),
           null,
@@ -264,12 +306,12 @@ program
         break;
       }
       default:
-        output = formatGlyphAnalysis(text);
+        output = formatGlyphAnalysis(text, script);
     }
 
     if (options.output) {
       writeFileSync(options.output, output + '\n');
-      const count = getUniqueGlyphNames(text).filter(g => g.type !== 'space').length;
+      const count = getUniqueGlyphNames(text, script).filter(g => g.type !== 'space').length;
       console.log(chalk.green(`✓ Written ${count} unique glyph names to ${options.output}`));
     } else {
       console.log(output);
@@ -281,16 +323,12 @@ program
   .description('Generate GlyphData.xml for Glyphs app from YAML definitions')
   .option('-l, --level <number>', 'Glyphset level 0-3 (cumulative)', '3')
   .option('-o, --output <file>', 'Output file path')
-  .action((options) => {
-    const level = parseInt(options.level, 10) as GlyphsetLevel;
+  .option(...SCRIPT_OPTION)
+  .action((options, command) => {
+    const { script, level } = resolveRun(options, command);
 
-    if (level < 0 || level > 3) {
-      console.error(chalk.red('Error: Level must be between 0 and 3'));
-      process.exit(1);
-    }
-
-    const glyphs = loadGlyphsetsCumulative(level);
-    const xml = formatAsGlyphData(glyphs, 'sinh');
+    const glyphs = loadGlyphsetsCumulative(level, script);
+    const xml = formatAsGlyphData(glyphs, SCRIPTS[script].namespace, script);
 
     if (options.output) {
       writeFileSync(options.output, xml);
@@ -306,13 +344,9 @@ program
   .option('-l, --level <number>', 'Glyphset level 0-3 (cumulative)', '3')
   .option('-o, --output <file>', 'Output file path')
   .option('-f, --format <type>', 'Output format: json or js (browser+Node module)', 'json')
-  .action((options) => {
-    const level = parseInt(options.level, 10) as GlyphsetLevel;
-
-    if (level < 0 || level > 3) {
-      console.error(chalk.red('Error: Level must be between 0 and 3'));
-      process.exit(1);
-    }
+  .option(...SCRIPT_OPTION)
+  .action((options, command) => {
+    const { script, level } = resolveRun(options, command);
 
     // Auto-detect the module format from a .js output path unless overridden.
     let format = options.format as string;
@@ -325,10 +359,10 @@ program
       process.exit(1);
     }
 
-    const glyphs = loadGlyphsetsCumulative(level);
+    const glyphs = loadGlyphsetsCumulative(level, script);
     const data = buildSharedData(glyphs);
     const out = format === 'js'
-      ? formatSharedDataAsJsModule(data)
+      ? formatSharedDataAsJsModule(data, script)
       : formatSharedDataAsJson(data);
 
     if (options.output) {

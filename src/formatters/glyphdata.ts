@@ -3,7 +3,8 @@
  * Glyph names are used exactly as defined in the YAML files (e.g. ka-sinh, kVI-sinh)
  */
 
-import type { Glyph } from '../types/index.js';
+import type { Glyph, Script } from '../types/index.js';
+import { TAMIL_NONSPACING, TAMIL_SIGN_BY_NAME } from '../core/tamil.js';
 
 const CATEGORY_MAP: Record<string, { category: string; subCategory?: string }> = {
   'Letters': { category: 'Letter' },
@@ -15,6 +16,19 @@ const CATEGORY_MAP: Record<string, { category: string; subCategory?: string }> =
   'Typographical conjunct ligatures': { category: 'Letter', subCategory: 'Ligature' },
   'Sinhala numerals': { category: 'Number' },
   'Stylistic alternates': { category: 'Letter' },
+  // Tamil
+  'Tamil numerals': { category: 'Number' },
+  'Tamil symbols': { category: 'Symbol' },
+  'Placeholders': { category: 'Symbol' },
+  'Sign alternates': { category: 'Mark' },       // subCategory from the base sign
+  'ss09 Traditional orthography': { category: 'Letter', subCategory: 'Ligature' },
+};
+
+// Tamil glyphs whose Unicode category differs from their glyphset category:
+// ௐ (om) is a letter (Lo); ௹ (rupee) is a currency sign (Sc).
+const TAMIL_GLYPH_OVERRIDES: Record<string, { category: string; subCategory?: string }> = {
+  om: { category: 'Letter' },
+  indianrupee: { category: 'Symbol', subCategory: 'Currency' },
 };
 
 // Unicode Mn (nonspacing) Sinhala signs: candrabindu, al-lakuna, ි ී ු ූ.
@@ -23,7 +37,14 @@ const NONSPACING_SIGNS = new Set([0x0D81, 0x0DCA, 0x0DD2, 0x0DD3, 0x0DD4, 0x0DD6
 // Unencoded signs that advance like Mc: yansaya follows its base.
 const SPACING_UNENCODED_SIGNS = new Set(['yasign']);
 
-function signSubCategory(glyph: Glyph): string {
+// Tamil: Mn signs are ஂ ீ ் (U+0B82, U+0BC0, U+0BCD); every other sign is Mc.
+// A sign alternate follows the sign it is an alternate of.
+function signSubCategory(glyph: Glyph, script: Script): string {
+  if (script === 'tamil') {
+    const cp = glyph.unicode ??
+      (glyph.variantOf ? TAMIL_SIGN_BY_NAME.get(glyph.variantOf)?.char.codePointAt(0) : undefined);
+    return cp !== undefined && !TAMIL_NONSPACING.has(cp) ? 'Spacing Combining' : 'Nonspacing';
+  }
   const spacing = glyph.unicode !== undefined
     ? !NONSPACING_SIGNS.has(glyph.unicode)
     : SPACING_UNENCODED_SIGNS.has(glyph.name);
@@ -38,8 +59,9 @@ function escapeXml(str: string): string {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
-function glyphToXml(glyph: Glyph, namespace: string): string {
-  const catInfo = CATEGORY_MAP[glyph.category] ?? { category: 'Letter' };
+function glyphToXml(glyph: Glyph, namespace: string, script: Script): string {
+  const override = script === 'tamil' ? TAMIL_GLYPH_OVERRIDES[glyph.name] : undefined;
+  const catInfo = override ?? CATEGORY_MAP[glyph.category] ?? { category: 'Letter' };
   const attrs: string[] = [];
 
   if (glyph.unicode !== undefined) {
@@ -49,12 +71,17 @@ function glyphToXml(glyph: Glyph, namespace: string): string {
   attrs.push(`name="${escapeXml(glyph.fullName)}"`);
   attrs.push(`category="${catInfo.category}"`);
 
-  const subCategory = glyph.category === 'Signs' ? signSubCategory(glyph) : catInfo.subCategory;
+  const isSign = glyph.category === 'Signs' || glyph.category === 'Sign alternates';
+  let subCategory = isSign ? signSubCategory(glyph, script) : catInfo.subCategory;
+  // A variant of a letter (ra.alt) is not a ligature.
+  if (script === 'tamil' && subCategory === 'Ligature' && glyph.name.includes('.')) {
+    subCategory = undefined;
+  }
   if (subCategory) {
     attrs.push(`subCategory="${subCategory}"`);
   }
 
-  attrs.push(`script="sinhala"`);
+  attrs.push(`script="${script}"`);
 
   if (glyph.decompose && glyph.decompose.length > 0) {
     const components = glyph.decompose.map(c => `${c}-${namespace}`);
@@ -68,7 +95,9 @@ function glyphToXml(glyph: Glyph, namespace: string): string {
   return `  <glyph ${attrs.join(' ')}/>`;
 }
 
-export function formatAsGlyphData(glyphs: Glyph[], namespace: string): string {
+export function formatAsGlyphData(
+  glyphs: Glyph[], namespace: string, script: Script = 'sinhala'
+): string {
   const dtd = `<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE glyphData [
 <!ELEMENT glyphData (glyph)+>
@@ -81,6 +110,6 @@ export function formatAsGlyphData(glyphs: Glyph[], namespace: string): string {
 <!ATTLIST glyph decompose CDATA #IMPLIED>
 ]>`;
 
-  const lines = glyphs.map(g => glyphToXml(g, namespace));
+  const lines = glyphs.map(g => glyphToXml(g, namespace, script));
   return `${dtd}\n<glyphData>\n${lines.join('\n')}\n</glyphData>\n`;
 }

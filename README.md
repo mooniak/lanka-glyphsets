@@ -31,6 +31,7 @@ existing font's glyphs to this standard, start at
 glyphsets/                     the standard: 4 Sinhala + 3 Tamil tier YAMLs, manifest, shaping-exceptions.yaml
 src/, dist/                    TypeScript reader + CLI (@mooniak/lankaglyphsets)
 docs/                          naming standard, levels, CLI reference, adoption guide
+tests/                         node --test suite (npm test): Tamil round-trip + grid, CLI, GlyphData
 tools/
   glyphname-unicode-converter/ reference implementation: name <-> Unicode, + web UI
   font-coverage/                shaping-based conformance checker (HarfBuzz)

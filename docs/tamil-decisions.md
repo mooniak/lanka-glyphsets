@@ -33,10 +33,14 @@ the namespace before the first dot.
 (`lankaglyphset-map.js`) and the TypeScript parser append the namespace last, so
 the Sinhala data produces `usign.rasign-sinh` and `daa._c-sinh`, while the
 naming standard's text says `usign-sinh.rasign`. Yaldevi's Sinhala follows the
-engine; Ralex's follows the prose. Tamil follows the prose. Making the readers
-compose names the same way for both scripts is Phase 2 work. Whether Sinhala
-should change too (another MAJOR rename), or the prose should be corrected, is
-undecided and not a Tamil question.
+engine; Ralex's follows the prose. Tamil follows the prose.
+
+**Phase 2** made the composition a per-script setting (`dotSuffix` in
+`src/core/scripts.ts`, mirrored in `build-glyphset.js`): Tamil is `after`, and
+Sinhala stays `before`, so no Sinhala name or output changed. Switching Sinhala
+is one line in each place plus the rename, but it is another MAJOR change and
+the decision is not made. Whether Sinhala should change, or the prose should be
+corrected, is undecided and not a Tamil question.
 
 ## D2: ன is `nnna`
 
@@ -137,6 +141,15 @@ per-group anchor name (Yaldevi's `MatraI.altN` become `isign`). Sinhala's list
 is filled in from the same rule: see "Anchor naming" in
 [naming-standard.md](naming-standard.md).
 
+### Sign abbreviations
+
+**Clarified.** The standard defined `Aa I Ii U Uu Ai`. The text analyzer, the engine
+and `generate` also have to name the pre-base signs, so Phase 2 wrote the rest by
+analogy with Sinhala: `E` (ெ), `Ee` (ே), `O` (ொ), `Oo` (ோ), `Au` (ௌ); see the table
+in [naming-standard.md](naming-standard.md). None of these forms is a glyph the
+standard asks for; they are valid names, and the consonant and the plain sign are
+enough.
+
 ## D6: features
 
 - Register both `taml` and `tml2`, with identical lookups.
@@ -171,10 +184,15 @@ Everything Sinhala already has still works (`unicode`, `decompose`, `signs`,
 
 `groups:` and `grantha:` are top-level on purpose: both existing readers
 (the TypeScript parser and lankafea's loader) ignore unknown top-level keys, so
-the three files load today, and give the same glyph counts as above, with no
-reader change. The entries use only attributes the readers already know.
+the three files loaded with no reader change, and give the same glyph counts as
+above. The entries use only attributes the readers already know.
 
-Phase 2 and 3 must teach the readers about them.
+**Phase 2** teaches this repo's readers about them: the parser expands `groups:`
+into the "Sign alternates" glyphs and marks each form with the alternate that also
+meets it (`Glyph.alternate`); `grantha:` becomes `Glyph.grantha`; the engine's
+`build-glyphset.js` does the same, and now **fails** on an unknown per-glyph
+attribute instead of registering it as a glyph. lankafea's loader still needs the
+same (Phase 3).
 
 ## Rename table: old → new
 

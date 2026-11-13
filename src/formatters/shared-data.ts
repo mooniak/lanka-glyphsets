@@ -9,7 +9,7 @@
  * drift.
  */
 
-import type { Glyph } from '../types/index.js';
+import type { Glyph, Script } from '../types/index.js';
 
 /** A [first, second] consonant pair, expressed as glyph names (e.g. ["ka","va"]). */
 export type NamePair = [string, string];
@@ -25,6 +25,13 @@ export interface SharedData {
   conjunctMap: Record<string, string[]>;
   /** Touching-cluster map keyed by leading Sinhala character (chart-ready). */
   touchingClusterMap: Record<string, string[]>;
+  /**
+   * Tamil only: shape groups, sign -> group -> consonant names. The alternate
+   * glyph for a group is `<sign>.<group>` (isign.ka → isign-taml.ka).
+   */
+  groups?: Record<string, Record<string, string[]>>;
+  /** Tamil only: the Grantha letters, by glyph name. */
+  grantha?: string[];
 }
 
 /**
@@ -71,7 +78,22 @@ export function buildSharedData(glyphs: Glyph[]): SharedData {
     }
   }
 
-  return { letters, conjunctPairs, touchPairs, conjunctMap, touchingClusterMap };
+  const data: SharedData = { letters, conjunctPairs, touchPairs, conjunctMap, touchingClusterMap };
+
+  // Shape groups and Grantha letters exist only in the Tamil glyphsets; leave the
+  // keys out entirely otherwise so the Sinhala export is unchanged.
+  const groups: Record<string, Record<string, string[]>> = {};
+  for (const g of glyphs) {
+    if (g.variantOf && g.group) {
+      const groupName = g.name.slice(g.variantOf.length + 1);
+      (groups[g.variantOf] ??= {})[groupName] = g.group;
+    }
+  }
+  if (Object.keys(groups).length) data.groups = groups;
+  const grantha = glyphs.filter(g => g.grantha).map(g => g.name);
+  if (grantha.length) data.grantha = grantha;
+
+  return data;
 }
 
 /** Serialize shared data as pretty-printed JSON. */
@@ -85,11 +107,15 @@ export function formatSharedDataAsJson(data: SharedData): string {
  * `module.exports` when required under Node. This mirrors how the existing
  * tool files (lankaglyphset-map.js, sinhala-definitions.js) are consumed.
  */
-export function formatSharedDataAsJsModule(data: SharedData): string {
+export function formatSharedDataAsJsModule(data: SharedData, script: Script = 'sinhala'): string {
   const literal = JSON.stringify(data, null, 2);
+  const tamil = script === 'tamil';
+  const file = tamil ? 'lanka-glyph-data-tamil.js' : 'lanka-glyph-data.js';
+  const flag = tamil ? ' --script tamil' : '';
+  const global = tamil ? 'LankaGlyphDataTamil' : 'LankaGlyphData';
   return `/*
- * lanka-glyph-data.js  — GENERATED, DO NOT EDIT BY HAND.
- * Regenerate with:  npm run build && node dist/cli/index.js export-json --format js -o <path>
+ * ${file}  — GENERATED, DO NOT EDIT BY HAND.
+ * Regenerate with:  npm run build && node dist/cli/index.js export-json${flag} --format js -o <path>
  * Source of truth:  glyphsets/*.yaml
  */
 (function (root) {
@@ -98,7 +124,7 @@ export function formatSharedDataAsJsModule(data: SharedData): string {
   if (typeof module !== "undefined" && module.exports) {
     module.exports = DATA;
   } else {
-    root.LankaGlyphData = DATA;
+    root.${global} = DATA;
   }
 })(typeof globalThis !== "undefined" ? globalThis : this);
 `;

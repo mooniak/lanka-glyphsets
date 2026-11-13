@@ -15,6 +15,13 @@
 
 import { loadGlyphsetsCumulative } from '../core/parser.js';
 import { VOWEL_SIGNS } from '../generators/vowels.js';
+import type { Script } from '../types/index.js';
+import { PUNCTUATION, isSpaceChar, type GlyphOccurrence } from './common.js';
+import {
+  extractTamilGlyphNames, getRequiredTamilSigns, getRequiredTamilBaseConsonants,
+} from './tamil-text.js';
+
+export type { GlyphOccurrence } from './common.js';
 
 function dropTrailingA(name: string): string {
   return name.endsWith('a') ? name.slice(0, -1) : name;
@@ -55,16 +62,6 @@ const INDEPENDENT_VOWELS: Record<number, string> = {
   0x0D94: 'o', 0x0D95: 'oo', 0x0D96: 'au',
 };
 
-// Common punctuation
-const PUNCTUATION: Record<string, string> = {
-  '.': 'period', ',': 'comma', '!': 'exclam', '?': 'question',
-  ':': 'colon', ';': 'semicolon', '"': 'quotedbl', "'": 'quotesingle',
-  '(': 'parenleft', ')': 'parenright', '-': 'hyphen', '/': 'slash',
-  '\\': 'backslash', '[': 'bracketleft', ']': 'bracketright',
-  '_': 'underscore', '*': 'asterisk', '+': 'plus', '<': 'less',
-  '>': 'greater', '=': 'equal', '#': 'numbersign', '%': 'percent',
-};
-
 function isConsonant(cp: number): boolean {
   return cp >= 0x0D9A && cp <= 0x0DC6;
 }
@@ -77,22 +74,16 @@ function isVowelSign(cp: number): boolean {
   return (cp >= 0x0DCF && cp <= 0x0DDF) || cp === 0x0DF2 || cp === 0x0DF3;
 }
 
-export interface GlyphOccurrence {
-  name: string;
-  type: 'vowel' | 'consonant' | 'consonant-vowel' | 'pure-consonant' |
-        'rakar' | 'yansaya' | 'conjunct' | 'sign' | 'punctuation' | 'space';
-  sequence: string;
-}
-
 interface ClusterResult {
   occurrences: GlyphOccurrence[];
   nextIndex: number;
 }
 
 /**
- * Extract all glyph name occurrences from Sinhala text
+ * Extract all glyph name occurrences from text
  */
-export function extractGlyphNames(text: string): GlyphOccurrence[] {
+export function extractGlyphNames(text: string, script: Script = 'sinhala'): GlyphOccurrence[] {
+  if (script === 'tamil') return extractTamilGlyphNames(text);
   const norm = text.normalize('NFC');
   const chars = [...norm];
   const occurrences: GlyphOccurrence[] = [];
@@ -103,7 +94,7 @@ export function extractGlyphNames(text: string): GlyphOccurrence[] {
     const cp = char.codePointAt(0)!;
 
     // Space
-    if (char === ' ' || char === '\n' || char === '\t' || char === '\u00A0') {
+    if (isSpaceChar(char)) {
       occurrences.push({ name: 'space', type: 'space', sequence: char });
       i++;
       continue;
@@ -403,26 +394,51 @@ function consonantWithSign(
   return bare(consonantName, consonantChar, signIndex);
 }
 
+/** One entry of getUniqueGlyphNames. The optional fields are Tamil-only. */
+export interface UniqueGlyph {
+  name: string;
+  type: string;
+  sequence?: string;
+  components?: string[];
+  alternate?: string;
+  canonical?: boolean;
+  level?: number;
+}
+
+/** Display order of the occurrence types. Sinhala never emits the last three before 'punctuation'. */
+const TYPE_ORDER: string[] = [
+  'vowel', 'consonant', 'consonant-vowel', 'pure-consonant',
+  'rakar', 'yansaya', 'conjunct', 'sign', 'number', 'symbol', 'control',
+  'punctuation', 'space'
+];
+
 /**
  * Get unique glyph names from text, sorted by type then name
  */
-export function getUniqueGlyphNames(text: string): { name: string; type: string }[] {
-  const occurrences = extractGlyphNames(text);
-  const seen = new Map<string, string>();
+export function getUniqueGlyphNames(text: string, script: Script = 'sinhala'): UniqueGlyph[] {
+  const occurrences = extractGlyphNames(text, script);
+  const seen = new Map<string, GlyphOccurrence>();
 
   for (const occ of occurrences) {
     if (!seen.has(occ.name)) {
-      seen.set(occ.name, occ.type);
+      seen.set(occ.name, occ);
     }
   }
 
-  const typeOrder: string[] = [
-    'vowel', 'consonant', 'consonant-vowel', 'pure-consonant',
-    'rakar', 'yansaya', 'conjunct', 'sign', 'punctuation', 'space'
-  ];
+  const typeOrder = TYPE_ORDER;
 
-  return Array.from(seen.entries())
-    .map(([name, type]) => ({ name, type }))
+  return Array.from(seen.values())
+    .map((occ): UniqueGlyph => {
+      if (script !== 'tamil') return { name: occ.name, type: occ.type };
+      // Tamil: say how the standard lets each name be met (own glyph, shape-group
+      // alternate, or its components), so a coverage check can follow the same rules.
+      const entry: UniqueGlyph = { name: occ.name, type: occ.type, sequence: occ.sequence };
+      if (occ.components) entry.components = occ.components;
+      if (occ.alternate) entry.alternate = occ.alternate;
+      if (occ.canonical !== undefined) entry.canonical = occ.canonical;
+      if (occ.level !== undefined) entry.level = occ.level;
+      return entry;
+    })
     .sort((a, b) => {
       const aOrder = typeOrder.indexOf(a.type);
       const bOrder = typeOrder.indexOf(b.type);
@@ -475,7 +491,8 @@ function matchCompoundSign(glyphName: string, marker: string): string | null {
 /**
  * Infer component sign glyphs needed based on occurrences
  */
-export function getRequiredSigns(text: string): string[] {
+export function getRequiredSigns(text: string, script: Script = 'sinhala'): string[] {
+  if (script === 'tamil') return getRequiredTamilSigns(text);
   const occurrences = extractGlyphNames(text);
   const signs = new Set<string>();
 
@@ -519,7 +536,8 @@ export function getRequiredSigns(text: string): string[] {
 /**
  * Infer component base consonant glyphs needed
  */
-export function getRequiredBaseConsonants(text: string): string[] {
+export function getRequiredBaseConsonants(text: string, script: Script = 'sinhala'): string[] {
+  if (script === 'tamil') return getRequiredTamilBaseConsonants(text);
   const occurrences = extractGlyphNames(text);
   const bases = new Set<string>();
 
@@ -544,9 +562,9 @@ export function getRequiredBaseConsonants(text: string): string[] {
 /**
  * Format results as grouped text output
  */
-export function formatGlyphAnalysis(text: string): string {
-  const glyphs = getUniqueGlyphNames(text);
-  const signs = getRequiredSigns(text);
+export function formatGlyphAnalysis(text: string, script: Script = 'sinhala'): string {
+  const glyphs = getUniqueGlyphNames(text, script);
+  const signs = getRequiredSigns(text, script);
 
   const groups = new Map<string, string[]>();
   for (const g of glyphs) {
@@ -556,7 +574,19 @@ export function formatGlyphAnalysis(text: string): string {
     groups.get(g.type)!.push(g.name);
   }
 
-  const typeLabels: Record<string, string> = {
+  const typeLabels: Record<string, string> = script === 'tamil' ? {
+    'vowel': 'Independent vowels (and aytham)',
+    'consonant': 'Consonants (with inherent vowel)',
+    'consonant-vowel': 'Consonant + vowel sign forms',
+    'pure-consonant': 'Pure consonant forms (pulli)',
+    'conjunct': 'Ligated conjuncts',
+    'sign': 'Signs',
+    'number': 'Numerals',
+    'symbol': 'Symbols',
+    'control': 'Controls',
+    'punctuation': 'Punctuation',
+    'space': 'Space',
+  } : {
     'vowel': 'Independent vowels',
     'consonant': 'Consonants (with inherent vowel)',
     'consonant-vowel': 'Consonant + vowel sign ligatures',
@@ -569,10 +599,7 @@ export function formatGlyphAnalysis(text: string): string {
     'space': 'Space',
   };
 
-  const typeOrder = [
-    'vowel', 'consonant', 'consonant-vowel', 'pure-consonant',
-    'rakar', 'yansaya', 'conjunct', 'sign', 'punctuation', 'space'
-  ];
+  const typeOrder = TYPE_ORDER;
 
   const lines: string[] = [];
 

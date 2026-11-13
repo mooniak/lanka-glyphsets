@@ -51,9 +51,11 @@ npm run sync
 
 It rebuilds, in dependency order:
 
-1. `tools/glyphname-unicode-converter/lankaglyphset-map.js` — the name↔unicode engine
+1. `tools/glyphname-unicode-converter/lankaglyphset-map.js` — the name↔unicode engine (Sinhala and Tamil)
 2. `tools/_generated/shaping-exceptions.js` — depends on (1)
 3. `tools/_generated/lanka-glyph-data.js` — the CLI's `export-json` output
+4. `tools/_generated/lanka-glyph-data-tamil.js` — `export-json --script tamil`
+5. `tools/font-coverage/tamil-candidates.json` — `generate --script tamil`, read by `font_coverage.py`
 
 `npm run check:drift` runs the same regeneration and then **fails** if any
 committed artifact changed, or if `package.json`'s `standardVersion` disagrees

@@ -26,6 +26,7 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "cli": "node dist/cli/index.js",
     "text-glyphs": "node dist/cli/index.js text-glyphs",
     "sync": "node scripts/sync-standard.mjs",

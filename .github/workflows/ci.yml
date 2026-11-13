@@ -17,6 +17,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run typecheck
+      # Builds, then runs tests/: the Tamil round-trip and consonant × sign grid,
+      # GlyphData, the CLI and the coverage classifier.
+      - run: npm test
       # Regenerates every artifact derived from glyphsets/*.yaml and fails if the
       # committed copies drift, or if the recorded standard versions disagree.
       - run: npm run check:drift

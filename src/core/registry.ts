@@ -2,7 +2,7 @@
  * Glyph registry for storing and querying glyphs
  */
 
-import type { Glyph, GlyphsetLevel } from '../types/index.js';
+import type { Glyph, GlyphsetLevel, Script } from '../types/index.js';
 import { loadGlyphsetsCumulative } from './parser.js';
 
 /**
@@ -110,9 +110,12 @@ export class GlyphRegistry {
 /**
  * Create a registry loaded with glyphs up to the specified level
  */
-export function createRegistry(maxLevel: GlyphsetLevel = 1): GlyphRegistry {
+export function createRegistry(
+  maxLevel: GlyphsetLevel = 1,
+  script: Script = 'sinhala'
+): GlyphRegistry {
   const registry = new GlyphRegistry();
-  const glyphs = loadGlyphsetsCumulative(maxLevel);
+  const glyphs = loadGlyphsetsCumulative(maxLevel, script);
   registry.registerAll(glyphs);
   return registry;
 }

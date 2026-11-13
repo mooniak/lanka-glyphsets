@@ -32,6 +32,14 @@
       color: var(--neutral-600); }
     .tab.active { background: var(--primary); border-color: var(--primary); color: #fff; }
 
+    .scripts { display: flex; gap: 0.4rem; margin-bottom: 0.9rem; align-items: center; }
+    .scripts .lbl { font-size: 0.8rem; font-weight: 600; color: var(--neutral-700);
+      text-transform: uppercase; letter-spacing: 0.03em; margin-right: 0.2rem; }
+    .script-tab { padding: 0.35rem 0.85rem; border: 1px solid var(--neutral-300); background: #fff;
+      border-radius: 999px; cursor: pointer; font: inherit; font-size: 0.85rem; font-weight: 550;
+      color: var(--neutral-600); }
+    .script-tab.active { background: var(--neutral-800); border-color: var(--neutral-800); color: #fff; }
+    body.tamil .only-sinhala, body:not(.tamil) .only-tamil { display: none; }
     .panel { display: none; }
     .panel.active { display: block; }
     .io { display: grid; grid-template-columns: 1fr; gap: 1rem; }
@@ -85,11 +93,19 @@
   <div class="wrap">
     <header>
       <h1>LankaGlyphset ⇄ Unicode Converter</h1>
-      <p>Convert LankaGlyphset glyph names (e.g. <code>kRa-sinh</code>) to their Sinhala Unicode
+      <p>Convert LankaGlyphset glyph names (e.g. <code class="only-sinhala">kRa-sinh</code><code class="only-tamil">kI-taml</code>)
+        to their <span class="only-sinhala">Sinhala</span><span class="only-tamil">Tamil</span> Unicode
         string and back. Paste entries on one line or many, separated by spaces, commas, or nothing at all. Enumerated glyphs show their glyphset tier
         <span class="badge canon">kernel</span>; well-formed names not enumerated in the glyphset
-        are marked <span class="badge flag">derived</span>.</p>
+        are marked <span class="badge flag">derived</span>.<span class="only-tamil"> A Tamil form can be met by its own glyph <em>or</em> a
+        shape-group alternate (<code>kI-taml</code> / <code>isign-taml.ka</code>): the result shows the alternate when there is one.</span></p>
     </header>
+
+    <div class="scripts" role="group" aria-label="Script">
+      <span class="lbl">Script</span>
+      <button type="button" class="script-tab active" data-script="sinhala">Sinhala</button>
+      <button type="button" class="script-tab" data-script="tamil">Tamil</button>
+    </div>
 
     <div class="tabs">
       <div class="tab active" data-mode="uni2name">Unicode → Name</div>
@@ -98,7 +114,7 @@
 
     <!-- Unicode -> Name -->
     <div class="panel active" id="panel-uni2name">
-      <label for="in-uni">Sinhala Unicode strings (space, comma, or no separator)</label>
+      <label for="in-uni"><span id="lbl-uni-script">Sinhala</span> Unicode strings (space, comma, or no separator)</label>
       <textarea id="in-uni" class="sinhala" placeholder="කි&#10;ක්‍ර&#10;ක්‍ෂ&#10;දා"></textarea>
       <div class="toolbar">
         <button class="act ghost" data-sample="uni">Load sample</button>
@@ -110,7 +126,7 @@
 
     <!-- Name -> Unicode -->
     <div class="panel" id="panel-name2uni">
-      <label for="in-name">LankaGlyphset names (space, comma, or newline separated; <code>-sinh</code> optional)</label>
+      <label for="in-name">LankaGlyphset names (space, comma, or newline separated; <code id="lbl-ns">-sinh</code> optional)</label>
       <textarea id="in-name" placeholder="kRa-sinh&#10;kSsa-sinh&#10;ka&#10;daa._c-sinh"></textarea>
       <div class="toolbar">
         <button class="act ghost" data-sample="name">Load sample</button>
@@ -121,10 +137,13 @@
     </div>
 
     <footer>
-      Glyphset tiers (<code>kernel · core · plus · pro</code>), Unicode and naming
+      <span class="only-sinhala">Glyphset tiers (<code>kernel · core · plus · pro</code>), Unicode and naming
       rules follow the LankaGlyphset standard
-      (<code>sinhala-{0-kernel,1-core,2-plus,3-pro}.yaml</code>). Engine:
-      <code>lankaglyphset-map.js</code> (reusable in the browser and Node).
+      (<code>sinhala-{0-kernel,1-core,2-plus,3-pro}.yaml</code>).</span>
+      <span class="only-tamil">Glyphset tiers (<code>kernel · core · pro</code>), Unicode and naming
+      rules follow the LankaGlyphset standard
+      (<code>tamil-{0-kernel,1-core,2-pro}.yaml</code>).</span>
+      Engine: <code>lankaglyphset-map.js</code> (reusable in the browser and Node).
     </footer>
   </div>
   <div id="toast"></div>

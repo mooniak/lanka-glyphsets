@@ -1,10 +1,10 @@
 # Tamil parity plan: standard, features and tooling
 
-> Status: **in progress** (2026-11-13). **Phase 0 (hotfixes)** and **Phase 1
-> (standard data and docs)** are done; see §3. Phase 1 applied the recommended
-> option for D1–D6 as *working decisions* (see
+> Status: **in progress** (2026-11-13). **Phases 0 (hotfixes), 1 (standard data
+> and docs) and 2 (standard tooling)** are done; see §3. Phase 1 applied the
+> recommended option for D1–D6 as *working decisions* (see
 > [tamil-decisions.md](tamil-decisions.md)); D4 still needs sign-off from a Tamil
-> type specialist. Nothing from Phase 2 onward is implemented yet.
+> type specialist. Nothing from Phase 3 onward is implemented yet.
 
 This plan brings Tamil up to the level of support Sinhala has across the
 LankaGlyphset standard (this repo), lankafea and the design tools
@@ -285,7 +285,7 @@ left open, and what it found:
 **Hand-off to Phase 2:**
 
 - Compose dotted names with the namespace before the first dot (D1), for both
-  scripts.
+  scripts. *(Phase 2 did this for Tamil only; see the Phase 2 notes.)*
 - Read `groups:` (merge across the three files) and expand each group into its
   `<sign>-taml.<group>` alternate. Read `grantha:`.
 - `build-glyphset.js` treats any entry whose keys are not all in `ATTRS` as a
@@ -302,7 +302,7 @@ rebuilt, or when it runs from the sibling checkout. (Today the bundled
 has the old file and takes priority.) The profile needs the three new filenames,
 and the `nna2` stem in the Tamil table in `scripts.py` needs to become `nnna`.
 
-### Phase 2: Standard tooling (lanka-glyphsets, ~3–4 days)
+### Phase 2: Standard tooling (lanka-glyphsets, ~3–4 days) — done 2026-11-13
 
 - **Reader and CLI:** add a script setting to the types and parser, and
   `--script tamil` to `list`, `info`, `generate`, `glyph-data`,
@@ -318,6 +318,47 @@ and the `nna2` stem in the Tamil table in `scripts.py` needs to become `nnna`.
   check covers them.
 - **Tests:** round-trip every Tamil name (name → text → name), and run the
   full consonant × vowel-sign grid (24 rows × 13 columns).
+
+**Done**, uncommitted. All of the above, with these differences and findings:
+
+- **Sinhala is unchanged.** Every Sinhala CLI output (89 files: all commands and
+  levels) is byte-identical to before, and the three Sinhala generated artifacts
+  did not change. In particular the D1 hand-off ("compose dotted names the same
+  way for both scripts") was **not** applied to Sinhala: that would rename
+  `usign.rasign-sinh` and friends, and the decision is open (D1 caveat). The
+  composition is a per-script setting (`dotSuffix`), so it is one line each in
+  `src/core/scripts.ts` and `build-glyphset.js` when it is made.
+- **The grid is generated, not read from `signs:`.** Every Tamil consonant takes
+  every sign, so `generate -s tamil` gives 24 × 13 = 312 forms plus `shree` (313);
+  the YAML's five `signs:` are the anchors.
+- **Pre-base signs needed names.** `E Ee O Oo Au` were added by analogy with
+  Sinhala, for forms the standard does not ask for (naming-standard.md §4).
+- **`text-glyphs` and `generate` say how a name may be met** (Tamil only):
+  `canonical`, `level`, `alternate`, `components`. This is the either/or rule in
+  data, so mnik can compute coverage the way the standard defines it. The
+  Sinhala JSON keeps its shape.
+- **`font_coverage.py --script tamil`** reads `tamil-candidates.json`, generated
+  from the standard by `npm run sync`, so there is no second Tamil table to keep
+  in step. `--level 0|1|2` checks a font against one level. **Its name matching
+  now also tries the hyphen-stripped form** (`kItaml`), because built fonts drop
+  hyphens; without it no built Tamil font could match. That also changes Sinhala
+  results on built fonts, only upward: on Yaldevi's Sinhala 17 candidates moved
+  from `GLYPH_PRESENT_NO_FEA` to `SUPPORTED` (the ligature was formed) and one from
+  `PARTIAL` to `GLYPH_PRESENT_NO_FEA`.
+- **Not done:** the browser tool `font-coverage.html` is still Sinhala only.
+- **First tests in this repo:** `tests/` (63, `node --test`; `npm test`), run in CI.
+  They found one bug before it shipped (the Pro `ai` forms were not marked with
+  their alternate).
+- **`build-glyphset.js` now fails on an unknown per-glyph attribute**, so a new YAML
+  attribute can no longer be silently registered as a glyph.
+- **Other:** `formatAsGlyphData` is now exported from the package.
+- **Vendored copy:** `sinhala-font-tools/tools/glyphname-unicode-converter/` is an
+  older copy of the converter and has not been re-synced.
+
+**Hand-off to Phase 3:** `tamil-candidates.json` and `export-json --script tamil`
+(`groups`, `grantha`) are the standard's Tamil model in a form lankafea can read;
+its `tamil_profile()` can use `generate --script tamil` as the list of forms and
+the either/or rule instead of the Sinhala model.
 
 ### Phase 3: lankafea for Tamil (~4–6 days)
 

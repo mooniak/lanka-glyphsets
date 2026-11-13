@@ -1,0 +1,2014 @@
+[
+  {
+    "name": "ka-taml",
+    "type": "base",
+    "sequence": "க",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nga-taml",
+    "type": "base",
+    "sequence": "ங",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ca-taml",
+    "type": "base",
+    "sequence": "ச",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ja-taml",
+    "type": "base",
+    "sequence": "ஜ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nya-taml",
+    "type": "base",
+    "sequence": "ஞ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "tta-taml",
+    "type": "base",
+    "sequence": "ட",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nna-taml",
+    "type": "base",
+    "sequence": "ண",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ta-taml",
+    "type": "base",
+    "sequence": "த",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "na-taml",
+    "type": "base",
+    "sequence": "ந",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nnna-taml",
+    "type": "base",
+    "sequence": "ன",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "pa-taml",
+    "type": "base",
+    "sequence": "ப",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ma-taml",
+    "type": "base",
+    "sequence": "ம",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ya-taml",
+    "type": "base",
+    "sequence": "ய",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ra-taml",
+    "type": "base",
+    "sequence": "ர",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "rra-taml",
+    "type": "base",
+    "sequence": "ற",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "la-taml",
+    "type": "base",
+    "sequence": "ல",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "lla-taml",
+    "type": "base",
+    "sequence": "ள",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "zha-taml",
+    "type": "base",
+    "sequence": "ழ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "va-taml",
+    "type": "base",
+    "sequence": "வ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "sha-taml",
+    "type": "base",
+    "sequence": "ஶ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ssa-taml",
+    "type": "base",
+    "sequence": "ஷ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "sa-taml",
+    "type": "base",
+    "sequence": "ஸ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ha-taml",
+    "type": "base",
+    "sequence": "ஹ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "k-taml",
+    "type": "consonant-sign",
+    "sequence": "க்",
+    "canonical": false
+  },
+  {
+    "name": "kAa-taml",
+    "type": "consonant-sign",
+    "sequence": "கா",
+    "canonical": false
+  },
+  {
+    "name": "kI-taml",
+    "type": "consonant-sign",
+    "sequence": "கி",
+    "alternate": "isign-taml.ka",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "kIi-taml",
+    "type": "consonant-sign",
+    "sequence": "கீ",
+    "canonical": false
+  },
+  {
+    "name": "kU-taml",
+    "type": "consonant-sign",
+    "sequence": "கு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "kUu-taml",
+    "type": "consonant-sign",
+    "sequence": "கூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "kE-taml",
+    "type": "consonant-sign",
+    "sequence": "கெ",
+    "canonical": false
+  },
+  {
+    "name": "kEe-taml",
+    "type": "consonant-sign",
+    "sequence": "கே",
+    "canonical": false
+  },
+  {
+    "name": "kAi-taml",
+    "type": "consonant-sign",
+    "sequence": "கை",
+    "canonical": false
+  },
+  {
+    "name": "kO-taml",
+    "type": "consonant-sign",
+    "sequence": "கொ",
+    "canonical": false
+  },
+  {
+    "name": "kOo-taml",
+    "type": "consonant-sign",
+    "sequence": "கோ",
+    "canonical": false
+  },
+  {
+    "name": "kAu-taml",
+    "type": "consonant-sign",
+    "sequence": "கௌ",
+    "canonical": false
+  },
+  {
+    "name": "ng-taml",
+    "type": "consonant-sign",
+    "sequence": "ங்",
+    "canonical": false
+  },
+  {
+    "name": "ngAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙா",
+    "canonical": false
+  },
+  {
+    "name": "ngI-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙி",
+    "alternate": "isign-taml.pa",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "ngIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙீ",
+    "canonical": false
+  },
+  {
+    "name": "ngU-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙு",
+    "alternate": "usign-taml.pa",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ngUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ngE-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙெ",
+    "canonical": false
+  },
+  {
+    "name": "ngEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙே",
+    "canonical": false
+  },
+  {
+    "name": "ngAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙை",
+    "canonical": false
+  },
+  {
+    "name": "ngO-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙொ",
+    "canonical": false
+  },
+  {
+    "name": "ngOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙோ",
+    "canonical": false
+  },
+  {
+    "name": "ngAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஙௌ",
+    "canonical": false
+  },
+  {
+    "name": "c-taml",
+    "type": "consonant-sign",
+    "sequence": "ச்",
+    "canonical": false
+  },
+  {
+    "name": "cAa-taml",
+    "type": "consonant-sign",
+    "sequence": "சா",
+    "canonical": false
+  },
+  {
+    "name": "cI-taml",
+    "type": "consonant-sign",
+    "sequence": "சி",
+    "alternate": "isign-taml.ca",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "cIi-taml",
+    "type": "consonant-sign",
+    "sequence": "சீ",
+    "canonical": false
+  },
+  {
+    "name": "cU-taml",
+    "type": "consonant-sign",
+    "sequence": "சு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "cUu-taml",
+    "type": "consonant-sign",
+    "sequence": "சூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "cE-taml",
+    "type": "consonant-sign",
+    "sequence": "செ",
+    "canonical": false
+  },
+  {
+    "name": "cEe-taml",
+    "type": "consonant-sign",
+    "sequence": "சே",
+    "canonical": false
+  },
+  {
+    "name": "cAi-taml",
+    "type": "consonant-sign",
+    "sequence": "சை",
+    "canonical": false
+  },
+  {
+    "name": "cO-taml",
+    "type": "consonant-sign",
+    "sequence": "சொ",
+    "canonical": false
+  },
+  {
+    "name": "cOo-taml",
+    "type": "consonant-sign",
+    "sequence": "சோ",
+    "canonical": false
+  },
+  {
+    "name": "cAu-taml",
+    "type": "consonant-sign",
+    "sequence": "சௌ",
+    "canonical": false
+  },
+  {
+    "name": "j-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜ்",
+    "canonical": false
+  },
+  {
+    "name": "jAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜா",
+    "canonical": false
+  },
+  {
+    "name": "jI-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜி",
+    "alternate": "isign-taml.ma",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "jIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜீ",
+    "canonical": false
+  },
+  {
+    "name": "jU-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜு",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "jUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜூ",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "jE-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜெ",
+    "canonical": false
+  },
+  {
+    "name": "jEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜே",
+    "canonical": false
+  },
+  {
+    "name": "jAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜை",
+    "canonical": false
+  },
+  {
+    "name": "jO-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜொ",
+    "canonical": false
+  },
+  {
+    "name": "jOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜோ",
+    "canonical": false
+  },
+  {
+    "name": "jAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஜௌ",
+    "canonical": false
+  },
+  {
+    "name": "ny-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞ்",
+    "canonical": false
+  },
+  {
+    "name": "nyAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞா",
+    "canonical": false
+  },
+  {
+    "name": "nyI-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞி",
+    "alternate": "isign-taml.na",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "nyIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞீ",
+    "canonical": false
+  },
+  {
+    "name": "nyU-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nyUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nyE-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞெ",
+    "canonical": false
+  },
+  {
+    "name": "nyEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞே",
+    "canonical": false
+  },
+  {
+    "name": "nyAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞை",
+    "canonical": false
+  },
+  {
+    "name": "nyO-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞொ",
+    "canonical": false
+  },
+  {
+    "name": "nyOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞோ",
+    "canonical": false
+  },
+  {
+    "name": "nyAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஞௌ",
+    "canonical": false
+  },
+  {
+    "name": "tt-taml",
+    "type": "consonant-sign",
+    "sequence": "ட்",
+    "canonical": false
+  },
+  {
+    "name": "ttAa-taml",
+    "type": "consonant-sign",
+    "sequence": "டா",
+    "canonical": false
+  },
+  {
+    "name": "ttI-taml",
+    "type": "consonant-sign",
+    "sequence": "டி",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ttIi-taml",
+    "type": "consonant-sign",
+    "sequence": "டீ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ttU-taml",
+    "type": "consonant-sign",
+    "sequence": "டு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ttUu-taml",
+    "type": "consonant-sign",
+    "sequence": "டூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "ttE-taml",
+    "type": "consonant-sign",
+    "sequence": "டெ",
+    "canonical": false
+  },
+  {
+    "name": "ttEe-taml",
+    "type": "consonant-sign",
+    "sequence": "டே",
+    "canonical": false
+  },
+  {
+    "name": "ttAi-taml",
+    "type": "consonant-sign",
+    "sequence": "டை",
+    "canonical": false
+  },
+  {
+    "name": "ttO-taml",
+    "type": "consonant-sign",
+    "sequence": "டொ",
+    "canonical": false
+  },
+  {
+    "name": "ttOo-taml",
+    "type": "consonant-sign",
+    "sequence": "டோ",
+    "canonical": false
+  },
+  {
+    "name": "ttAu-taml",
+    "type": "consonant-sign",
+    "sequence": "டௌ",
+    "canonical": false
+  },
+  {
+    "name": "nn-taml",
+    "type": "consonant-sign",
+    "sequence": "ண்",
+    "canonical": false
+  },
+  {
+    "name": "nnAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ணா",
+    "canonical": true,
+    "level": 2
+  },
+  {
+    "name": "nnI-taml",
+    "type": "consonant-sign",
+    "sequence": "ணி",
+    "canonical": false
+  },
+  {
+    "name": "nnIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ணீ",
+    "canonical": false
+  },
+  {
+    "name": "nnU-taml",
+    "type": "consonant-sign",
+    "sequence": "ணு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nnUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ணூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nnE-taml",
+    "type": "consonant-sign",
+    "sequence": "ணெ",
+    "canonical": false
+  },
+  {
+    "name": "nnEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ணே",
+    "canonical": false
+  },
+  {
+    "name": "nnAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ணை",
+    "alternate": "aisign-taml.la",
+    "canonical": true,
+    "level": 2
+  },
+  {
+    "name": "nnO-taml",
+    "type": "consonant-sign",
+    "sequence": "ணொ",
+    "canonical": false
+  },
+  {
+    "name": "nnOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ணோ",
+    "canonical": false
+  },
+  {
+    "name": "nnAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ணௌ",
+    "canonical": false
+  },
+  {
+    "name": "t-taml",
+    "type": "consonant-sign",
+    "sequence": "த்",
+    "canonical": false
+  },
+  {
+    "name": "tAa-taml",
+    "type": "consonant-sign",
+    "sequence": "தா",
+    "canonical": false
+  },
+  {
+    "name": "tI-taml",
+    "type": "consonant-sign",
+    "sequence": "தி",
+    "alternate": "isign-taml.ka",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "tIi-taml",
+    "type": "consonant-sign",
+    "sequence": "தீ",
+    "canonical": false
+  },
+  {
+    "name": "tU-taml",
+    "type": "consonant-sign",
+    "sequence": "து",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "tUu-taml",
+    "type": "consonant-sign",
+    "sequence": "தூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "tE-taml",
+    "type": "consonant-sign",
+    "sequence": "தெ",
+    "canonical": false
+  },
+  {
+    "name": "tEe-taml",
+    "type": "consonant-sign",
+    "sequence": "தே",
+    "canonical": false
+  },
+  {
+    "name": "tAi-taml",
+    "type": "consonant-sign",
+    "sequence": "தை",
+    "canonical": false
+  },
+  {
+    "name": "tO-taml",
+    "type": "consonant-sign",
+    "sequence": "தொ",
+    "canonical": false
+  },
+  {
+    "name": "tOo-taml",
+    "type": "consonant-sign",
+    "sequence": "தோ",
+    "canonical": false
+  },
+  {
+    "name": "tAu-taml",
+    "type": "consonant-sign",
+    "sequence": "தௌ",
+    "canonical": false
+  },
+  {
+    "name": "n-taml",
+    "type": "consonant-sign",
+    "sequence": "ந்",
+    "canonical": false
+  },
+  {
+    "name": "nAa-taml",
+    "type": "consonant-sign",
+    "sequence": "நா",
+    "canonical": false
+  },
+  {
+    "name": "nI-taml",
+    "type": "consonant-sign",
+    "sequence": "நி",
+    "alternate": "isign-taml.na",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "nIi-taml",
+    "type": "consonant-sign",
+    "sequence": "நீ",
+    "canonical": false
+  },
+  {
+    "name": "nU-taml",
+    "type": "consonant-sign",
+    "sequence": "நு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nUu-taml",
+    "type": "consonant-sign",
+    "sequence": "நூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nE-taml",
+    "type": "consonant-sign",
+    "sequence": "நெ",
+    "canonical": false
+  },
+  {
+    "name": "nEe-taml",
+    "type": "consonant-sign",
+    "sequence": "நே",
+    "canonical": false
+  },
+  {
+    "name": "nAi-taml",
+    "type": "consonant-sign",
+    "sequence": "நை",
+    "canonical": false
+  },
+  {
+    "name": "nO-taml",
+    "type": "consonant-sign",
+    "sequence": "நொ",
+    "canonical": false
+  },
+  {
+    "name": "nOo-taml",
+    "type": "consonant-sign",
+    "sequence": "நோ",
+    "canonical": false
+  },
+  {
+    "name": "nAu-taml",
+    "type": "consonant-sign",
+    "sequence": "நௌ",
+    "canonical": false
+  },
+  {
+    "name": "nnn-taml",
+    "type": "consonant-sign",
+    "sequence": "ன்",
+    "canonical": false
+  },
+  {
+    "name": "nnnAa-taml",
+    "type": "consonant-sign",
+    "sequence": "னா",
+    "canonical": true,
+    "level": 2
+  },
+  {
+    "name": "nnnI-taml",
+    "type": "consonant-sign",
+    "sequence": "னி",
+    "canonical": false
+  },
+  {
+    "name": "nnnIi-taml",
+    "type": "consonant-sign",
+    "sequence": "னீ",
+    "canonical": false
+  },
+  {
+    "name": "nnnU-taml",
+    "type": "consonant-sign",
+    "sequence": "னு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nnnUu-taml",
+    "type": "consonant-sign",
+    "sequence": "னூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "nnnE-taml",
+    "type": "consonant-sign",
+    "sequence": "னெ",
+    "canonical": false
+  },
+  {
+    "name": "nnnEe-taml",
+    "type": "consonant-sign",
+    "sequence": "னே",
+    "canonical": false
+  },
+  {
+    "name": "nnnAi-taml",
+    "type": "consonant-sign",
+    "sequence": "னை",
+    "alternate": "aisign-taml.la",
+    "canonical": true,
+    "level": 2
+  },
+  {
+    "name": "nnnO-taml",
+    "type": "consonant-sign",
+    "sequence": "னொ",
+    "canonical": false
+  },
+  {
+    "name": "nnnOo-taml",
+    "type": "consonant-sign",
+    "sequence": "னோ",
+    "canonical": false
+  },
+  {
+    "name": "nnnAu-taml",
+    "type": "consonant-sign",
+    "sequence": "னௌ",
+    "canonical": false
+  },
+  {
+    "name": "p-taml",
+    "type": "consonant-sign",
+    "sequence": "ப்",
+    "canonical": false
+  },
+  {
+    "name": "pAa-taml",
+    "type": "consonant-sign",
+    "sequence": "பா",
+    "canonical": false
+  },
+  {
+    "name": "pI-taml",
+    "type": "consonant-sign",
+    "sequence": "பி",
+    "alternate": "isign-taml.pa",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "pIi-taml",
+    "type": "consonant-sign",
+    "sequence": "பீ",
+    "canonical": false
+  },
+  {
+    "name": "pU-taml",
+    "type": "consonant-sign",
+    "sequence": "பு",
+    "alternate": "usign-taml.pa",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "pUu-taml",
+    "type": "consonant-sign",
+    "sequence": "பூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "pE-taml",
+    "type": "consonant-sign",
+    "sequence": "பெ",
+    "canonical": false
+  },
+  {
+    "name": "pEe-taml",
+    "type": "consonant-sign",
+    "sequence": "பே",
+    "canonical": false
+  },
+  {
+    "name": "pAi-taml",
+    "type": "consonant-sign",
+    "sequence": "பை",
+    "canonical": false
+  },
+  {
+    "name": "pO-taml",
+    "type": "consonant-sign",
+    "sequence": "பொ",
+    "canonical": false
+  },
+  {
+    "name": "pOo-taml",
+    "type": "consonant-sign",
+    "sequence": "போ",
+    "canonical": false
+  },
+  {
+    "name": "pAu-taml",
+    "type": "consonant-sign",
+    "sequence": "பௌ",
+    "canonical": false
+  },
+  {
+    "name": "m-taml",
+    "type": "consonant-sign",
+    "sequence": "ம்",
+    "canonical": false
+  },
+  {
+    "name": "mAa-taml",
+    "type": "consonant-sign",
+    "sequence": "மா",
+    "canonical": false
+  },
+  {
+    "name": "mI-taml",
+    "type": "consonant-sign",
+    "sequence": "மி",
+    "alternate": "isign-taml.ma",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "mIi-taml",
+    "type": "consonant-sign",
+    "sequence": "மீ",
+    "canonical": false
+  },
+  {
+    "name": "mU-taml",
+    "type": "consonant-sign",
+    "sequence": "மு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "mUu-taml",
+    "type": "consonant-sign",
+    "sequence": "மூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "mE-taml",
+    "type": "consonant-sign",
+    "sequence": "மெ",
+    "canonical": false
+  },
+  {
+    "name": "mEe-taml",
+    "type": "consonant-sign",
+    "sequence": "மே",
+    "canonical": false
+  },
+  {
+    "name": "mAi-taml",
+    "type": "consonant-sign",
+    "sequence": "மை",
+    "canonical": false
+  },
+  {
+    "name": "mO-taml",
+    "type": "consonant-sign",
+    "sequence": "மொ",
+    "canonical": false
+  },
+  {
+    "name": "mOo-taml",
+    "type": "consonant-sign",
+    "sequence": "மோ",
+    "canonical": false
+  },
+  {
+    "name": "mAu-taml",
+    "type": "consonant-sign",
+    "sequence": "மௌ",
+    "canonical": false
+  },
+  {
+    "name": "y-taml",
+    "type": "consonant-sign",
+    "sequence": "ய்",
+    "canonical": false
+  },
+  {
+    "name": "yAa-taml",
+    "type": "consonant-sign",
+    "sequence": "யா",
+    "canonical": false
+  },
+  {
+    "name": "yI-taml",
+    "type": "consonant-sign",
+    "sequence": "யி",
+    "alternate": "isign-taml.pa",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "yIi-taml",
+    "type": "consonant-sign",
+    "sequence": "யீ",
+    "canonical": false
+  },
+  {
+    "name": "yU-taml",
+    "type": "consonant-sign",
+    "sequence": "யு",
+    "alternate": "usign-taml.pa",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "yUu-taml",
+    "type": "consonant-sign",
+    "sequence": "யூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "yE-taml",
+    "type": "consonant-sign",
+    "sequence": "யெ",
+    "canonical": false
+  },
+  {
+    "name": "yEe-taml",
+    "type": "consonant-sign",
+    "sequence": "யே",
+    "canonical": false
+  },
+  {
+    "name": "yAi-taml",
+    "type": "consonant-sign",
+    "sequence": "யை",
+    "canonical": false
+  },
+  {
+    "name": "yO-taml",
+    "type": "consonant-sign",
+    "sequence": "யொ",
+    "canonical": false
+  },
+  {
+    "name": "yOo-taml",
+    "type": "consonant-sign",
+    "sequence": "யோ",
+    "canonical": false
+  },
+  {
+    "name": "yAu-taml",
+    "type": "consonant-sign",
+    "sequence": "யௌ",
+    "canonical": false
+  },
+  {
+    "name": "r-taml",
+    "type": "consonant-sign",
+    "sequence": "ர்",
+    "canonical": false
+  },
+  {
+    "name": "rAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ரா",
+    "canonical": false
+  },
+  {
+    "name": "rI-taml",
+    "type": "consonant-sign",
+    "sequence": "ரி",
+    "canonical": false
+  },
+  {
+    "name": "rIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ரீ",
+    "canonical": false
+  },
+  {
+    "name": "rU-taml",
+    "type": "consonant-sign",
+    "sequence": "ரு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "rUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ரூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "rE-taml",
+    "type": "consonant-sign",
+    "sequence": "ரெ",
+    "canonical": false
+  },
+  {
+    "name": "rEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ரே",
+    "canonical": false
+  },
+  {
+    "name": "rAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ரை",
+    "canonical": false
+  },
+  {
+    "name": "rO-taml",
+    "type": "consonant-sign",
+    "sequence": "ரொ",
+    "canonical": false
+  },
+  {
+    "name": "rOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ரோ",
+    "canonical": false
+  },
+  {
+    "name": "rAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ரௌ",
+    "canonical": false
+  },
+  {
+    "name": "rr-taml",
+    "type": "consonant-sign",
+    "sequence": "ற்",
+    "canonical": false
+  },
+  {
+    "name": "rrAa-taml",
+    "type": "consonant-sign",
+    "sequence": "றா",
+    "canonical": true,
+    "level": 2
+  },
+  {
+    "name": "rrI-taml",
+    "type": "consonant-sign",
+    "sequence": "றி",
+    "alternate": "isign-taml.ma",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "rrIi-taml",
+    "type": "consonant-sign",
+    "sequence": "றீ",
+    "canonical": false
+  },
+  {
+    "name": "rrU-taml",
+    "type": "consonant-sign",
+    "sequence": "று",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "rrUu-taml",
+    "type": "consonant-sign",
+    "sequence": "றூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "rrE-taml",
+    "type": "consonant-sign",
+    "sequence": "றெ",
+    "canonical": false
+  },
+  {
+    "name": "rrEe-taml",
+    "type": "consonant-sign",
+    "sequence": "றே",
+    "canonical": false
+  },
+  {
+    "name": "rrAi-taml",
+    "type": "consonant-sign",
+    "sequence": "றை",
+    "canonical": false
+  },
+  {
+    "name": "rrO-taml",
+    "type": "consonant-sign",
+    "sequence": "றொ",
+    "canonical": false
+  },
+  {
+    "name": "rrOo-taml",
+    "type": "consonant-sign",
+    "sequence": "றோ",
+    "canonical": false
+  },
+  {
+    "name": "rrAu-taml",
+    "type": "consonant-sign",
+    "sequence": "றௌ",
+    "canonical": false
+  },
+  {
+    "name": "l-taml",
+    "type": "consonant-sign",
+    "sequence": "ல்",
+    "canonical": false
+  },
+  {
+    "name": "lAa-taml",
+    "type": "consonant-sign",
+    "sequence": "லா",
+    "canonical": false
+  },
+  {
+    "name": "lI-taml",
+    "type": "consonant-sign",
+    "sequence": "லி",
+    "alternate": "isign-taml.la",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "lIi-taml",
+    "type": "consonant-sign",
+    "sequence": "லீ",
+    "alternate": "iisign-taml.la",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "lU-taml",
+    "type": "consonant-sign",
+    "sequence": "லு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "lUu-taml",
+    "type": "consonant-sign",
+    "sequence": "லூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "lE-taml",
+    "type": "consonant-sign",
+    "sequence": "லெ",
+    "canonical": false
+  },
+  {
+    "name": "lEe-taml",
+    "type": "consonant-sign",
+    "sequence": "லே",
+    "canonical": false
+  },
+  {
+    "name": "lAi-taml",
+    "type": "consonant-sign",
+    "sequence": "லை",
+    "alternate": "aisign-taml.la",
+    "canonical": true,
+    "level": 2
+  },
+  {
+    "name": "lO-taml",
+    "type": "consonant-sign",
+    "sequence": "லொ",
+    "canonical": false
+  },
+  {
+    "name": "lOo-taml",
+    "type": "consonant-sign",
+    "sequence": "லோ",
+    "canonical": false
+  },
+  {
+    "name": "lAu-taml",
+    "type": "consonant-sign",
+    "sequence": "லௌ",
+    "canonical": false
+  },
+  {
+    "name": "ll-taml",
+    "type": "consonant-sign",
+    "sequence": "ள்",
+    "canonical": false
+  },
+  {
+    "name": "llAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ளா",
+    "canonical": false
+  },
+  {
+    "name": "llI-taml",
+    "type": "consonant-sign",
+    "sequence": "ளி",
+    "canonical": false
+  },
+  {
+    "name": "llIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ளீ",
+    "canonical": false
+  },
+  {
+    "name": "llU-taml",
+    "type": "consonant-sign",
+    "sequence": "ளு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "llUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ளூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "llE-taml",
+    "type": "consonant-sign",
+    "sequence": "ளெ",
+    "canonical": false
+  },
+  {
+    "name": "llEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ளே",
+    "canonical": false
+  },
+  {
+    "name": "llAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ளை",
+    "alternate": "aisign-taml.la",
+    "canonical": true,
+    "level": 2
+  },
+  {
+    "name": "llO-taml",
+    "type": "consonant-sign",
+    "sequence": "ளொ",
+    "canonical": false
+  },
+  {
+    "name": "llOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ளோ",
+    "canonical": false
+  },
+  {
+    "name": "llAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ளௌ",
+    "canonical": false
+  },
+  {
+    "name": "zh-taml",
+    "type": "consonant-sign",
+    "sequence": "ழ்",
+    "canonical": false
+  },
+  {
+    "name": "zhAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ழா",
+    "canonical": false
+  },
+  {
+    "name": "zhI-taml",
+    "type": "consonant-sign",
+    "sequence": "ழி",
+    "alternate": "isign-taml.ma",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "zhIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ழீ",
+    "canonical": false
+  },
+  {
+    "name": "zhU-taml",
+    "type": "consonant-sign",
+    "sequence": "ழு",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "zhUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ழூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "zhE-taml",
+    "type": "consonant-sign",
+    "sequence": "ழெ",
+    "canonical": false
+  },
+  {
+    "name": "zhEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ழே",
+    "canonical": false
+  },
+  {
+    "name": "zhAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ழை",
+    "canonical": false
+  },
+  {
+    "name": "zhO-taml",
+    "type": "consonant-sign",
+    "sequence": "ழொ",
+    "canonical": false
+  },
+  {
+    "name": "zhOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ழோ",
+    "canonical": false
+  },
+  {
+    "name": "zhAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ழௌ",
+    "canonical": false
+  },
+  {
+    "name": "v-taml",
+    "type": "consonant-sign",
+    "sequence": "வ்",
+    "canonical": false
+  },
+  {
+    "name": "vAa-taml",
+    "type": "consonant-sign",
+    "sequence": "வா",
+    "canonical": false
+  },
+  {
+    "name": "vI-taml",
+    "type": "consonant-sign",
+    "sequence": "வி",
+    "alternate": "isign-taml.pa",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "vIi-taml",
+    "type": "consonant-sign",
+    "sequence": "வீ",
+    "canonical": false
+  },
+  {
+    "name": "vU-taml",
+    "type": "consonant-sign",
+    "sequence": "வு",
+    "alternate": "usign-taml.pa",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "vUu-taml",
+    "type": "consonant-sign",
+    "sequence": "வூ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "vE-taml",
+    "type": "consonant-sign",
+    "sequence": "வெ",
+    "canonical": false
+  },
+  {
+    "name": "vEe-taml",
+    "type": "consonant-sign",
+    "sequence": "வே",
+    "canonical": false
+  },
+  {
+    "name": "vAi-taml",
+    "type": "consonant-sign",
+    "sequence": "வை",
+    "canonical": false
+  },
+  {
+    "name": "vO-taml",
+    "type": "consonant-sign",
+    "sequence": "வொ",
+    "canonical": false
+  },
+  {
+    "name": "vOo-taml",
+    "type": "consonant-sign",
+    "sequence": "வோ",
+    "canonical": false
+  },
+  {
+    "name": "vAu-taml",
+    "type": "consonant-sign",
+    "sequence": "வௌ",
+    "canonical": false
+  },
+  {
+    "name": "sh-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶ்",
+    "canonical": false
+  },
+  {
+    "name": "shAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶா",
+    "canonical": false
+  },
+  {
+    "name": "shI-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶி",
+    "alternate": "isign-taml.ma",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "shIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶீ",
+    "canonical": false
+  },
+  {
+    "name": "shU-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶு",
+    "canonical": false
+  },
+  {
+    "name": "shUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶூ",
+    "canonical": false
+  },
+  {
+    "name": "shE-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶெ",
+    "canonical": false
+  },
+  {
+    "name": "shEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶே",
+    "canonical": false
+  },
+  {
+    "name": "shAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶை",
+    "canonical": false
+  },
+  {
+    "name": "shO-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶொ",
+    "canonical": false
+  },
+  {
+    "name": "shOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶோ",
+    "canonical": false
+  },
+  {
+    "name": "shAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஶௌ",
+    "canonical": false
+  },
+  {
+    "name": "ss-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷ்",
+    "canonical": false
+  },
+  {
+    "name": "ssAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷா",
+    "canonical": false
+  },
+  {
+    "name": "ssI-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷி",
+    "alternate": "isign-taml.ssa",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "ssIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷீ",
+    "canonical": false
+  },
+  {
+    "name": "ssU-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷு",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "ssUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷூ",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "ssE-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷெ",
+    "canonical": false
+  },
+  {
+    "name": "ssEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷே",
+    "canonical": false
+  },
+  {
+    "name": "ssAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷை",
+    "canonical": false
+  },
+  {
+    "name": "ssO-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷொ",
+    "canonical": false
+  },
+  {
+    "name": "ssOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷோ",
+    "canonical": false
+  },
+  {
+    "name": "ssAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஷௌ",
+    "canonical": false
+  },
+  {
+    "name": "s-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸ்",
+    "canonical": false
+  },
+  {
+    "name": "sAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸா",
+    "canonical": false
+  },
+  {
+    "name": "sI-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸி",
+    "alternate": "isign-taml.la",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "sIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸீ",
+    "alternate": "iisign-taml.la",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "sU-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸு",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "sUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸூ",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "sE-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸெ",
+    "canonical": false
+  },
+  {
+    "name": "sEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸே",
+    "canonical": false
+  },
+  {
+    "name": "sAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸை",
+    "canonical": false
+  },
+  {
+    "name": "sO-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸொ",
+    "canonical": false
+  },
+  {
+    "name": "sOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸோ",
+    "canonical": false
+  },
+  {
+    "name": "sAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஸௌ",
+    "canonical": false
+  },
+  {
+    "name": "h-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹ்",
+    "canonical": false
+  },
+  {
+    "name": "hAa-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹா",
+    "canonical": false
+  },
+  {
+    "name": "hI-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹி",
+    "alternate": "isign-taml.ma",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "hIi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹீ",
+    "canonical": false
+  },
+  {
+    "name": "hU-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹு",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "hUu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹூ",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "hE-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹெ",
+    "canonical": false
+  },
+  {
+    "name": "hEe-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹே",
+    "canonical": false
+  },
+  {
+    "name": "hAi-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹை",
+    "canonical": false
+  },
+  {
+    "name": "hO-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹொ",
+    "canonical": false
+  },
+  {
+    "name": "hOo-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹோ",
+    "canonical": false
+  },
+  {
+    "name": "hAu-taml",
+    "type": "consonant-sign",
+    "sequence": "ஹௌ",
+    "canonical": false
+  },
+  {
+    "name": "kSsa-taml",
+    "type": "conjunct",
+    "sequence": "க்ஷ",
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "shree-taml",
+    "type": "conjunct",
+    "sequence": "ஶ்ரீ",
+    "sequences": [
+      "ஶ்ரீ",
+      "ஸ்ரீ"
+    ],
+    "canonical": true,
+    "level": 0
+  },
+  {
+    "name": "kSs-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷ்",
+    "canonical": false
+  },
+  {
+    "name": "kSsAa-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷா",
+    "canonical": false
+  },
+  {
+    "name": "kSsI-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷி",
+    "alternate": "isign-taml.ssa",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "kSsIi-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷீ",
+    "canonical": false
+  },
+  {
+    "name": "kSsU-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷு",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "kSsUu-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷூ",
+    "canonical": true,
+    "level": 1
+  },
+  {
+    "name": "kSsE-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷெ",
+    "canonical": false
+  },
+  {
+    "name": "kSsEe-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷே",
+    "canonical": false
+  },
+  {
+    "name": "kSsAi-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷை",
+    "canonical": false
+  },
+  {
+    "name": "kSsO-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷொ",
+    "canonical": false
+  },
+  {
+    "name": "kSsOo-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷோ",
+    "canonical": false
+  },
+  {
+    "name": "kSsAu-taml",
+    "type": "conjunct-sign",
+    "sequence": "க்ஷௌ",
+    "canonical": false
+  }
+]

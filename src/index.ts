@@ -14,7 +14,14 @@ export type {
   OutputOptions,
   GeneratedGlyph,
   GeneratedGlyphType,
+  Script,
 } from './types/index.js';
+
+// Export script registry and Tamil sign tables
+export { SCRIPTS, resolveScript, scriptOfNamespace, composeName } from './core/scripts.js';
+export type { ScriptDef } from './core/scripts.js';
+export { TAMIL_SIGNS, tamilFormName, tamilStem } from './core/tamil.js';
+export type { TamilSign } from './core/tamil.js';
 
 // Export core functionality
 export {
@@ -38,6 +45,8 @@ export {
   formatGlyphsAsJson,
 } from './formatters/txt.js';
 
+export { formatAsGlyphData } from './formatters/glyphdata.js';
+
 export {
   buildSharedData,
   formatSharedDataAsJson,
@@ -57,6 +66,8 @@ export {
   getRequiredBaseConsonants,
   formatGlyphAnalysis,
 } from './analyzers/text-glyphs.js';
+
+export type { GlyphOccurrence, UniqueGlyph } from './analyzers/text-glyphs.js';
 
 // Export generators
 export {
