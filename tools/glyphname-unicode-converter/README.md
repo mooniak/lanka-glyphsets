@@ -56,6 +56,10 @@ CommonJS so `require()` works.
   spacing/below vowels (aa/ae/e/o/…) generally do **not** ligate — such names are
   valid by rule but tagged `derived`, not enumerated in the glyphset.
 - Below-base "da-shape" letters (`da`, `nda`, `nya`, `jnya` and their conjuncts)
-  take the `._c` form with a spacing vowel (`daa._c`, `nyaa._c`); `ra` + ae/aae
+  take the `._c` form with a post-base spacing vowel (`daa._c`, `nyaa._c`);
+  pre-base vowels never do (`dE`, `dEe`, like `kE`, `kEe`); `ra` + ae/aae
   ligate as `rAe`/`rAae`.
+- Repaya `ර්‍` + a consonant, in Unicode order (`ර්‍ක`), is `ka_repha`: ra-led
+  conjuncts are always set as repaya. `ra` + `ra` / `ya` stay rakaransaya /
+  yansaya on ra (`rRa`, `rya`). `ka_repha` maps back to `ර්‍ක`.
 - `kunddaliya` (෴) is a Punctuation glyph and carries **no** `-sinh` namespace.

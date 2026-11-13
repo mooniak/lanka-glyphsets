@@ -39,11 +39,35 @@
     return '<span class="badge err">unresolved</span>';
   }
 
+  // Split free-form input into entries. Whitespace/commas separate tokens; inside a
+  // token, greedy longest-match against the engine splits unseparated runs
+  // (e.g. "කකිදා" or "kakIdaa"). `ok(str)` says whether the engine resolves it.
+  function segment(raw, ok, maxLen) {
+    var out = [];
+    raw.split(/[\s,;،、]+/).forEach(function (tok) {
+      if (!tok) return;
+      var chars = Array.from(tok), i = 0;
+      if (ok(tok)) { out.push(tok); return; }
+      while (i < chars.length) {
+        var n = Math.min(maxLen, chars.length - i), took = 0;
+        for (; n > 0; n--) {
+          if (ok(chars.slice(i, i + n).join(""))) { took = n; break; }
+        }
+        if (!took) took = 1;
+        out.push(chars.slice(i, i + took).join(""));
+        i += took;
+      }
+    });
+    return out;
+  }
+  function okUni(s) { return !L.unicodeToName(s).error; }
+  function okName(s) { return !L.nameToUnicode(s).error; }
+
   // ---- Unicode -> Name ----
   var uniResults = [];   // resolved names for "copy all"
   function runUni() {
     var raw = document.getElementById("in-uni").value;
-    var lines = raw.split("\n");
+    var lines = segment(raw, okUni, 10);
     var rows = [], nCanon = 0, nFlag = 0, nErr = 0;
     uniResults = [];
     lines.forEach(function (line) {
@@ -81,7 +105,7 @@
   // ---- Name -> Unicode ----
   var nameResults = [];
   function runName() {
-    var lines = document.getElementById("in-name").value.split("\n");
+    var lines = segment(document.getElementById("in-name").value, okName, 40);
     var rows = [], ok = 0, nErr = 0;
     nameResults = [];
     lines.forEach(function (line) {

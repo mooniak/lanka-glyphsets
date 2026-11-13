@@ -86,7 +86,7 @@
     <header>
       <h1>LankaGlyphset ⇄ Unicode Converter</h1>
       <p>Convert LankaGlyphset glyph names (e.g. <code>kRa-sinh</code>) to their Sinhala Unicode
-        string and back. Paste one entry per line. Enumerated glyphs show their glyphset tier
+        string and back. Paste entries on one line or many, separated by spaces, commas, or nothing at all. Enumerated glyphs show their glyphset tier
         <span class="badge canon">kernel</span>; well-formed names not enumerated in the glyphset
         are marked <span class="badge flag">derived</span>.</p>
     </header>
@@ -98,7 +98,7 @@
 
     <!-- Unicode -> Name -->
     <div class="panel active" id="panel-uni2name">
-      <label for="in-uni">Sinhala Unicode strings (one per line)</label>
+      <label for="in-uni">Sinhala Unicode strings (space, comma, or no separator)</label>
       <textarea id="in-uni" class="sinhala" placeholder="කි&#10;ක්‍ර&#10;ක්‍ෂ&#10;දා"></textarea>
       <div class="toolbar">
         <button class="act ghost" data-sample="uni">Load sample</button>
@@ -110,7 +110,7 @@
 
     <!-- Name -> Unicode -->
     <div class="panel" id="panel-name2uni">
-      <label for="in-name">LankaGlyphset names (one per line, <code>-sinh</code> optional)</label>
+      <label for="in-name">LankaGlyphset names (space, comma, or newline separated; <code>-sinh</code> optional)</label>
       <textarea id="in-name" placeholder="kRa-sinh&#10;kSsa-sinh&#10;ka&#10;daa._c-sinh"></textarea>
       <div class="toolbar">
         <button class="act ghost" data-sample="name">Load sample</button>
