@@ -58,7 +58,7 @@ echo "කවිය" | glyphsets text-glyphs
 Formats: `txt` (default), `names` (one per line), `json`
 
 ### `glyph-data` — generate `GlyphData.xml` for Glyphs app
-Produces a `GlyphData.xml` from the YAML glyphsets. Glyph names are used exactly as defined (e.g. `ka-sinh`, `kVI-sinh`). Unicode, decompose, and sign anchors are included where defined.
+Produces a `GlyphData.xml` from the YAML glyphsets. Glyph names are used exactly as defined (e.g. `ka-sinh`, `kVI-sinh`). Unicode, decompose, and sign anchors are included where defined. Signs get the Unicode subcategory: ි ී ු ූ ් and the attaching rasign/repha are `Nonspacing`; the vowel signs that advance (ා ැ ෑ ෘ ෙ–ෟ ෲ ෳ), ං ඃ and yansaya are `Spacing Combining`, which is what makes Glyphs set them after the base in auto-aligned composites.
 ```bash
 glyphsets glyph-data -o tools/GlyphData.xml       # all levels (default: 3)
 glyphsets glyph-data -l 1 -o MyFont/GlyphData.xml

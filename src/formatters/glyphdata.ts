@@ -7,7 +7,7 @@ import type { Glyph } from '../types/index.js';
 
 const CATEGORY_MAP: Record<string, { category: string; subCategory?: string }> = {
   'Letters': { category: 'Letter' },
-  'Signs': { category: 'Mark', subCategory: 'Nonspacing' },
+  'Signs': { category: 'Mark' },  // subCategory per sign: signSubCategory()
   'Punctuation': { category: 'Punctuation' },
   'Format controls': { category: 'Separator' },
   'Ligated consonant conjuncts': { category: 'Letter', subCategory: 'Ligature' },
@@ -16,6 +16,19 @@ const CATEGORY_MAP: Record<string, { category: string; subCategory?: string }> =
   'Sinhala numerals': { category: 'Number' },
   'Stylistic alternates': { category: 'Letter' },
 };
+
+// Unicode Mn (nonspacing) Sinhala signs: candrabindu, al-lakuna, ි ී ු ූ.
+// Every other encoded sign is Mc (spacing combining): ං ඃ ා ැ ෑ ෘ–ෟ ෲ ෳ.
+const NONSPACING_SIGNS = new Set([0x0D81, 0x0DCA, 0x0DD2, 0x0DD3, 0x0DD4, 0x0DD6]);
+// Unencoded signs that advance like Mc: yansaya follows its base.
+const SPACING_UNENCODED_SIGNS = new Set(['yasign']);
+
+function signSubCategory(glyph: Glyph): string {
+  const spacing = glyph.unicode !== undefined
+    ? !NONSPACING_SIGNS.has(glyph.unicode)
+    : SPACING_UNENCODED_SIGNS.has(glyph.name);
+  return spacing ? 'Spacing Combining' : 'Nonspacing';
+}
 
 function toHex(unicode: number): string {
   return unicode.toString(16).toUpperCase().padStart(4, '0');
@@ -36,8 +49,9 @@ function glyphToXml(glyph: Glyph, namespace: string): string {
   attrs.push(`name="${escapeXml(glyph.fullName)}"`);
   attrs.push(`category="${catInfo.category}"`);
 
-  if (catInfo.subCategory) {
-    attrs.push(`subCategory="${catInfo.subCategory}"`);
+  const subCategory = glyph.category === 'Signs' ? signSubCategory(glyph) : catInfo.subCategory;
+  if (subCategory) {
+    attrs.push(`subCategory="${subCategory}"`);
   }
 
   attrs.push(`script="sinhala"`);
