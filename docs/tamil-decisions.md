@@ -141,6 +141,11 @@ per-group anchor name (Yaldevi's `MatraI.altN` become `isign`). Sinhala's list
 is filled in from the same rule: see "Anchor naming" in
 [naming-standard.md](naming-standard.md).
 
+lankafea checks these anchors. It accepts the legacy names (`tm_halant`, `MatraI.altN`,
+`MatraIi`, `MatraU`), reads an `Anchor-N` from the sign glyph's own `_Anchor-N`, and says
+which anchors should be renamed. Only a consonant with no dedicated glyph for a sign needs
+the anchor, since a ligature carries its own mark position.
+
 ### Sign abbreviations
 
 **Clarified.** The standard defined `Aa I Ii U Uu Ai`. The text analyzer, the engine

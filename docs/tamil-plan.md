@@ -1,10 +1,10 @@
 # Tamil parity plan: standard, features and tooling
 
 > Status: **in progress** (2026-11-13). **Phases 0 (hotfixes), 1 (standard data
-> and docs) and 2 (standard tooling)** are done; see §3. Phase 1 applied the
-> recommended option for D1–D6 as *working decisions* (see
+> and docs), 2 (standard tooling) and 3 (lankafea)** are done; see §3. Phase 1
+> applied the recommended option for D1–D6 as *working decisions* (see
 > [tamil-decisions.md](tamil-decisions.md)); D4 still needs sign-off from a Tamil
-> type specialist. Nothing from Phase 3 onward is implemented yet.
+> type specialist. Nothing from Phase 4 onward is implemented yet.
 
 This plan brings Tamil up to the level of support Sinhala has across the
 LankaGlyphset standard (this repo), lankafea and the design tools
@@ -360,7 +360,7 @@ and the `nna2` stem in the Tamil table in `scripts.py` needs to become `nnna`.
 its `tamil_profile()` can use `generate --script tamil` as the list of forms and
 the either/or rule instead of the Sinhala model.
 
-### Phase 3: lankafea for Tamil (~4–6 days)
+### Phase 3: lankafea for Tamil (~4–6 days) — done 2026-11-13
 
 1. **A Tamil candidate model** instead of the Sinhala one:
    - `akhn`: க்ஷ and ஸ்ரீ
@@ -383,6 +383,59 @@ the either/or rule instead of the Sinhala model.
    ones. Every difference must either match or be explained as a bug fix, as
    the Yaldevi `akhn` one would be. Add Tamil fixtures to `tests/`, and add
    Tamil to the Lanka Features plugin.
+
+**Done**, in `sinhala-font-tools/tools/feature-generator` (uncommitted; 127 tests). What
+it found, and where it differs from the list above:
+
+- **A Tamil model of its own** (`tamil.py`), about 141 candidate rules. A form is met by its
+  own glyph **or** its shape-group alternate; a resolver decides from the font's glyphs which
+  route applies, so the route not taken is never reported. Only the forms the standard
+  enumerates are *required* (by `--level` 0–2); the rest are generated when the font has them
+  and never reported when it doesn't. `ss09` holds the traditional forms, kept out of the
+  default features. ு/ூ go to `psts`; `nna2a` is `nnna`.
+- **Acceptance** (the 24 × 13 grid, both ஸ்ரீ spellings and the five Tamil test texts, 1,108
+  strings per font, hand-written build against generated):
+
+  | Font | Default features | Traditional | Unexplained |
+  |---|---|---|---|
+  | Abhaya Libre | 1108 / 1108 identical | 1108 / 1108 (`ss09`) | 0 |
+  | Ralex | 1099 / 1108 | matches (`ss02`+`ss04` vs `ss09`) | 0 |
+  | Yaldevi | 1067 / 1108 | not comparable: the built TTF registers no `ss`/`salt` | 0 |
+
+  Every difference is a glyph the font **already has that its hand-written features never
+  form**: Ralex's `lI-taml`; Yaldevi's `sI sIi sU sUu ssU ssUu kSsU kSsUu`, and `kSsa` /
+  `shree` in its stale build (the Phase 0 `akhn` bug, the case this plan named). The
+  generated features reach them. Whether each glyph is wanted is a design decision for Phase 4.
+- **What each font still lacks** (the standard's requirements it does not meet): Ralex 11 —
+  `jU jUu ssU ssUu sU sUu hU hUu kSsU kSsUu` and `ra.alt`; Yaldevi 4 — `jU jUu hU hUu`;
+  Abhaya 2 — `sUu` and `ra.alt`. This is Phase 4's to-do list per font.
+- **R1 and R2 are done.** Both scripts in one source can be generated one after the other
+  (script-tagged ownership, per-script class manifest and `Languagesystems`, collisions keyed
+  on tag and script, `script taml;`-scoped bodies); the Glyphs plugin shares the rules. Both
+  positions of a dot-suffix and `.NNN` variants are recognised. For R2's "per-font alias
+  tables": `--aliases FILE` names a font's own glyphs, and `--adopt-legacy-names` finds the
+  deterministic renames (`nna2`, the dot-suffix side). Which numbered `isign.altN` is which
+  group is per font and cannot be derived; tables for Ralex and Yaldevi are in
+  `tests/fixtures/tamil-aliases/` (verified against their classes), Abhaya's alt3–alt7 stay
+  unverified.
+- **Anchors:** a Tamil profile that accepts the legacy names, reads `Anchor-N` from the mark
+  glyph itself, and only expects an anchor on a consonant with no dedicated glyph for the sign.
+- **Not done:** a Tamil glyph-info (Mark/Spacing) check; running the plugin inside Glyphs (its
+  writeback is tested against a stand-in API, and it generates one script at a time);
+  Vineetha and Lankaverse Sans in the acceptance run.
+- **Side effect worth knowing:** the (gitignored) bundled glyphsets in lankafea were stale and
+  held the removed `tamil.yaml`; `setup.py` now deletes files the standard no longer has.
+- **R2 changes Sinhala output, on purpose.** Compared against the committed code on real
+  fonts: Abhaya Libre generates the same `.fea`; Maname, Dinamina and Aggnni gain `aalt` and
+  `ss01`–`ss03`, because their alternates are named after the namespace (`fa-sinh.alt`) and
+  the old parser built unmatchable names (`fa-sinh-sinh`) from them, dropping them silently
+  and listing them as blockers. Orphan detection also reports more glyphs (`rasign-sinh.long`,
+  `ka_repha-sinh.001`). That is the bug R2 described, fixed; a Sinhala font that hand-writes
+  those features keeps them (a collision keeps the designer's code).
+
+**Hand-off to Phase 4:** the alias tables above are the rename macro's starting point;
+`lankafea validate --script tamil --adopt-legacy-names --aliases …` is the per-font parity
+check, and it should report every font's gaps (above) and no unexplained difference.
 
 ### Phase 4: Migrating the fonts (each font's own repo; ~1 day per font, 2–3 days for Abhaya)
 
