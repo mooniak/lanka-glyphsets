@@ -445,7 +445,8 @@ Order:
 
 1. Ralex: **migrated 2026-11-17** (branch `tamil-standard-names`, commit
    `e1a43c3`, not pushed). See "Ralex" below.
-2. Vineetha: nearly free once Ralex is done.
+2. Vineetha: **migrated 2026-11-17** (branch `tamil-standard-names`, commit
+   `febebb5`, not pushed). See "Vineetha" below.
 3. Yaldevi
 4. Abhaya: the largest, and needs R1.
 5. Lankaverse Sans: map its old names through Unicode (strategy B).
@@ -475,6 +476,24 @@ Order:
   `isign-taml.ca/.ka` etc.
 - **Found on the way:** lankafea's package writer renamed glyphs with a leading
   dot (`.part.al_comp`), leaving a duplicate file; fixed.
+
+**Ralex decision (2026-11-17):** keep the `lI-taml` ligature for லி; folding
+`ss02`/`ss04` into `ss09` is accepted. Ralex builds cleanly (`make build`) and
+shapes as described above; QA and proof not run.
+
+**Vineetha, done 2026-11-17.** Two sources, both `.glyphs` files (the tool now
+handles those): `Vineetha.glyphs` (Tamil only) is Ralex's Tamil, so Ralex's alias
+table, inject file and result carry over exactly: 1099/1108 identical, the 9
+differences all லி. `Vineetha-Italics.glyphs` has Sinhala and Tamil in shared
+hand-written features (`akhn abvs psts ss01 ss02`), so their Tamil tails were cut
+and the Tamil-only `salt ss03 ss04` and the Tamil lookups prefix removed; Sinhala
+code is untouched (10 Sinhala strings shape identically, Tamil 1099/1108).
+- The Roman builds with `make build`.
+- **The Italics variable build already fails at HEAD** (898 fontmake
+  master-compatibility errors: the Regular and ExtraBold masters have different
+  point counts). Not caused by this work, not fixed. The Italics was verified by
+  compiling one master (Regular) before and after.
+- Both sources share `sources/tamil-styles.fea`.
 
 For each font:
 
