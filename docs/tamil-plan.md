@@ -447,7 +447,8 @@ Order:
    `e1a43c3`, not pushed). See "Ralex" below.
 2. Vineetha: **migrated 2026-11-17** (branch `tamil-standard-names`, commit
    `febebb5`, not pushed). See "Vineetha" below.
-3. Yaldevi
+3. Yaldevi: **migrated 2026-11-17** (branch `tamil-standard-names`, commit
+   `0f859662`, not pushed). See "Yaldevi" below.
 4. Abhaya: the largest, and needs R1.
 5. Lankaverse Sans: map its old names through Unicode (strategy B).
 
@@ -494,6 +495,30 @@ code is untouched (10 Sinhala strings shape identically, Tamil 1099/1108).
   point counts). Not caused by this work, not fixed. The Italics was verified by
   compiling one master (Regular) before and after.
 - Both sources share `sources/tamil-styles.fea`.
+
+**Yaldevi, done 2026-11-17.** 21 glyphs renamed (Yaldevi's own extras
+`iisign.alt2/alt3`, `isign.alt8`, `rI.alt`, `rIi.alt` get their suffix moved after the
+namespace too). Same generated `akhn abvs psts ss09` and the same
+`tamil-styles.fea` as Ralex; Sinhala features untouched. `make build` produces the six
+static fonts and the variable font.
+- **Parity** (ExtraLight and Bold masters, same source before and after, names and
+  mark positions): mark positions identical wherever the glyphs match
+  (1092/1092). The differences are all explained: the 8 forms Yaldevi already has and
+  never formed (`sI sIi sU sUu ssU ssUu kSsU kSsUu`, 16 strings), and, in `ss09`
+  only, `ra` becoming Yaldevi's own `ra-taml.alt` (45 strings; the old `ss01` did it with
+  the `aasign` glyph).
+- **Anchors:** only the unambiguous ones are renamed (see the commit). Yaldevi's bases
+  carry per-alternate anchors (`MatraI.alt1/2/5/8`, `MatraIi.alt2`, the `stylalt`
+  ones) that the standard's one-anchor-per-sign rule cannot hold; they are left, and
+  the tool reports a clash instead of writing duplicates. Yaldevi has no hand-written
+  GPOS, so its marks come from these anchors: a design decision is needed before
+  collapsing them.
+- **Open for Yaldevi:** `jU jUu hU hUu` missing; `ss01` still uses the `aasign`
+  hack although `ra-taml.alt` now exists (same effect as `ss09`'s ra rule); QA and
+  proof not run.
+- **Tool fixes found here:** `uusign` took `_usign` (fixed in Ralex and Vineetha too, no
+  position change); the package writer dropped an explicit master name (Yaldevi's
+  `ExtraLight` master became "Light Extra"); unquoted anchor names were not seen.
 
 For each font:
 
