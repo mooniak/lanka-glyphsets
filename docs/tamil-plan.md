@@ -241,8 +241,10 @@ Sizes are rough estimates.
 - **Abhaya Libre:** checked, no change. The same grid is clean, with no
   unreachable lookups and `taml` = `tml2`. The `dottedCircle` note under §1.1
   has no effect on shaped text.
-- **Ralex:** **not done.** The 8 empty symbols need drawing, or the coverage
-  claim needs dropping. Carried to Phase 4 (Ralex).
+- **Ralex:** the 8 empty symbols (௰ ௲ ௵ ௶ ௷ ௸ ௹ ௺) are **not being drawn**
+  (decided 2026-11-17): the coverage claim is dropped. They are already
+  non-exporting stubs, so nothing ships; Ralex does not meet Tamil-0 Kernel's
+  "full Unicode block" and should not be described as doing so.
 
 ### Phase 1: Standard data and docs (lanka-glyphsets, ~2–3 days plus review) — done 2026-11-13
 
@@ -441,13 +443,38 @@ check, and it should report every font's gaps (above) and no unexplained differe
 
 Order:
 
-1. Ralex: separate Tamil feature block, and its Sinhala is already
-   lankafea-generated. Also the 8 empty symbols (௰ ௲ ௵ ௶ ௷ ௸ ௹ ௺) carried over
-   from Phase 0: draw them, or drop them from the coverage claim.
+1. Ralex: **migrated 2026-11-17** (branch `tamil-standard-names`, commit
+   `e1a43c3`, not pushed). See "Ralex" below.
 2. Vineetha: nearly free once Ralex is done.
 3. Yaldevi
 4. Abhaya: the largest, and needs R1.
 5. Lankaverse Sans: map its old names through Unicode (strategy B).
+
+**Ralex, done 2026-11-17** (`python -m lankafea.migrate`, new in
+`sinhala-font-tools/tools/feature-generator`):
+
+- 16 glyphs renamed (listing in the commit message), anchors `Anchor-0/2/3/4`
+  → `virama`, `usign`+`uusign`, `iisign`, `usign`. The hand-written Tamil GSUB
+  is replaced by generated `akhn abvs psts ss09`. Ralex's own `ss01` (ர as ா),
+  `ss03` (flatter ி ீ) and `salt` are kept in `sources/tamil-styles.fea`
+  (raw `.fea` via `--inject-file`). The hand-written Tamil GPOS (`abvm`/`blwm`)
+  is kept with renamed glyphs; lankafea does not generate GPOS.
+- **Parity** (same 1,108 strings as Phase 3, migrated source compiled against the
+  committed build): default features 1099/1108, traditional (`ss02`+`ss04` vs
+  `ss09`) 1099/1108, `ss01` and `ss03` 1099/1108. The 9 differences are all லி:
+  the font's own `lI-taml` ligature is now formed where the hand-written features
+  left `la` + `isign-taml.la`. **Design decision open:** keep the ligature, or
+  draw/remove it.
+- **User-visible feature changes:** the old `ss02` and `ss04` are now both in
+  `ss09`; `salt` still applies everything.
+- **Still open for Ralex:** the 11 missing forms (`jU jUu ssU ssUu sU sUu hU hUu
+  kSsU kSsUu`, `ra.alt`); the `ra`-as-`aasign` hack in `ss01` (D6 wants a real
+  `ra.alt`); a font **build, QA and proof** (not run; the committed
+  `fonts/ttf` still has the old names, so the Ralex acceptance test now skips);
+  the 2 consonants missing a `virama` anchor (ja, nya) and the mark anchors on
+  `isign-taml.ca/.ka` etc.
+- **Found on the way:** lankafea's package writer renamed glyphs with a leading
+  dot (`.part.al_comp`), leaving a duplicate file; fixed.
 
 For each font:
 
