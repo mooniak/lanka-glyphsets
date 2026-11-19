@@ -68,6 +68,17 @@ Style variants use dot suffixes:
 - `esign-sinh._ui._alt` — ෙ (alternate of UI style)
 - `aisign-sinh._ui` — ෛ (UI/alternate style)
 
+Alternate letterforms drawn from other letters are named after those letters. ෆ written
+as ප + f (the "ss02 Fa" set) is `fpa-sinh`; its forms follow the usual rules from `fpa`:
+- `fp-sinh` — ෆ් (fpa + virama)
+- `fpI-sinh`, `fpIi-sinh` — ෆි, ෆී
+- `fpU-sinh`, `fpUu-sinh` — ෆු, ෆූ
+- `fpRa-sinh`, `fpR-sinh`, `fpRI-sinh`, `fpRIi-sinh` — the rakar forms
+- `fpa_repha-sinh` — with repaya
+
+These are alternates of the `fa-sinh` forms (`fa → fpa`, `fU → fpU` …), not separate
+letters, so they carry no Unicode value. Until standard 2.0.0 they were `fPa`, `fPI`, `fPIi`.
+
 Virama length variants:
 - `virama-sinh._long` — ් (long form)
 - `virama-sinh._medium` — ් (medium form)

@@ -127,9 +127,9 @@ categories:
       nDRaa._c: # න්‍ද්‍රා (nDa + rasign + aasign below-base)
 
   ss02 Fa: # ප+f alternate
-      fPa:
-      fPI:
-      fPIi:
+      fpa: # ෆ written as ප + f
+      fpI: # fpa + isign
+      fpIi: # fpa + iisign
 
   ss03 Historical forms:
       esign._ui: # Historical Kombuwa

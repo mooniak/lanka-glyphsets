@@ -17,7 +17,7 @@
 #          stay valid.
 #   PATCH  metadata / comment / spelling fix only; no glyph-identity change.
 # ─────────────────────────────────────────────────────────────────────────────
-version: 1.0.0
+version: 2.0.0
 
 # The cumulative tiers of each script (each a superset of the one before).
 # Loaders read these files by explicit name — these lists are documentation,
