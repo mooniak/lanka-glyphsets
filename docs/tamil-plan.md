@@ -449,7 +449,8 @@ Order:
    `febebb5`, not pushed). See "Vineetha" below.
 3. Yaldevi: **migrated 2026-11-17** (branch `tamil-standard-names`, commit
    `0f859662`, not pushed). See "Yaldevi" below.
-4. Abhaya: the largest, and needs R1.
+4. Abhaya: **migrated 2026-11-26** (branch `tamil-standard-names`, commits
+   `8bbe6f1d` and `b8d48912`, not pushed). See "Abhaya" below.
 5. Lankaverse Sans: map its old names through Unicode (strategy B).
 
 **Ralex, done 2026-11-17** (`python -m lankafea.migrate`, new in
@@ -519,6 +520,23 @@ static fonts and the variable font.
 - **Tool fixes found here:** `uusign` took `_usign` (fixed in Ralex and Vineetha too, no
   position change); the package writer dropped an explicit master name (Yaldevi's
   `ExtraLight` master became "Light Extra"); unquoted anchor names were not seen.
+
+**Abhaya Libre, done 2026-11-26.** Details in
+[abhaya-feature-plan.md](abhaya-feature-plan.md), Tamil track. 18 glyphs renamed; anchor
+`tm_halant` → `virama` (also on `dottedCircle`); generated `akhn abvs psts ss09` replace the
+hand-written Tamil features, written next to Abhaya's generated Sinhala ones (R1 in use).
+- **Alias table verified.** `alt1` (pa) and `alt2` (ma) from component use; `alt3`–`alt7` from
+  the 2017 classes (la, ca, ka, na, pa). alt3–alt7 and `iisign.alt1` are unused older drawings
+  that don't fit the current letters, so they keep their numbers (`isign-taml.alt3` …) rather
+  than become group alternates the features would select.
+- **Parity:** identical to a build of the previous `dev` (glyphs and positions, Regular and
+  Bold, default and `ss09`; 4,568 strings), except consonant + ZWJ + ி on the pa/ma groups,
+  which now takes the group hook. Sinhala unchanged; fontspector unchanged.
+- **Unmet (design decision):** `sUu-taml` and `ra-taml.alt`. The other seven of the nine
+  that `validate` reported on the unmigrated source (`ngU yU vU nnnU nnnUu nnnAa nnnAi`) were
+  naming and are met now.
+- **lankafea:** `featureNames` names Tamil sets (Abhaya keeps "Tamil old orthography
+  ligatures"); an alias entry can keep a glyph out of a legacy rename.
 
 For each font:
 

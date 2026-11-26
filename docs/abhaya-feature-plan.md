@@ -7,7 +7,11 @@
 > Real-build comparison: 0 unexplained differences; fontspector 0 FAIL, warnings unchanged.
 > 2026-11-26: A3 reverted (kept as before, lankafea `prenasalisedZwj`) and `da_yansa_oosign`
 > renamed `dyaa_virama._c`, formed under ss01/dlig (Y1).
-> **Open for review:** §4 (A1, A2, P2, T2) and §5 (Q2–Q4). Still to do: Tamil track,
+> 2026-11-26: **Tamil track done** (branch `tamil-standard-names` from `dev`, not pushed):
+> Tamil glyphs renamed to the standard, Tamil features generated; shaping identical except
+> consonant + ZWJ + ி on the pa/ma groups. Two Tamil forms await a design decision (see the
+> Tamil track below).
+> **Open for review:** §4 (A1, A2, P2, T2) and §5 (Q2–Q4). Still to do:
 > Phase 3's name check against the standard, `abhaya-case-study.md`.
 
 The goal is to replace Abhaya Libre's hand-written OpenType features with
@@ -346,7 +350,9 @@ In `tools/feature-generator/docs/`:
 - Update `README.md` (generator table) and `ROADMAP.md`: R3 is folded into
   Phase 1, and the "rlig stays hand-written" line is replaced by D2.
 
-### Tamil track (separate; tamil-plan.md Phase 4, step 4)
+### Tamil track (separate; tamil-plan.md Phase 4, step 4) — done 2026-11-26
+
+The plan as written:
 
 - Alias table for Abhaya (`tests/fixtures/tamil-aliases/abhaya.yaml`): verify
   which `isign.altN-taml` is which shape group (alt1 is {ங ப ய வ}; alt3–alt7
@@ -360,6 +366,51 @@ In `tools/feature-generator/docs/`:
 - The 9 unmet forms are design work: draw them, or accept them through the
   shape-group alternates. A decision for the user and the Tamil designer.
 - Record the result in `tamil-plan.md` Phase 4 as well as here.
+
+**Result.** Abhaya `tamil-standard-names` (from `dev` at `2604ec85`, not pushed): `8bbe6f1d`
+renames, `b8d48912` generated features. sinhala-font-tools `ca4517a` (gh-pages, not pushed).
+
+- **Alias table verified.** `alt1` = pa group and `alt2` = ma group, from the glyphs that use
+  them as components (ஙி பி யி வி; மி ழி). `alt3`–`alt7` from the 2017 source (commit
+  `21c42e28`, whose classes `a17c453c` dropped): `alt3` {ல ஸ}, `alt4` {ச}, `alt5` {க த},
+  `alt6` {ஞ ந}, `alt7` {ங ப ய வ}; their outlines and widths are unchanged since then.
+  **alt3–alt7 are not given group names.** No glyph or feature uses them, and named `.la`
+  `.ca` … the generated features would select them wherever a ligature can't form (ச + ZWJ +
+  ி). They don't fit the current letters (`alt4` has no advance in Bold, so ச‍ிக collides).
+  They keep their numbers: `isign-taml.alt3`–`.alt7`. The same goes for `iisign.alt1-taml`,
+  which `--adopt-legacy-names` would make `iisign-taml.la`: it is an unused redraw of ீ with a
+  600-unit advance, not 2017's la-group glyph. lankafea now lets an alias entry keep a glyph
+  out of a legacy role (`iisign-taml.alt1: iisign.alt1-taml`).
+- **Renames** (18 glyphs, 114 references): `nna2*` → `nnna`, `nnnI`, `nnnIi`, `nnnU`, `nnnUu`,
+  `nnnAa`, `nnnAi`; `isign-taml.pa`/`.ma`; `usign-taml.pa`; `aisign-taml.la`; `iisign-taml.alt`;
+  the five `isign-taml.altN` and `iisign-taml.alt1`. Anchor `tm_halant` → `virama`, also on
+  `dottedCircle` by hand (the tool only renames anchors on `-taml` glyphs), so ◌் keeps its place.
+- **Features.** The hand-written `akhn abvs psts ss09` and the Tamil prefix are gone;
+  `sources/lankafea.yaml` has a `tamil:` section and `make features` writes both scripts
+  (Sinhala byte-identical). `ss09` keeps its name, "Tamil old orthography ligatures", through
+  `featureNames`, which lankafea now applies to Tamil too.
+- **Parity** (HarfBuzz, a build of `2604ec85` against the new build, glyphs and positions,
+  weights 400 and 800, default and `ss09`): the grid, both ஸ்ரீ spellings, the Tamil test texts,
+  bare signs and ◌ + sign are identical (4,568/4,568). In 1,280 ZWJ/ZWNJ spellings, 40 differ,
+  all consonant + ZWJ + ி on ங ப ய வ ஜ ம ற ழ ஶ ஹ: they now take the group hook that the
+  font's own பி and மி are built from, instead of the plain ி (checked visually, no
+  collisions). Sinhala and Latin test texts 134,008/134,008 identical. `make build` passes;
+  fontspector (googlefonts) gives the same result for every check (0 FAIL).
+- **The 9 unmet forms.** Seven were naming problems that the renames fix:
+  - `ngU yU vU`: met by `usign-taml.pa` (was `usign.alt1-taml`). Abhaya draws only `pU`
+    as a ligature; the hook is what the standard accepts.
+  - `nnnU nnnUu nnnAa nnnAi`: met by the renamed `nna2-*` glyphs.
+
+  **Two are unmet and need a design decision** (not drawn):
+  - **`sUu-taml` ஸூ** (Tamil-1 Core). Today ஸூ is ஸ + plain ூ. Abhaya has `sU`. Draw `sUu`,
+    or accept the plain sign.
+  - **`ra-taml.alt`** (Tamil-2 Pro): the traditional ர before ் ஂ ி ீ, in `ss09`. Abhaya's
+    `ss09` has never had it. Draw it, or accept a traditional set without it.
+
+  `lankafea validate --script tamil --level 2`: 79 forms, 74 by their own glyph, 3 by a
+  group alternate, 2 unmet.
+- **Not done:** a proof. The Tamil acceptance test in sinhala-font-tools now skips Abhaya
+  (the source uses the new names, the reference build the old).
 
 ## 4. Behaviour changes for review
 
