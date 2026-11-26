@@ -5,7 +5,9 @@
 > prefix are gone. Merged to Abhaya `dev` and sinhala-font-tools `gh-pages`. Standard 2.0.0
 > names the ෆ alternates `fpa` (D6); the Lith ten-ligatures are off by default (D9).
 > Real-build comparison: 0 unexplained differences; fontspector 0 FAIL, warnings unchanged.
-> **Open for review:** §4 (A1–A3, P2, T2) and §5 (Q2–Q4). Still to do: Tamil track,
+> 2026-11-26: A3 reverted (kept as before, lankafea `prenasalisedZwj`) and `da_yansa_oosign`
+> renamed `dyaa_virama._c`, formed under ss01/dlig (Y1).
+> **Open for review:** §4 (A1, A2, P2, T2) and §5 (Q2–Q4). Still to do: Tamil track,
 > Phase 3's name check against the standard, `abhaya-case-study.md`.
 
 The goal is to replace Abhaya Libre's hand-written OpenType features with
@@ -242,9 +244,10 @@ Productive rules that belong in the generator for every font, presence-gated:
 - ~~**G4** variant bases~~: not needed. `fpa` exists only after ss02 has run, which is
   after every ligature, so `fpa + usign` never occurs; ss02 maps the formed glyph instead
   (`fU → fpU`, S2).
-- ~~**G5** yansaya Da forms~~: done 2026-11-19 (in `DaShape`). `da_yansa_oosign` is not
-  generated: its old rule (`da esign yasign aasign`) never matched, because the kombuva is
-  reordered before the consonant. The glyph stays unused (a designer question).
+- ~~**G5** yansaya Da forms~~: done 2026-11-19 (in `DaShape`). `da_yansa_oosign`'s old rule
+  (`da esign yasign aasign`) never matched, because the kombuva is reordered before the
+  consonant. 2026-11-26: the glyph is da + yansaya + ා + ් (the ෝ without its kombuva), so it
+  was renamed to the standard's `dyaa_virama._c`, which `DaShape` already forms (Y1).
 - ~~**G6** da-shape `._c` forms go to `ss01`~~: done 2026-11-18. One `DaShape`
   lookup in the stylistic set the standard names ("ss01 Da Forms"), out of default
   `blws`/`psts`. Abhaya's `dlig` copy is `assign` (`DaShape → dlig`, mode `copy`),
@@ -367,7 +370,7 @@ approve/reject. Known so far, all following D3:
 |---|---|---|---|
 | A1 | `cCa ු` shapes as `cCU` (fixes B1) | ච්‍චු | pending |
 | A2 | `yasign ්` gives `yasign_virama` instead of dropping the virama | ම්‍ය් | pending |
-| A3 | ZWJ conjunct spellings of ඹ ඟ ඬ ඦ (`ම්‍බ` …) no longer turn into the encoded letters | ම්‍බ | pending |
+| A3 | ~~ZWJ conjunct spellings of ඹ ඟ ඬ ඦ (`ම්‍බ` …) no longer turn into the encoded letters~~ | ම්‍බ | **rejected 2026-11-26**: kept as before through lankafea's `prenasalisedZwj` setting (Abhaya turns it on) |
 | P2 | Repaya + ි/ී: the vowel ligature with the repaya inside the loop (`kI + repha-sinh.006`), from the dead `matraI_matraII_reph` tables; today the repaya collides with the loop | ර්‍කි, ර්‍මී | **review the proof** |
 | S2 | Under ss02, ෆ + ඁ takes the body-height candrabindu (the old order skipped it) | ෆඁ | done |
 | A4 | ~~`pstf` split-vowel lookup removed~~: it's needed and is generated. ෞ was wrong in both; fixed by encoding ෟ (B7) | කෞ | done |
@@ -377,6 +380,7 @@ approve/reject. Known so far, all following D3:
 | C1 | `dist` keeps Abhaya's −113 through per-font data (no visible change) | ක‍්ක | done |
 | T1 | Repaya on a touching cluster: today it sits plain over the **first** consonant (B9). Now it does what the dead code meant: over the **join** (`repha-sinh.001/.002/.005/.009/.010`, chosen by the second consonant), or over the **first** consonant when the second takes ි/ී (`.003/.004/.005`, chosen by the first one's height). The 19 second consonants in the old table get the join variant; any other keeps `C_repha` on the second consonant | ර්‍ක‍්ක, ර්‍ක‍්කි | decided (D8); check the proof |
 | T2 | Pre-base vowel on a touching cluster: today the kombuva goes **between** the two consonants (ක ෙ ක); generated puts it **before the cluster** (ෙ ක ක), as Noto Sans and Noto Serif Sinhala do | ක‍්කෙ | shipped as generated (D3); **designer to confirm (Q5)** |
+| Y1 | Under ss01/dlig, ද්‍යෝ takes the drawn `dyaa_virama._c` (was `da_yansa_oosign`, never formed) | ද්‍යෝ | done 2026-11-26; check the proof |
 | G6 | Da-shape `._c` forms stay optional (ss01/dlig) as today; lankafea is fixed to match. New under ss01/dlig: ෝ on a da-shaped base gives `daa_virama._c` (Abhaya draws it; its own features never formed it) | දා, දෝ | done; check the proof |
 
 ## 5. Open questions
